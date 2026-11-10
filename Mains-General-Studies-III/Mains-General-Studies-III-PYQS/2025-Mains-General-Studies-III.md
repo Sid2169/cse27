@@ -1,0 +1,48 @@
+# 2025 Mains General Studies III — Previous Year Questions
+
+- **Source:** [Anantam IAS](https://anantamias.com/upsc-mains-2025-gs-paper-3-question-paper/)
+- **Accessed:** 2026-11-11
+- **Questions extracted:** 20
+- **Verification:** Question text auto-extracted from the source above; compare with the official UPSC question paper before relying on exact wording. `[verify]`
+
+## Questions
+
+1. Distinguish between the Human Development Index (HDI) and the Inequality-adjusted Human Development Index (IHDI) with special reference to India. Why is the IHDI considered a better indicator of inclusive growth?
+
+2. What are the challenges before the Indian economy when the world is moving away from free trade and multilateralism to protectionism and bilateralism? How can these challenges be met?
+
+3. Explain the factors influencing the decision of the farmers on the selection of high value crops in India.
+
+4. Elaborate the scope and significance of supply chain management of agricultural commodities in India.
+
+5. The fusion energy programme in India has steadily evolved over the past few decades. Mention India’s contributions to the international fusion energy project – International Thermonuclear Experimental Reactor (ITER). What will be the implications of the success of this project for the future of global energy?
+
+6. How can India achieve energy independence through clean technology by 2047? How can biotechnology play a crucial role in this endeavour?
+
+7. What is Carbon Capture, Utilization and Storage (CCUS)? What is the potential role of CCUS in tackling climate change?
+
+8. Seawater intrusion in the coastal aquifers is a major concern in India. What are the causes of seawater intrusion and the remedial measures to combat this hazard?
+
+9. Terrorism is a global scourge. How has it manifested in India? Elaborate with contemporary examples. What are the counter measures adopted by the State? Explain.
+
+10. The Government of India recently stated that Left Wing Extremism (LWE) will be eliminated by 2026. What do you understand by LWE and how are the people affected by it? What measures have been taken by the government to eliminate LWE?
+
+11. Explain how the Fiscal Health Index (FHI) can be used as a tool for assessing the fiscal performance of states in India. In what way would it encourage the states to adopt prudent and sustainable fiscal policies?
+
+12. Discuss the rationale of the Production Linked Incentive (PLI) scheme. What are its achievements? In what way can the functioning and outcomes of the scheme be improved?
+
+13. Examine the factors responsible for depleting groundwater in India. What are the steps taken by the government to mitigate such depletion of groundwater?
+
+14. Examine the scope of the food processing industries in India. Elaborate the measures taken by the government in the food processing industries for generating employment opportunities.
+
+15. How does nanotechnology offer significant advancements in the field of agriculture? How can this technology help to uplift the socio-economic status of farmers?
+
+16. India aims to become a semiconductor manufacturing hub. What are the challenges faced by the semiconductor industry in India? Mention the salient features of the India Semiconductor Mission.
+
+17. Mineral resources are fundamental to the country’s economy and these are exploited by mining. Why is mining considered an environmental hazard? Explain the remedial measures required to reduce the environmental hazard due to mining.
+
+18. Write a review on India’s climate commitments under the Paris Agreement (2015) and mention how these have been further strengthened in COP26 (2021). In this direction, how has the first Nationally Determined Contribution intended by India been updated in 2022?
+
+19. What are the major challenges to internal security and peace process in the North-Eastern States? Map the various peace accords and agreements initiated by the government in the past decade.
+
+20. Why is maritime security vital to protect India’s sea trade? Discuss maritime and coastal security challenges and the way forward.

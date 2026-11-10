@@ -1,0 +1,48 @@
+# 2025 Mains General Studies I — Previous Year Questions
+
+- **Source:** [Anantam IAS](https://anantamias.com/upsc-mains-2025-gs-paper-1-question-paper/)
+- **Accessed:** 2026-11-11
+- **Questions extracted:** 20
+- **Verification:** Question text auto-extracted from the source above; compare with the official UPSC question paper before relying on exact wording. `[verify]`
+
+## Questions
+
+1. Discuss the salient features of the Harappan architecture.
+
+2. Examine the main aspects of Akbar’s religious syncretism.
+
+3. ‘The sculptors filled the Chandella artform with resilient vigor and breadth of life.’ Elucidate.
+
+4. How are climate change and the sea level rise affecting the very existence of many island nations? Discuss with examples.
+
+5. What are non-farm primary activities? How are these activities related to physiographic features in India? Discuss with suitable examples.
+
+6. Explain briefly the ecological and economic benefits of solar energy generation in India with suitable examples.
+
+7. What are Tsunamis? How and where are they formed? What are their consequences? Explain with examples.
+
+8. How does smart city in India, address the issues of urban poverty and distributive justice?
+
+9. The ethos of civil service in India stand for the combination of professionalism with nationalistic consciousness – Elucidate.
+
+10. Do you think that globalization results in only an aggressive consumer culture? Justify your answer.
+
+11. Mahatma Jotirao Phule’s writings and efforts of social reforms touched issues of almost all subaltern classes. Discuss.
+
+12. Trace India’s consolidation process during early phase of independence in terms of polity, economy, education and international relations.
+
+13. The French Revolution has enduring relevance to the contemporary world. Explain.
+
+14. Give a geographical explanation of the distribution of off-shore oil reserves of the world. How are they different from the on-shore occurrences of oil reserves?
+
+15. How can Artificial Intelligence (AI) and drones be effectively used along with GIS and RS techniques in locational and areal planning?
+
+16. Discuss how the changes in shape and sizes of continents and ocean basins of the planet take place due to tectonic movements of the crustal masses.
+
+17. Discuss the distribution and density of population in the Ganga River Basin with special reference to land, soil and water resources.
+
+18. How do you account for the growing fast food industries given that there are increased health concerns in modern society? Illustrate your answer with the Indian experience.
+
+19. Achieving sustainable growth with emphasis on environmental protection could come into conflict with poor people’s needs in a country like India – Comment.
+
+20. Does tribal development in India centre around two axes, those of displacement and of rehabilitation? Give your opinion.

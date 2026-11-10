@@ -1,0 +1,48 @@
+# 2017 Mains General Studies II — Previous Year Questions
+
+- **Source:** [Anantam IAS](https://anantamias.com/upsc-mains-2017-gs-paper-2-question-paper/)
+- **Accessed:** 2026-11-11
+- **Questions extracted:** 20
+- **Verification:** Question text auto-extracted from the source above; compare with the official UPSC question paper before relying on exact wording. `[verify]`
+
+## Questions
+
+1. “The local self-government system in India has not proved to be effective instrument of governance.” Critically examine the statement and give your views to improve the situation.
+
+2. Critically examine the Supreme Court’s judgement on ‘National Judicial Appointments Commission Act, 2014’ with reference to appointment of judges of higher judiciary in India.
+
+3. “Simultaneous election to the Lok Sabha and the State Assemblies will limit the amount of time and money spent in electioneering but it will reduce the government’s accountability to the people.” Discuss.
+
+4. How do pressure groups influence Indian political process? Do you agree with this view that informal pressure groups have emerged as more powerful than formal pressure groups in recent years?
+
+5. Discuss the role of Public Accounts Committee in establishing accountability of the government to the people.
+
+6. “To ensure effective implementation of policies addressing water, sanitation and hygiene needs the identification of the beneficiary segments is to be synchronized with the anticipated outcomes.” Examine the statement in the context of the WASH scheme.
+
+7. Does the Rights of Persons with Disabilities Act, 2016 ensure effective mechanism for empowerment and inclusion of the intended beneficiaries in the society? Discuss.
+
+8. Hunger and poverty are the biggest challenges for good governance in India still today. Evaluate how far successive governments have progressed in dealing with these humongous problems. Suggest measures for improvement.
+
+9. “China is using its economic relations and positive trade surplus as tools to develop potential military power status in Asia.” In the light of this statement, discuss its impact on India as her neighbour.
+
+10. What are the main functions of the United Nations Economic and Social Council (ECOSOC)? Explain different functional commissions attached to it.
+
+11. Explain the salient features of the Constitution (One Hundred and First Amendment) Act, 2016. Do you think it is efficacious enough “to remove cascading effect of taxes and provide for common national market for goods and services”?
+
+12. Examine the scope of Fundamental Rights in the light of the latest judgement of the Supreme Court on Right to Privacy.
+
+13. The Indian Constitution has provisions for holding joint session of the two Houses of the Parliament. Enumerate the occasions when this would normally happen and also the occasions when it cannot, with reason thereof.
+
+14. To enhance the quality of democracy in India the Election Commission of India has proposed electoral reforms in 2016. What are the suggested reforms and how far are they significant to make democracy successful?
+
+15. Is the National Commission for Women able to strategize and tackle the problems that women face at both public and private spheres? Give reasons in support of your answer.
+
+16. “The emergence of the Self-Help Groups (SHGs) in contemporary times points to the slow but steady withdrawal of the State from developmental activities.” Examine the role of the SHGs in developmental activities and the measures taken by the Government of India to promote the SHGs.
+
+17. “Poverty alleviation programmes in India remain mere showpieces until and unless they are backed up by political will.” Discuss with reference to the performance of the major poverty alleviation programmes in India.
+
+18. Initially Civil Services in India were designed to achieve the goals of neutrality and effectiveness, which seems to be lacking in the present context. Do you agree with the view that drastic reforms are required in Civil Services? Comment.
+
+19. The question of India’s Energy Security constitutes the most important part of India’s economic progress. Analyze India’s energy policy cooperation with West Asian countries.
+
+20. Indian diaspora has an important role to play in South-East Asian countries’ economy and society. Appraise the role of Indian diaspora in South-East Asia in this context.
