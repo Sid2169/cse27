@@ -35,4 +35,4 @@ Each paper folder contains:
 
 ## Status
 
-Root [syllabus.md](syllabus.md) contains the complete official syllabus. Per-paper syllabus and curriculum files are empty placeholders; content to be added.
+Root [syllabus.md](syllabus.md) contains the complete official syllabus, and all per-paper syllabus files are populated verbatim. Curriculum files are empty placeholders; content to be added.
