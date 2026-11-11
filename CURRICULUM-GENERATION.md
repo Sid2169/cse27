@@ -1,6 +1,6 @@
 # Curriculum Generation Instructions
 
-Method for generating `<paper-name>-Curriculum.md`. Repository-wide rules (verbatim syllabus, relative links, 1:1 chapters, commit policy) live in `AGENTS.md`; this file adds curriculum-specific requirements.
+Method for generating `<paper-name>-Curriculum.md`. Repository-wide rules (verbatim syllabus, relative links, chapter correspondence, commit policy) live in `AGENTS.md`; this file adds curriculum-specific requirements.
 
 ## Audience
 
@@ -50,7 +50,7 @@ Prefer UPSC official papers and primary sources. Record sources and access dates
 - For each chapter, state what it covers, why it matters for the exam (grounded in the pattern or PYQ evidence), prerequisites, and the learning outcome. Keep entries concise; the chapter file supplies the teaching.
 - Flag key terms, institutions, and acronyms that the chapter must define.
 - Point each phase or chapter to the relevant PYQ files and years for practice. If the PYQ set has gaps or placeholders, state that explicitly.
-- Make the curriculum serve as the index: each chapter entry links to its intended file with a relative Markdown link and the exact planned file name.
+- Make the curriculum serve as the index: each chapter entry links to its intended file (or, if pre-planned, its part files) with relative Markdown links and the exact planned file names.
 - Keep official syllabus wording verbatim wherever it is quoted.
 - Write for a first-time reader: plain language, no "as you already know," no skipped steps.
 
@@ -71,7 +71,7 @@ Every curriculum should open with:
 - A short "Before you begin" orientation explaining the paper and how to use the curriculum.
 - A phase map showing the intended progression and sequence, not rigid deadlines.
 - The phased chapter list with the fields described above, including links to relevant PYQ files or years.
-- An index linking every chapter file.
+- An index linking every chapter file or part.
 
 Aim for a consistent structure across papers so the repository is easy to navigate. Consistency is a goal, not a straitjacket. Papers differ in nature (objective Prelims, descriptive Mains GS, qualifying language papers, Essay), and their curricula should reflect that. Do not force identical sections, chapter counts, or ordering where the paper does not support it.
 

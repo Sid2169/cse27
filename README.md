@@ -32,9 +32,11 @@ Each paper folder contains:
 - `<paper-name>-Syllabus.md` — the official UPSC syllabus, verbatim
 - `<paper-name>-Curriculum.md` — a comprehensive, phased curriculum, generated from the researched exam pattern, the syllabus, and PYQs; doubles as the index
 - `<paper-name>-PYQS/<year>-<paper-name>.md` — year-wise PYQ notes (2013–2026), one file per exam year
-- `<chapter>.md` — one file per chapter from the curriculum
+- `<chapter>.md` or `<chapter>-part-N.md` — chapter content; split parts only when a curriculum chapter is too large, with every part linked from the curriculum
 
 Curriculum generation method: [CURRICULUM-GENERATION.md](CURRICULUM-GENERATION.md)
+
+Chapter generation method: [CHAPTER-GENERATION.md](CHAPTER-GENERATION.md)
 
 ## Status
 
@@ -42,4 +44,4 @@ Root [syllabus.md](syllabus.md) contains the complete official syllabus, and all
 
 Year-wise PYQ files (2013–2026) are populated for the Mains papers and for Prelims General Studies I. Prelims CSAT is populated for 2014–2026 from a typed compilation with source gaps flagged in the affected files. Prelims CSAT 2013 and the two language-paper PYQ sets (Hindi Paper A, English Paper B) await extraction from official scanned papers. Hindi is the selected compulsory Indian language. Each populated file records its source URL, access date, question count, and a source caveat.
 
-Curriculum files remain empty placeholders; each will open with exam orientation and foundations before advanced topics. Content to be added.
+Curriculum and chapter files remain empty placeholders; each curriculum will open with exam orientation and foundations before advanced topics. Content to be added.
