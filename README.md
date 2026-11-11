@@ -48,6 +48,8 @@ Mains test generation method: [MAINS-TEST-GENERATION.md](MAINS-TEST-GENERATION.m
 
 Mains answer evaluation method: [MAINS-ANSWER-EVALUATION.md](MAINS-ANSWER-EVALUATION.md)
 
+Planned Essay and language-paper features: [PLANNED-FEATURES.md](PLANNED-FEATURES.md)
+
 ## Status
 
 Root [syllabus.md](syllabus.md) contains the complete official syllabus, and all per-paper syllabus files are populated verbatim.

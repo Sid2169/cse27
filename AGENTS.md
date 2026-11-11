@@ -16,6 +16,7 @@ Complete preparation guide for UPSC CSE 2027. One folder per paper for all Preli
 - `PRELIMS-TEST-FEEDBACK.md` — on-demand Prelims test feedback method: scoring, diagnosis, remediation, retest schedule, and recording feedback in the test file.
 - `MAINS-TEST-GENERATION.md` — on-demand Mains GS I–IV test method: chapter-specific, covered-so-far, and full-syllabus modes; paper patterns, question design, evaluator guides, and test file structure.
 - `MAINS-ANSWER-EVALUATION.md` — on-demand Mains GS I–IV evaluation method: rubric, bands, confidence, caps, case-study checks, feedback, and retest plan.
+- `PLANNED-FEATURES.md` — planned Essay and compulsory language-paper generation and evaluation features, with dependencies and open decisions.
 - `<paper-name>/` — one folder per paper:
   - `<paper-name>-Syllabus.md` — official UPSC syllabus for that paper, verbatim, copied from root `syllabus.md` (or the official notification for paper-specific detail). Do not paraphrase.
   - `<paper-name>-Curriculum.md` — comprehensive, phased curriculum divided into phases and chapters; also acts as the index linking to each chapter file or part.
