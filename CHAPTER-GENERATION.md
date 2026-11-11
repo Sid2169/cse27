@@ -6,7 +6,7 @@ Method for writing `<chapter>.md`. Repository-wide rules live in `AGENTS.md`; th
 
 Chapters are the study material. The syllabus defines the boundary, the curriculum defines sequence and emphasis, PYQs calibrate depth, and authoritative sources supply facts. Use the syllabus and curriculum as compasses, not scripts: cover what they require, but explain it; do not drift into unrelated topics.
 
-Chapters teach; practice lives in the year-wise PYQ files.
+Chapters teach; practice lives in the year-wise PYQ files and on-demand chapter tests.
 
 ## Audience
 
@@ -109,7 +109,7 @@ The lens decides what to emphasise and which supporting devices to use. It does 
 
 ## Boundaries
 
-- Do not add practice sets, MCQs, or answer-writing prompts; practice belongs to the PYQ files.
+- Do not add practice sets, MCQs, or answer-writing prompts; practice belongs to the PYQ files and on-demand tests.
 - Do not impose chapter length or word targets.
 - Do not invent facts or citations, and do not copy long copyrighted passages.
 - Do not use paper-specific templates; use the subject of the chapter.

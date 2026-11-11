@@ -49,7 +49,7 @@ Prefer UPSC official papers and primary sources. Record sources and access dates
 - Add a bridge chapter or prerequisite note wherever a topic assumes school-level background the learner may not have.
 - For each chapter, state what it covers, why it matters for the exam (grounded in the pattern or PYQ evidence), prerequisites, and the learning outcome. Keep entries concise; the chapter file supplies the teaching.
 - Flag key terms, institutions, and acronyms that the chapter must define.
-- Point each phase or chapter to the relevant PYQ files and years for practice. If the PYQ set has gaps or placeholders, state that explicitly.
+- Point each phase or chapter to the relevant PYQ files and years for practice; for Prelims, note that chapter-part tests can be generated on demand. If the PYQ set has gaps or placeholders, state that explicitly.
 - Make the curriculum serve as the index: each chapter entry links to its intended file (or, if pre-planned, its part files) with relative Markdown links and the exact planned file names.
 - Keep official syllabus wording verbatim wherever it is quoted.
 - Write for a first-time reader: plain language, no "as you already know," no skipped steps.

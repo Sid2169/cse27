@@ -33,10 +33,15 @@ Each paper folder contains:
 - `<paper-name>-Curriculum.md` — a comprehensive, phased curriculum, generated from the researched exam pattern, the syllabus, and PYQs; doubles as the index
 - `<paper-name>-PYQS/<year>-<paper-name>.md` — year-wise PYQ notes (2013–2026), one file per exam year
 - `<chapter>.md` or `<chapter>-part-N.md` — chapter content; split parts only when a curriculum chapter is too large, with every part linked from the curriculum
+- `Prelims-<paper>-TESTS/<test-id>.md` — on-demand chapter-part practice tests for Prelims; feedback is appended in the same file
 
 Curriculum generation method: [CURRICULUM-GENERATION.md](CURRICULUM-GENERATION.md)
 
 Chapter generation method: [CHAPTER-GENERATION.md](CHAPTER-GENERATION.md)
+
+Prelims test generation method: [PRELIMS-TEST-GENERATION.md](PRELIMS-TEST-GENERATION.md)
+
+Prelims test feedback method: [PRELIMS-TEST-FEEDBACK.md](PRELIMS-TEST-FEEDBACK.md)
 
 ## Status
 
@@ -44,4 +49,4 @@ Root [syllabus.md](syllabus.md) contains the complete official syllabus, and all
 
 Year-wise PYQ files (2013–2026) are populated for the Mains papers and for Prelims General Studies I. Prelims CSAT is populated for 2014–2026 from a typed compilation with source gaps flagged in the affected files. Prelims CSAT 2013 and the two language-paper PYQ sets (Hindi Paper A, English Paper B) await extraction from official scanned papers. Hindi is the selected compulsory Indian language. Each populated file records its source URL, access date, question count, and a source caveat.
 
-Curriculum and chapter files remain empty placeholders; each curriculum will open with exam orientation and foundations before advanced topics. Content to be added.
+Curriculum and chapter files remain empty placeholders; each curriculum will open with exam orientation and foundations before advanced topics. Content to be added. No practice tests have been generated yet; they are created on demand after chapter content exists.
