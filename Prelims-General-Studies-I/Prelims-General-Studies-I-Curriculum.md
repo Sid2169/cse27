@@ -29,7 +29,7 @@ Read the [official paper syllabus](Prelims-General-Studies-I-Syllabus.md) once w
 
 For each chapter: learn the foundations, explain the mechanism in ordinary language, make one compact comparison/map/timeline, then attempt the cited PYQs before reading their answers. Record why each rejected option fails. Revisit errors after a gap. Learning outcomes below are completion checks, not UPSC-prescribed targets.
 
-**File status:** **136 chapters, numbered 001–136**, across 10 phases. All linked files are planning placeholders; teaching content has not been generated. Each numbered entry is one chapter with its own file. Topic notes preserve the shared context for related chapters.
+**File status:** **136 chapters, numbered 001–136**, across 10 phases. Chapter [012](012-world-climates-and-the-indian-monsoon.md) has authored teaching content; all other linked files are still planning placeholders and their teaching content has not been generated. Each numbered entry is one chapter with its own file. Topic notes preserve the shared context for related chapters.
 
 ## Phase map
 
