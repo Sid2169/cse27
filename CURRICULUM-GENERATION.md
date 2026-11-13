@@ -1,86 +1,35 @@
 # Curriculum Generation Instructions
 
-Method for generating `<paper-name>-Curriculum.md`. Repository-wide rules (verbatim syllabus, relative links, chapter correspondence, commit policy) live in `AGENTS.md`; this file adds curriculum-specific requirements.
+Create a study plan and linked chapter index for the requested paper. Shared audience, source, corpus and repository rules are in [AGENTS.md](AGENTS.md).
 
-## Audience
+## Inputs and Evidence
 
-The repository is written for a complete beginner to UPSC: no prior UPSC preparation, no coaching, and no assumed degree-level background in any paper's subjects. A curriculum must be usable by a motivated learner starting from zero.
+Use the paper's official syllabus, populated year-wise PYQ files and a sourced understanding of the exam pattern. Establish the format, marks, duration, scoring and qualifying or merit role before designing the plan. Verify current rules against official material; state any pending update or corpus limitation.
 
-Apply these assumptions throughout:
+Use recurring PYQ themes and question demands to inform depth, alongside conceptual importance and learning dependencies. Keep the entire syllabus covered regardless of past frequency. Numerical weightage is optional: include it only when useful, supported and clear about classification and time period. External analyses can supplement the corpus; there is no source-count quota, and incompatible categories must not be averaged or presented as an official blueprint.
 
-- Explain the exam before the subject: paper sequence, format, marks, duration, negative marking, qualifying versus ranking papers, and how the paper fits the selection process.
-- Do not assume the learner has read NCERTs or standard reference books, follows the newspaper, or has a current-affairs habit. Build these habits explicitly.
-- Introduce jargon, acronyms, theories, and institutions on first use; plan to define them in the chapter.
-- Start with concrete examples and first principles, then move to abstract, applied, and evaluative work.
-- State prerequisites for each chapter. The default is "none beyond earlier chapters in this curriculum."
-- Include a baseline self-check or diagnostic where useful, so the learner can see the starting point.
-- Teach exam skills explicitly: reading the syllabus, note-making, newspaper reading, MCQ practice, answer writing, map and timeline use, and revision.
-- Do not assume prior formal study of a language paper's pattern. For Hindi Paper A, build from comprehension and grammar to precis, short essays, and translation.
+## Required Output
 
-## Objective
+- A concise paper orientation: relevant exam facts, how to use the plan, and a manageable starting point.
+- A phased progression from foundations to subject coverage, application and revision, adapted to the paper.
+- One authoritative linked chapter list that also serves as the file index. Entries identify scope, learning outcome, important dependencies, exam relevance and useful PYQ references. Related entries may share context rather than repeat it.
+- Guidance on essential resources and practice habits, including what each recommended resource is for. Make optional resources distinguishable from essentials.
 
-For each paper, generate a beginner-usable curriculum from four inputs:
+Plan necessary terminology and bridge material without writing the chapters themselves. Use actual dependencies rather than assuming every earlier chapter is a prerequisite. A phase map or baseline self-check is useful when it adds orientation; a duplicate index is unnecessary.
 
-1. A researched understanding of the exam pattern
-2. The official syllabus, verbatim
-3. The year-wise PYQ files in `<paper-name>-PYQS/<year>-<paper-name>.md` (2013–2026)
-4. The learner baseline: no prior UPSC or subject experience
+## Paper-Sensitive Design
 
-The curriculum is a study plan and the index for chapter files, not study material. It should tell a beginner what to learn, in what order, why it matters, and what they should be able to do at the end of each chapter.
+Use the following considerations where relevant, rather than as a common template:
 
-## Research the pattern first
+- **Prelims GS-I:** map, timeline and data literacy; conceptual foundations; early MCQ reading and sound elimination.
+- **CSAT:** comprehension, arithmetic, reasoning and data interpretation, with a bridge for learners lacking school-mathematics confidence.
+- **Mains GS:** answer-writing practice alongside subject learning; gradually build relevant interlinkages. For GS IV, introduce ethical vocabulary and concrete dilemmas before advanced theory.
+- **Essay:** reading, idea development, argument and paragraph organisation before full essays; calibrate to the relevant paper pattern.
+- **Compulsory languages:** develop the skills named in the respective syllabus. Hindi requires translation in both directions; fluency alone does not establish familiarity with the examination.
+- **Other papers:** derive the plan from that paper's syllabus, pattern and prerequisite chain instead of borrowing a GS structure.
 
-Do not generate from the syllabus alone. Research the web to build an accurate, current picture of the paper:
+Recommend a learning sequence without rigid deadlines, chapter-count targets or word quotas. Include current-affairs work only to the extent relevant to the paper, with an achievable entry routine for a beginner.
 
-- Format: question count, marks, duration, negative marking, qualifying thresholds.
-- PYQ distribution: themes that repeat. Read the paper's year-wise files in `<paper-name>-PYQS/` as the working corpus. Record actual years and use them as evidence; never rely only on a secondary summary.
-- Weightage: which syllabus areas carry more questions, cross-checked across at least two independent sources.
-- Standard sources: what each book, website, or report is for, whether it is essential or optional, and how a beginner should use it.
-- The current-affairs boundary: what to follow, how often, and how it connects to the paper.
-- The beginner's entry point: what must be explained before the first substantive topic.
+## Completion Check
 
-Prefer UPSC official papers and primary sources. Record sources and access dates. Never guess a PYQ year or invent weightage; every pattern claim must rest on a recorded source. An inaccurate pattern assessment invalidates the curriculum.
-
-## Generate from pattern, syllabus, and PYQs
-
-- Cover the entire paper syllabus; exclude the optional subject.
-- Let the researched pattern decide depth and emphasis; use the year-wise PYQ files to anchor which themes matter. Mine them for recurring themes, question formats, and weightage, and cite actual years in chapter rationales.
-- Sequence beginner-first: orientation and foundations before advanced, applied, or evaluative topics. A typical progression is orientation → foundations → core syllabus → applied/PYQ work → revision, but adapt it to the paper.
-- Add a bridge chapter or prerequisite note wherever a topic assumes school-level background the learner may not have.
-- For each chapter, state what it covers, why it matters for the exam (grounded in the pattern or PYQ evidence), prerequisites, and the learning outcome. Keep entries concise; the chapter file supplies the teaching.
-- Flag key terms, institutions, and acronyms that the chapter must define.
-- Point each phase or chapter to the relevant PYQ files and years for practice; for Prelims, note that chapter-part tests can be generated on demand. If the PYQ set has gaps or placeholders, state that explicitly.
-- Make the curriculum serve as the index: each chapter entry links to its intended file (or, if pre-planned, its part files) with relative Markdown links and the exact planned file names.
-- Keep official syllabus wording verbatim wherever it is quoted.
-- Write for a first-time reader: plain language, no "as you already know," no skipped steps.
-
-## Paper-specific notes
-
-- **Prelims General Studies I:** build conceptual foundations first, including map, timeline, and data-reading basics; introduce MCQ practice and elimination early. Research the current negative-marking rule rather than assuming it.
-- **Prelims CSAT:** the syllabus fixes the qualifying threshold at 33%. Start with comprehension, basic arithmetic, logic, and data interpretation; do not assume confidence with school mathematics.
-- **Mains General Studies:** teach answer structure and syllabus-linked writing from the first phase, not after content is "finished." Build interlinkages between papers gradually.
-- **Mains Essay:** start with reading, idea generation, and paragraph structure; then practise full essays. Reflect the pattern: 2013 had one essay with multiple topics, while 2014 onward had two essays.
-- **Mains General Studies IV:** define ethics terminology and the case-study method before abstract theory; use short ethical dilemmas to build reasoning.
-- **Language papers:** Paper A is Hindi and Paper B is English; they are separate compulsory qualifying papers. The Hindi curriculum must be Hindi-specific, in Devanagari, covering comprehension, precis, usage and vocabulary, short essays, and translation from English to Hindi and vice versa. Use official Hindi PYQs. Do not assume prior formal study of the paper's pattern, even if the learner is fluent in Hindi.
-
-## Structure
-
-Every curriculum should open with:
-
-- Paper metadata: stage, paper name, format, marks, duration, qualifying or ranking status, selected language where relevant, and sources.
-- A short "Before you begin" orientation explaining the paper and how to use the curriculum.
-- A phase map showing the intended progression and sequence, not rigid deadlines.
-- The phased chapter list with the fields described above, including links to relevant PYQ files or years.
-- An index linking every chapter file or part.
-
-Aim for a consistent structure across papers so the repository is easy to navigate. Consistency is a goal, not a straitjacket. Papers differ in nature (objective Prelims, descriptive Mains GS, qualifying language papers, Essay), and their curricula should reflect that. Do not force identical sections, chapter counts, or ordering where the paper does not support it.
-
-## Boundaries
-
-- No chapter length or word targets are prescribed; size chapters to the paper and topic.
-- Do not write chapter content; that is a separate stage.
-- Treat the populated PYQ files as the curriculum's evidence base; PYQ extraction and quality checks are separate tasks, not part of curriculum generation.
-- Do not write for an audience that already knows the subject, and do not skip foundations.
-- Do not introduce a resource without saying what it is for and whether it is essential or optional.
-- Do not present coaching-specific shortcuts as syllabus requirements.
-- Do not commit; commits happen only when the operator asks.
+Check full syllabus coverage, a workable prerequisite sequence, supported exam claims and usable resource guidance. Ensure every planned chapter has an exact filename and index link, with authored content and placeholders clearly distinguished. Keep teaching content in the later chapter stage.
