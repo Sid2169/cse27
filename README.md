@@ -1,6 +1,6 @@
 # UPSC CSE 2027 — Complete Preparation Guide
 
-Complete preparation guide for the UPSC Civil Services Examination 2027, written for a complete beginner with no prior UPSC preparation, coaching, or subject background. Covers every paper of both Prelims and Mains (optional subject excluded).
+Complete preparation guide for the UPSC Civil Services Examination 2027, written for a complete beginner with no prior UPSC preparation, coaching, or subject background. Covers every paper of both Prelims and Mains, with the Mathematics optional (Papers VI and VII) included as the selected optional subject.
 
 ## Papers Covered
 
@@ -24,6 +24,7 @@ Complete syllabus for the entire examination: [syllabus.md](syllabus.md)
 | V | General Studies IV | `Mains-General-Studies-IV/` | [Syllabus](Mains-General-Studies-IV/Mains-General-Studies-IV-Syllabus.md) | [Curriculum](Mains-General-Studies-IV/Mains-General-Studies-IV-Curriculum.md) | [PYQs](Mains-General-Studies-IV/Mains-General-Studies-IV-PYQS/) |
 | A | Compulsory Indian Language (Hindi) | `Mains-Indian-Language/` | [Syllabus](Mains-Indian-Language/Mains-Indian-Language-Syllabus.md) | [Curriculum](Mains-Indian-Language/Mains-Indian-Language-Curriculum.md) | [PYQs](Mains-Indian-Language/Mains-Indian-Language-PYQS/) |
 | B | Compulsory English | `Mains-English/` | [Syllabus](Mains-English/Mains-English-Syllabus.md) | [Curriculum](Mains-English/Mains-English-Curriculum.md) | [PYQs](Mains-English/Mains-English-PYQS/) |
+| VI & VII | Optional Subject — Mathematics | `Mains-Mathematics/` | [Syllabus](Mains-Mathematics/Mains-Mathematics-Syllabus.md) | [Curriculum](Mains-Mathematics/Mains-Mathematics-Curriculum.md) | [PYQs](Mains-Mathematics/Mains-Mathematics-PYQS/) |
 
 ## Conventions
 
@@ -52,10 +53,10 @@ Planned Essay and language-paper features: [PLANNED-FEATURES.md](PLANNED-FEATURE
 
 ## Status
 
-Root [syllabus.md](syllabus.md) contains the complete official syllabus, and all per-paper syllabus files are populated verbatim.
+Root [syllabus.md](syllabus.md) contains the complete official syllabus, and all per-paper syllabus files are populated verbatim. The Mathematics optional syllabus is copied verbatim from the official notification because root [syllabus.md](syllabus.md) does not reproduce detailed optional syllabi.
 
-Year-wise PYQ files (2013–2026) are populated for the Mains papers and for Prelims General Studies I. Prelims CSAT is populated for 2014–2026 from a typed compilation with source gaps flagged in the affected files. Prelims CSAT 2013 and the two language-paper PYQ sets (Hindi Paper A, English Paper B) await extraction from official scanned papers. Hindi is the selected compulsory Indian language. Each populated file records its source URL, access date, question count, and a source caveat.
+Year-wise PYQ files (2013–2026) are populated for the Mains Essay and GS I–IV papers and for Prelims General Studies I. The Mathematics optional PYQ folder is scaffolded but empty. Prelims CSAT is populated for 2014–2026 from a typed compilation with source gaps flagged in the affected files. Prelims CSAT 2013 and the two language-paper PYQ sets (Hindi Paper A, English Paper B) await extraction from official scanned papers. Hindi is the selected compulsory Indian language. Each populated file records its source URL, access date, question count, and a source caveat.
 
-The [Prelims General Studies I curriculum](Prelims-General-Studies-I/Prelims-General-Studies-I-Curriculum.md) is populated with 136 planned chapters numbered consecutively from 001 to 136 across 10 phases, from exam orientation and beginner foundations to subject coverage, PYQ application and revision. Chapter [012](Prelims-General-Studies-I/012-world-climates-and-the-indian-monsoon.md) is authored; every other chapter file is still a marked planning placeholder whose teaching content has not yet been authored. Other curriculum files remain empty placeholders.
+The [Prelims General Studies I curriculum](Prelims-General-Studies-I/Prelims-General-Studies-I-Curriculum.md) is populated with 136 planned chapters numbered consecutively from 001 to 136 across 10 phases, from exam orientation and beginner foundations to subject coverage, PYQ application and revision. Chapter [012](Prelims-General-Studies-I/012-world-climates-and-the-indian-monsoon.md) is authored; every other chapter file is still a marked planning placeholder whose teaching content has not yet been authored. Other curriculum files, including the [Mathematics optional curriculum](Mains-Mathematics/Mains-Mathematics-Curriculum.md), remain empty placeholders.
 
 No practice tests have been generated yet; they are created on demand after chapter content exists.
