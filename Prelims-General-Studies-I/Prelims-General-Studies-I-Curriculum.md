@@ -4,6 +4,178 @@
 
 **Prepared and initial research accessed: 11 November 2026. Granularity revision: 12 November 2026.** This is a study plan and chapter index for a complete beginner. Chapter teaching and practice-test generation are separate stages.
 
+## Quick navigation — consolidated index
+
+Click a chapter title to open its chapter file, or **more detail** to jump to its curriculum entry for scope and learning outcome. Chapter teaching status is recorded under [Before you begin](#before-you-begin).
+
+**Sections:** [Paper metadata](#paper-metadata) · [Before you begin](#before-you-begin) · [Phase map](#phase-map) · [Evidence and PYQ corpus](#evidence-used-to-set-emphasis) · [Chapter boundaries](#chapter-boundaries-and-sequence) · [Detailed chapter plans](#phased-chapter-list-and-file-index) · [Resources](#how-to-use-sources-without-building-an-unmanageable-book-list) · [Practice and readiness](#practice-revision-and-readiness) · [Syllabus coverage](#official-syllabus-coverage-check) · [Sources and maintenance](#source-register-and-maintenance)
+
+**Phase 0 — Orientation and beginner bridges · 001–006**
+
+- [001. Understanding CSE and the GS-I paper](001-understanding-cse-and-the-gs-i-paper.md) · [more detail](#chapter-001)
+- [002. Learning, notes and a first newspaper routine](002-learning-notes-and-a-first-newspaper-routine.md) · [more detail](#chapter-002)
+- [003. Maps and historical time](003-maps-and-historical-time.md) · [more detail](#chapter-003)
+- [004. Numbers, units, tables and graphs](004-numbers-units-tables-and-graphs.md) · [more detail](#chapter-004)
+- [005. Matter, energy and scientific reasoning](005-matter-energy-and-scientific-reasoning.md) · [more detail](#chapter-005)
+- [006. Cells, living systems and natural cycles](006-cells-living-systems-and-natural-cycles.md) · [more detail](#chapter-006)
+
+**Phase 1 — Geography · 007–021**
+
+- [007. Earth in the solar system and its motions](007-earth-in-the-solar-system-and-its-motions.md) · [more detail](#chapter-007)
+- [008. Earth's interior, rocks and tectonic hazards](008-earth-s-interior-rocks-and-tectonic-hazards.md) · [more detail](#chapter-008)
+- [009. Weathering, erosion and landforms](009-weathering-erosion-and-landforms.md) · [more detail](#chapter-009)
+- [010. Atmospheric structure and heat balance](010-atmospheric-structure-and-heat-balance.md) · [more detail](#chapter-010)
+- [011. Winds, rainfall and weather systems](011-winds-rainfall-and-weather-systems.md) · [more detail](#chapter-011)
+- [012. World climates and the Indian monsoon](012-world-climates-and-the-indian-monsoon.md) · [more detail](#chapter-012)
+- [013. Ocean properties and circulation](013-ocean-properties-and-circulation.md) · [more detail](#chapter-013)
+- [014. Freshwater, drainage and groundwater](014-freshwater-drainage-and-groundwater.md) · [more detail](#chapter-014)
+- [015. India's location and physical regions](015-india-s-location-and-physical-regions.md) · [more detail](#chapter-015)
+- [016. Indian rivers, lakes and water geography](016-indian-rivers-lakes-and-water-geography.md) · [more detail](#chapter-016)
+- [017. Indian soils, vegetation and regional links](017-indian-soils-vegetation-and-regional-links.md) · [more detail](#chapter-017)
+- [018. Agricultural geography and land use](018-agricultural-geography-and-land-use.md) · [more detail](#chapter-018)
+- [019. Minerals, energy and industrial location](019-minerals-energy-and-industrial-location.md) · [more detail](#chapter-019)
+- [020. Population, settlements and cultural regions](020-population-settlements-and-cultural-regions.md) · [more detail](#chapter-020)
+- [021. World regional maps and places in news](021-world-regional-maps-and-places-in-news.md) · [more detail](#chapter-021)
+
+**Phase 2 — Indian polity and governance · 022–043**
+
+- [022. Political foundations and constitution-making](022-political-foundations-and-constitution-making.md) · [more detail](#chapter-022)
+- [023. Constitutional structure, citizenship and change](023-constitutional-structure-citizenship-and-change.md) · [more detail](#chapter-023)
+- [024. Fundamental Rights and constitutional remedies](024-fundamental-rights-and-constitutional-remedies.md) · [more detail](#chapter-024)
+- [025. Directive Principles, Fundamental Duties and social justice](025-directive-principles-fundamental-duties-and-social-justice.md) · [more detail](#chapter-025)
+- [026. President and Vice-President](026-president-and-vice-president.md) · [more detail](#chapter-026)
+- [027. Prime Minister, ministers and administration](027-prime-minister-ministers-and-administration.md) · [more detail](#chapter-027)
+- [028. Law officers of the Union and states](028-law-officers-of-the-union-and-states.md) · [more detail](#chapter-028)
+- [029. Houses, membership and parliamentary procedure](029-houses-membership-and-parliamentary-procedure.md) · [more detail](#chapter-029)
+- [030. How laws are made](030-how-laws-are-made.md) · [more detail](#chapter-030)
+- [031. Budget approval, committees and scrutiny](031-budget-approval-committees-and-scrutiny.md) · [more detail](#chapter-031)
+- [032. Courts, jurisdiction and judicial review](032-courts-jurisdiction-and-judicial-review.md) · [more detail](#chapter-032)
+- [033. Tribunals, legal aid and access to justice](033-tribunals-legal-aid-and-access-to-justice.md) · [more detail](#chapter-033)
+- [034. State executives, legislatures and Union Territories](034-state-executives-legislatures-and-union-territories.md) · [more detail](#chapter-034)
+- [035. Federal relations and special arrangements](035-federal-relations-and-special-arrangements.md) · [more detail](#chapter-035)
+- [036. Emergencies and constitutional safeguards](036-emergencies-and-constitutional-safeguards.md) · [more detail](#chapter-036)
+- [037. Panchayats and municipalities](037-panchayats-and-municipalities.md) · [more detail](#chapter-037)
+- [038. Scheduled areas and community rights](038-scheduled-areas-and-community-rights.md) · [more detail](#chapter-038)
+- [039. Elections, parties and representation](039-elections-parties-and-representation.md) · [more detail](#chapter-039)
+- [040. Constitutional bodies and public offices](040-constitutional-bodies-and-public-offices.md) · [more detail](#chapter-040)
+- [041. Statutory, regulatory and executive bodies](041-statutory-regulatory-and-executive-bodies.md) · [more detail](#chapter-041)
+- [042. Policy design and public-service delivery](042-policy-design-and-public-service-delivery.md) · [more detail](#chapter-042)
+- [043. Transparency, accountability and digital governance](043-transparency-accountability-and-digital-governance.md) · [more detail](#chapter-043)
+
+**Phase 3 — Economy and social development · 044–066**
+
+- [044. Households, firms and markets](044-households-firms-and-markets.md) · [more detail](#chapter-044)
+- [045. National income, growth and development](045-national-income-growth-and-development.md) · [more detail](#chapter-045)
+- [046. Money, deposits and banking](046-money-deposits-and-banking.md) · [more detail](#chapter-046)
+- [047. Financial institutions, regulation and inclusion](047-financial-institutions-regulation-and-inclusion.md) · [more detail](#chapter-047)
+- [048. Payments, digital money and settlement](048-payments-digital-money-and-settlement.md) · [more detail](#chapter-048)
+- [049. Prices, inflation and interest](049-prices-inflation-and-interest.md) · [more detail](#chapter-049)
+- [050. Monetary policy and liquidity](050-monetary-policy-and-liquidity.md) · [more detail](#chapter-050)
+- [051. Budget accounts, deficits and public debt](051-budget-accounts-deficits-and-public-debt.md) · [more detail](#chapter-051)
+- [052. Taxation, GST and subsidies](052-taxation-gst-and-subsidies.md) · [more detail](#chapter-052)
+- [053. Fiscal federalism and transfers](053-fiscal-federalism-and-transfers.md) · [more detail](#chapter-053)
+- [054. Securities, markets and regulation](054-securities-markets-and-regulation.md) · [more detail](#chapter-054)
+- [055. Funds, insurance, pensions and investment vehicles](055-funds-insurance-pensions-and-investment-vehicles.md) · [more detail](#chapter-055)
+- [056. External accounts, exchange rates and investment flows](056-external-accounts-exchange-rates-and-investment-flows.md) · [more detail](#chapter-056)
+- [057. Trade policy and international economic institutions](057-trade-policy-and-international-economic-institutions.md) · [more detail](#chapter-057)
+- [058. Farm production, markets and income](058-farm-production-markets-and-income.md) · [more detail](#chapter-058)
+- [059. Food security and rural livelihoods](059-food-security-and-rural-livelihoods.md) · [more detail](#chapter-059)
+- [060. Industrialisation, reforms and enterprise](060-industrialisation-reforms-and-enterprise.md) · [more detail](#chapter-060)
+- [061. Services, infrastructure and logistics](061-services-infrastructure-and-logistics.md) · [more detail](#chapter-061)
+- [062. Poverty, inequality and development measurement](062-poverty-inequality-and-development-measurement.md) · [more detail](#chapter-062)
+- [063. Inclusion, collective action and sustainability](063-inclusion-collective-action-and-sustainability.md) · [more detail](#chapter-063)
+- [064. Population and labour-force measurement](064-population-and-labour-force-measurement.md) · [more detail](#chapter-064)
+- [065. Health, nutrition, water and sanitation](065-health-nutrition-water-and-sanitation.md) · [more detail](#chapter-065)
+- [066. Education, skills and social protection](066-education-skills-and-social-protection.md) · [more detail](#chapter-066)
+
+**Phase 4 — History of India, culture and the national movement · 067–098**
+
+- [067. Sources, prehistory and early farming](067-sources-prehistory-and-early-farming.md) · [more detail](#chapter-067)
+- [068. The Harappan civilisation](068-the-harappan-civilisation.md) · [more detail](#chapter-068)
+- [069. Vedic societies and the rise of states](069-vedic-societies-and-the-rise-of-states.md) · [more detail](#chapter-069)
+- [070. Buddhism, Jainism and philosophical traditions](070-buddhism-jainism-and-philosophical-traditions.md) · [more detail](#chapter-070)
+- [071. Magadha, Mauryas and Ashoka](071-magadha-mauryas-and-ashoka.md) · [more detail](#chapter-071)
+- [072. Post-Mauryan states and long-distance networks](072-post-mauryan-states-and-long-distance-networks.md) · [more detail](#chapter-072)
+- [073. Guptas and post-Gupta transitions](073-guptas-and-post-gupta-transitions.md) · [more detail](#chapter-073)
+- [074. Early South India and the Deccan](074-early-south-india-and-the-deccan.md) · [more detail](#chapter-074)
+- [075. Early medieval regional states](075-early-medieval-regional-states.md) · [more detail](#chapter-075)
+- [076. Delhi Sultanate](076-delhi-sultanate.md) · [more detail](#chapter-076)
+- [077. Vijayanagara, Bahmani and Deccan states](077-vijayanagara-bahmani-and-deccan-states.md) · [more detail](#chapter-077)
+- [078. Mughals and Rajput states](078-mughals-and-rajput-states.md) · [more detail](#chapter-078)
+- [079. Marathas and regional transitions](079-marathas-and-regional-transitions.md) · [more detail](#chapter-079)
+- [080. Bhakti, Sufi and Sikh traditions](080-bhakti-sufi-and-sikh-traditions.md) · [more detail](#chapter-080)
+- [081. Architecture and site mapping](081-architecture-and-site-mapping.md) · [more detail](#chapter-081)
+- [082. Sculpture, painting and crafts](082-sculpture-painting-and-crafts.md) · [more detail](#chapter-082)
+- [083. Languages, scripts and literature](083-languages-scripts-and-literature.md) · [more detail](#chapter-083)
+- [084. Music, dance, theatre and living traditions](084-music-dance-theatre-and-living-traditions.md) · [more detail](#chapter-084)
+- [085. Heritage recognition and cultural institutions](085-heritage-recognition-and-cultural-institutions.md) · [more detail](#chapter-085)
+- [086. European arrival and British expansion](086-european-arrival-and-british-expansion.md) · [more detail](#chapter-086)
+- [087. Colonial economy, land and society](087-colonial-economy-land-and-society.md) · [more detail](#chapter-087)
+- [088. Colonial administration and constitutional changes](088-colonial-administration-and-constitutional-changes.md) · [more detail](#chapter-088)
+- [089. Social and religious reform](089-social-and-religious-reform.md) · [more detail](#chapter-089)
+- [090. Popular resistance and 1857](090-popular-resistance-and-1857.md) · [more detail](#chapter-090)
+- [091. Early nationalism, Congress and Swadeshi](091-early-nationalism-congress-and-swadeshi.md) · [more detail](#chapter-091)
+- [092. Revolutionary networks, Ghadar and Home Rule](092-revolutionary-networks-ghadar-and-home-rule.md) · [more detail](#chapter-092)
+- [093. Gandhi's early campaigns and Non-Cooperation](093-gandhi-s-early-campaigns-and-non-cooperation.md) · [more detail](#chapter-093)
+- [094. Politics of the 1920s and Civil Disobedience](094-politics-of-the-1920s-and-civil-disobedience.md) · [more detail](#chapter-094)
+- [095. Social participation and politics up to 1939](095-social-participation-and-politics-up-to-1939.md) · [more detail](#chapter-095)
+- [096. War, Quit India, Bose and the INA](096-war-quit-india-bose-and-the-ina.md) · [more detail](#chapter-096)
+- [097. Negotiations, Partition and independence](097-negotiations-partition-and-independence.md) · [more detail](#chapter-097)
+- [098. Integration and the early republic](098-integration-and-the-early-republic.md) · [more detail](#chapter-098)
+
+**Phase 5 — Environmental ecology, biodiversity and climate · 099–109**
+
+- [099. Ecosystems, interactions and energy flow](099-ecosystems-interactions-and-energy-flow.md) · [more detail](#chapter-099)
+- [100. Cycles, succession and ecosystem change](100-cycles-succession-and-ecosystem-change.md) · [more detail](#chapter-100)
+- [101. Classification, adaptation and species ecology](101-classification-adaptation-and-species-ecology.md) · [more detail](#chapter-101)
+- [102. Habitats, biomes and biodiversity services](102-habitats-biomes-and-biodiversity-services.md) · [more detail](#chapter-102)
+- [103. Protected areas and wildlife conservation](103-protected-areas-and-wildlife-conservation.md) · [more detail](#chapter-103)
+- [104. Forests, biodiversity law and community rights](104-forests-biodiversity-law-and-community-rights.md) · [more detail](#chapter-104)
+- [105. International conservation frameworks](105-international-conservation-frameworks.md) · [more detail](#chapter-105)
+- [106. Pollutants, pathways and environmental effects](106-pollutants-pathways-and-environmental-effects.md) · [more detail](#chapter-106)
+- [107. Waste, impact assessment and regulation](107-waste-impact-assessment-and-regulation.md) · [more detail](#chapter-107)
+- [108. Climate science, impacts and responses](108-climate-science-impacts-and-responses.md) · [more detail](#chapter-108)
+- [109. Climate institutions, agreements and finance](109-climate-institutions-agreements-and-finance.md) · [more detail](#chapter-109)
+
+**Phase 6 — General science and technology · 110–128**
+
+- [110. Mechanics, pressure and heat](110-mechanics-pressure-and-heat.md) · [more detail](#chapter-110)
+- [111. Light, sound and waves](111-light-sound-and-waves.md) · [more detail](#chapter-111)
+- [112. Electricity, magnetism and the electromagnetic spectrum](112-electricity-magnetism-and-the-electromagnetic-spectrum.md) · [more detail](#chapter-112)
+- [113. Chemistry and materials](113-chemistry-and-materials.md) · [more detail](#chapter-113)
+- [114. Plants: structure, physiology and reproduction](114-plants-structure-physiology-and-reproduction.md) · [more detail](#chapter-114)
+- [115. Animal and human biology](115-animal-and-human-biology.md) · [more detail](#chapter-115)
+- [116. Microbes, immunity and public health](116-microbes-immunity-and-public-health.md) · [more detail](#chapter-116)
+- [117. Heredity, genes and gene expression](117-heredity-genes-and-gene-expression.md) · [more detail](#chapter-117)
+- [118. Biotechnology and applications](118-biotechnology-and-applications.md) · [more detail](#chapter-118)
+- [119. Energy conversion, renewables and storage](119-energy-conversion-renewables-and-storage.md) · [more detail](#chapter-119)
+- [120. Nuclear science and applications](120-nuclear-science-and-applications.md) · [more detail](#chapter-120)
+- [121. Astronomy and cosmology](121-astronomy-and-cosmology.md) · [more detail](#chapter-121)
+- [122. The Sun and space weather](122-the-sun-and-space-weather.md) · [more detail](#chapter-122)
+- [123. Spaceflight, satellites and missions](123-spaceflight-satellites-and-missions.md) · [more detail](#chapter-123)
+- [124. Defence and aerospace technology](124-defence-and-aerospace-technology.md) · [more detail](#chapter-124)
+- [125. Computers, chips, networks and cybersecurity](125-computers-chips-networks-and-cybersecurity.md) · [more detail](#chapter-125)
+- [126. Artificial intelligence, robotics and blockchain](126-artificial-intelligence-robotics-and-blockchain.md) · [more detail](#chapter-126)
+- [127. Quantum and nanoscale technologies](127-quantum-and-nanoscale-technologies.md) · [more detail](#chapter-127)
+- [128. Intellectual property and innovation protection](128-intellectual-property-and-innovation-protection.md) · [more detail](#chapter-128)
+
+**Phase 7 — Current-affairs consolidation · 129–131**
+
+- [129. National current affairs and policy tracking](129-national-current-affairs-and-policy-tracking.md) · [more detail](#chapter-129)
+- [130. International events, organisations and places in news](130-international-events-organisations-and-places-in-news.md) · [more detail](#chapter-130)
+- [131. Annual economic, environmental and science updates](131-annual-economic-environmental-and-science-updates.md) · [more detail](#chapter-131)
+
+**Phase 8 — Applied and thematic PYQ work · 132–134**
+
+- [132. MCQ formats, elimination and attempt decisions](132-mcq-formats-elimination-and-attempt-decisions.md) · [more detail](#chapter-132)
+- [133. Integrated maps, timelines and comparison sheets](133-integrated-maps-timelines-and-comparison-sheets.md) · [more detail](#chapter-133)
+- [134. Thematic PYQ workshops, 2013–2026](134-thematic-pyq-workshops-20132026.md) · [more detail](#chapter-134)
+
+**Phase 9 — Revision and exam readiness · 135–136**
+
+- [135. Revision cycles and repair of weak areas](135-revision-cycles-and-repair-of-weak-areas.md) · [more detail](#chapter-135)
+- [136. Timed previous-paper practice and exam readiness](136-timed-previous-paper-practice-and-exam-readiness.md) · [more detail](#chapter-136)
+
 ## Paper metadata
 
 | Item | Preparation baseline |
