@@ -19,7 +19,7 @@ Folders follow `Prelims-<paper>` or `Mains-<paper>`. Within each paper folder:
 
 - `<paper-name>-Syllabus.md` contains the official syllabus.
 - `<paper-name>-Curriculum.md` is the study plan and authoritative chapter-file index.
-- `<paper-name>-PYQS/<year>-<paper-name>.md` holds the year-wise PYQ corpus, currently organised for 2013–2026. Missing years or extraction gaps must remain explicit.
+- `<paper-name>-PYQS/<year>-<paper-name>.md` holds the year-wise PYQ corpus, currently organised for 2013–2026. Missing years or extraction gaps must remain explicit. When a subject has two question papers, keep both in that one file under separate `## Paper I` and `## Paper II` sections.
 - Chapter filenames match the curriculum. Split chapters use `<chapter>-part-N.md`, with each part linked from the index.
 - Test folders and IDs are defined by the generation methods below.
 
