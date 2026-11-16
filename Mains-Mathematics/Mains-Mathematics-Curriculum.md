@@ -2,7 +2,7 @@
 
 Prepared on **15 November 2026** for CSE 2027. This is the study plan and authoritative chapter-file index for both Mathematics papers. The [official syllabus](Mains-Mathematics-Syllabus.md) determines coverage; the [curriculum method](../CURRICULUM-GENERATION.md) governs this plan.
 
-**Content status:** the curriculum is authored; chapter [001](001-orientation-and-diagnostic-route.md) is authored as study material, and the other 79 linked chapter files are planning placeholders. Diagnostic questions and practice tests have not yet been authored. A placeholder is not ready for study or assessment.
+**Content status:** the curriculum is authored; chapters [001](001-orientation-and-diagnostic-route.md) and [002](002-algebra-inequalities-and-functions.md) are authored as study material, and the other 78 linked chapter files are planning placeholders. Diagnostic questions and practice tests have not yet been authored. A placeholder is not ready for study or assessment.
 
 ## Your starting point
 
@@ -72,14 +72,14 @@ Advance when you can explain the central definitions, reconstruct the main argum
 
 ## Authoritative chapter index
 
-**All entries below are planned; only chapter 001 is authored.** The linked filename is the exact chapter filename. Numbers in the dependency column refer to entries in this index; “bridge” means supporting material rather than an additional official syllabus heading. Dependencies mean demonstrated skills, so a diagnostic may shorten the associated reading. PYQ links identify representative applications, not an exhaustive assignment. Each phase's completion check is an intended learning outcome, not a test generated now.
+**All entries below are planned; only chapters 001–002 are authored.** The linked filename is the exact chapter filename. Numbers in the dependency column refer to entries in this index; “bridge” means supporting material rather than an additional official syllabus heading. Dependencies mean demonstrated skills, so a diagnostic may shorten the associated reading. PYQ links identify representative applications, not an exhaustive assignment. Each phase's completion check is an intended learning outcome, not a test generated now.
 
 ### Phase A — Orientation and selective bridges
 
 | Chapter file | Planned scope and outcome | Important dependencies | Exam connection / PYQ anchor |
 |---|---|---|---|
 | [001 — Orientation and diagnostic route](001-orientation-and-diagnostic-route.md) | **Authored.** Read syllabus and paper instructions; understand symbols used in the course; maintain a skill record and choose the first bridge. | None | Both papers; inspect the structure of [2025 I and II](Mains-Mathematics-PYQS/2025-Mains-Mathematics.md), without attempting untaught topics. |
-| [002 — Algebra, inequalities and functions](002-algebra-inequalities-and-functions.md) | Fractions, powers, factorisation, polynomials, equations, inequalities, absolute value, intervals, graphs, domains, ranges, inverse and composite functions; manipulate without losing solutions. | School arithmetic, repaired within the chapter | Bridge to calculus, linear algebra and numerical work; later [2024 I Q1(c)](Mains-Mathematics-PYQS/2024-Mains-Mathematics.md#paper-i). |
+| [002 — Algebra, inequalities and functions](002-algebra-inequalities-and-functions.md) | **Authored.** Fractions, powers, factorisation, polynomials, equations, inequalities, absolute value, intervals, graphs, domains, ranges, inverse and composite functions; manipulate without losing solutions. | School arithmetic, repaired within the chapter | Bridge to calculus, linear algebra and numerical work; later [2024 I Q1(c)](Mains-Mathematics-PYQS/2024-Mains-Mathematics.md#paper-i). |
 | [003 — Trigonometry and complex numbers](003-trigonometry-and-complex-numbers.md) | Radians, identities, inverse trigonometry, exponentials, logarithms, hyperbolic functions; complex arithmetic, argument, modulus, roots and polar form. | 002 | Bridge to catenary, transforms and analytic functions; later [2022 II Q1(b)](Mains-Mathematics-PYQS/2022-Mains-Mathematics.md#paper-ii). |
 | [004 — Coordinates, conics and vector algebra](004-coordinates-conics-and-vector-algebra.md) | Cartesian, plane polar, cylindrical and spherical coordinates; conic geometry; dot, cross and triple products, projections and vector equations. Translate between pictures and algebra. | 002–003 | I geometry and vector analysis; later [2025 I Q2(c)](Mains-Mathematics-PYQS/2025-Mains-Mathematics.md#paper-i). |
 | [005 — Sets, mappings and mathematical proof](005-sets-mappings-and-mathematical-proof.md) | Sets, relations, equivalence classes, functions, injectivity/surjectivity, quantifiers, induction, contradiction, contrapositive, existence and uniqueness; write a logically complete proof. Introduce arithmetic modulo an integer. | 002 | Both papers; later [2022 I Q1(a)](Mains-Mathematics-PYQS/2022-Mains-Mathematics.md#paper-i), [2022 II Q2(b)](Mains-Mathematics-PYQS/2022-Mains-Mathematics.md#paper-ii). |
