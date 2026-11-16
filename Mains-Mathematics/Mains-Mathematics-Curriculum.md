@@ -2,7 +2,7 @@
 
 Prepared on **15 November 2026** for CSE 2027. This is the study plan and authoritative chapter-file index for both Mathematics papers. The [official syllabus](Mains-Mathematics-Syllabus.md) determines coverage; the [curriculum method](../CURRICULUM-GENERATION.md) governs this plan.
 
-**Content status:** the curriculum is authored; all 80 linked chapter files are planning placeholders. Teaching content, diagnostic questions and practice tests have not yet been authored. A placeholder is not ready for assessment.
+**Content status:** the curriculum is authored; chapter [001](001-orientation-and-diagnostic-route.md) is authored as study material, and the other 79 linked chapter files are planning placeholders. Diagnostic questions and practice tests have not yet been authored. A placeholder is not ready for study or assessment.
 
 ## Your starting point
 
@@ -10,7 +10,7 @@ You studied CBSE mathematics through Class XII and completed Physics Honours in 
 
 The intended chapters will be self-contained **within this linked sequence**: they will explain new vocabulary, assumptions, theorem statements, proofs and intermediate calculations, and recap the specific earlier results they use. No prescribed textbook or coaching notes will be necessary to follow them. A chapter may rely on its named prerequisite chapters; self-contained does not mean reprinting the entire course in every file.
 
-Begin with the orientation in 001 and the foundation routing below. While chapter authoring is pending, use the linked open reference material for the particular bridge you need; do not treat the placeholder files as lessons.
+Begin with the orientation in [001](001-orientation-and-diagnostic-route.md) and the foundation routing below. While chapter authoring is pending, use the linked open reference material for the particular bridge you need; do not treat the placeholder files as lessons.
 
 ## Examination orientation and evidence
 
@@ -72,13 +72,13 @@ Advance when you can explain the central definitions, reconstruct the main argum
 
 ## Authoritative chapter index
 
-**All entries below are planned, not authored.** The linked filename is the exact chapter filename. Numbers in the dependency column refer to entries in this index; “bridge” means supporting material rather than an additional official syllabus heading. Dependencies mean demonstrated skills, so a diagnostic may shorten the associated reading. PYQ links identify representative applications, not an exhaustive assignment. Each phase's completion check is an intended learning outcome, not a test generated now.
+**All entries below are planned; only chapter 001 is authored.** The linked filename is the exact chapter filename. Numbers in the dependency column refer to entries in this index; “bridge” means supporting material rather than an additional official syllabus heading. Dependencies mean demonstrated skills, so a diagnostic may shorten the associated reading. PYQ links identify representative applications, not an exhaustive assignment. Each phase's completion check is an intended learning outcome, not a test generated now.
 
 ### Phase A — Orientation and selective bridges
 
 | Chapter file | Planned scope and outcome | Important dependencies | Exam connection / PYQ anchor |
 |---|---|---|---|
-| [001 — Orientation and diagnostic route](001-orientation-and-diagnostic-route.md) | Read syllabus and paper instructions; understand symbols used in the course; maintain a skill record and choose the first bridge. | None | Both papers; inspect the structure of [2025 I and II](Mains-Mathematics-PYQS/2025-Mains-Mathematics.md), without attempting untaught topics. |
+| [001 — Orientation and diagnostic route](001-orientation-and-diagnostic-route.md) | **Authored.** Read syllabus and paper instructions; understand symbols used in the course; maintain a skill record and choose the first bridge. | None | Both papers; inspect the structure of [2025 I and II](Mains-Mathematics-PYQS/2025-Mains-Mathematics.md), without attempting untaught topics. |
 | [002 — Algebra, inequalities and functions](002-algebra-inequalities-and-functions.md) | Fractions, powers, factorisation, polynomials, equations, inequalities, absolute value, intervals, graphs, domains, ranges, inverse and composite functions; manipulate without losing solutions. | School arithmetic, repaired within the chapter | Bridge to calculus, linear algebra and numerical work; later [2024 I Q1(c)](Mains-Mathematics-PYQS/2024-Mains-Mathematics.md#paper-i). |
 | [003 — Trigonometry and complex numbers](003-trigonometry-and-complex-numbers.md) | Radians, identities, inverse trigonometry, exponentials, logarithms, hyperbolic functions; complex arithmetic, argument, modulus, roots and polar form. | 002 | Bridge to catenary, transforms and analytic functions; later [2022 II Q1(b)](Mains-Mathematics-PYQS/2022-Mains-Mathematics.md#paper-ii). |
 | [004 — Coordinates, conics and vector algebra](004-coordinates-conics-and-vector-algebra.md) | Cartesian, plane polar, cylindrical and spherical coordinates; conic geometry; dot, cross and triple products, projections and vector equations. Translate between pictures and algebra. | 002–003 | I geometry and vector analysis; later [2025 I Q2(c)](Mains-Mathematics-PYQS/2025-Mains-Mathematics.md#paper-i). |
@@ -304,4 +304,4 @@ No single optional reference is claimed to cover the entire optional syllabus. T
 - Revisit earlier topics during the daily review block and after finishing a connected topic. Use delayed recall of hypotheses as well as formulas. Increase mixed work when individual methods become reliable; choose the timing from observed retention rather than a fixed retest calendar.
 - Before a full paper, check that all syllabus areas have teaching coverage and some independent practice. Use the actual front-cover rules and inspect every subpart before choosing a main question. Do not assume optional-question choice allows an entire syllabus heading to be dropped.
 
-The first concrete learning step is to author 001 and the foundation material required for a meaningful diagnostic, then record the evidence for your route. Chapter writing and assessment remain separate requested tasks; this curriculum establishes their scope and order.
+The first concrete learning step is chapter 001, whose skill record and first-bridge choice come before the foundation material; then record the evidence for your route. Chapter writing and assessment remain separate requested tasks; this curriculum establishes their scope and order.
