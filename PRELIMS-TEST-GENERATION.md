@@ -12,9 +12,11 @@ Record the sections assessed. For further tests on the same part, consult earlie
 
 Generate a full-length GS-I mock only on request. It is a standalone paper: one sitting, **2 hours**, **100 four-option MCQs**, **200 marks**; it does not include CSAT. Authored chapters are not a readiness gate because this mode follows the official paper, not a chapter sequence. Label it `diagnostic` when taken before full coverage; never present a cutoff prediction.
 
+Full-length mocks should simulate the actual UPSC Prelims GS-I examination at standard UPSC difficulty. Calibrate breadth, factual depth, conceptual reasoning, plausible distractors and reading load against the local PYQs, including recent papers with their stated caveats. Include a realistic spread of accessible, moderate and demanding items; a beginner audience or diagnostic label is not a reason to simplify the paper. Record any learner-requested departure from this standard for that test only. Difficulty is an editorial calibration, not an empirically equated score or a prediction of a future paper.
+
 Before drafting, record a 100-question blueprint. Use the [official syllabus and pattern](Prelims-General-Studies-I/Prelims-General-Studies-I-Curriculum.md#paper-metadata) as the boundary, the [2013–2026 PYQs](Prelims-General-Studies-I/Prelims-General-Studies-I-PYQS/) for recurring formats and breadth, and the [curriculum evidence](Prelims-General-Studies-I/Prelims-General-Studies-I-Curriculum.md#evidence-used-to-set-emphasis) for registered StudyIQ/VisionIAS analyses and conventional references. Treat publisher subject counts as one-year evidence, not fixed weightage; do not add overlapping current-affairs and subject percentages. Represent all seven syllabus areas, interleave them across the paper, and vary the blueprint between mocks.
 
-Set and date a current-affairs cutoff; default to the 12 months before generation and state that this is a practice convention. Tie current events to syllabus concepts. Write new items in PYQ style rather than copying questions. Use maps, tables, chronology and statement-based formats where the topic warrants; supply unfamiliar data needed for reasoning. Keep options plausible and comparable in length, with one defensible answer. Avoid time-sensitive facts without a stated reference date.
+Set and date a current-affairs cutoff; default to the 12 months before generation unless the learner requests a different window for that test, and state that this is a practice convention. Tie current events to syllabus concepts. Write new items in PYQ style rather than copying questions. Use maps, tables, chronology and statement-based formats where the topic warrants; supply unfamiliar data needed for reasoning. Keep options plausible and comparable in length, with one defensible answer. Avoid time-sensitive facts without a stated reference date.
 
 Number questions 1–100 continuously without subject headings. Put the pre-attempt key in a labelled `<details>` block as a table of question number, answer, topic/syllabus area and a one-line rationale; cite a dated source for time-sensitive items. Keep explanations out of the question section.
 
@@ -40,7 +42,7 @@ The GS-I row applies to chapter-part and full-length tests; the CSAT row applies
 | Mode | ID format | Folder |
 |---|---|---|
 | GS-I chapter-part | `GS1-<chapter-slug>-p<part>-t<nn>` | `Prelims-General-Studies-I/Prelims-General-Studies-I-TESTS/` |
-| GS-I full paper | `GS1-full-t<nn>` | `Prelims-General-Studies-I/Prelims-General-Studies-I-TESTS/` |
+| GS-I full paper | `GS1-full-t<nn>` | `Prelims-General-Studies-I/full-test/` |
 | CSAT chapter-part | `CSAT-<chapter-slug>-p<part>-t<nn>` | `Prelims-CSAT/Prelims-CSAT-TESTS/` |
 
 Use a stable lowercase hyphenated chapter slug, `p1` for an unsplit chapter, and the next unused test number for that mode. The filename is `<test-id>.md`.

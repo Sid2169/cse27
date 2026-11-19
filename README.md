@@ -34,7 +34,8 @@ Each paper folder contains:
 - `<paper-name>-Curriculum.md` — a comprehensive, phased curriculum, generated from the researched exam pattern, the syllabus, and PYQs; doubles as the index
 - `<paper-name>-PYQS/<year>-<paper-name>.md` — year-wise PYQ notes (2013–2026), one file per exam year; for two-paper subjects, both papers appear in separate Paper I and Paper II sections
 - `<chapter>.md` or `<chapter>-part-N.md` — chapter content; split parts only when a curriculum chapter is too large, with every part linked from the curriculum
-- `Prelims-<paper>-TESTS/<test-id>.md` — on-demand Prelims chapter-part tests and full-length GS-I mocks; feedback is appended in the same file
+- `Prelims-<paper>-TESTS/<test-id>.md` — on-demand Prelims chapter-part tests; feedback is appended in the same file
+- [Prelims GS-I full-test](Prelims-General-Studies-I/full-test/) — full-length GS-I mocks; feedback is appended in the same test file
 - `Mains-<paper>-TESTS/<test-id>.md` — on-demand Mains GS I–IV tests; evaluation is appended in the same file (GS I–IV only)
 
 Curriculum generation method: [CURRICULUM-GENERATION.md](CURRICULUM-GENERATION.md)
@@ -63,4 +64,4 @@ The [Mathematics optional curriculum](Mains-Mathematics/Mains-Mathematics-Curric
 
 The [Prelims CSAT curriculum](Prelims-CSAT/Prelims-CSAT-Curriculum.md), prepared on 18 November 2026, covers the full syllabus through 40 planned chapters numbered 001–040 across seven phases. It includes a beginner mathematics bridge, parallel comprehension practice, arithmetic, reasoning, data interpretation and sufficiency, communication, decision making, and integrated revision. The curriculum records prerequisites, PYQ anchors, current rule sources and corpus limitations. All 40 chapter files are marked planning placeholders; teaching content and assessments have not yet been authored. The seven other curriculum files remain empty placeholders.
 
-No practice tests have been generated yet; they are created on demand after chapter content exists.
+As of 19 November 2026, one practice test is available: [GS-I pilot full-length diagnostic mock — GS1-full-t01](Prelims-General-Studies-I/full-test/GS1-full-t01.md), with 100 questions, 200 marks and a 2-hour duration. Its requested current-affairs window is 19 May–18 November 2026. Chapter-part tests require authored teaching content; full-length GS-I mocks follow the official syllabus independently of chapter completion. Tests and feedback are created only on request.
