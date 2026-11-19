@@ -8,6 +8,7 @@
 - **Marking:** +2 correct; −2/3 wrong or multiple responses; 0 blank.
 - **Current-affairs window:** 19 May–18 November 2026 inclusive, as requested; cutoff 18 November 2026. This six-month window is a practice convention, not an official UPSC restriction. Older background concepts remain in scope.
 - **Attempt status:** Not attempted.
+- **Presentation revision v1.1:** Explicit question and statement labels replace Markdown ordered lists to prevent displayed numbering from restarting or merging. Question IDs and answer-key mappings are preserved; the original presentation is retained in Git commit `c4f5e49`.
 
 ## Blueprint
 
@@ -51,32 +52,34 @@ Question allocation (primary classification):
 
 ## Questions
 
-1. Which of the following correctly distinguishes the Home Rule Leagues from the Swaraj Party?
+**1.** Which of the following correctly distinguishes the Home Rule Leagues from the Swaraj Party?
 
 - [ ] (a) Both were founded as underground armed organisations following the 1907 Surat split.
 - [ ] (b) The Leagues demanded separate electorates, while the Swaraj Party was established to negotiate the Poona Pact.
 - [ ] (c) The Leagues pressed for self-government during the First World War; the Swaraj Party later sought to work inside legislative councils.
 - [ ] (d) The Leagues advocated council entry after 1922, while the Swaraj Party began the 1916 Home Rule agitation.
 
-2. Which of the following is the most direct constitutional mechanism for testing whether the Union Council of Ministers retains the confidence of the elected House?
+**2.** Which of the following is the most direct constitutional mechanism for testing whether the Union Council of Ministers retains the confidence of the elected House?
 
 - [ ] (a) A no-confidence motion in Lok Sabha
 - [ ] (b) A recommendation of the Finance Commission
 - [ ] (c) An adjournment of Rajya Sabha by its Chairman
 - [ ] (d) An audit observation by the Comptroller and Auditor General
 
-3. A station near 35° latitude has warm, dry summers and mild, rainy winters. Which mechanism best explains the rainfall seasonality?
+**3.** A station near 35° latitude has warm, dry summers and mild, rainy winters. Which mechanism best explains the rainfall seasonality?
 
 - [ ] (a) Year-round continental high pressure with no seasonal wind shifts
 - [ ] (b) Permanent equatorial convergence throughout the year
 - [ ] (c) Summer polar easterlies followed by winter tropical cyclones
 - [ ] (d) Summer subtropical subsidence followed by winter influence of the westerlies
 
-4. Following the NVS-03 launch of 30 October 2026, consider the following statements about its programme:
+**4.** Following the NVS-03 launch of 30 October 2026, consider the following statements about its programme:
 
-   1. NavIC is designed as a regional positioning, navigation and timing system.
-   2. A navigation receiver estimates position using precisely timed signals rather than photographs of its surroundings.
-   3. NVS-03 was carried by a GSLV launch vehicle.
+(1) NavIC is designed as a regional positioning, navigation and timing system.
+
+(2) A navigation receiver estimates position using precisely timed signals rather than photographs of its surroundings.
+
+(3) NVS-03 was carried by a GSLV launch vehicle.
 
 Which of the statements given above is/are correct?
 
@@ -85,13 +88,11 @@ Which of the statements given above is/are correct?
 - [ ] (c) 2 and 3 only
 - [ ] (d) 1 and 3 only
 
-5. Consider the following statements:
+**5.** Consider the following statements:
 
 **Statement-I:** A rise in market yields tends to reduce the market price of an existing fixed-coupon bond.
 
 **Statement-II:** Its fixed future payments are discounted at a higher required rate of return.
-
-
 
 Which one of the following is correct in respect of the above statements?
 
@@ -100,11 +101,13 @@ Which one of the following is correct in respect of the above statements?
 - [ ] (c) Both Statement-I and Statement-II are correct, and Statement-II explains Statement-I
 - [ ] (d) Statement-I is incorrect, but Statement-II is correct
 
-6. Consider the following statements:
+**6.** Consider the following statements:
 
-   1. Ground-level ozone can form through photochemical reactions involving nitrogen oxides and volatile organic compounds.
-   2. An atmospheric temperature inversion can hinder vertical dispersion of pollutants.
-   3. All particulate matter is emitted directly and none forms through atmospheric reactions.
+(1) Ground-level ozone can form through photochemical reactions involving nitrogen oxides and volatile organic compounds.
+
+(2) An atmospheric temperature inversion can hinder vertical dispersion of pollutants.
+
+(3) All particulate matter is emitted directly and none forms through atmospheric reactions.
 
 Which of the statements given above is/are correct?
 
@@ -113,17 +116,18 @@ Which of the statements given above is/are correct?
 - [ ] (c) 1 and 3 only
 - [ ] (d) 2 and 3 only
 
-7. A digitally signed document is verified using the signer’s public key. What does successful verification primarily help establish?
+**7.** A digitally signed document is verified using the signer’s public key. What does successful verification primarily help establish?
 
 - [ ] (a) Every reader is legally required to accept the document’s claims.
 - [ ] (b) The document has remained unaltered since signing and was signed using the corresponding private key.
 - [ ] (c) The document’s contents are factually correct.
 - [ ] (d) The document is encrypted so that nobody except the signer can read it.
 
-8. Consider the following statements about the Swadeshi movement that followed the partition of Bengal in 1905:
+**8.** Consider the following statements about the Swadeshi movement that followed the partition of Bengal in 1905:
 
-   1. It encouraged national education and indigenous enterprise alongside boycott.
-   2. It began after the announcement of the Montagu–Chelmsford constitutional reforms.
+(1) It encouraged national education and indigenous enterprise alongside boycott.
+
+(2) It began after the announcement of the Montagu–Chelmsford constitutional reforms.
 
 Which of the statements given above is/are correct?
 
@@ -132,25 +136,27 @@ Which of the statements given above is/are correct?
 - [ ] (c) Neither 1 nor 2
 - [ ] (d) 1 only
 
-9. A vessel sails from the Persian Gulf to the Mediterranean Sea by the shortest usual sea route through the Red Sea. Which sequence of passages does it encounter?
+**9.** A vessel sails from the Persian Gulf to the Mediterranean Sea by the shortest usual sea route through the Red Sea. Which sequence of passages does it encounter?
 
 - [ ] (a) Bab-el-Mandeb → Strait of Hormuz → Suez Canal
 - [ ] (b) Suez Canal → Bab-el-Mandeb → Strait of Hormuz
 - [ ] (c) Strait of Hormuz → Bab-el-Mandeb → Suez Canal
 - [ ] (d) Strait of Hormuz → Suez Canal → Bab-el-Mandeb
 
-10. A species has modest biomass but its removal causes large changes in community composition. Which description best fits this observation?
+**10.** A species has modest biomass but its removal causes large changes in community composition. Which description best fits this observation?
 
 - [ ] (a) It is necessarily an invasive species introduced by humans.
 - [ ] (b) Its ecological role is necessarily proportional to its abundance.
 - [ ] (c) It must be the community’s most abundant primary producer.
 - [ ] (d) It may be a keystone species with an effect disproportionate to its abundance.
 
-11. Consider the following statements:
+**11.** Consider the following statements:
 
-   1. The Union Council of Ministers is collectively responsible to Lok Sabha.
-   2. A person who is not a member of either House can remain a Union Minister indefinitely if the Prime Minister approves.
-   3. The President can require the Council to reconsider advice but must act on the advice tendered after reconsideration.
+(1) The Union Council of Ministers is collectively responsible to Lok Sabha.
+
+(2) A person who is not a member of either House can remain a Union Minister indefinitely if the Prime Minister approves.
+
+(3) The President can require the Council to reconsider advice but must act on the advice tendered after reconsideration.
 
 Which of the statements given above is/are correct?
 
@@ -159,17 +165,18 @@ Which of the statements given above is/are correct?
 - [ ] (c) 1 and 3 only
 - [ ] (d) 1, 2 and 3
 
-12. The PIB biodiversity backgrounder of 5 June 2026 highlighted People’s Biodiversity Registers. Which institutional pairing is correct?
+**12.** The PIB biodiversity backgrounder of 5 June 2026 highlighted People’s Biodiversity Registers. Which institutional pairing is correct?
 
 - [ ] (a) State Biodiversity Boards — replacement of all local registers with a single national patent register
 - [ ] (b) Biodiversity Management Committees — documentation of local biological resources and associated knowledge
 - [ ] (c) National Biodiversity Authority — exclusive field preparation of every village register
 - [ ] (d) Gram Sabhas — grant of international patents over every species entered in a register
 
-13. Consider the following statements:
+**13.** Consider the following statements:
 
-   1. An ideal hydrogen fuel cell converts chemical energy into electrical energy, with water as a reaction product.
-   2. Hydrogen made by electrolysis using fossil-intensive electricity necessarily has zero upstream carbon emissions.
+(1) An ideal hydrogen fuel cell converts chemical energy into electrical energy, with water as a reaction product.
+
+(2) Hydrogen made by electrolysis using fossil-intensive electricity necessarily has zero upstream carbon emissions.
 
 Which of the statements given above is/are correct?
 
@@ -178,10 +185,11 @@ Which of the statements given above is/are correct?
 - [ ] (c) 2 only
 - [ ] (d) Both 1 and 2
 
-14. Consider the following statements:
+**14.** Consider the following statements:
 
-   1. Higher per capita income by itself establishes that every household’s income has risen.
-   2. A multidimensional poverty measure can include deprivation in health and education as well as living standards.
+(1) Higher per capita income by itself establishes that every household’s income has risen.
+
+(2) A multidimensional poverty measure can include deprivation in health and education as well as living standards.
 
 Which of the statements given above is/are correct?
 
@@ -190,18 +198,20 @@ Which of the statements given above is/are correct?
 - [ ] (c) Both 1 and 2
 - [ ] (d) 2 only
 
-15. MoSPI’s release of 31 August 2026 reported year-on-year growth for April–June 2026 of 7.8% in real GDP and 10.3% in nominal GDP. Which inference is most appropriate?
+**15.** MoSPI’s release of 31 August 2026 reported year-on-year growth for April–June 2026 of 7.8% in real GDP and 10.3% in nominal GDP. Which inference is most appropriate?
 
 - [ ] (a) Consumer-price inflation was exactly 2.5% by definition.
 - [ ] (b) The implied GDP deflator increased, but its growth rate need not equal consumer-price inflation.
 - [ ] (c) Real production fell because nominal growth exceeded real growth.
 - [ ] (d) The two growth rates cannot differ when calculated for the same economy.
 
-16. Consider the following statements:
+**16.** Consider the following statements:
 
-   1. Controlled addition of impurities can alter a semiconductor’s electrical conductivity.
-   2. A p–n junction can exhibit different conduction behaviour under forward and reverse bias.
-   3. A semiconductor solar cell requires incoming photons to supply the heat for boiling a working fluid before electricity can be generated.
+(1) Controlled addition of impurities can alter a semiconductor’s electrical conductivity.
+
+(2) A p–n junction can exhibit different conduction behaviour under forward and reverse bias.
+
+(3) A semiconductor solar cell requires incoming photons to supply the heat for boiling a working fluid before electricity can be generated.
 
 Which of the statements given above is/are correct?
 
@@ -210,19 +220,22 @@ Which of the statements given above is/are correct?
 - [ ] (c) 1, 2 and 3
 - [ ] (d) 2 and 3 only
 
-17. Arrange the following in chronological order, from earliest to latest:
+**17.** Arrange the following in chronological order, from earliest to latest:
 
-   1. Battle of Buxar
-   2. Regulating Act
-   3. Grant of the Diwani of Bengal, Bihar and Orissa to the Company
-   4. Pitt’s India Act
+(1) Battle of Buxar
+
+(2) Regulating Act
+
+(3) Grant of the Diwani of Bengal, Bihar and Orissa to the Company
+
+(4) Pitt’s India Act
 
 - [ ] (a) 1–2–3–4
 - [ ] (b) 2–1–4–3
 - [ ] (c) 1–3–2–4
 - [ ] (d) 3–1–2–4
 
-18. Consider the following pairs:
+**18.** Consider the following pairs:
 
 | Setting | Characteristic process |
 |---|---|
@@ -237,11 +250,13 @@ How many pairs are correctly matched?
 - [ ] (c) Only one
 - [ ] (d) Only two
 
-19. Consider the following statements:
+**19.** Consider the following statements:
 
-   1. Net primary productivity is gross primary productivity minus producers’ respiration.
-   2. The energy available to higher trophic levels generally declines along a food chain.
-   3. Decomposition can return mineral nutrients to forms available for reuse by producers.
+(1) Net primary productivity is gross primary productivity minus producers’ respiration.
+
+(2) The energy available to higher trophic levels generally declines along a food chain.
+
+(3) Decomposition can return mineral nutrients to forms available for reuse by producers.
 
 Which of the statements given above is/are correct?
 
@@ -250,25 +265,27 @@ Which of the statements given above is/are correct?
 - [ ] (c) 2 and 3 only
 - [ ] (d) 1 and 3 only
 
-20. A flood-warning broadcast is available to everyone in a district, and one person receiving it does not reduce its availability to others. These features most closely correspond to:
+**20.** A flood-warning broadcast is available to everyone in a district, and one person receiving it does not reduce its availability to others. These features most closely correspond to:
 
 - [ ] (a) Rivalry and excludability
 - [ ] (b) Non-rivalry and non-excludability
 - [ ] (c) Rivalry and non-excludability
 - [ ] (d) Non-rivalry and compulsory private ownership
 
-21. Parliament enacts a law on a Concurrent List matter. A later State law on that matter is repugnant to it, is reserved for the President, and receives assent. Which statement best reflects Article 254?
+**21.** Parliament enacts a law on a Concurrent List matter. A later State law on that matter is repugnant to it, is reserved for the President, and receives assent. Which statement best reflects Article 254?
 
 - [ ] (a) The State law prevails throughout India.
 - [ ] (b) The State law can prevail in that State, but Parliament retains power to enact a subsequent overriding law.
 - [ ] (c) Presidential assent transfers the subject permanently to the State List.
 - [ ] (d) Parliament loses competence over that subject in the State for five years.
 
-22. Consider the following statements:
+**22.** Consider the following statements:
 
-   1. Tea generally requires well-drained soil despite its substantial moisture requirement.
-   2. Jute retting involves using water to separate fibres from the stem.
-   3. Wheat and rice have identical temperature and water requirements throughout their growing seasons.
+(1) Tea generally requires well-drained soil despite its substantial moisture requirement.
+
+(2) Jute retting involves using water to separate fibres from the stem.
+
+(3) Wheat and rice have identical temperature and water requirements throughout their growing seasons.
 
 Which of the statements given above is/are correct?
 
@@ -277,10 +294,11 @@ Which of the statements given above is/are correct?
 - [ ] (c) 2 and 3 only
 - [ ] (d) 1 and 2 only
 
-23. Consider the following statements:
+**23.** Consider the following statements:
 
-   1. Pooling many similar, independently distributed risks can make aggregate claims more predictable.
-   2. Insurance eliminates the underlying probability of every insured event.
+(1) Pooling many similar, independently distributed risks can make aggregate claims more predictable.
+
+(2) Insurance eliminates the underlying probability of every insured event.
 
 Which of the statements given above is/are correct?
 
@@ -289,11 +307,13 @@ Which of the statements given above is/are correct?
 - [ ] (c) Both 1 and 2
 - [ ] (d) 2 only
 
-24. Consider the following statements concerning the Cabinet Mission Plan of 1946:
+**24.** Consider the following statements concerning the Cabinet Mission Plan of 1946:
 
-   1. It proposed a Union dealing with defence, foreign affairs and communications.
-   2. It envisaged provincial groupings.
-   3. It envisaged indirect election of provincial representatives to the Constituent Assembly by the Provincial Legislative Assemblies.
+(1) It proposed a Union dealing with defence, foreign affairs and communications.
+
+(2) It envisaged provincial groupings.
+
+(3) It envisaged indirect election of provincial representatives to the Constituent Assembly by the Provincial Legislative Assemblies.
 
 Which of the statements given above is/are correct?
 
@@ -302,10 +322,11 @@ Which of the statements given above is/are correct?
 - [ ] (c) 1 and 3 only
 - [ ] (d) 1, 2 and 3
 
-25. The Zoological Survey of India’s Animal Taxonomy Summit in June–July 2026 accompanied the release of Animal Discoveries–2025. Consider the following statements:
+**25.** The Zoological Survey of India’s Animal Taxonomy Summit in June–July 2026 accompanied the release of Animal Discoveries–2025. Consider the following statements:
 
-   1. A species newly recorded from India need not be a species newly described to science.
-   2. Taxonomy concerns identification, description, naming and classification of organisms.
+(1) A species newly recorded from India need not be a species newly described to science.
+
+(2) Taxonomy concerns identification, description, naming and classification of organisms.
 
 Which of the statements given above is/are correct?
 
@@ -314,17 +335,18 @@ Which of the statements given above is/are correct?
 - [ ] (c) 2 only
 - [ ] (d) Neither 1 nor 2
 
-26. Two identical porous earthen pots stand at the same air temperature and wind speed, one in dry air and the other in humid air. All else equal, which statement about evaporative cooling is correct?
+**26.** Two identical porous earthen pots stand at the same air temperature and wind speed, one in dry air and the other in humid air. All else equal, which statement about evaporative cooling is correct?
 
 - [ ] (a) Cooling is generally greater in humid air because a smaller vapour-pressure gradient accelerates evaporation.
 - [ ] (b) Cooling is identical because relative humidity has no role when air temperatures are equal.
 - [ ] (c) The pot in dry air heats its water because faster evaporation releases latent heat into the liquid.
 - [ ] (d) Cooling is generally greater in dry air because evaporation is less inhibited by surrounding water vapour.
 
-27. Consider the following statements about mangroves:
+**27.** Consider the following statements about mangroves:
 
-   1. Their roots and sediments can help attenuate wave energy and retain carbon.
-   2. Their below-ground carbon storage makes removal of mangrove vegetation irrelevant to coastal carbon balances.
+(1) Their roots and sediments can help attenuate wave energy and retain carbon.
+
+(2) Their below-ground carbon storage makes removal of mangrove vegetation irrelevant to coastal carbon balances.
 
 Which of the statements given above is/are correct?
 
@@ -333,10 +355,11 @@ Which of the statements given above is/are correct?
 - [ ] (c) Neither 1 nor 2
 - [ ] (d) 2 only
 
-28. Under Article 368 of the Constitution of India, consider the following statements:
+**28.** Under Article 368 of the Constitution of India, consider the following statements:
 
-   1. An amendment changing the distribution of legislative powers between the Union and States requires ratification by at least half the State Legislatures.
-   2. A deadlock between the Houses on a Constitution Amendment Bill can be resolved at a joint sitting.
+(1) An amendment changing the distribution of legislative powers between the Union and States requires ratification by at least half the State Legislatures.
+
+(2) A deadlock between the Houses on a Constitution Amendment Bill can be resolved at a joint sitting.
 
 Which of the statements given above is/are correct?
 
@@ -345,10 +368,11 @@ Which of the statements given above is/are correct?
 - [ ] (c) 2 only
 - [ ] (d) Neither 1 nor 2
 
-29. Consider the following statements:
+**29.** Consider the following statements:
 
-   1. The half-life of a radioactive isotope is the time in which half the nuclei in a large initial sample are expected to decay.
-   2. After two half-lives, approximately one-quarter of the original radioactive nuclei remain.
+(1) The half-life of a radioactive isotope is the time in which half the nuclei in a large initial sample are expected to decay.
+
+(2) After two half-lives, approximately one-quarter of the original radioactive nuclei remain.
 
 Which of the statements given above is/are correct?
 
@@ -357,10 +381,11 @@ Which of the statements given above is/are correct?
 - [ ] (c) 1 only
 - [ ] (d) Neither 1 nor 2
 
-30. Consider the following statements about colonial land revenue arrangements:
+**30.** Consider the following statements about colonial land revenue arrangements:
 
-   1. Under the Permanent Settlement, the Company’s assessed revenue demand on zamindars was fixed in perpetuity.
-   2. Ryotwari settlement ordinarily recognised the village community collectively as the revenue-paying intermediary.
+(1) Under the Permanent Settlement, the Company’s assessed revenue demand on zamindars was fixed in perpetuity.
+
+(2) Ryotwari settlement ordinarily recognised the village community collectively as the revenue-paying intermediary.
 
 Which of the statements given above is/are correct?
 
@@ -369,15 +394,13 @@ Which of the statements given above is/are correct?
 - [ ] (c) Neither 1 nor 2
 - [ ] (d) Both 1 and 2
 
-31. Consider the following pairs:
+**31.** Consider the following pairs:
 
 | Feature | Process or setting |
 |---|---|
 | 1. Oxbow lake | Cut-off river meander |
 | 2. Fjord | Submerged glacial trough |
 | 3. Barchan | Crescent-shaped wind-deposited dune |
-
-
 
 How many pairs are correctly matched?
 
@@ -386,25 +409,27 @@ How many pairs are correctly matched?
 - [ ] (c) Only two
 - [ ] (d) None
 
-32. Which statement correctly distinguishes ozone depletion from climate warming?
+**32.** Which statement correctly distinguishes ozone depletion from climate warming?
 
 - [ ] (a) Tropospheric ozone and stratospheric ozone have identical effects on human health at ground level.
 - [ ] (b) Both arise solely from carbon dioxide absorbing visible sunlight.
 - [ ] (c) Stratospheric ozone depletion increases ultraviolet exposure; greenhouse warming concerns changes in Earth’s energy balance.
 - [ ] (d) Repairing stratospheric ozone necessarily eliminates warming from carbon dioxide.
 
-33. A Bill contains only provisions imposing a tax and matters incidental to that tax. Which statement about its parliamentary passage is correct?
+**33.** A Bill contains only provisions imposing a tax and matters incidental to that tax. Which statement about its parliamentary passage is correct?
 
 - [ ] (a) The Bill can be introduced in either House without presidential recommendation.
 - [ ] (b) Rajya Sabha may recommend changes within fourteen days, which Lok Sabha may accept or reject.
 - [ ] (c) Rajya Sabha can amend it with binding effect on Lok Sabha.
 - [ ] (d) A disagreement automatically requires a joint sitting.
 
-34. Suppose the exchange rate changes from ₹80 per US dollar to ₹88 per US dollar, with dollar invoice values unchanged. Consider the following statements:
+**34.** Suppose the exchange rate changes from ₹80 per US dollar to ₹88 per US dollar, with dollar invoice values unchanged. Consider the following statements:
 
-   1. The rupee cost of a dollar-denominated import invoice rises by 10%.
-   2. The dollar value of a fixed rupee amount falls by exactly 10%.
-   3. A fixed dollar export receipt converts into more rupees.
+(1) The rupee cost of a dollar-denominated import invoice rises by 10%.
+
+(2) The dollar value of a fixed rupee amount falls by exactly 10%.
+
+(3) A fixed dollar export receipt converts into more rupees.
 
 Which of the statements given above are correct?
 
@@ -413,17 +438,18 @@ Which of the statements given above are correct?
 - [ ] (c) 1 and 3 only
 - [ ] (d) 2 and 3 only
 
-35. WHO’s 22 May 2026 World Health Assembly update described a resolution addressing stroke through prevention, acute care and rehabilitation. Which policy package best reflects that continuum?
+**35.** WHO’s 22 May 2026 World Health Assembly update described a resolution addressing stroke through prevention, acute care and rehabilitation. Which policy package best reflects that continuum?
 
 - [ ] (a) Population screening, with acute-care funding redirected entirely to awareness programmes
 - [ ] (b) Blood-pressure control, rapid referral for suspected stroke, and rehabilitation after the acute episode
 - [ ] (c) Acute hospital capacity, with follow-up rehabilitation omitted from health-service planning
 - [ ] (d) Rehabilitation services, with primary prevention and rapid referral treated as unrelated programmes
 
-36. Consider the following statements:
+**36.** Consider the following statements:
 
-   1. Primary succession begins on a substrate lacking an established soil, such as newly exposed bare rock.
-   2. Secondary succession can proceed where soil and some biological legacies remain after disturbance.
+(1) Primary succession begins on a substrate lacking an established soil, such as newly exposed bare rock.
+
+(2) Secondary succession can proceed where soil and some biological legacies remain after disturbance.
 
 Which of the statements given above is/are correct?
 
@@ -432,10 +458,11 @@ Which of the statements given above is/are correct?
 - [ ] (c) 2 only
 - [ ] (d) 1 only
 
-37. Consider the following statements:
+**37.** Consider the following statements:
 
-   1. Fundamental Duties are addressed by Article 51A to citizens.
-   2. Their inclusion automatically makes each duty directly enforceable through a writ under Article 32 without any supporting law.
+(1) Fundamental Duties are addressed by Article 51A to citizens.
+
+(2) Their inclusion automatically makes each duty directly enforceable through a writ under Article 32 without any supporting law.
 
 Which of the statements given above is/are correct?
 
@@ -444,11 +471,13 @@ Which of the statements given above is/are correct?
 - [ ] (c) Both 1 and 2
 - [ ] (d) Neither 1 nor 2
 
-38. ISRO’s 12 August 2026 release reported a ground static test of an improved SSLV first stage. Consider the following statements:
+**38.** ISRO’s 12 August 2026 release reported a ground static test of an improved SSLV first stage. Consider the following statements:
 
-   1. The tested SS1 is a solid-propellant booster stage.
-   2. A ground static test can evaluate motor performance while the motor is restrained rather than flying an orbital mission.
-   3. Reducing a launch vehicle’s structural mass can improve payload capability, other design factors permitting.
+(1) The tested SS1 is a solid-propellant booster stage.
+
+(2) A ground static test can evaluate motor performance while the motor is restrained rather than flying an orbital mission.
+
+(3) Reducing a launch vehicle’s structural mass can improve payload capability, other design factors permitting.
 
 Which of the statements given above is/are correct?
 
@@ -457,24 +486,25 @@ Which of the statements given above is/are correct?
 - [ ] (c) 1 and 2 only
 - [ ] (d) 1 and 3 only
 
-39. Annual consumer-price inflation falls from 8% to 5%, while remaining positive. Which inference is necessarily correct?
+**39.** Annual consumer-price inflation falls from 8% to 5%, while remaining positive. Which inference is necessarily correct?
 
 - [ ] (a) The general price level is falling.
 - [ ] (b) The general price level is rising more slowly than before.
 - [ ] (c) The purchasing power of money has returned to its earlier level.
 - [ ] (d) Every commodity has become cheaper.
 
-40. Which combination is most consistent with the broad July pressure and wind pattern over the Indian region?
+**40.** Which combination is most consistent with the broad July pressure and wind pattern over the Indian region?
 
 - [ ] (a) Low pressure over northwestern India and cross-equatorial flow turning southwesterly over the Arabian Sea
 - [ ] (b) High pressure over northwestern India and persistent northeasterly surface flow over the Arabian Sea
 - [ ] (c) Low pressure over Siberia and winter westerly precipitation over peninsular India
 - [ ] (d) High pressure over the Tibetan region and a southward-displaced equatorial rain belt throughout India
 
-41. Consider the following statements concerning early medieval land grants:
+**41.** Consider the following statements concerning early medieval land grants:
 
-   1. Copper-plate charters can provide evidence about fiscal privileges and local administration.
-   2. A grant transferring revenue rights necessarily transferred unrestricted ownership of every cultivator’s labour.
+(1) Copper-plate charters can provide evidence about fiscal privileges and local administration.
+
+(2) A grant transferring revenue rights necessarily transferred unrestricted ownership of every cultivator’s labour.
 
 Which of the statements given above is/are correct?
 
@@ -483,10 +513,11 @@ Which of the statements given above is/are correct?
 - [ ] (c) Neither 1 nor 2
 - [ ] (d) 1 only
 
-42. Consider the following statements:
+**42.** Consider the following statements:
 
-   1. Vaccination can establish immunological memory without requiring the person to experience the full natural disease.
-   2. The presence of antibodies against a pathogen necessarily means the person is currently infectious.
+(1) Vaccination can establish immunological memory without requiring the person to experience the full natural disease.
+
+(2) The presence of antibodies against a pathogen necessarily means the person is currently infectious.
 
 Which of the statements given above is/are correct?
 
@@ -495,11 +526,13 @@ Which of the statements given above is/are correct?
 - [ ] (c) Both 1 and 2
 - [ ] (d) Neither 1 nor 2
 
-43. Consider the following statements about constitutional provisions for Panchayats:
+**43.** Consider the following statements about constitutional provisions for Panchayats:
 
-   1. A State Election Commission supervises Panchayat elections.
-   2. The Governor constitutes a State Finance Commission every five years.
-   3. The Eleventh Schedule by itself transfers every listed function and its funding to all Panchayats without State legislation.
+(1) A State Election Commission supervises Panchayat elections.
+
+(2) The Governor constitutes a State Finance Commission every five years.
+
+(3) The Eleventh Schedule by itself transfers every listed function and its funding to all Panchayats without State legislation.
 
 Which of the statements given above is/are correct?
 
@@ -508,11 +541,13 @@ Which of the statements given above is/are correct?
 - [ ] (c) 1 and 3 only
 - [ ] (d) 1 and 2 only
 
-44. Consider the following statements:
+**44.** Consider the following statements:
 
-   1. Black soils commonly develop deep cracks during dry periods.
-   2. Lateritic soils generally develop where leaching is negligible.
-   3. Alluvial soils occur in inland river plains as well as deltas.
+(1) Black soils commonly develop deep cracks during dry periods.
+
+(2) Lateritic soils generally develop where leaching is negligible.
+
+(3) Alluvial soils occur in inland river plains as well as deltas.
 
 Which of the statements given above is/are correct?
 
@@ -521,10 +556,11 @@ Which of the statements given above is/are correct?
 - [ ] (c) 1 and 2 only
 - [ ] (d) 1 and 3 only
 
-45. Consider the following statements:
+**45.** Consider the following statements:
 
-   1. Every geostationary orbit is geosynchronous.
-   2. Every geosynchronous orbit is necessarily geostationary.
+(1) Every geostationary orbit is geosynchronous.
+
+(2) Every geosynchronous orbit is necessarily geostationary.
 
 Which of the statements given above is/are correct?
 
@@ -533,11 +569,13 @@ Which of the statements given above is/are correct?
 - [ ] (c) Both 1 and 2
 - [ ] (d) 2 only
 
-46. With reference to the Harappan civilisation, consider the following statements:
+**46.** With reference to the Harappan civilisation, consider the following statements:
 
-   1. The presence of standardised weights and seals is evidence of regulated exchange practices.
-   2. The Harappan script has been deciphered sufficiently to reconstruct a continuous list of its rulers.
-   3. Dholavira provides evidence of substantial water-storage arrangements.
+(1) The presence of standardised weights and seals is evidence of regulated exchange practices.
+
+(2) The Harappan script has been deciphered sufficiently to reconstruct a continuous list of its rulers.
+
+(3) Dholavira provides evidence of substantial water-storage arrangements.
 
 Which of the statements given above is/are correct?
 
@@ -546,32 +584,34 @@ Which of the statements given above is/are correct?
 - [ ] (c) 2 and 3 only
 - [ ] (d) 1 and 3 only
 
-47. A persistent, fat-soluble contaminant occurs in a lake. Which observation most strongly indicates biomagnification?
+**47.** A persistent, fat-soluble contaminant occurs in a lake. Which observation most strongly indicates biomagnification?
 
 - [ ] (a) Concentrations increase from water to plankton to small fish to fish-eating birds.
 - [ ] (b) The contaminant is completely metabolised at every trophic transfer.
 - [ ] (c) Only the total mass of water in the lake increases.
 - [ ] (d) Concentrations decline consistently at each higher trophic level.
 
-48. Which transaction is ordinarily recorded as a current-account receipt for India?
+**48.** Which transaction is ordinarily recorded as a current-account receipt for India?
 
 - [ ] (a) The central bank acquires additional foreign government securities.
 - [ ] (b) An Indian company borrows abroad for five years.
 - [ ] (c) A foreign firm acquires equity in an Indian company.
 - [ ] (d) A resident household receives a personal remittance from a relative working abroad.
 
-49. The UN’s Sustainable Development Goals Report 2026 was released in July. Which approach is most appropriate when interpreting an indicator in that report?
+**49.** The UN’s Sustainable Development Goals Report 2026 was released in July. Which approach is most appropriate when interpreting an indicator in that report?
 
 - [ ] (a) Treat the absence of a reported observation as proof that the target has been met.
 - [ ] (b) Distinguish the report’s publication year from each indicator’s observation period and examine disaggregated data where available.
 - [ ] (c) Treat 2026 as the observation year of every indicator irrespective of its source note.
 - [ ] (d) Infer that a global average describes every country equally well.
 
-50. Consider the following statements about antimicrobial resistance:
+**50.** Consider the following statements about antimicrobial resistance:
 
-   1. Resistance genes can sometimes pass between bacteria through horizontal gene transfer.
-   2. Selection by an antibiotic requires every exposed bacterium to acquire the same new mutation during treatment.
-   3. Resistant bacteria can spread between humans, animals and environmental reservoirs.
+(1) Resistance genes can sometimes pass between bacteria through horizontal gene transfer.
+
+(2) Selection by an antibiotic requires every exposed bacterium to acquire the same new mutation during treatment.
+
+(3) Resistant bacteria can spread between humans, animals and environmental reservoirs.
 
 Which of the statements given above are correct?
 
@@ -580,20 +620,18 @@ Which of the statements given above are correct?
 - [ ] (c) 1 and 3 only
 - [ ] (d) 2 and 3 only
 
-51. The Ancient Buddhist Site of Sarnath was inscribed on the World Heritage List in July 2026. Which association best explains its importance in Buddhist tradition?
+**51.** The Ancient Buddhist Site of Sarnath was inscribed on the World Heritage List in July 2026. Which association best explains its importance in Buddhist tradition?
 
 - [ ] (a) The Buddha’s first sermon after enlightenment
 - [ ] (b) The Buddha’s enlightenment beneath the Bodhi tree
 - [ ] (c) The Buddha’s mahaparinirvana
 - [ ] (d) The Buddha’s birth in the Shakya territory
 
-52. Consider the following statements:
+**52.** Consider the following statements:
 
 **Statement-I:** Absorption of additional atmospheric carbon dioxide can make seawater less favourable for some shell-building organisms.
 
 **Statement-II:** Carbon dioxide alters seawater chemistry in ways that can reduce carbonate-ion availability.
-
-
 
 Which one of the following is correct in respect of the above statements?
 
@@ -602,10 +640,11 @@ Which one of the following is correct in respect of the above statements?
 - [ ] (c) Both Statement-I and Statement-II are correct, and Statement-II explains Statement-I
 - [ ] (d) Both Statement-I and Statement-II are correct, but Statement-II does not explain Statement-I
 
-53. Consider the following statements about coastal upwelling:
+**53.** Consider the following statements about coastal upwelling:
 
-   1. It can bring nutrient-rich subsurface water into the sunlit surface layer.
-   2. It necessarily raises sea-surface temperature relative to surrounding surface waters.
+(1) It can bring nutrient-rich subsurface water into the sunlit surface layer.
+
+(2) It necessarily raises sea-surface temperature relative to surrounding surface waters.
 
 Which of the statements given above is/are correct?
 
@@ -614,15 +653,13 @@ Which of the statements given above is/are correct?
 - [ ] (c) 1 only
 - [ ] (d) 2 only
 
-54. Consider the following pairs:
+**54.** Consider the following pairs:
 
 | Monument | Principal architectural association |
 |---|---|
 | 1. Brihadisvara, Thanjavur | Chola patronage |
 | 2. Kailasanatha, Ellora | Rashtrakuta patronage |
 | 3. Sun Temple, Konark | Pallava patronage |
-
-
 
 How many of the pairs given above are correctly matched?
 
@@ -631,11 +668,13 @@ How many of the pairs given above are correctly matched?
 - [ ] (c) None
 - [ ] (d) Only two
 
-55. Consider the following statements about a commercial bank:
+**55.** Consider the following statements about a commercial bank:
 
-   1. Customer deposits are liabilities of the bank.
-   2. Loans advanced to borrowers are normally assets of the bank.
-   3. An increase in deposits necessarily represents an equal increase in the bank’s profits.
+(1) Customer deposits are liabilities of the bank.
+
+(2) Loans advanced to borrowers are normally assets of the bank.
+
+(3) An increase in deposits necessarily represents an equal increase in the bank’s profits.
 
 Which of the statements given above is/are correct?
 
@@ -644,10 +683,11 @@ Which of the statements given above is/are correct?
 - [ ] (c) 2 and 3 only
 - [ ] (d) 1 and 3 only
 
-56. Consider the following statements:
+**56.** Consider the following statements:
 
-   1. Rajya Sabha can authorise Parliament to legislate on a State List subject in the national interest through the prescribed special resolution.
-   2. Rajya Sabha can initiate the constitutional process for creating an All India Service through the prescribed special resolution.
+(1) Rajya Sabha can authorise Parliament to legislate on a State List subject in the national interest through the prescribed special resolution.
+
+(2) Rajya Sabha can initiate the constitutional process for creating an All India Service through the prescribed special resolution.
 
 Which of the statements given above is/are correct?
 
@@ -656,10 +696,11 @@ Which of the statements given above is/are correct?
 - [ ] (c) Neither 1 nor 2
 - [ ] (d) Both 1 and 2
 
-57. Consider the following statements:
+**57.** Consider the following statements:
 
-   1. An artesian well can flow without pumping if the potentiometric surface is above ground level.
-   2. Seawater intrusion into a coastal aquifer can be encouraged by excessive groundwater withdrawal.
+(1) An artesian well can flow without pumping if the potentiometric surface is above ground level.
+
+(2) Seawater intrusion into a coastal aquifer can be encouraged by excessive groundwater withdrawal.
 
 Which of the statements given above is/are correct?
 
@@ -668,17 +709,18 @@ Which of the statements given above is/are correct?
 - [ ] (c) 2 only
 - [ ] (d) 1 only
 
-58. A satellite instrument emits microwave pulses and analyses their returned signals. Which advantage does this active radar system generally offer over a passive visible-light camera?
+**58.** A satellite instrument emits microwave pulses and analyses their returned signals. Which advantage does this active radar system generally offer over a passive visible-light camera?
 
 - [ ] (a) Its microwave signal penetrates every surface to the same depth, regardless of moisture.
 - [ ] (b) It measures natural reflected sunlight rather than generating its own illumination.
 - [ ] (c) It can operate without sunlight and often through cloud cover.
 - [ ] (d) Its returned signal depends only on colour and is independent of surface roughness.
 
-59. Consider the following statements:
+**59.** Consider the following statements:
 
-   1. The Comptroller and Auditor General’s reports concerning Union accounts are submitted to the President, who causes them to be laid before Parliament.
-   2. The Comptroller and Auditor General votes on demands for grants in Lok Sabha.
+(1) The Comptroller and Auditor General’s reports concerning Union accounts are submitted to the President, who causes them to be laid before Parliament.
+
+(2) The Comptroller and Auditor General votes on demands for grants in Lok Sabha.
 
 Which of the statements given above is/are correct?
 
@@ -687,11 +729,13 @@ Which of the statements given above is/are correct?
 - [ ] (c) 1 only
 - [ ] (d) Neither 1 nor 2
 
-60. With reference to COP31, taking place in November 2026, consider the following statements:
+**60.** With reference to COP31, taking place in November 2026, consider the following statements:
 
-   1. Its host city, Antalya, is on Türkiye’s Mediterranean coast.
-   2. The COP under the UNFCCC and the CMA under the Paris Agreement are legally distinct governing bodies, even when their meetings are held together.
-   3. The Paris Agreement provides for successive nationally determined contributions, ordinarily communicated every five years.
+(1) Its host city, Antalya, is on Türkiye’s Mediterranean coast.
+
+(2) The COP under the UNFCCC and the CMA under the Paris Agreement are legally distinct governing bodies, even when their meetings are held together.
+
+(3) The Paris Agreement provides for successive nationally determined contributions, ordinarily communicated every five years.
 
 Which of the statements given above is/are correct?
 
@@ -700,24 +744,25 @@ Which of the statements given above is/are correct?
 - [ ] (c) 1 and 2 only
 - [ ] (d) 1, 2 and 3
 
-61. An epiphytic orchid grows on a tree for support without drawing nutrients from its tissues. Assume there is no measurable effect on the tree. This interaction is best classified as:
+**61.** An epiphytic orchid grows on a tree for support without drawing nutrients from its tissues. Assume there is no measurable effect on the tree. This interaction is best classified as:
 
 - [ ] (a) Commensalism
 - [ ] (b) Parasitism
 - [ ] (c) Predation
 - [ ] (d) Competition with equal harm to both species
 
-62. The amara-nayaka system of Vijayanagara is best characterised as which of the following?
+**62.** The amara-nayaka system of Vijayanagara is best characterised as which of the following?
 
 - [ ] (a) A uniform cash salary paid directly to every village cultivator
 - [ ] (b) A hereditary priesthood supervising all imperial temples
 - [ ] (c) A military arrangement linking assigned territories and revenue to service obligations
 - [ ] (d) A merchant guild administering only overseas trade
 
-63. Consider the following statements:
+**63.** Consider the following statements:
 
-   1. A rise in nominal GDP can occur even when real output remains unchanged.
-   2. A transfer pension paid by the government is counted as payment for current production in GDP.
+(1) A rise in nominal GDP can occur even when real output remains unchanged.
+
+(2) A transfer pension paid by the government is counted as payment for current production in GDP.
 
 Which of the statements given above is/are correct?
 
@@ -726,31 +771,32 @@ Which of the statements given above is/are correct?
 - [ ] (c) Both 1 and 2
 - [ ] (d) Neither 1 nor 2
 
-64. Which pair is incorrectly matched?
+**64.** Which pair is incorrectly matched?
 
 - [ ] (a) Bailadila — Iron ore
 - [ ] (b) Jharia — Bauxite
 - [ ] (c) Khetri — Copper
 - [ ] (d) Neyveli — Lignite
 
-65. A laboratory seeks to amplify a specific DNA sequence from a small sample. Which technique is most directly suited to this purpose?
+**65.** A laboratory seeks to amplify a specific DNA sequence from a small sample. Which technique is most directly suited to this purpose?
 
 - [ ] (a) Centrifugation alone
 - [ ] (b) Dialysis
 - [ ] (c) Polymerase chain reaction
 - [ ] (d) Chromatography without DNA replication
 
-66. An inscription records remorse after the conquest of Kalinga and advocates conquest through dhamma. Which identification is correct?
+**66.** An inscription records remorse after the conquest of Kalinga and advocates conquest through dhamma. Which identification is correct?
 
 - [ ] (a) Ashoka’s Major Rock Edict XIII
 - [ ] (b) Kharavela’s Hathigumpha inscription
 - [ ] (c) Rudradaman’s Junagadh inscription
 - [ ] (d) Samudragupta’s Prayaga Prashasti
 
-67. Consider the following statements:
+**67.** Consider the following statements:
 
-   1. Article 32 is available to enforce every legal right, whether or not it is a Fundamental Right.
-   2. Article 226 empowers High Courts to issue writs for enforcement of Fundamental Rights and for other purposes.
+(1) Article 32 is available to enforce every legal right, whether or not it is a Fundamental Right.
+
+(2) Article 226 empowers High Courts to issue writs for enforcement of Fundamental Rights and for other purposes.
 
 Which of the statements given above is/are correct?
 
@@ -759,11 +805,13 @@ Which of the statements given above is/are correct?
 - [ ] (c) 1 only
 - [ ] (d) Neither 1 nor 2
 
-68. Consider the following statements:
+**68.** Consider the following statements:
 
-   1. A forest can retain a large carbon stock while becoming a net carbon source during a period of degradation.
-   2. Crediting an avoided-deforestation project requires attention to whether forest loss would have occurred without the project.
-   3. Protecting one forest guarantees a net global emissions reduction even if the same clearing activity shifts to another forest.
+(1) A forest can retain a large carbon stock while becoming a net carbon source during a period of degradation.
+
+(2) Crediting an avoided-deforestation project requires attention to whether forest loss would have occurred without the project.
+
+(3) Protecting one forest guarantees a net global emissions reduction even if the same clearing activity shifts to another forest.
 
 Which of the statements given above are correct?
 
@@ -772,11 +820,13 @@ Which of the statements given above are correct?
 - [ ] (c) 1 and 2 only
 - [ ] (d) 2 and 3 only
 
-69. In the context of the Global Innovation Index 2026 released in September, consider the following statements:
+**69.** In the context of the Global Innovation Index 2026 released in September, consider the following statements:
 
-   1. The report is associated with the World Intellectual Property Organization.
-   2. An economy’s innovation performance can be assessed using both inputs and outputs.
-   3. A better rank by itself proves that the economy’s score increased, regardless of other economies’ performance.
+(1) The report is associated with the World Intellectual Property Organization.
+
+(2) An economy’s innovation performance can be assessed using both inputs and outputs.
+
+(3) A better rank by itself proves that the economy’s score increased, regardless of other economies’ performance.
 
 Which of the statements given above is/are correct?
 
@@ -785,32 +835,34 @@ Which of the statements given above is/are correct?
 - [ ] (c) 2 and 3 only
 - [ ] (d) 1, 2 and 3
 
-70. Six family members work on a small farm. When two move to other work, farm output remains unchanged with the same land and equipment. This most directly illustrates:
+**70.** Six family members work on a small farm. When two move to other work, farm output remains unchanged with the same land and equipment. This most directly illustrates:
 
 - [ ] (a) Technological unemployment caused by new machinery
 - [ ] (b) Disguised unemployment in the original farm workforce
 - [ ] (c) A necessary fall in total factor productivity
 - [ ] (d) Seasonal unemployment caused only by monsoon failure
 
-71. A winter weather system moves eastward from the Mediterranean–West Asian region and brings precipitation to northwestern India. It is most closely associated with:
+**71.** A winter weather system moves eastward from the Mediterranean–West Asian region and brings precipitation to northwestern India. It is most closely associated with:
 
 - [ ] (a) The summer reversal of the Somali jet
 - [ ] (b) An easterly wave originating over the equatorial Indian Ocean
 - [ ] (c) An extratropical disturbance carried by the westerlies
 - [ ] (d) A depression embedded in the tropical easterly jet
 
-72. Both Houses of a bicameral State Legislature are in session. The Governor considers immediate legislation necessary. Under Article 213, which statement is correct?
+**72.** Both Houses of a bicameral State Legislature are in session. The Governor considers immediate legislation necessary. Under Article 213, which statement is correct?
 
 - [ ] (a) An ordinance can be promulgated if it is submitted to the Speaker within fourteen days.
 - [ ] (b) An ordinance can be promulgated if the Chief Minister alone certifies urgency.
 - [ ] (c) An ordinance can be promulgated provided it concerns only a State List matter.
 - [ ] (d) The constitutional condition permitting promulgation of an ordinance is not met.
 
-73. The BBNJ Agreement received further ratifications at the UN Treaty Event of 22–25 September 2026. Consider the following statements:
+**73.** The BBNJ Agreement received further ratifications at the UN Treaty Event of 22–25 September 2026. Consider the following statements:
 
-   1. It is an agreement under the United Nations Convention on the Law of the Sea.
-   2. Its subject includes conservation and sustainable use of marine biological diversity in areas beyond national jurisdiction.
-   3. Its title refers exclusively to biodiversity within the territorial waters of coastal States.
+(1) It is an agreement under the United Nations Convention on the Law of the Sea.
+
+(2) Its subject includes conservation and sustainable use of marine biological diversity in areas beyond national jurisdiction.
+
+(3) Its title refers exclusively to biodiversity within the territorial waters of coastal States.
 
 Which of the statements given above is/are correct?
 
@@ -819,13 +871,13 @@ Which of the statements given above is/are correct?
 - [ ] (c) 1, 2 and 3
 - [ ] (d) 1 and 2 only
 
-74. Consider the following measures:
+**74.** Consider the following measures:
 
-   1. Maintaining a crop’s seed samples in a seed bank
-   2. Protecting a wild population within its natural habitat
-   3. Maintaining living collections in a botanical garden
+(1) Maintaining a crop’s seed samples in a seed bank
 
+(2) Protecting a wild population within its natural habitat
 
+(3) Maintaining living collections in a botanical garden
 
 Which are examples of ex situ conservation?
 
@@ -834,17 +886,18 @@ Which are examples of ex situ conservation?
 - [ ] (c) 1 only
 - [ ] (d) 2 only
 
-75. Which sequence correctly orders these interventions by Gandhi?
+**75.** Which sequence correctly orders these interventions by Gandhi?
 
 - [ ] (a) Rowlatt satyagraha → Champaran satyagraha → Salt March → Kheda satyagraha
 - [ ] (b) Champaran satyagraha → Kheda satyagraha → Rowlatt satyagraha → Salt March
 - [ ] (c) Kheda satyagraha → Champaran satyagraha → Rowlatt satyagraha → Salt March
 - [ ] (d) Champaran satyagraha → Rowlatt satyagraha → Kheda satyagraha → Salt March
 
-76. Consider the following statements, other things being equal:
+**76.** Consider the following statements, other things being equal:
 
-   1. A central bank’s outright purchase of government securities from banks normally adds to banking-system reserves.
-   2. An outright sale of government securities to banks normally drains banking-system reserves.
+(1) A central bank’s outright purchase of government securities from banks normally adds to banking-system reserves.
+
+(2) An outright sale of government securities to banks normally drains banking-system reserves.
 
 Which of the statements given above is/are correct?
 
@@ -853,11 +906,13 @@ Which of the statements given above is/are correct?
 - [ ] (c) 1 only
 - [ ] (d) Neither 1 nor 2
 
-77. Consider the following processes:
+**77.** Consider the following processes:
 
-   1. Biological nitrogen fixation
-   2. Nitrification
-   3. Denitrification
+(1) Biological nitrogen fixation
+
+(2) Nitrification
+
+(3) Denitrification
 
 Which sequence correctly associates them with their principal transformations?
 
@@ -866,11 +921,13 @@ Which sequence correctly associates them with their principal transformations?
 - [ ] (c) Ammonium → nitrate; gaseous nitrogen → ammonia; nitrate → organic nitrogen
 - [ ] (d) Atmospheric nitrogen → nitrate; nitrate → ammonium; ammonia → organic nitrogen
 
-78. In Mughal administration, consider the following statements:
+**78.** In Mughal administration, consider the following statements:
 
-   1. A mansab was solely a hereditary title with no connection to imperial service rank.
-   2. A jagir assignment generally conferred a right to collect specified revenues rather than ownership of the soil.
-   3. The zat and sawar ranks of a mansabdar could differ.
+(1) A mansab was solely a hereditary title with no connection to imperial service rank.
+
+(2) A jagir assignment generally conferred a right to collect specified revenues rather than ownership of the soil.
+
+(3) The zat and sawar ranks of a mansabdar could differ.
 
 Which of the statements given above is/are correct?
 
@@ -879,11 +936,13 @@ Which of the statements given above is/are correct?
 - [ ] (c) 1, 2 and 3
 - [ ] (d) 1 and 3 only
 
-79. Consider the following statements about population density measures:
+**79.** Consider the following statements about population density measures:
 
-   1. Arithmetic density divides total population by total land area.
-   2. Physiological density relates total population to arable land area.
-   3. Two regions with equal arithmetic density must have equal physiological density.
+(1) Arithmetic density divides total population by total land area.
+
+(2) Physiological density relates total population to arable land area.
+
+(3) Two regions with equal arithmetic density must have equal physiological density.
 
 Which of the statements given above are correct?
 
@@ -892,10 +951,11 @@ Which of the statements given above are correct?
 - [ ] (c) 2 and 3 only
 - [ ] (d) 1 and 3 only
 
-80. Assume a government sets a binding procurement price above the competitive market-clearing price and stands ready to purchase all offered surplus. Consider the following statements:
+**80.** Assume a government sets a binding procurement price above the competitive market-clearing price and stands ready to purchase all offered surplus. Consider the following statements:
 
-   1. Quantity supplied can exceed private quantity demanded at that price.
-   2. Maintaining the price may require public procurement and storage.
+(1) Quantity supplied can exceed private quantity demanded at that price.
+
+(2) Maintaining the price may require public procurement and storage.
 
 Which of the statements given above is/are correct?
 
@@ -904,10 +964,11 @@ Which of the statements given above is/are correct?
 - [ ] (c) 2 only
 - [ ] (d) Neither 1 nor 2
 
-81. Consider the following statements:
+**81.** Consider the following statements:
 
-   1. A proclamation of National Emergency on the ground of armed rebellion automatically suspends Article 19 under Article 358.
-   2. The rights under Articles 20 and 21 are excluded from the suspension of enforcement permitted by Article 359.
+(1) A proclamation of National Emergency on the ground of armed rebellion automatically suspends Article 19 under Article 358.
+
+(2) The rights under Articles 20 and 21 are excluded from the suspension of enforcement permitted by Article 359.
 
 Which of the statements given above is/are correct?
 
@@ -916,34 +977,34 @@ Which of the statements given above is/are correct?
 - [ ] (c) 1 only
 - [ ] (d) 2 only
 
-82. The RBI’s October 2026 MPC resolution raised the policy repo rate by 25 basis points to 5.50%. Which conclusion follows from the size of this change?
+**82.** The RBI’s October 2026 MPC resolution raised the policy repo rate by 25 basis points to 5.50%. Which conclusion follows from the size of this change?
 
 - [ ] (a) The previous policy repo rate was 5.475%, and the increase was 0.025 percentage point.
 - [ ] (b) The previous policy repo rate was 5.25%, and the increase was 0.25 percentage point.
 - [ ] (c) The previous policy repo rate was 5.25%, and the increase was 25 percentage points.
 - [ ] (d) The previous policy repo rate was 5.75%, and the change was a reduction.
 
-83. Two stations at similar latitude lie on opposite sides of a mountain barrier. During a moist onshore airflow, the windward station receives substantially more rain. The most direct explanation is:
+**83.** Two stations at similar latitude lie on opposite sides of a mountain barrier. During a moist onshore airflow, the windward station receives substantially more rain. The most direct explanation is:
 
 - [ ] (a) The leeward slope receives stronger solar radiation in every season.
 - [ ] (b) Air warms on ascent and loses its capacity to hold moisture.
 - [ ] (c) Air is forced to rise and cool on the windward slope, while descent warms it on the leeward slope.
 - [ ] (d) Mountain summits generate moisture by reducing atmospheric oxygen.
 
-84. Nutrient-rich runoff enters a freshwater lake. A dense algal bloom is followed by widespread fish mortality. Which chain best explains the oxygen-related mechanism?
+**84.** Nutrient-rich runoff enters a freshwater lake. A dense algal bloom is followed by widespread fish mortality. Which chain best explains the oxygen-related mechanism?
 
 - [ ] (a) The added nutrients prevent bacteria from decomposing organic matter.
 - [ ] (b) Decomposition of dead biomass raises oxygen demand and lowers dissolved oxygen.
 - [ ] (c) Photosynthesis by the bloom consumes most dissolved oxygen during daylight.
 - [ ] (d) The bloom increases oxygen solubility enough to produce lethal oxygen deficiency.
 
-85. Consider the following elections:
+**85.** Consider the following elections:
 
-   1. Election to the office of President of India
-   2. Election to a State Legislative Assembly
-   3. Election to a Municipal Corporation
+(1) Election to the office of President of India
 
+(2) Election to a State Legislative Assembly
 
+(3) Election to a Municipal Corporation
 
 Which are supervised by the Election Commission of India under Article 324?
 
@@ -952,18 +1013,20 @@ Which are supervised by the Election Commission of India under Article 324?
 - [ ] (c) 1 and 3 only
 - [ ] (d) 2 and 3 only
 
-86. A hypothetical government records total expenditure of ₹900 crore, revenue receipts of ₹650 crore, non-debt capital receipts of ₹50 crore, and interest payments of ₹80 crore. It then replaces ₹20 crore of planned borrowing with an equal amount of disinvestment receipts, keeping expenditure and revenue receipts unchanged. What are the revised fiscal deficit and primary deficit?
+**86.** A hypothetical government records total expenditure of ₹900 crore, revenue receipts of ₹650 crore, non-debt capital receipts of ₹50 crore, and interest payments of ₹80 crore. It then replaces ₹20 crore of planned borrowing with an equal amount of disinvestment receipts, keeping expenditure and revenue receipts unchanged. What are the revised fiscal deficit and primary deficit?
 
 - [ ] (a) ₹180 crore and ₹100 crore
 - [ ] (b) ₹180 crore and ₹260 crore
 - [ ] (c) ₹200 crore and ₹120 crore
 - [ ] (d) ₹220 crore and ₹140 crore
 
-87. Consider the following statements:
+**87.** Consider the following statements:
 
-   1. Alvars composed devotional hymns primarily associated with Shiva.
-   2. Nayanars composed devotional hymns associated with Shiva.
-   3. A Sufi khanqah could serve as a centre of teaching and hospitality.
+(1) Alvars composed devotional hymns primarily associated with Shiva.
+
+(2) Nayanars composed devotional hymns associated with Shiva.
+
+(3) A Sufi khanqah could serve as a centre of teaching and hospitality.
 
 Which of the statements given above is/are correct?
 
@@ -972,32 +1035,34 @@ Which of the statements given above is/are correct?
 - [ ] (c) 1 and 2 only
 - [ ] (d) 1 and 3 only
 
-88. Which sequence orders the following Himalayan tributaries of the Ganga broadly from west to east?
+**88.** Which sequence orders the following Himalayan tributaries of the Ganga broadly from west to east?
 
 - [ ] (a) Gandak → Kosi → Ghaghara
 - [ ] (b) Ghaghara → Gandak → Kosi
 - [ ] (c) Gandak → Ghaghara → Kosi
 - [ ] (d) Kosi → Ghaghara → Gandak
 
-89. A road divides a forest into isolated patches. Which intervention most directly addresses disrupted animal movement while retaining the road?
+**89.** A road divides a forest into isolated patches. Which intervention most directly addresses disrupted animal movement while retaining the road?
 
 - [ ] (a) Increasing lighting throughout every habitat patch at night
 - [ ] (b) Removing all vegetation from both sides of the road
 - [ ] (c) Building appropriately located wildlife crossings and retaining habitat connections
 - [ ] (d) Replacing all adjoining native vegetation with a single exotic tree species
 
-90. A court is examining whether a statute violates a Fundamental Right. Which proposition is constitutionally sound?
+**90.** A court is examining whether a statute violates a Fundamental Right. Which proposition is constitutionally sound?
 
 - [ ] (a) Every Directive Principle automatically overrides every Fundamental Right.
 - [ ] (b) Directive Principles are fundamental in governance, while the statute’s validity must be assessed under applicable constitutional provisions.
 - [ ] (c) Directive Principles are legally irrelevant to interpretation because they are non-justiciable.
 - [ ] (d) Any law citing a Directive Principle is exempt from judicial review.
 
-91. Consider the following transactions in government accounts:
+**91.** Consider the following transactions in government accounts:
 
-   1. Recovery of the principal of a loan previously advanced to a State
-   2. Interest received on that loan
-   3. Proceeds of sale of government equity in an enterprise
+(1) Recovery of the principal of a loan previously advanced to a State
+
+(2) Interest received on that loan
+
+(3) Proceeds of sale of government equity in an enterprise
 
 Which are non-debt capital receipts?
 
@@ -1006,10 +1071,11 @@ Which are non-debt capital receipts?
 - [ ] (c) 1, 2 and 3
 - [ ] (d) 1 and 2 only
 
-92. With reference to the Poona Pact of 1932, consider the following statements:
+**92.** With reference to the Poona Pact of 1932, consider the following statements:
 
-   1. It retained separate electorates for the Depressed Classes as the final electoral arrangement.
-   2. It provided reserved seats for the Depressed Classes within a system of joint electorates.
+(1) It retained separate electorates for the Depressed Classes as the final electoral arrangement.
+
+(2) It provided reserved seats for the Depressed Classes within a system of joint electorates.
 
 Which of the statements given above is/are correct?
 
@@ -1018,17 +1084,18 @@ Which of the statements given above is/are correct?
 - [ ] (c) Neither 1 nor 2
 - [ ] (d) 2 only
 
-93. A survey initially records 900 employed and 100 unemployed persons in a labour force of 1,000. Subsequently, 40 of the unemployed stop seeking work and are unavailable for work; all others retain their status. Under these assumptions, which conclusion is correct?
+**93.** A survey initially records 900 employed and 100 unemployed persons in a labour force of 1,000. Subsequently, 40 of the unemployed stop seeking work and are unavailable for work; all others retain their status. Under these assumptions, which conclusion is correct?
 
 - [ ] (a) The unemployment rate remains 10% because the total population is unchanged.
 - [ ] (b) The unemployment rate falls even though employment does not rise.
 - [ ] (c) Employment rises by 40 because those persons leave unemployment.
 - [ ] (d) The unemployment rate rises because the labour force becomes smaller.
 
-94. Consider the following statements:
+**94.** Consider the following statements:
 
-   1. The Finance Commission recommends the distribution between Union and States of the net proceeds of taxes to be shared.
-   2. Its recommendations themselves enact the annual Appropriation Act.
+(1) The Finance Commission recommends the distribution between Union and States of the net proceeds of taxes to be shared.
+
+(2) Its recommendations themselves enact the annual Appropriation Act.
 
 Which of the statements given above is/are correct?
 
@@ -1037,31 +1104,32 @@ Which of the statements given above is/are correct?
 - [ ] (c) 1 only
 - [ ] (d) 2 only
 
-95. Which pair is correctly matched?
+**95.** Which pair is correctly matched?
 
 - [ ] (a) Satyashodhak Samaj — Jyotirao Phule
 - [ ] (b) Prarthana Samaj — Swami Dayanand Saraswati
 - [ ] (c) Brahmo Sabha — Swami Vivekananda
 - [ ] (d) Arya Samaj — Atmaram Pandurang
 
-96. If a country’s export price index rises while its import price index remains unchanged, its net barter terms of trade:
+**96.** If a country’s export price index rises while its import price index remains unchanged, its net barter terms of trade:
 
 - [ ] (a) Remain unchanged unless export volume rises.
 - [ ] (b) Deteriorate because exports cost more to produce.
 - [ ] (c) Improve because a unit of exports commands more imports at those prices.
 - [ ] (d) Necessarily cause its trade balance to move into surplus.
 
-97. A legal dispute between two States concerns their respective constitutional rights. Subject to the Constitution’s exceptions, which jurisdiction of the Supreme Court is primarily relevant?
+**97.** A legal dispute between two States concerns their respective constitutional rights. Subject to the Constitution’s exceptions, which jurisdiction of the Supreme Court is primarily relevant?
 
 - [ ] (a) Advisory jurisdiction under Article 143
 - [ ] (b) Review jurisdiction under Article 137
 - [ ] (c) Appellate jurisdiction under Article 136 only
 - [ ] (d) Original jurisdiction under Article 131
 
-98. Consider the following statements about early Buddhism and Jainism:
+**98.** Consider the following statements about early Buddhism and Jainism:
 
-   1. Both developed in an intellectual environment that questioned Vedic sacrificial authority.
-   2. Jainism denies the existence of a soul, whereas Buddhism affirms an eternal individual soul.
+(1) Both developed in an intellectual environment that questioned Vedic sacrificial authority.
+
+(2) Jainism denies the existence of a soul, whereas Buddhism affirms an eternal individual soul.
 
 Which of the statements given above is/are correct?
 
@@ -1070,14 +1138,14 @@ Which of the statements given above is/are correct?
 - [ ] (c) Neither 1 nor 2
 - [ ] (d) 2 only
 
-99. A farmer sells grain to a mill for ₹100. The mill sells flour to a bakery for ₹160. The bakery sells bread to final consumers for ₹250. Ignore taxes, subsidies, depreciation and all other inputs. What is total value added across the three producers?
+**99.** A farmer sells grain to a mill for ₹100. The mill sells flour to a bakery for ₹160. The bakery sells bread to final consumers for ₹250. Ignore taxes, subsidies, depreciation and all other inputs. What is total value added across the three producers?
 
 - [ ] (a) ₹510
 - [ ] (b) ₹90
 - [ ] (c) ₹150
 - [ ] (d) ₹250
 
-100. A country experiences a sustained decline in mortality before fertility declines substantially. Which near-term change is most likely, other things being equal?
+**100.** A country experiences a sustained decline in mortality before fertility declines substantially. Which near-term change is most likely, other things being equal?
 
 - [ ] (a) An immediate decline in the population below its initial level
 - [ ] (b) An immediate predominance of elderly people over children
