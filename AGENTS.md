@@ -35,7 +35,7 @@ Load the method relevant to the requested task; shared rules stay in this file.
 |---|---|
 | Curriculum | [CURRICULUM-GENERATION.md](CURRICULUM-GENERATION.md) |
 | Chapter | [CHAPTER-GENERATION.md](CHAPTER-GENERATION.md) |
-| Prelims chapter-part test | [PRELIMS-TEST-GENERATION.md](PRELIMS-TEST-GENERATION.md) |
+| Prelims chapter-part and GS-I full-length tests | [PRELIMS-TEST-GENERATION.md](PRELIMS-TEST-GENERATION.md) |
 | Prelims feedback | [PRELIMS-TEST-FEEDBACK.md](PRELIMS-TEST-FEEDBACK.md) |
 | Mains GS I–IV test | [MAINS-TEST-GENERATION.md](MAINS-TEST-GENERATION.md) |
 | Mains GS I–IV evaluation | [MAINS-ANSWER-EVALUATION.md](MAINS-ANSWER-EVALUATION.md) |

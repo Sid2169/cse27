@@ -34,7 +34,7 @@ Each paper folder contains:
 - `<paper-name>-Curriculum.md` — a comprehensive, phased curriculum, generated from the researched exam pattern, the syllabus, and PYQs; doubles as the index
 - `<paper-name>-PYQS/<year>-<paper-name>.md` — year-wise PYQ notes (2013–2026), one file per exam year; for two-paper subjects, both papers appear in separate Paper I and Paper II sections
 - `<chapter>.md` or `<chapter>-part-N.md` — chapter content; split parts only when a curriculum chapter is too large, with every part linked from the curriculum
-- `Prelims-<paper>-TESTS/<test-id>.md` — on-demand chapter-part practice tests for Prelims; feedback is appended in the same file
+- `Prelims-<paper>-TESTS/<test-id>.md` — on-demand Prelims chapter-part tests and full-length GS-I mocks; feedback is appended in the same file
 - `Mains-<paper>-TESTS/<test-id>.md` — on-demand Mains GS I–IV tests; evaluation is appended in the same file (GS I–IV only)
 
 Curriculum generation method: [CURRICULUM-GENERATION.md](CURRICULUM-GENERATION.md)

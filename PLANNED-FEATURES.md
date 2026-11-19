@@ -1,6 +1,6 @@
 # Planned Features
 
-Planning record for future Essay, Hindi Paper A and English Paper B assessments. **This is not an executable generation or evaluation method.** Existing assessment methods cover Prelims chapter-part tests and Mains GS I–IV; these proposals do not extend them to other papers.
+Planning record for future Essay, Hindi Paper A and English Paper B assessments. **This is not an executable generation or evaluation method.** Existing assessment methods cover Prelims chapter-part and GS-I full-length tests, and Mains GS I–IV; these proposals do not extend them to other papers.
 
 Shared assessment requirements already live in [AGENTS.md](AGENTS.md). Future methods should add only their paper-specific contracts, rather than reproduce those rules or inherit the GS scoring scheme.
 
@@ -56,4 +56,4 @@ For both language papers, establish section/item allocations and partial-credit 
 - Decide whether historical-pattern practice is useful alongside the current pattern, and label it distinctly if offered.
 - Decide separate versus shared language-method files before creating them.
 
-Optional-subject assessments, Interview preparation and full-length Prelims mocks are outside this plan. No tests are authorised by this planning record.
+Optional-subject assessments and Interview preparation are outside this plan. Full-length Prelims GS-I mocks are covered by [PRELIMS-TEST-GENERATION.md](PRELIMS-TEST-GENERATION.md); this planning record authorises no tests.
