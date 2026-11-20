@@ -2,6 +2,115 @@
 
 Prepared and reorganised: **19 November 2026**, for CSE 2027 preparation. This is the study plan and authoritative chapter-file index. All 83 indexed chapters are **planning placeholders**, not authored lessons or assessment-ready material. The sequence assumes no prior preparation or degree-level knowledge. It creates no test or diagnostic.
 
+## Quick navigation — consolidated index
+
+Click a chapter title to open its file, or **more detail** to jump to its scope, outcome, prerequisites and boundaries. All chapter files are planning placeholders.
+
+**Phase A — Foundations and communication · 001–004**
+
+- [001. Study workflow and evidence literacy](001-study-workflow-and-evidence-literacy.md) · [more detail](#chapter-001)
+- [002. Historical time and the Indian chronology bridge](002-historical-time-and-the-indian-chronology-bridge.md) · [more detail](#chapter-002)
+- [003. Maps, scale and spatial reasoning](003-maps-scale-and-spatial-reasoning.md) · [more detail](#chapter-003)
+- [004. Question demand and analytical communication](004-question-demand-and-analytical-communication.md) · [more detail](#chapter-004)
+
+**Phase B — Indian heritage and culture · 005–017**
+
+- [005. Cultural evidence and Harappan civilisation](005-cultural-evidence-and-harappan-civilisation.md) · [more detail](#chapter-005)
+- [006. Early Indian society and religious traditions](006-early-indian-society-and-religious-traditions.md) · [more detail](#chapter-006)
+- [007. Early literature and knowledge traditions](007-early-literature-and-knowledge-traditions.md) · [more detail](#chapter-007)
+- [008. Stupas, caves and early sculpture](008-stupas-caves-and-early-sculpture.md) · [more detail](#chapter-008)
+- [009. Temple forms and regional artistic traditions](009-temple-forms-and-regional-artistic-traditions.md) · [more detail](#chapter-009)
+- [010. Sultanate, regional and Mughal built heritage](010-sultanate-regional-and-mughal-built-heritage.md) · [more detail](#chapter-010)
+- [011. Later regional, colonial and modern architecture](011-later-regional-colonial-and-modern-architecture.md) · [more detail](#chapter-011)
+- [012. Devotional, courtly and regional literary cultures](012-devotional-courtly-and-regional-literary-cultures.md) · [more detail](#chapter-012)
+- [013. Painting and material craft traditions](013-painting-and-material-craft-traditions.md) · [more detail](#chapter-013)
+- [014. Indian music and its cultural settings](014-indian-music-and-its-cultural-settings.md) · [more detail](#chapter-014)
+- [015. Dance, theatre and oral performance](015-dance-theatre-and-oral-performance.md) · [more detail](#chapter-015)
+- [016. Modern literature, visual art and public culture](016-modern-literature-visual-art-and-public-culture.md) · [more detail](#chapter-016)
+- [017. Heritage conservation and living traditions](017-heritage-conservation-and-living-traditions.md) · [more detail](#chapter-017)
+
+**Phase C — Modern India and consolidation · 018–033**
+
+- [018. Eighteenth-century India and colonial expansion](018-eighteenth-century-india-and-colonial-expansion.md) · [more detail](#chapter-018)
+- [019. Colonial economy and its social consequences](019-colonial-economy-and-its-social-consequences.md) · [more detail](#chapter-019)
+- [020. Colonial administration, education and constitutional change](020-colonial-administration-education-and-constitutional-change.md) · [more detail](#chapter-020)
+- [021. Social reform, education and the public sphere](021-social-reform-education-and-the-public-sphere.md) · [more detail](#chapter-021)
+- [022. Popular resistance and the revolt of 1857](022-popular-resistance-and-the-revolt-of-1857.md) · [more detail](#chapter-022)
+- [023. Associations, Congress and Moderate nationalism](023-associations-congress-and-moderate-nationalism.md) · [more detail](#chapter-023)
+- [024. Swadeshi, assertive nationalism and Home Rule](024-swadeshi-assertive-nationalism-and-home-rule.md) · [more detail](#chapter-024)
+- [025. Gandhian mobilisation and constructive work](025-gandhian-mobilisation-and-constructive-work.md) · [more detail](#chapter-025)
+- [026. Regional and social participation in the freedom struggle](026-regional-and-social-participation-in-the-freedom-struggle.md) · [more detail](#chapter-026)
+- [027. Ideological alternatives and debates in the freedom struggle](027-ideological-alternatives-and-debates-in-the-freedom-struggle.md) · [more detail](#chapter-027)
+- [028. Second World War, Quit India and the INA](028-second-world-war-quit-india-and-the-ina.md) · [more detail](#chapter-028)
+- [029. Transfer of power, independence and Partition](029-transfer-of-power-independence-and-partition.md) · [more detail](#chapter-029)
+- [030. Integration, rehabilitation and state reorganisation](030-integration-rehabilitation-and-state-reorganisation.md) · [more detail](#chapter-030)
+- [031. Early nation-building and development, 1947–1964](031-early-nation-building-and-development-19471964.md) · [more detail](#chapter-031)
+- [032. Political and social transformation, 1964–1991](032-political-and-social-transformation-19641991.md) · [more detail](#chapter-032)
+- [033. Independent India since 1991](033-independent-india-since-1991.md) · [more detail](#chapter-033)
+
+**Phase D — World history · 034–043**
+
+- [034. Atlantic revolutions and citizenship](034-atlantic-revolutions-and-citizenship.md) · [more detail](#chapter-034)
+- [035. Industrialisation and social transformation](035-industrialisation-and-social-transformation.md) · [more detail](#chapter-035)
+- [036. Capitalism, socialism and competing political ideas](036-capitalism-socialism-and-competing-political-ideas.md) · [more detail](#chapter-036)
+- [037. National unification, imperialism and colonial societies](037-national-unification-imperialism-and-colonial-societies.md) · [more detail](#chapter-037)
+- [038. First World War and the peace settlements](038-first-world-war-and-the-peace-settlements.md) · [more detail](#chapter-038)
+- [039. Russian Revolution and the Soviet experiment](039-russian-revolution-and-the-soviet-experiment.md) · [more detail](#chapter-039)
+- [040. Interwar crisis and authoritarianism](040-interwar-crisis-and-authoritarianism.md) · [more detail](#chapter-040)
+- [041. Second World War and the post-war settlement](041-second-world-war-and-the-post-war-settlement.md) · [more detail](#chapter-041)
+- [042. National liberation and postcolonial challenges](042-national-liberation-and-postcolonial-challenges.md) · [more detail](#chapter-042)
+- [043. Cold War, non-alignment and later boundary changes](043-cold-war-non-alignment-and-later-boundary-changes.md) · [more detail](#chapter-043)
+
+**Phase E — Indian society · 044–057**
+
+- [044. Social concepts, diversity and continuity](044-social-concepts-diversity-and-continuity.md) · [more detail](#chapter-044)
+- [045. Caste, class and social mobility](045-caste-class-and-social-mobility.md) · [more detail](#chapter-045)
+- [046. Tribal diversity, knowledge and social change](046-tribal-diversity-knowledge-and-social-change.md) · [more detail](#chapter-046)
+- [047. Family, marriage, kinship and care](047-family-marriage-kinship-and-care.md) · [more detail](#chapter-047)
+- [048. Gender relations, work and empowerment](048-gender-relations-work-and-empowerment.md) · [more detail](#chapter-048)
+- [049. Women’s movements and collective organisation](049-womens-movements-and-collective-organisation.md) · [more detail](#chapter-049)
+- [050. Population structure and demographic transition](050-population-structure-and-demographic-transition.md) · [more detail](#chapter-050)
+- [051. Migration and changing social relationships](051-migration-and-changing-social-relationships.md) · [more detail](#chapter-051)
+- [052. Poverty, inequality and development trade-offs](052-poverty-inequality-and-development-trade-offs.md) · [more detail](#chapter-052)
+- [053. Urbanisation, exclusion and social remedies](053-urbanisation-exclusion-and-social-remedies.md) · [more detail](#chapter-053)
+- [054. Globalisation, technology and everyday life](054-globalisation-technology-and-everyday-life.md) · [more detail](#chapter-054)
+- [055. Social empowerment and inclusive participation](055-social-empowerment-and-inclusive-participation.md) · [more detail](#chapter-055)
+- [056. Religion, communalism and secularism](056-religion-communalism-and-secularism.md) · [more detail](#chapter-056)
+- [057. Regional aspirations and national integration](057-regional-aspirations-and-national-integration.md) · [more detail](#chapter-057)
+
+**Phase F — Physical, resource and economic geography · 058–081**
+
+- [058. Earth systems, energy and seasons](058-earth-systems-energy-and-seasons.md) · [more detail](#chapter-058)
+- [059. Earth’s interior, rocks and plate tectonics](059-earths-interior-rocks-and-plate-tectonics.md) · [more detail](#chapter-059)
+- [060. Weathering, slopes and soil formation](060-weathering-slopes-and-soil-formation.md) · [more detail](#chapter-060)
+- [061. River and groundwater landforms](061-river-and-groundwater-landforms.md) · [more detail](#chapter-061)
+- [062. Glacial, wind and coastal landforms](062-glacial-wind-and-coastal-landforms.md) · [more detail](#chapter-062)
+- [063. World physical regions and spatial comparisons](063-world-physical-regions-and-spatial-comparisons.md) · [more detail](#chapter-063)
+- [064. India and South Asia: relief and drainage](064-india-and-south-asia-relief-and-drainage.md) · [more detail](#chapter-064)
+- [065. Atmosphere, heat balance and circulation](065-atmosphere-heat-balance-and-circulation.md) · [more detail](#chapter-065)
+- [066. Moisture, clouds and rainfall](066-moisture-clouds-and-rainfall.md) · [more detail](#chapter-066)
+- [067. Air masses, cyclones and severe weather](067-air-masses-cyclones-and-severe-weather.md) · [more detail](#chapter-067)
+- [068. Ocean properties, circulation and marine processes](068-ocean-properties-circulation-and-marine-processes.md) · [more detail](#chapter-068)
+- [069. Indian monsoon and climatic variability](069-indian-monsoon-and-climatic-variability.md) · [more detail](#chapter-069)
+- [070. World climates and environmental contrasts](070-world-climates-and-environmental-contrasts.md) · [more detail](#chapter-070)
+- [071. Climate change, ice and coastal transformation](071-climate-change-ice-and-coastal-transformation.md) · [more detail](#chapter-071)
+- [072. Biomes, flora, fauna and ecological change](072-biomes-flora-fauna-and-ecological-change.md) · [more detail](#chapter-072)
+- [073. Hazard exposure, vulnerability and regional consequences](073-hazard-exposure-vulnerability-and-regional-consequences.md) · [more detail](#chapter-073)
+- [074. Water resources, scarcity and competing uses](074-water-resources-scarcity-and-competing-uses.md) · [more detail](#chapter-074)
+- [075. Mineral distribution and resource constraints](075-mineral-distribution-and-resource-constraints.md) · [more detail](#chapter-075)
+- [076. Energy resources and their geographical distribution](076-energy-resources-and-their-geographical-distribution.md) · [more detail](#chapter-076)
+- [077. Agriculture, pastoralism and location factors](077-agriculture-pastoralism-and-location-factors.md) · [more detail](#chapter-077)
+- [078. Forestry, fisheries and extractive activities](078-forestry-fisheries-and-extractive-activities.md) · [more detail](#chapter-078)
+- [079. Manufacturing location and industrial regions](079-manufacturing-location-and-industrial-regions.md) · [more detail](#chapter-079)
+- [080. Services, transport and trade networks](080-services-transport-and-trade-networks.md) · [more detail](#chapter-080)
+- [081. Land-use change and spatial planning](081-land-use-change-and-spatial-planning.md) · [more detail](#chapter-081)
+
+**Phase G — Application and revision · 082–083**
+
+- [082. Cross-theme application and evidence synthesis](082-cross-theme-application-and-evidence-synthesis.md) · [more detail](#chapter-082)
+- [083. Paper practice, revision and error repair](083-paper-practice-revision-and-error-repair.md) · [more detail](#chapter-083)
+
+
 ## 1. Understand the paper and start small
 
 GS I connects Indian culture and history, world history, society and geography. Preparation should develop the ability to explain a process, compare cases and support a judgement with relevant examples. Knowing names and dates is useful when it helps that explanation.
