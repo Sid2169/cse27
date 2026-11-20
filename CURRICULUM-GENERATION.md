@@ -12,10 +12,11 @@ Use recurring PYQ themes and question demands to inform depth, alongside concept
 
 - A concise paper orientation: relevant exam facts, how to use the plan, and a manageable starting point.
 - A phased progression from foundations to subject coverage, application and revision, adapted to the paper.
-- One authoritative linked chapter list that also serves as the file index. Entries identify scope, learning outcome, important dependencies, exam relevance and useful PYQ references. Related entries may share context rather than repeat it.
+- A consolidated navigation index near the beginning, after the title and brief status/orientation. Group all chapters by phase in learning order; link each chapter title directly to its exact file and add a “more detail” link to a stable anchor at its detailed curriculum entry. Include every split part when applicable. Generate this index as part of the initial curriculum, without requiring a follow-up request.
+- One authoritative detailed chapter list that also serves as the file index. Entries identify scope, learning outcome, important dependencies, exam relevance and useful PYQ references. Related entries may share context rather than repeat it.
 - Guidance on essential resources and practice habits, including what each recommended resource is for. Make optional resources distinguishable from essentials.
 
-Plan necessary terminology and bridge material without writing the chapters themselves. Use actual dependencies rather than assuming every earlier chapter is a prerequisite. A phase map or baseline self-check is useful when it adds orientation; a duplicate index is unnecessary.
+Plan necessary terminology and bridge material without writing the chapters themselves. Use actual dependencies rather than assuming every earlier chapter is a prerequisite. A phase map or baseline self-check is useful when it adds orientation; the consolidated navigation index should repeat only titles and links, while scope and other planning details remain authoritative in the detailed entries.
 
 ## Paper-Sensitive Design
 
@@ -32,4 +33,4 @@ Recommend a learning sequence without rigid deadlines, chapter-count targets or 
 
 ## Completion Check
 
-Check full syllabus coverage, a workable prerequisite sequence, supported exam claims and usable resource guidance. Ensure every planned chapter has an exact filename and index link, with authored content and placeholders clearly distinguished. Keep teaching content in the later chapter stage.
+Check full syllabus coverage, a workable prerequisite sequence, supported exam claims and usable resource guidance. Ensure every planned chapter has an exact filename and index link, with authored content and placeholders clearly distinguished. Verify that the consolidated navigation index and detailed entries contain the same chapters/parts in the same order, and that every file link and detail anchor resolves. Keep both views in sync when chapters are added, renamed or split. Keep teaching content in the later chapter stage.
