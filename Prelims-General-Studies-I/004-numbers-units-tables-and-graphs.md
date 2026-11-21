@@ -4,7 +4,7 @@
 
 - **Paper:** Prelims General Studies I, UPSC CSE 2027.
 - **Curriculum entry:** [004 — Numbers, units, tables and graphs](Prelims-General-Studies-I-Curriculum.md#chapter-004).
-- **Prerequisites:** Chapters 001–002; no assumed confidence with school mathematics. Then complete Chapters 003 in this topic.
+- **Prerequisites:** Chapters 001–002; no assumed confidence with school mathematics. Then complete Chapter 003 in this topic.
 - **Scope:** Fractions, percentages, percentage points, ratios, averages, lakh/crore, unit conversion, graph axes and denominators.
 - **Learning outcome:** Explain a numerical comparison while preserving its unit, base and denominator.
 - **Terms to define:** Per capita; percentage point; base year; axis.
