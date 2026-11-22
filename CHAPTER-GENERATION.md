@@ -32,4 +32,10 @@ Use `<chapter>-part-N.md`. Each part identifies `Part x of y`, its title, prereq
 
 ## Completion Check
 
-Check scope coverage, explanation of necessary vocabulary and intermediate steps, source support, useful examples and local links. Keep the prose focused and avoid unnecessary repetition, including repeated metadata or summaries that add no teaching value.
+Before finalising:
+
+- Verify consequential claims against the cited sources, including qualifications and exceptions; omit or qualify unsupported specifics. Check that simplifications preserve the underlying mechanism.
+- Match PYQ explanations to the actual stem and every relevant option or matching row. Do not invent reasoning to fit an answer key; flag unresolved discrepancies using the corpus caveats.
+- Check calculations, units, directions and consistency across prose, tables and visuals. Ensure promised skills are actually taught with enough reasoning or examples for a beginner, and check scope, prerequisites and local links.
+
+Keep the prose focused and avoid repetition that adds no teaching value.
