@@ -1,5 +1,7 @@
 # 001 — Orientation and diagnostic route
 
+**Revision — 23 November 2026:** Corrected the post-bridge route to include Phase B before Phase C.
+
 **Paper:** Mathematics optional, Papers I and II (UPSC Mains VI and VII)
 **Curriculum entry:** [Phase A, chapter 001](Mains-Mathematics-Curriculum.md#authoritative-chapter-index)
 **Scope:** read the syllabus and the paper rules; learn the symbols used throughout the course; start a skill record; choose your first bridge chapter.
@@ -142,7 +144,7 @@ Work through these steps in order.
 
 Because the bridges are a dependency chain, the first unfamiliar area you find is usually the right starting point. Do not skip it because it looks easy; the failure mode is an area that feels familiar but does not survive a hypothesis check.
 
-After the bridges, the course moves into the theory-first sequence (Phase C, real analysis and calculus). The recommended order within each topic is: definitions, then the theorem with its hypotheses, then the proof or justified derivation, then a worked method, then independent problems, then later retrieval.
+After the bridges, the recommended index proceeds to **Phase B, linear algebra (008–013)**, followed by **Phase C, real analysis and calculus (014–023)**. Follow the curriculum's prerequisites when adapting that order. The recommended order within each topic is: definitions, then the theorem with its hypotheses, then the proof or justified derivation, then a worked method, then independent problems, then later retrieval.
 
 ---
 

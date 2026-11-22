@@ -1,5 +1,7 @@
 # 012. World climates and the Indian monsoon
 
+**Revision — 23 November 2026:** Replaced the repeated erroneous Jaisalmer rainfall claim with dated IMD station climatology and corrected the timing of the overhead Sun.
+
 - **Paper:** Prelims General Studies I, UPSC CSE 2027.
 - **Curriculum entry:** [012 — World climates and the Indian monsoon](Prelims-General-Studies-I-Curriculum.md#chapter-012).
 - **Structure:** one file in three parts — **A** world climates, **B** the Indian monsoon, **C** the ocean links to the monsoon (ENSO and the Indian Ocean Dipole) — followed by common confusions, an update watch and sources.
@@ -253,7 +255,7 @@ The pressure pattern in the winter panel is the standard textbook account. The w
 
 The textbook explanation builds in four steps. Each step is a fact about pressure or wind, and the order matters.
 
-**Step 1: land and sea heat differently, creating a pressure contrast.** Water needs more energy to warm than land and gives heat up slowly. In April and May the Sun is overhead near the Tropic of Cancer. The large landmass north of the Indian Ocean heats intensely, air over it rises, and a low-pressure region forms over north and north-west India, while the cooler ocean to the south has higher pressure ([NCERT][ncert-ipe]). Air flows from higher to lower pressure.
+**Step 1: land and sea heat differently, creating a pressure contrast.** Water needs more energy to warm than land and gives heat up slowly. Through April and May the Sun's overhead position moves north through the tropics; it reaches the Tropic of Cancer at the June solstice. The large landmass north of the Indian Ocean heats intensely, air over it rises, and a low-pressure region forms over north and north-west India, while the cooler ocean to the south has higher pressure ([NCERT][ncert-ipe]). Air flows from higher to lower pressure.
 
 **Step 2: the ITCZ follows the Sun and pulls the trade winds across the equator.** As the Sun moves north, so does the ITCZ. NCERT puts it at about 20°–25° N over the Gangetic plain in July, where it is called the monsoon trough and encourages a thermal low over north and north-west India ([NCERT][ncert-ipe]). The low pressure draws in the south-east trade winds of the Southern Hemisphere. After they cross the equator (NCERT places the crossing between about 40° E and 60° E), the Coriolis effect deflects them to the right, so south-easterly winds become south-westerly: the south-west monsoon.
 
@@ -362,7 +364,7 @@ NCERT groups India's annual rainfall into four zones (approximate ranges; the co
 | High | Above 200 cm | The west coast, the Western Ghats, north-eastern sub-Himalayan areas and the Meghalaya hills (parts of the Khasi and Jaintia hills exceed 1,000 cm) |
 | Medium | 100–200 cm | Southern Gujarat, east Tamil Nadu, Odisha, Jharkhand, Bihar, eastern Madhya Pradesh, the northern Ganga plain, the Cachar valley and Manipur |
 | Low | 50–100 cm | Western Uttar Pradesh, Delhi, Haryana, Punjab, Jammu and Kashmir, eastern Rajasthan, Gujarat and the Deccan plateau |
-| Scanty | Below 50 cm | Parts of Andhra Pradesh, Karnataka and Maharashtra; Ladakh; most of western Rajasthan (Jaisalmer rarely gets more than 9 cm) |
+| Scanty | Below 50 cm | Parts of Andhra Pradesh, Karnataka and Maharashtra; Ladakh; most of western Rajasthan (Jaisalmer station averaged 20.16 cm in IMD's 1981–2010 climatology ([IMD station table][imd-jaisalmer])) |
 
 To explain any regional pattern, ask five questions in order:
 
@@ -378,7 +380,7 @@ To explain any regional pattern, ask five questions in order:
 | Mawsynram and the Garo–Khasi hills | June–September; Bay of Bengal branch | The Arakan Hills deflect the branch toward Bengal, and the Meghalaya hills force the air up; Mawsynram has the highest average annual rainfall in the world ([NCERT][ncert-ipe]) |
 | Tamil Nadu coast | Mainly October–December; north-east monsoon | Parallel to the Bay branch and in the rain shadow of the Arabian Sea branch in June–September; north-easterly flow brings the rain afterwards ([NCERT][ncert-ipe]; [IMD glossary][imd-gloss]) |
 | Delhi and Punjab in winter | December–February; western disturbances | Troughs in the westerlies bring light rain that helps rabi crops ([NCERT][ncert-ipe]) |
-| Western Rajasthan (Jaisalmer) | Scanty: rarely more than 9 cm | The Arabian Sea branch brings little rain to Rajasthan, and withdrawal begins here, normally about 17 September ([NCERT][ncert-ipe]; [IMD, 2020][imd-dates]) |
+| Western Rajasthan (Jaisalmer) | Arid; 20.16 cm mean annual rainfall at the station, 1981–2010 ([IMD][imd-jaisalmer]) | The Arabian Sea branch brings little rain to Rajasthan, and withdrawal begins here, normally about 17 September ([NCERT][ncert-ipe]; [IMD, 2020][imd-dates]) |
 | Ladakh | Below 50 cm; winter snow | The Himalaya holds the monsoon winds back so that they shed their moisture in India ([NCERT][ncert-ipe]) |
 
 ### B10. Variability, droughts and forecasting
@@ -564,6 +566,8 @@ Inline flags mark every passage that depends on a date, an agency's figures or t
 
 ## Sources
 
+- **India Meteorological Department.** [Jaisalmer climatological table, period 1981–2010, annual rainfall 201.6 mm][imd-jaisalmer]. Accessed 23 November 2026.
+
 Web sources were accessed on 12 November 2026. Where a document's exact title was not captured, the entry describes it in plain words and does not quote a title. The bold label at the start of each entry is the link text used in the chapter.
 
 **Evidence notes**
@@ -658,4 +662,4 @@ Web sources were accessed on 12 November 2026. Where a document's exact title wa
 [bom-iod]: https://www.bom.gov.au/climate/iod/
 [an-ecostat]: https://ecostat.andamannicobar.gov.in/2022/MetrologicalAnalysis2022.pdf
 [ciari]: https://ciari.icar.gov.in/assets/pdf/Weather_extremes_in_Island_Agro-climatic_Region-completed.pdf
-
+[imd-jaisalmer]: https://city.imd.gov.in/citywx/extreme/APR/jaisalmer2.htm

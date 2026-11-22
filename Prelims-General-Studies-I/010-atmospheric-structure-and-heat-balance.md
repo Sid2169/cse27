@@ -1,5 +1,7 @@
 # 010. Atmospheric structure and heat balance
 
+**Revision — 23 November 2026:** Corrected the heat-budget accounting, atmospheric classifications, lapse-rate reasoning and regional examples. The greenhouse PYQ key conflict is explicitly retained for official verification.
+
 - **Paper:** Prelims General Studies I, UPSC CSE 2027.
 - **Curriculum entry:** [010 — Atmospheric structure and heat balance](Prelims-General-Studies-I-Curriculum.md#chapter-010).
 - **Prerequisites:** Chapters 005–009. First chapter in this topic.
@@ -65,8 +67,8 @@ The atmosphere is divided into layers based on how temperature changes with alti
 - The lowest layer; contains about 75–80% of the atmosphere's total mass.
 - **Temperature decreases with altitude** at the normal lapse rate (~6.5°C per 1,000 m), because the surface is the primary heat source for this layer.
 - Thickness varies: about **8 km at the poles** and **18 km at the equator**. This matters — see the PYQ below.
-- Contains virtually all water vapour and dust; all weather (clouds, rain, storms, fog) occurs here.
-- Bounded at the top by the **tropopause** (a temperature inversion layer that acts as a cap on convection).
+- Contains virtually all water vapour and dust; almost all ordinary weather (clouds, rain, storms and fog) occurs here.
+- Bounded at the top by the **tropopause** (a transition to a much smaller temperature decrease, or an inversion, that usually limits deep convection).
 
 > **[2024 Q64][pyq2024b] (Answer: a — both correct, Statement II explains Statement I):** The troposphere is thicker at the equator (18 km) than at the poles (8 km). This is explained by strong convectional currents at the equator: the equator receives intense insolation, the surface heats powerfully, and convection carries heat (and therefore the troposphere boundary) much higher than at the poles where heating is weak.
 
@@ -83,26 +85,34 @@ The atmosphere is divided into layers based on how temperature changes with alti
 - Meteors burn up in this layer.
 - Upper limit: mesopause.
 
-### 3.4 Ionosphere / Thermosphere (80–400 km)
+### 3.4 Thermosphere (above roughly 80–85 km)
 
-- Called the **ionosphere** in NCERT (Class 11); temperature **rises sharply** due to absorption of extreme UV and X-rays.
-- Contains electrically charged particles (ions); reflects radio waves back to Earth, enabling long-distance radio communication.
-- Auroras (northern/southern lights) occur here.
+Temperature rises sharply as gases absorb high-energy solar radiation. The thermosphere extends to several hundred kilometres; its upper boundary changes with solar conditions. High temperature here does not mean a dense, hot atmosphere like an oven: particles are extremely sparse ([NOAA layers][noaa-layers]). Auroras commonly occur at these heights.
 
-### 3.5 Exosphere (above ~400 km)
+### 3.5 Exosphere
 
-- The outermost, most rarefied layer; gradually merges into space.
-- Gas molecules are so sparse that they can escape Earth's gravity.
+Above the thermosphere, the extremely sparse **exosphere** gradually merges into space. Its lower boundary is variable; a single universal 400-km boundary is misleading.
 
-A summary of the layers:
+### 3.6 The ionosphere overlaps these layers
 
-| Layer | Approx. height | Temperature trend | Key feature |
-|---|---|---|---|
-| Troposphere | 0–13 km (avg) | Decreases | All weather; most of mass |
-| Stratosphere | 13–50 km | Increases (upper) | Ozone layer; UV absorption |
-| Mesosphere | 50–80 km | Decreases | Meteors burn up |
-| Ionosphere | 80–400 km | Increases | Radio reflection; auroras |
-| Exosphere | >400 km | — | Merges into space |
+The **ionosphere** is named for electrically charged particles, not for a temperature trend. It overlaps the upper mesosphere, thermosphere and part of the exosphere; its extent changes with sunlight and solar activity ([NASA][nasa-ionosphere]). It affects radio-wave propagation. Do not substitute “ionosphere” for “thermosphere” in a list classified by temperature.
+
+**Vertical arrangement** — original schematic; height intervals are approximate and not drawn to scale. Read temperature trends upward.
+
+```text
+     SPACE
+     Exosphere          extremely sparse gas       } ionised regions
+     Thermosphere       temperature rises ↑        } overlap these
+~85 km -- mesopause --                              } layers; they are
+     Mesosphere         temperature falls ↑        } not a sixth slab
+~50 km -- stratopause --
+     Stratosphere       temperature rises ↑; ozone absorbs UV
+variable tropopause, about 8–18 km
+     Troposphere        temperature usually falls ↑; most weather
+0 km ---------------- EARTH'S SURFACE ------------------------
+```
+
+“Temperature falls ↑” means temperature falls **as height increases**. The ionosphere is a different classification superimposed on the temperature layers, not another layer stacked between them.
 
 ---
 
@@ -114,7 +124,7 @@ A summary of the layers:
 
 Solar radiation is primarily **shortwave** (visible light, near-infrared, and ultraviolet). The atmosphere is largely **transparent** to shortwave radiation — most of it passes straight through without being absorbed by the air itself and reaches the Earth's surface.
 
-> **[2023 Q1][pyq2023a] (Answer: c):** Which statement about Earth's atmosphere is correct? Option (c) is correct: *Infrared waves are largely absorbed by water vapour that is concentrated in the lower atmosphere.* The other options are wrong: insolation at the equator is not 10 times that at the poles (about 2.3×); infrared rays constitute a significant portion of insolation but not "two-thirds" of the solar spectrum (visible light dominates); and infrared waves are *not* part of the visible spectrum (they are longer wavelengths, invisible to the human eye).
+> **[2023 Q1][pyq2023a] (Answer: c):** Which statement about Earth's atmosphere is correct? Option (c) is correct: *Infrared waves are largely absorbed by water vapour that is concentrated in the lower atmosphere.* The other options are wrong: insolation at the equator is not 10 times that at the poles (the ratio depends on season, location and the averaging used); infrared contributes a large share of solar energy, but not a fixed two-thirds; the split depends on the wavelength boundaries and whether it is measured above the atmosphere or at the surface; and infrared waves are *not* part of the visible spectrum (they are longer wavelengths, invisible to the human eye).
 
 ### 4.2 Factors that affect how much insolation a surface receives
 
@@ -155,14 +165,19 @@ The heat budget describes how incoming energy is accounted for globally. Taking 
 - ~14 units absorbed directly by the atmosphere (mainly by ozone, water vapour and clouds)
 - ~51 units absorbed by the Earth's surface
 
-**Re-emitted from Earth:** 65 units total
-- 17 units from the surface pass directly out to space as longwave radiation
-- 34 units from the surface are absorbed by the atmosphere (and then re-radiated)
-- 48 units emitted by the atmosphere escape to space
+**Transfers and escape to space must be counted separately.** In this simplified NCERT account:
 
-The numbers balance: 35 (reflected) + 65 (absorbed and later re-emitted) = 100. The Earth's temperature stays roughly constant over long periods because outgoing radiation matches incoming radiation. This balance is the **heat budget** (or **energy balance**) of the Earth.
+| Energy path | Units | How to count it |
+|---|---:|---|
+| Surface directly to space as longwave radiation | 17 | Leaves the Earth–atmosphere system |
+| Surface to atmosphere: absorbed radiation, turbulent/sensible heat and latent heat | 34 | Internal transfer; not an additional escape to space |
+| Atmosphere to space as longwave radiation | 48 | Leaves the system; accounts for its 14 solar units plus the 34 received from the surface |
 
-> **[2025 Q49][pyq2025c] (Answer: c — all three):** Statement I: Without the atmosphere, temperature would be well below freezing everywhere — CORRECT (no greenhouse effect means much more heat loss to space). Statement II: Heat absorbed and trapped by the atmosphere maintains our average temperature — CORRECT. Statement III: Atmosphere's gases, like CO₂, are particularly good at absorbing and trapping radiation — CORRECT. All three are correct.
+Thus the surface account is **51 = 17 + 34**, the atmosphere's net account is **48 = 14 + 34**, and the outward account is **100 = 35 reflected + 17 + 48**. Adding 17 + 34 + 48 as if all three leave the system double-counts the internal transfer. The 34 units include 6 radiative, 9 convection/turbulence and 19 latent-heat units in the textbook's simplified presentation; they are not all infrared radiation.
+
+These rounded textbook numbers illustrate accounting, not an exact contemporary measurement. Fuller energy budgets include radiation emitted downward by the atmosphere and larger two-way surface–atmosphere exchanges ([NOAA energy budget][noaa-energy]). A steady balance is an idealisation; a persistent incoming–outgoing imbalance changes stored energy.
+
+> **[2025 Q49][pyq2025c] — unresolved key conflict, flagged 23 November 2026:** The local corpus records **(c), all three**, including “below freezing everywhere” without an atmosphere. The earlier chapter endorsed that literal claim. A global-average estimate near −18°C does **not** establish that every place would remain below freezing: sunlit and dark surfaces can differ greatly ([NOAA greenhouse lesson][noaa-greenhouse]). Learn the physical distinction between **average** and **everywhere**. The corpus's answer is preserved, but this revision does not certify it or replace it with a new official key; compare the exact wording and booklet series with UPSC's official paper and key when accessible.
 
 ---
 
@@ -174,12 +189,12 @@ This is the most exam-tested process in this chapter. The answer is **not** what
 
 1. The Sun emits **shortwave radiation**.
 2. The atmosphere is largely **transparent** to shortwave radiation — only about 14 units (of the incoming 100) are absorbed directly by the air.
-3. The other ~51 units reach and warm the **Earth's surface**.
-4. The warmed surface re-emits energy as **longwave (infrared) radiation** — this is **terrestrial radiation**.
+3. About 51 units reach and warm the **Earth's surface**.
+4. The warmed surface emits **longwave (infrared) radiation** — **terrestrial radiation** — and also transfers energy through sensible heat and evaporation.
 5. Greenhouse gases (CO₂, water vapour, methane) in the atmosphere **absorb longwave radiation** efficiently.
 6. This warms the lower atmosphere **from below, not from above**.
 
-**Conclusion: the atmosphere is heated primarily by terrestrial (longwave) radiation from the Earth's surface, not directly by insolation (shortwave radiation) from the Sun.**
+**Conclusion:** the lower atmosphere receives substantial energy from the warmed surface, through longwave absorption, sensible heat and latent heat. Direct absorption of sunlight also occurs, especially by ozone higher up. Do not extend “heated from below” into a claim that sunlight never heats atmospheric gases.
 
 > **[2024 Q16][pyq2024a] (Answer: d):** Statement I says the atmosphere is heated *more* by incoming solar radiation than by terrestrial radiation — this is **FALSE** (the indirect heating sequence above shows the reverse). Statement II says CO₂ and other greenhouse gases are good absorbers of longwave radiation — this is **TRUE**. Answer (d): Statement I is incorrect, Statement II is correct. This is a critical thinking question: the common intuition ("sunlight heats the air") is wrong at the mechanistic level.
 
@@ -195,9 +210,9 @@ Once the lower atmosphere is warmed, heat is redistributed by three mechanisms:
 
 ### 6.3 The greenhouse effect
 
-Greenhouse gases (CO₂, water vapour, methane, nitrous oxide) allow shortwave solar radiation to pass through but **trap** some outgoing longwave (terrestrial) radiation. This is the natural **greenhouse effect** — it keeps Earth's average surface temperature at about +15°C rather than −18°C (what it would be without an atmosphere). Without this, Earth would be frozen.
+Greenhouse gases (CO₂, water vapour, methane, nitrous oxide) allow shortwave solar radiation to pass through but **trap** some outgoing longwave (terrestrial) radiation. This is the natural **greenhouse effect** — it keeps Earth's average surface temperature at about +15°C rather than −18°C (what it would be without an atmosphere). This is an estimate of a global average, not a claim that every location would be frozen at every time.
 
-The **enhanced greenhouse effect** (from rising CO₂ and other gases due to human activity) is driving climate change — not covered in depth in this chapter; see Chapter 012.
+The **enhanced greenhouse effect** (from rising CO₂ and other gases due to human activity) is driving climate change — treated further in [Chapter 108](108-climate-science-impacts-and-responses.md).
 
 ---
 
@@ -216,11 +231,9 @@ Since insolation decreases from equator to poles (angle and day-length effects),
 
 ### 7.2 By altitude — the lapse rate
 
-Temperature decreases with altitude in the troposphere. The standard rate is called the **normal (environmental) lapse rate**: approximately **6.5°C per 1,000 m** (or 1°C per ~165 m).
+Temperature **usually** decreases with height in the troposphere. A standard reference value is **6.5°C per 1,000 m**, about **1°C per 154 m**. The actual **environmental lapse rate** is the observed vertical temperature change at a place and time; it is not always 6.5°C/km and can reverse in an inversion.
 
-This is why:
-- Mountain peaks are cold even at the equator.
-- Air cools as it rises (carrying the foundation of cloud formation — see Chapter 011).
+Do not confuse that environmental profile with the cooling of a **rising parcel** of air. As pressure decreases with height, a rising parcel expands and does work on its surroundings, which cools it without requiring heat loss: **adiabatic cooling**. Unsaturated air cools at about 9.8°C/km; condensation releases latent heat, so saturated air generally cools more slowly, at a variable rate ([NOAA lapse-rate definitions][noaa-lapse]; see also the aviation-meteorology course in Sources). These rates determine whether a rising parcel stays warmer than its surroundings and continues rising. Mountain cold is not adequately explained as simply “farther from the ground's heat.”
 
 ### 7.3 By surface type — land vs. sea
 
@@ -271,7 +284,7 @@ Also common in **polar regions** throughout the year.
 | Why is this place hotter/colder? | The mechanism |
 |---|---|
 | Equator vs. poles | Latitude → angle and duration of insolation → more energy per unit area at equator |
-| Mountain summit vs. valley floor | Altitude → lapse rate → surface is heat source; higher = farther from source |
+| Mountain summit vs. valley floor | Observed tropospheric lapse rate; rising air expands and cools as pressure falls, with radiation and mixing also shaping the profile |
 | Continental interior vs. coast | Land-sea specific heat difference → continents amplify extremes; coasts are moderated |
 | Western Europe warm for latitude | Warm ocean current (Gulf Stream) moderating winters |
 | Cold Namib / Atacama coasts | Cold upwelling ocean current reducing coastal temperature |
@@ -285,13 +298,13 @@ Also common in **polar regions** throughout the year.
 
 | Confusion | Clarification |
 |---|---|
-| **Sunlight heats the air directly** | No. The atmosphere is mostly transparent to shortwave solar radiation. Sunlight heats the surface; the surface heats the air via terrestrial (longwave) radiation. |
+| **Only sunlight heats the lower air** | The surface supplies energy through longwave radiation, sensible heat and latent heat. Some solar radiation is also absorbed directly by the atmosphere. |
 | **Temperature always decreases with altitude** | Only in the troposphere (normal lapse rate). In the stratosphere, temperature *increases* (ozone absorbs UV). Inversions also reverse the normal trend locally. |
 | **Summer → bigger land–sea contrast** | Wrong. The contrast is bigger in winter. In winter, water stays warm while land cools rapidly; this is when the gap is largest. |
 | **High albedo = warm** | Opposite. High-albedo surfaces (snow, ice) reflect more energy and stay cooler. Low-albedo surfaces (oceans, forests) absorb more and warm more. |
-| **The ozone layer blocks all UV** | No. It absorbs most *harmful* UV (UV-B and UV-C), but some UV-A reaches the surface. Without the ozone layer, UV radiation would be intense enough to destroy most surface life. |
+| **The ozone layer blocks all UV** | No. It absorbs most *harmful* UV (UV-B and UV-C), while most UV-A reaches the surface. Without the ozone layer, UV radiation would be intense enough to destroy most surface life. |
 | **Greenhouse effect is unnatural** | The natural greenhouse effect is what keeps Earth habitable. The *enhanced* (anthropogenic) greenhouse effect — from rising CO₂ — is the climate problem. |
-| **Lapse rate = 1°C per 100 m** | The standard figure is 6.5°C per 1,000 m (not 10°C per 1,000 m). Some sources say "about 1°C per 165 m" — these are equivalent. Use 6.5°C/1,000 m in answers. |
+| **Environmental and adiabatic lapse rates are identical** | No. The 6.5°C/km reference environmental rate describes surroundings; the dry adiabatic parcel rate is about 9.8°C/km. Actual environmental and saturated-parcel rates vary. |
 
 ---
 
@@ -299,8 +312,8 @@ Also common in **polar regions** throughout the year.
 
 India's temperature patterns illustrate this chapter's mechanisms directly:
 
-- **Rajasthan desert in summer:** Low albedo sand + no moisture + no vegetation → intense surface heating → temperatures above 50°C. Far from the sea; no maritime moderation.
-- **Kerala coast in summer:** Similar latitude to Rajasthan but maritime influence → cooler and far more humid; sea moderates extremes.
+- **Rajasthan desert in summer:** Dry ground and sparse vegetation limit evaporative cooling; strong sunshine and continentality favour intense heating. Sand is generally more reflective than water or dark vegetation, so “low albedo sand” is not a sound explanation for desert heat.
+- **Kerala coast in summer:** Kerala lies substantially south of Rajasthan. Maritime influence and humidity moderate its temperature pattern; coastal and inland places at comparable latitudes provide a cleaner comparison of continentality alone.
 - **Himalayas:** Altitude-driven cold at any latitude. Peaks above 8,000 m are permanently glaciated even though they lie at 28–36°N.
 - **Winter fog in the Indo-Gangetic Plain:** A product of temperature inversion. Cold, stable air near the surface traps moisture and pollutants; dense fog disrupts transport from December to February.
 - **Peninsular India — equable climate:** Surrounded by sea on three sides; annual temperature range is small compared to the North Indian plains.
@@ -309,6 +322,18 @@ India's temperature patterns illustrate this chapter's mechanisms directly:
 ---
 
 ## Sources
+
+- **Australian Bureau of Meteorology Training Centre, hosted by NOAA/NWS.** [Adiabatic processes and lapse rates](https://www.weather.gov/media/zhu/ZHU_Training_Page/clouds/stability_clouds/stability_clouds2.pdf), pp. 3–5. Accessed 23 November 2026.
+
+- **NOAA/National Weather Service.** [Glossary: environmental, dry adiabatic and moist adiabatic lapse rates][noaa-lapse]. Accessed 23 November 2026.
+
+- **NOAA Global Monitoring Laboratory.** [The Greenhouse Effect: Fact or Theory?][noaa-greenhouse]. Accessed 23 November 2026.
+
+- **NOAA/National Weather Service.** [The Earth–Atmosphere Energy Balance][noaa-energy]. Accessed 23 November 2026.
+
+- **NOAA/National Weather Service.** [Layers of the Atmosphere][noaa-layers]. Accessed 23 November 2026.
+
+- **NASA Space Place.** [Ionosphere][nasa-ionosphere]. Accessed 23 November 2026.
 
 - **NCERT Class 11, Fundamentals of Physical Geography, Ch. 8 — Composition and Structure of Atmosphere.** Via Bharat Notes, accessed November 2026.
 - **NCERT Class 11, Fundamentals of Physical Geography, Ch. 9 — Solar Radiation, Heat Balance and Temperature.** Via BPSC Pathshala, accessed November 2026.
@@ -323,3 +348,10 @@ India's temperature patterns illustrate this chapter's mechanisms directly:
 [pyq2025a]: Prelims-General-Studies-I-PYQS/2025-Prelims-General-Studies-I.md
 [pyq2025b]: Prelims-General-Studies-I-PYQS/2025-Prelims-General-Studies-I.md
 [pyq2025c]: Prelims-General-Studies-I-PYQS/2025-Prelims-General-Studies-I.md
+[nasa-ionosphere]: https://spaceplace.nasa.gov/ionosphere/en/
+
+[noaa-layers]: https://www.noaa.gov/jetstream/atmosphere/layers-of-atmosphere
+[noaa-energy]: https://www.noaa.gov/jetstream/atmosphere/energy
+
+[noaa-greenhouse]: https://gml.noaa.gov/education/lesson_plans/The%20Greenhouse%20Effect-%20Fact%20of%20Theory.pdf
+[noaa-lapse]: https://forecast.weather.gov/glossary.php?word=LAPSE+RATE

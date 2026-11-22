@@ -1,5 +1,7 @@
 # 011. Winds, rainfall and weather systems
 
+**Revision — 23 November 2026:** Corrected cyclone movement, jet-stream distinctions, northeast-monsoon reach and humidity claims; distinguished tropical cyclone development from frontal cyclones.
+
 - **Paper:** Prelims General Studies I, UPSC CSE 2027.
 - **Curriculum entry:** [011 — Winds, rainfall and weather systems](Prelims-General-Studies-I-Curriculum.md#chapter-011).
 - **Prerequisites:** Chapters 005–010.
@@ -15,7 +17,7 @@
 
 Wind, rain and storms are not random. They follow from two things established in Chapter 010: the unequal heating of the Earth's surface, and the properties of air. This chapter builds the mechanism connecting heat to movement — why air flows, why it rises or sinks, why it carries moisture, and what happens when unlike air masses meet.
 
-Understanding pressure drives the whole story. Air always moves from high pressure to low pressure, like water flowing downhill. The speed of this flow depends on how steep the pressure gradient is. What complicates things — and makes the exam interesting — is the **Coriolis force**, which deflects that movement and creates the rotating patterns we call winds, cyclones and weather systems.
+Understanding pressure drives the whole story. The pressure-gradient force accelerates air toward lower pressure. Actual winds also reflect Coriolis deflection and friction, so they need not blow directly down the pressure gradient. The speed of this flow depends on how steep the pressure gradient is. What complicates things — and makes the exam interesting — is the **Coriolis force**, which deflects that movement and creates the rotating patterns we call winds, cyclones and weather systems.
 
 ---
 
@@ -85,7 +87,7 @@ The **Coriolis force** is not a real force — it is an apparent deflection caus
 **Key properties:**
 - Deflects air **to the right in the Northern Hemisphere** and **to the left in the Southern Hemisphere**.
 - **Maximum at the poles** (Coriolis force = 2mv Ω sin φ; at φ = 90°, sin 90° = 1, maximum).
-- **Absent at the equator** (at φ = 0°, sin 0° = 0 — no deflection). This is why tropical cyclones cannot form within about 5° of the equator; there is insufficient Coriolis deflection to initiate rotation.
+- **Absent at the equator** (at φ = 0°, sin 0° = 0 — no deflection). This is why tropical cyclones very rarely form within about 5° of the equator; there is insufficient Coriolis deflection to initiate rotation.
 - Increases with **wind velocity** (the faster the air moves, the greater the apparent deflection).
 - Acts at right angles to the direction of motion.
 
@@ -101,17 +103,17 @@ The **Coriolis force** is not a real force — it is an apparent deflection caus
 
 ## 6. Jet streams
 
-**Jet streams** are narrow, fast-moving ribbons of wind in the upper troposphere (6–12 km altitude), blowing from west to east at speeds of 100–300 km/h ([NCERT Cl. 11, Ch. 10][ncert11-circ]).
+**Jet streams** are narrow bands of strong winds near the upper troposphere/tropopause. Many are **westerly** (west to east), but some, including India's summer **tropical easterly jet**, are **easterly** (east to west). Height, speed and position vary; jet stream describes a concentrated fast flow, not one compulsory direction ([NCERT][ncert11-circ]; [IMD monsoon FAQ][imd-monsoon]).
 
 **Types:**
 
 | Jet stream | Location | Season in India | Key role |
 |---|---|---|---|
-| **Westerly (Polar) jet** | Along the polar front, ~30–60°N | Winter | Steers Western Disturbances into north-west India; also influences monsoon withdrawal |
+| **Polar-front jet** | Near the mid-latitude polar front; position varies | Moves equatorward in winter | Associated with mid-latitude storm tracks; distinguish it from the subtropical westerly jet |
 | **Tropical Easterly jet** | ~15°N, over peninsular India | Summer (June–September) | Linked to onset and maintenance of the south-west monsoon |
-| **Sub-tropical jet** | ~25–30°N | — | Influences monsoon onset/withdrawal over India |
+| **Subtropical westerly jet** | Near the subtropical tropopause; south of the Himalaya over India in winter | Shifts north of the Himalaya in summer | Associated with winter western disturbances; its seasonal shift accompanies the monsoon transition |
 
-> **[2020 Q37][pyq2020] (Answer: c — 2 only):** Statement 1: Jet streams occur in the Northern Hemisphere only — FALSE. Jet streams exist in both hemispheres (and in the atmospheres of other planets). Statement 2: Only some cyclones develop an eye — TRUE. Well-developed tropical cyclones develop an eye; weaker tropical cyclones and all temperate (extra-tropical) cyclones do not have a defined eye. Statement 3: The temperature inside the eye of a cyclone is nearly 10°C *lesser* than surroundings — FALSE. The eye is **warmer** than its surroundings (tropical cyclones are warm-core systems). The 10°C difference exists but the direction is reversed: the eye is warmer, not colder.
+> **[2020 Q37][pyq2020] (Answer: c — 2 only):** Statement 1: Jet streams occur in the Northern Hemisphere only — FALSE. Jet streams exist in both hemispheres (and in the atmospheres of other planets). Statement 2: Only some cyclones develop an eye — TRUE. Well-developed tropical cyclones develop an eye; weaker tropical cyclones and all temperate (extra-tropical) cyclones do not have a defined eye. Statement 3: The temperature inside the eye of a cyclone is nearly 10°C *lesser* than surroundings — FALSE. The eye is **warmer** than its surroundings (tropical cyclones are warm-core systems). Do not turn the question's rejected 10°C claim into a universal temperature difference; the warm anomaly varies with height and storm strength.
 
 ---
 
@@ -129,7 +131,7 @@ The **Coriolis force** is not a real force — it is an apparent deflection caus
 
 Warm air can hold more water vapour than cold air. When air cools without losing any water vapour, its relative humidity rises — eventually reaching 100% at the **dew point temperature**, at which condensation begins.
 
-Condensation requires **hygroscopic nuclei** — tiny particles like dust, salt, pollen or smoke around which water vapour can condense. This is why polluted air produces more cloud and fog than clean air.
+Cloud droplets commonly form on **condensation nuclei**, tiny suitable particles such as sea salt and some aerosols. Cloud and fog formation also require suitable moisture, temperature and lifting or cooling; pollution alone does not guarantee more clouds or fog.
 
 ### 7.2 Condensation forms
 
@@ -141,7 +143,7 @@ Condensation requires **hygroscopic nuclei** — tiny particles like dust, salt,
 | **Mist** | Near the ground | Thinner than fog; visibility 1–2 km |
 | **Clouds** | In free air at altitude | Rising air cools to dew point; droplets or ice crystals form |
 
-> **[2019 Q44][pyq2019] (Answer: b):** Why are dewdrops not formed on a cloudy night? Because clouds **reflect back the Earth's radiation** (longwave), keeping the surface from cooling to the dew point. On a clear night, the surface radiates heat freely into space, cools below the dew point, and dew forms. Clouds act as a thermal blanket — they trap outgoing radiation and prevent the surface cooling that condensation requires.
+> **[2019 Q44][pyq2019] (Answer: b):** Why are dewdrops not formed on a cloudy night? Because clouds absorb outgoing longwave radiation and emit longwave radiation downward as well as upward, keeping the surface from cooling to the dew point. On a clear night, the surface radiates heat freely into space, cools below the dew point, and dew forms. Clouds act as a thermal blanket — they trap outgoing radiation and prevent the surface cooling that condensation requires.
 
 ### 7.3 Cloud types
 
@@ -253,7 +255,7 @@ All are the same phenomenon; the name varies only by ocean basin.
 
 ### 10.4 Why some regions have no tropical cyclones
 
-> **[2015 Q78][pyq2015b] (Answer: b):** The South Atlantic and South-Eastern Pacific do not generate tropical cyclones. The reason is that the **ITCZ seldom occurs** in those regions. Without the ITCZ, there is no sustained low-pressure trough to provide the initial disturbance that can develop into a cyclone. Additionally, those ocean basins have relatively cool SSTs and high wind shear — but the ITCZ absence is the primary stated reason. (Option c — Coriolis too weak — is wrong; those regions are well away from the equator.)
+> **[2015 Q78][pyq2015b] (Answer: b):** Tropical cyclogenesis is exceptionally rare in the South Atlantic and south-eastern Pacific; the historical PYQ generalisation should not be read as an absolute impossibility. The reason is that the **ITCZ seldom occurs** in those regions. Without the ITCZ, there is no sustained low-pressure trough to provide the initial disturbance that can develop into a cyclone. Additionally, those ocean basins have relatively cool SSTs and high wind shear — but the ITCZ absence is the primary stated reason. (Option c — Coriolis too weak — is wrong; those regions are well away from the equator.)
 
 **Indian coasts:** Tropical cyclones most commonly affect the east coast of India (Bay of Bengal) in the post-monsoon season (October–December). The Arabian Sea also generates cyclones, though less frequently; they tend to be more intense in recent years.
 
@@ -283,7 +285,7 @@ Temperate (extra-tropical) cyclones form at the **polar front** (60° latitude),
 | Eye | Yes (in well-developed systems) | No |
 | Size | 100–500 km | 1,000–2,000 km |
 | Wind speed | Very high (can exceed 300 km/h) | Moderate (rarely above 150 km/h) |
-| Movement | Generally west to east (steered by trade winds and then westerlies) | West to east (westerlies) |
+| Movement | Often westward/poleward initially under tropical steering flow; some recurve and move eastward in the westerlies | Commonly west to east in mid-latitude westerlies |
 | Season | Mainly post-monsoon and pre-monsoon | All year (more active in winter) |
 | Rainfall | Heavy concentrated near centre | Widespread along fronts |
 | Duration | 7–10 days | Days to weeks |
@@ -316,7 +318,7 @@ Tracing pressure and moisture through a weather system is the chapter's learning
 4. **Cold front passage:** Cumulonimbus; heavy brief rain; wind shift; temperature drop.
 5. **Post-frontal anticyclone:** Clear, cold, calm weather.
 
-The same process, faster and more violent, produces Bay of Bengal cyclones in October–November — but driven by latent heat rather than front contrast.
+Bay of Bengal tropical cyclones follow a different development mechanism: organised convection over warm water, latent-heat release and a warm core, rather than the frontal sequence just described. Both involve low pressure, but their formation should not be equated.
 
 ---
 
@@ -331,7 +333,7 @@ The same process, faster and more violent, produces Bay of Bengal cyclones in Oc
 | **Orographic rain falls on leeward side** | Wrong. Orographic rain falls on the windward side. The leeward side is the rain shadow — dry. |
 | **High cloud = cooling** | Not necessarily. Thin high clouds (cirrus) trap outgoing longwave radiation and have a net warming effect. Thick high clouds (tops of cumulonimbus) can reflect insolation and cool. |
 | **Tropical cyclones form at the equator** | Wrong. They need Coriolis force to rotate — which is absent at the equator. They form between 5° and 30° latitude. |
-| **Relative humidity falls when it rains** | Counterintuitively, relative humidity is 100% when it rains, not lower. It falls when air warms (capacity increases) or when dry air mixes in. |
+| **Rain requires 100% relative humidity at the ground** | No. Droplets form in cloud and may fall through unsaturated air below. Surface relative humidity can be below 100% during rain; evaporation of falling drops can raise it ([NWS][nws-humidity]). |
 
 ---
 
@@ -339,8 +341,8 @@ The same process, faster and more violent, produces Bay of Bengal cyclones in Oc
 
 India sits at the junction of multiple circulation systems — this is what makes its climate so distinctive:
 
-- **South-west monsoon winds:** SE trade winds of the Southern Hemisphere cross the equator, deflect right (Coriolis, NH) and become south-west monsoon winds bringing 75–90% of India's annual rainfall. The tropical easterly jet at ~15°N helps sustain the monsoon circulation.
-- **North-east monsoon:** After the ITCZ retreats south in October, dry north-east winds blow from the land toward the ocean — bringing rain only to the Tamil Nadu coast (Coromandel), which gets its main rainfall in October–December from the north-east monsoon and Bay of Bengal cyclones.
+- **South-west monsoon winds:** SE trade winds of the Southern Hemisphere cross the equator, deflect right (Coriolis, NH) and become south-west monsoon winds bringing about three-quarters of India's annual rainfall ([IMD monsoon FAQ][imd-monsoon]). The tropical easterly jet at ~15°N helps sustain the monsoon circulation.
+- **North-east monsoon:** After the ITCZ retreats south in October, dry north-east winds blow from the land toward the ocean — bringing rain to southern peninsular India, including Tamil Nadu/Puducherry, coastal Andhra Pradesh, Rayalaseema, Kerala and south interior Karnataka. It is especially important for the Tamil Nadu coast; rainfall is not confined to that coast ([IMD][imd-nem]).
 - **Western Disturbances:** Extra-tropical cyclones from the Mediterranean arrive in December–March, bringing winter rain to north-west India and snow to the western Himalayas — essential for Rabi crops (wheat, mustard).
 - **Bay of Bengal cyclones:** Most active in October–November (post-monsoon); strike Odisha, Andhra Pradesh and Bangladesh. Some cross to the Arabian Sea. Bay of Bengal cyclones are more frequent; Arabian Sea cyclones have become more intense in recent years.
 - **India's single ITCZ position:** In July, the ITCZ lies roughly over the Gangetic plain, dragging monsoon winds deep into the subcontinent. In January, it retreats to ~10°S.
@@ -348,6 +350,12 @@ India sits at the junction of multiple circulation systems — this is what make
 ---
 
 ## Sources
+
+- **NOAA/National Weather Service.** [Water Vapor, Humidity, Dewpoint and Relationship to Precipitation][nws-humidity]. Accessed 23 November 2026.
+
+- **India Meteorological Department.** [Northeast Monsoon of South Asia, monograph][imd-nem]. Accessed 23 November 2026.
+
+- **India Meteorological Department.** [Frequently Asked Questions on Monsoon][imd-monsoon]. Accessed 23 November 2026.
 
 - **NCERT Class 11, Fundamentals of Physical Geography, Ch. 10 — Atmospheric Circulation and Weather Systems.** Via Bharat Notes, accessed November 2026.
 - **NCERT Class 11, Fundamentals of Physical Geography, Ch. 11 — Water in the Atmosphere.** Via Bharat Notes, accessed November 2026.
@@ -366,3 +374,7 @@ India sits at the junction of multiple circulation systems — this is what make
 [pyq2022]: Prelims-General-Studies-I-PYQS/2022-Prelims-General-Studies-I.md
 [pyq2024]: Prelims-General-Studies-I-PYQS/2024-Prelims-General-Studies-I.md
 [pyq2025]: Prelims-General-Studies-I-PYQS/2025-Prelims-General-Studies-I.md
+[imd-monsoon]: https://mausam.imd.gov.in/imd_latest/monsoonfaq.pdf
+
+[imd-nem]: https://mausam.imd.gov.in/imd_latest/contents/met_monograph.pdf
+[nws-humidity]: https://www.weather.gov/lmk/humidity

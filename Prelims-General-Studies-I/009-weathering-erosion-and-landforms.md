@@ -1,5 +1,7 @@
 # 009. Weathering, erosion and landforms
 
+**Revision — 23 November 2026:** Corrected the desert chemical-weathering claim and the implication that all landforms need erosion; added comparative valley cross-sections.
+
 - **Paper:** Prelims General Studies I, UPSC CSE 2027.
 - **Curriculum entry:** [009 — Weathering, erosion and landforms](Prelims-General-Studies-I-Curriculum.md#chapter-009).
 - **Prerequisites:** Chapters 003–006. Then [007](007-earth-in-the-solar-system-and-its-motions.md) and [008](008-earth-s-interior-rocks-and-tectonic-hazards.md) in this topic — in particular Chapter 008's rock cycle and plate boundaries, which this chapter builds on without re-teaching.
@@ -210,6 +212,20 @@ Glacial landforms are climate-controlled, confined to high latitudes and high mo
 - **Cirque.** A deep, steep-walled, armchair-shaped basin where a glacier originates, carved back into a mountainside; a lake that later occupies an abandoned cirque is a **cirque** or **tarn lake** ([NCERT, Landforms and their Evolution][ncert-lf]).
 - **Horn and arête.** Where several cirques cut back into the same peak from different sides, they leave a sharp, pyramidal **horn**; a sharp, saw-toothed ridge between two cirques is an **arête** ([NCERT, Landforms and their Evolution][ncert-lf]).
 - **Glacial trough (U-shaped valley) and hanging valley.** A glacier moving down a pre-existing river valley straightens and over-deepens it into a broad-floored, steep-sided **trough**, distinctly U-shaped rather than a river's V-shape. A smaller tributary glacier, with less erosive power, cuts a shallower trough that is left "hanging" above the main trough's floor once both glaciers melt ([NCERT, Landforms and their Evolution][ncert-lf]).
+**Valley cross-sections** — original sketches based on the preceding NCERT descriptions; not to scale. These are shapes across a valley, not maps of a river's course.
+
+```text
+River-cut valley                     Glacial trough
+     \       /                         |         |
+      \     /                          |         |
+       \   /                            \_______/
+        \ /                              broad floor
+         V
+   narrow V profile                     broad U profile
+```
+
+The sketches show diagnostic tendencies, not proof of origin by shape alone; rock structure and later modification also matter.
+
 - **Fjord.** A deep glacial trough that has been flooded by the sea, forming the deep, steep-sided inlets typical of high-latitude coastlines such as Norway ([NCERT, Landforms and their Evolution][ncert-lf]).
 
 **Depositional landforms:**
@@ -223,7 +239,7 @@ Glacial landforms are climate-controlled, confined to high latitudes and high mo
 
 ## 10. Wind: landforms of arid and semi-arid lands
 
-Deserts lack a continuous plant cover, so daily temperature swings drive mechanical and chemical weathering faster than elsewhere, feeding wind and occasional flash floods with abundant loose material ([NCERT, Landforms and their Evolution][ncert-lf]).
+Sparse vegetation leaves much desert sediment exposed to wind and occasional flash floods. Temperature changes and salt crystallisation can contribute to mechanical breakdown. Do not infer that chemical weathering is fastest here: it generally favours **warm, humid** conditions, where water supports mineral reactions; dry climates limit it ([Hong Kong Geological Survey][hkg-weathering]).
 
 **Erosional landforms:**
 
@@ -277,7 +293,7 @@ The chapter's stated learning outcome, worked through five short descriptions. I
 
 | Easily confused | The difference |
 |---|---|
-| Weathering vs. erosion | Weathering breaks rock down where it stands; erosion is an agent actually carrying the debris away. A landform needs erosion; weathering only prepares the ground for it (and is not even required). |
+| Weathering vs. erosion | Weathering breaks rock down where it stands; erosion is an agent actually carrying the debris away. Some landforms are erosional, others depositional or shaped by weathering; do not assume that every landform requires removal by an erosional agent. |
 | Mass movement vs. erosion | Mass movement is gravity alone moving debris downslope, with no carrying medium; erosion always involves a mobile agent (water, ice, wind, waves) doing the moving. |
 | Gorge vs. canyon | Both are deep, steep-sided valleys; a canyon is specifically wider at the top than the bottom, with step-like sides, while a gorge is closer to equally wide top to bottom. |
 | Sinkhole vs. doline vs. uvala | All are karst depressions at increasing scale: a sinkhole is the basic funnel-shaped form; "doline" is sometimes reserved for a collapse-type sinkhole; an uvala is several sinkholes merged into one long trench. |
@@ -302,6 +318,8 @@ A short list of standing Indian examples, each explained by a mechanism taught a
 ---
 
 ## Sources
+
+- **Hong Kong Geological Survey, Civil Engineering and Development Department.** [Weathering & Erosion — Introduction to Geomorphological Processes][hkg-weathering]. Accessed 23 November 2026.
 
 Accessed 14 November 2026 unless stated otherwise.
 
@@ -350,3 +368,4 @@ Accessed 14 November 2026 unless stated otherwise.
 [kadapa]: https://kadapa.ap.gov.in/gandikota/
 [chambal]: https://indiageomorph.org/uploads/docs/IGI%209th%20ICG%20Field%20Guide_Chambal%20Badlands_Sharma%20&%20Pani%202017.pdf
 [gully-report]: https://www.downtoearth.org.in/amp/story/environment/77-indian-districts-experiencing-gully-erosion-report
+[hkg-weathering]: https://hkss.cedd.gov.hk/hkss/en/publications-and-resources/educational-materials/hong-kong-geology/chapter-4/index.html

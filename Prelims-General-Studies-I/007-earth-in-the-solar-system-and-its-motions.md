@@ -1,5 +1,7 @@
 # 007. Earth in the solar system and its motions
 
+**Revision — 23 November 2026:** Corrected the time-zone PYQ discussion, lunar visibility and IST explanation; added seasonal geometry and qualified calendar dates.
+
 - **Paper:** Prelims General Studies I, UPSC CSE 2027.
 - **Curriculum entry:** [007 — Earth in the solar system and its motions](Prelims-General-Studies-I-Curriculum.md#chapter-007).
 - **Prerequisites:** Chapters 003–006. First chapter in this topic.
@@ -31,11 +33,11 @@ A **star** produces its own light and heat. A **planet** does not; it shines by 
 
 ### 2.2 The eight planets
 
-Pluto was reclassified as a dwarf planet by the International Astronomical Union in 2006 and is no longer counted as a major planet. There are now eight planets:
+Pluto was reclassified as a dwarf planet by the International Astronomical Union in 2006 and is no longer counted as a major planet. There are eight planets; the table uses NASA's [planetary facts][nasa-mercury] for Mercury's atmosphere distinction:
 
 | Planet | Type | Key features |
 |---|---|---|
-| **Mercury** | Inner, rocky | Nearest to the Sun; no atmosphere |
+| **Mercury** | Inner, rocky | Nearest to the Sun; extremely thin exosphere rather than a substantial atmosphere |
 | **Venus** | Inner, rocky | Hottest planet (~467 °C); brightest in the sky; spins opposite to most planets |
 | **Earth** | Inner, rocky | Third from Sun; only known planet with life; about 150 million km from Sun |
 | **Mars** | Inner, rocky | Called the Red Planet; two moons (Phobos, Deimos) |
@@ -53,11 +55,11 @@ The **asteroid belt** lies between Mars and Jupiter — the boundary between roc
 The Moon is Earth's only natural satellite. Key facts:
 
 - Distance from Earth: ~3,84,400 km.
-- The Moon orbits Earth once in about **27.3 days** (sidereal period). Its own rotation also takes the same time — which is why the same side always faces Earth. We never see the far side from the surface.
+- The Moon orbits Earth once in about **27.3 days** (sidereal period). Its own rotation also takes the same time — which is why the same side always faces Earth. The far side is mostly hidden, but a small part becomes visible around the edges through **libration**, the apparent rocking of the Moon; over time we can see about 59% of its surface ([NASA][nasa-libration]).
 - The Moon has no light of its own; moonlight is reflected sunlight.
 - **Phases:** As the Moon orbits Earth, the sunlit fraction we see changes from new moon (invisible) → crescent → quarter → gibbous → full moon and back. One complete cycle takes about **29.5 days** (the synodic month — the basis of the traditional lunar calendar).
 - Poornima = full moon; Amavasya = new moon in Indian calendrical tradition.
-- The Moon has mountains, craters and plains but no atmosphere or liquid water.
+- The Moon has mountains, craters and plains, and only an extremely thin exosphere rather than a substantial atmosphere. It has water ice in some permanently shadowed polar regions; this is not a system of surface liquid-water lakes ([NASA Moon facts][nasa-moon]).
 
 ### 2.4 The light-year
 
@@ -101,7 +103,13 @@ The key to understanding everything that follows is this single fact:
 Because the tilt is fixed in space while Earth moves around the Sun:
 - For part of the year, the **Northern Hemisphere tilts toward the Sun** — it receives more direct sunlight, for more hours per day. This is Northern Hemisphere summer.
 - Six months later, the **Southern Hemisphere tilts toward the Sun** — it has its summer while the Northern Hemisphere has winter.
-- The two hemispheres always have opposite seasons.
+- The hemispheres have opposite astronomical seasons; local wet and dry seasons also depend on atmospheric circulation.
+
+**Read the geometry.** Both globes keep the north-pointing axis in the same direction. Earth is shown at two opposite points in its orbit; the Sun is between them. Sizes, distances and the drawn tilt are schematic ([NASA seasons][nasa-seasons]).
+
+![Two opposite orbital positions: in June the Northern Hemisphere tilts toward the Sun; in December it tilts away. The axes are parallel and tilted 23.5 degrees from the perpendicular to the orbital plane.](assets/007-solstice-geometry.svg)
+
+*Original schematic based on NASA's explanation. Sizes and distances are not to scale; the axes are drawn at 23.5° from the vertical reference. The axial direction stays nearly fixed over one year, while the direction to the Sun changes.*
 
 **Why tilt controls heat received:**
 1. *Angle of rays:* When the Sun is high in the sky, its rays strike a small area — concentrating heat. When it is low (near the horizon), the same energy spreads over a larger area and is weaker. The same energy warms less.
@@ -115,7 +123,9 @@ Because the tilt is fixed in space while Earth moves around the Sun:
 
 As Earth orbits the Sun over a year, the Sun's overhead position migrates between 23½°N (Tropic of Cancer) and 23½°S (Tropic of Capricorn). Four key positions define the year:
 
-### 5.1 Summer solstice (Northern Hemisphere) — 21 June
+The dates below are conventional textbook approximations. Actual event dates can shift by a day with the year and time zone; the geometry is the point to learn.
+
+### 5.1 Summer solstice (Northern Hemisphere) — around 21 June
 
 - Sun's overhead position: **Tropic of Cancer (23½°N)**.
 - Northern Hemisphere: longest day, shortest night.
@@ -123,7 +133,7 @@ As Earth orbits the Sun over a year, the Sun's overhead position migrates betwee
 - South Pole has continuous darkness (24-hour night).
 - Southern Hemisphere: winter — shorter days, longer nights.
 
-### 5.2 Winter solstice (Northern Hemisphere) — 22 December
+### 5.2 Winter solstice (Northern Hemisphere) — around 21–22 December
 
 - Sun's overhead position: **Tropic of Capricorn (23½°S)**.
 - Northern Hemisphere: shortest day, longest night.
@@ -131,7 +141,7 @@ As Earth orbits the Sun over a year, the Sun's overhead position migrates betwee
 - North Pole has continuous darkness.
 - Southern Hemisphere: summer — their longest day.
 
-### 5.3 Equinoxes — 21 March and 23 September
+### 5.3 Equinoxes — around 20–21 March and 22–23 September
 
 - Sun's overhead position: the **Equator (0°)**.
 - Day and night are approximately equal (12 hours each) everywhere on Earth.
@@ -139,7 +149,7 @@ As Earth orbits the Sun over a year, the Sun's overhead position migrates betwee
 - 23 September: **autumnal (autumn) equinox** in the Northern Hemisphere.
 - The Southern Hemisphere experiences these in reverse.
 
-> **[2024 Q17][pyq2024] (Answer: d — 2 and 4):** On 21 June, latitudes that experience more than 12 hours of sunlight are the Tropic of Cancer (23½°N) and the Arctic Circle (66½°N). The Equator gets exactly 12 hours on all days. The Tropic of Capricorn is in the Southern Hemisphere, which is in its winter on 21 June — it gets fewer than 12 hours.
+> **[2024 Q17][pyq2024] (Answer: d — 2 and 4):** On 21 June, latitudes that experience more than 12 hours of sunlight are the Tropic of Cancer (23½°N) and the Arctic Circle (66½°N). In the idealised geometry, the Equator gets 12 hours; actual sunrise-to-sunset duration is slightly longer because of refraction and the Sun's apparent size. The Tropic of Capricorn is in the Southern Hemisphere, which is in its winter on 21 June — it gets fewer than 12 hours.
 
 A summary table:
 
@@ -228,7 +238,7 @@ To make time manageable, the world is divided into **time zones**, each ideally 
 
 In practice, time zones follow political and administrative boundaries, so countries can have partial-hour differences and some large countries have multiple zones.
 
-> **[2025 Q96][pyq2025b] (Answer: b — only four of five):** Countries with more than four time zones. Among the five listed, France (with its overseas territories) and the USA, Australia, Russia, Brazil each have multiple zones. The UK (United Kingdom) has only two time zones: GMT and BST (British Summer Time), which is a seasonal adjustment, not separate geographic zones. So four of the five listed countries have more than four distinct geographic time zones.
+> **[2025 Q96][pyq2025b] — correction to the earlier explanation:** The listed countries are **United Kingdom, Denmark, New Zealand, Australia and Brazil**. The working corpus records **(b), only four**. The earlier explanation incorrectly substituted France, the USA and Russia and should not be learned. The scope of “country” matters: overseas territories and associated jurisdictions can add time zones; GMT and British Summer Time are seasonal clock settings, not two simultaneous geographic zones in mainland Britain. Brazil has **four**, not more than four, standard UTC offsets ([INPE][inpe-time]). Check the other countries with the territorial scope and date stated; do not count IANA zone identifiers as distinct UTC offsets, since identifiers also distinguish historical clock rules ([IANA][iana-zones]). The working key is retained with the corpus's verification caveat; it has not been independently certified against the official booklet and key in this revision.
 
 ### 9.2 India Standard Time (IST)
 
@@ -238,7 +248,7 @@ India uses a **single time zone** nationwide despite spanning roughly 30° of lo
 - This meridian runs through **Mirzapur, Uttar Pradesh** (near Allahabad/Prayagraj), chosen approximately at the geographical centre of India's east–west span.
 - **IST = UTC + 5 hours 30 minutes** (5.5 × 15° = 82.5°).
 
-The 30-minute offset (not a whole-hour offset) reflects the standard meridian being at a half-degree of longitude (82.5° ÷ 15 = 5.5 hours).
+The 30-minute component follows because 82.5° is halfway between the 75°E and 90°E meridians, which correspond to UTC+5 and UTC+6: 82.5° ÷ 15° per hour = 5.5 hours. A half-degree alone corresponds to only two minutes.
 
 ---
 
@@ -280,6 +290,18 @@ The table below traces every important phenomenon in this chapter back to the sa
 
 ## Sources
 
+- **IANA.** [Time Zone Database: zone1970.tab and its explanatory comments][iana-zones]. Accessed 23 November 2026.
+
+- **INPE, Government of Brazil.** [Astronomia no dia a dia, lesson 1, slide 69: four Brazilian time zones][inpe-time]. Accessed 23 November 2026.
+
+- **NASA Space Place.** [What Causes the Seasons?][nasa-seasons]. Accessed 23 November 2026.
+
+- **NASA.** [Mercury Facts][nasa-mercury]. Accessed 23 November 2026.
+
+- **NASA.** [Moon Facts][nasa-moon]. Accessed 23 November 2026.
+
+- **NASA Scientific Visualization Studio.** [Moon Wobble][nasa-libration]. Accessed 23 November 2026.
+
 - **NCERT Class 6, Geography (The Earth Our Habitat), Ch 1 — The Earth in the Solar System.** Via Bharat Notes, accessed November 2026.
 - **NCERT Class 6, Geography (The Earth Our Habitat), Ch 3 — Motions of the Earth.** Via BPSC Pathshala and Bharat Notes, accessed November 2026.
 - **Drishti IAS — Types of eclipses.** Accessed November 2026.
@@ -293,3 +315,12 @@ The table below traces every important phenomenon in this chapter back to the sa
 [pyq2024]: Prelims-General-Studies-I-PYQS/2024-Prelims-General-Studies-I.md
 [pyq2025]: Prelims-General-Studies-I-PYQS/2025-Prelims-General-Studies-I.md
 [pyq2025b]: Prelims-General-Studies-I-PYQS/2025-Prelims-General-Studies-I.md
+[nasa-libration]: https://svs.gsfc.nasa.gov/10836/
+
+[nasa-moon]: https://science.nasa.gov/moon/facts/
+[nasa-mercury]: https://science.nasa.gov/mercury/facts/
+
+[nasa-seasons]: https://spaceplace.nasa.gov/seasons/en/
+[inpe-time]: https://www.gov.br/inpe/pt-br/eventos/ciaa/2022/repositorio-de-arquivos/pdfs/astronomia-no-dia-a-dia/minicurso_astronomianodiadia_1_andre_ciaa2021online.pdf
+
+[iana-zones]: https://data.iana.org/time-zones/tzdb/zone1970.tab

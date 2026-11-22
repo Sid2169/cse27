@@ -1,5 +1,7 @@
 # 013. Ocean properties and circulation
 
+**Revision — 23 November 2026:** Corrected coastal-upwelling geometry, wave-base versus breaking, salinity/density distinctions, the Japan current location and the tidal-force comparison; added an upwelling schematic.
+
 - **Paper:** Prelims General Studies I, UPSC CSE 2027.
 - **Curriculum entry:** [013 — Ocean properties and circulation](Prelims-General-Studies-I-Curriculum.md#chapter-013).
 - **Prerequisites:** Chapters 007–012. Chapter 011 (pressure belts, winds, Coriolis) and Chapter 012 (ENSO, IOD) are directly used.
@@ -14,7 +16,7 @@
 
 ## 1. Orientation
 
-Oceans cover about 71% of Earth's surface and hold 97% of all water. They are not passive reservoirs. They store and transport enormous amounts of heat, exchange gases and moisture with the atmosphere, support most of Earth's primary production, and shape rainfall patterns thousands of kilometres inland. This chapter builds the vocabulary and the mechanisms that make those connections legible.
+Oceans cover about 71% of Earth's surface and hold 97% of all water. They are not passive reservoirs. They store and transport enormous amounts of heat, exchange gases and moisture with the atmosphere, support a large share of Earth's primary production, and shape rainfall patterns thousands of kilometres inland. This chapter builds the vocabulary and the mechanisms that make those connections legible.
 
 The chapter moves from the shape of the ocean floor upward through the water column, then into the three kinds of movement — waves, tides and currents — and finally outward into how currents alter climate and fisheries.
 
@@ -22,15 +24,15 @@ The chapter moves from the shape of the ocean floor upward through the water col
 
 | Idea tested | Local PYQ | Taught in |
 |---|---|---|
-| Fishing grounds where warm and cold currents meet | [2013 Q59][pyq2013] | 11.2 |
-| Three causes of tides | [2015 Q67][pyq2015] | 9.1 |
+| Fishing grounds where warm and cold currents meet | [2013 Q59][pyq2013] | 12.2 |
+| Three causes of tides | [2015 Q67][pyq2015] | 8.1 |
 | Why the equatorial counter-current flows east | [2015 Q89][pyq2015] | 10.4 |
-| Indian Ocean Dipole: which statement is correct | [2017 Q81][pyq2017] | 13 |
-| Ocean Mean Temperature and monsoon prediction | [2020 Q45][pyq2020] | 12.2 |
-| Western sections warmer in tropics; eastern sections warmer in temperate | [2021 Q51][pyq2021] | 10.5, 11.1 |
-| Primary producers in ocean food chains | [2021 Q90][pyq2021] | 12.1 |
-| January isotherm maps — ocean vs continent deviation | [2024 Q18][pyq2024] | 11.1 |
-| Marine phytoplankton and world oxygen production | [2025 Q20][pyq2025] | 12.1 |
+| Indian Ocean Dipole: which statement is correct | [2017 Q81][pyq2017] | 13.2 |
+| Ocean Mean Temperature and monsoon prediction | [2020 Q45][pyq2020] | 12.4 |
+| Western sections warmer in tropics; eastern sections warmer in temperate | [2021 Q51][pyq2021] | 9.2 |
+| Primary producers in ocean food chains | [2021 Q90][pyq2021] | 13.1 |
+| January isotherm maps — ocean vs continent deviation | [2024 Q18][pyq2024] | 11.4 |
+| Marine phytoplankton and world oxygen production | [2025 Q20][pyq2025] | 13.1 |
 
 ---
 
@@ -59,7 +61,7 @@ By the end you should be able to:
 | **Thermocline** | A layer in the ocean — typically 100–1,000 m deep in low and middle latitudes — where temperature falls rapidly with depth, separating warm surface water from cold deep water ([NCERT][ncert-oceans]). |
 | **Current** | A large body of water moving steadily along a defined path, like a river within the ocean. Surface currents affect the upper ~400 m; deep currents circulate the other 90% of ocean water ([NCERT][ncert-movements]). |
 | **Tide** | The regular, predictable rise and fall of sea level caused by the gravitational pull of the Moon and the Sun, combined with the centrifugal force of the Earth–Moon–Sun system ([NCERT][ncert-movements]). |
-| **Upwelling** | The vertical rise of cold, nutrient-rich water from depth to the surface, usually driven by offshore winds that push surface water away ([NCERT][ncert-movements]). |
+| **Upwelling** | The vertical rise of cold, nutrient-rich water from depth to the surface, often driven by alongshore winds whose net Ekman transport moves surface water offshore (see Section 12.1) ([NCERT][ncert-movements]). |
 | **Gyre** | A large, roughly circular ocean-current system driven by prevailing winds and deflected by Coriolis force. Each major ocean basin has at least one gyre in each hemisphere. |
 | **Thermohaline circulation** | Density-driven deep-water circulation governed by temperature (thermo-) and salinity (-haline). Cold, salty, dense water sinks at high latitudes and slowly spreads through the deep ocean. |
 
@@ -111,7 +113,7 @@ Other relief features:
 
 ### 5.1 Surface temperature
 
-The ocean's surface temperature follows insolation, so it is highest near the equator and decreases toward the poles. The average surface temperature is about 27°C, falling to about 22°C at 20° latitude, 14°C at 40°, and near 0°C in polar waters ([NCERT][ncert-oceans]). The warmest patch is not at the equator but slightly north of it, because the northern hemisphere has more land, which warms faster and heats the overlying air.
+The ocean's surface temperature follows insolation, so it is highest near the equator and decreases toward the poles. Near the equator, average surface temperature is about 27°C, falling to about 22°C at 20° latitude, 14°C at 40°, and near 0°C in polar waters ([NCERT][ncert-oceans]). The warmest patch is not at the equator but slightly north of it, because the northern hemisphere has more land, which warms faster and heats the overlying air.
 
 Enclosed seas depart from the open-ocean pattern: in the tropics they are warmer (less exchange, more heating) while in high latitudes they are colder. The Red Sea reaches salinities and temperatures higher than the open Indian Ocean.
 
@@ -139,7 +141,7 @@ The thermocline acts as a lid. Because cold, dense water lies under warm, light 
 
 ### 6.1 Salinity: definition and factors
 
-Salinity is the grams of dissolved salt per kilogram (1,000 g) of seawater, written as ‰ (parts per thousand). The world ocean averages about 35‰. Ocean water is classified as brackish below about 24.7‰ ([NCERT][ncert-oceans]).
+Salinity is the grams of dissolved salt per kilogram (1,000 g) of seawater, written as ‰ (parts per thousand). The world ocean averages about 35‰. Brackish water is less saline than ordinary seawater. The often-quoted 24.7‰ value concerns the relationship between freezing and maximum density; do not use it as a universal salinity observed at the equator or as a necessary boundary for every classification of brackish water ([Scripps][scripps-density]).
 
 The main factors controlling surface salinity:
 
@@ -149,7 +151,7 @@ The main factors controlling surface salinity:
 
 Consequently, the subtropical oceans (~20–30° latitude) — where subtropical high pressure brings clear skies and strong evaporation but little rain — have the highest surface salinities (up to 37‰ in the Atlantic). Near the equator, heavy rainfall lowers salinity despite high evaporation. Near the poles, melting sea ice dilutes the surface. Enclosed seas with high evaporation are very salty: the Red Sea reaches ~41‰ ([NCERT][ncert-oceans]).
 
-Sand mining in riverbeds can reduce the freshwater and sediment supply reaching the sea, contributing to changes in near-coastal salinity, though the dominant controls remain evaporation and precipitation.
+Near river mouths, freshwater discharge, tides and mixing also strongly affect salinity; a local change should be explained from evidence for that estuary rather than inferred from a single activity alone.
 
 ### 6.2 Salinity with depth: the halocline
 
@@ -157,7 +159,7 @@ A **halocline** is a layer where salinity changes rapidly with depth, analogous 
 
 ### 6.3 Density
 
-Seawater density depends on both temperature and salinity. Colder water is denser; saltier water is denser. These two factors combine in the **thermohaline circulation** (Section 10.3). At the threshold of about 24.7‰, seawater reaches its maximum density at or near its freezing point — the same behaviour as pure fresh water, which reaches maximum density at 4°C.
+Seawater density depends on both temperature and salinity. Colder water is denser; saltier water is denser. These two factors combine in the **thermohaline circulation** (Section 10.5). At normal surface pressure, fresh water reaches maximum density near 4°C, **above** its freezing point. As salinity rises, that temperature decreases; near 24.7‰ it meets the freezing point. Ordinary seawater near 35‰ therefore becomes denser as it cools toward freezing, unlike fresh water cooling from 4°C to 0°C ([Scripps][scripps-density]). Pressure also affects seawater density.
 
 ---
 
@@ -181,7 +183,7 @@ A wave carries energy across the surface; the water itself moves in roughly circ
 
 ### 7.2 Breakers and swell
 
-As waves approach a shoreline, the sea floor shallows. NCERT states that a wave breaks when water depth is less than half its wavelength: the bottom of the circular orbit drags on the floor, the wave slows, its height grows, the front steepens and it topples forward as a **breaker**. Waves generated locally by wind are steep; waves that have travelled from a distant source lose their steepness and arrive as long, smooth **swell**.
+As waves approach a shoreline, the sea floor shallows. At depths of roughly half a wavelength or less, bottom influence becomes relevant: this is the **wave-base/deep-water criterion**, not an automatic breaking threshold. As water shallows further, wave speed and wavelength decrease, the wave can grow steeper, and it eventually becomes unstable and breaks. Breaking depends on wave height, depth and steepness ([Scripps CDIP][scripps-waves]). Waves generated locally by wind are steep; waves that have travelled from a distant source lose their steepness and arrive as long, smooth **swell**.
 
 **Tsunamis** are not wind waves. They are generated by sudden displacement of the sea floor — in a large submarine earthquake, a landslide or a volcanic eruption — and affect the full depth of the ocean. In the open ocean they are low and fast (up to 800 km/h); near a coast they slow, grow dramatically in height, and can travel kilometres inland.
 
@@ -194,7 +196,7 @@ As waves approach a shoreline, the sea floor shallows. NCERT states that a wave 
 Tides are the most predictable of all ocean movements. Three forces act together ([2015 Q67][pyq2015]):
 
 1. **Gravitational pull of the Moon** — the dominant force; the Moon is close enough that its gravity noticeably distorts the ocean surface.
-2. **Gravitational pull of the Sun** — about 46% as strong as the Moon's because the Sun is so much farther away, though it is far more massive.
+2. **Tide-generating effect of the Sun** — roughly 46% of the Moon's. This compares the difference in gravitational attraction across Earth, not total gravitational pull: the Sun's total pull on Earth is much stronger than the Moon's ([NOAA tides][noaa-tides]).
 3. **Centrifugal force** of the Earth–Moon system rotating around their shared centre of mass.
 
 The result is two bulges: one on the side of Earth facing the Moon (gravitational pull exceeds centrifugal force there) and one on the opposite side (centrifugal force exceeds gravitational pull there). As Earth rotates under these bulges, most coasts experience two high tides and two low tides each day.
@@ -330,11 +332,25 @@ In January, in the Northern Hemisphere, landmasses have cooled more than the oce
 
 ### 12.1 Upwelling mechanism
 
-**Upwelling** occurs when surface water is pushed away from a coast by offshore winds, and cold water from depth rises to replace it. The cold, deep water carries nutrients — phosphates and nitrates from decomposed organic matter — that have accumulated at depth and are unavailable to plants in the warm, stratified upper layer. When these nutrients reach the sunlit surface, phytoplankton bloom, and the entire food chain above them flourishes.
+**Upwelling** is the rise of deeper water toward the surface. In major coastal systems, wind commonly blows **along the coast**. Wind stress and Earth's rotation produce **Ekman transport**: the net movement of the wind-driven surface layer is to the right of the wind in the Northern Hemisphere and to its left in the Southern Hemisphere. If this transport is offshore, deeper water rises near the coast to replace it ([INCOIS][incois-upwelling]). Offshore **water transport** does not require an offshore **wind**.
+
+**Plan view and cross-section: a Northern Hemisphere west coast** — original schematic, not to scale. North is up in the plan view.
+
+```text
+PLAN VIEW                         CROSS-SECTION (looking north)
+          N ↑                     offshore ←              coast
+    OCEAN     | LAND               surface water ← ← ←       | LAND
+wind ↓        |                   ~~~~~~~~~~~~~~~~~~~~~~~~~~|
+wind ↓        |                                    ↑       /|
+transport ←   |                              deeper water ↗ /
+              |                   ________________________/
+```
+
+Here a southward alongshore wind gives westward transport (its right), away from the coast. Reverse hemisphere or wind direction and reconsider the geometry. Rising water supplies nutrients to the sunlit layer, supporting phytoplankton and fisheries.
 
 The main wind-driven upwelling zones are:
 
-- **Peru (Humboldt) Current coast** — south-east trade winds push water offshore; the upwelling here supports the world's largest fishery by weight (anchovy, mackerel).
+- **Peru (Humboldt) Current coast** — equatorward alongshore winds favour offshore Ekman transport to their left in the Southern Hemisphere, supporting productive fisheries, notably anchoveta.
 - **California Current coast** — north-west winds produce upwelling along the US west coast.
 - **Benguela Current coast** — south-east trade winds; supports large sardine and anchovy fisheries off Namibia and South Africa.
 - **Somali Current coast** — during the south-west monsoon, strong south-west winds create upwelling along the Somali and Arabian coasts.
@@ -344,7 +360,7 @@ The main wind-driven upwelling zones are:
 Where a warm current and a cold current converge, the temperature contrast creates turbulence that mixes nutrients upward from depth. The meeting zone (a **convergence zone**) supports huge concentrations of plankton and, in turn, fish. This is why the most productive fisheries in the world are at warm–cold convergences ([2013 Q59][pyq2013]):
 
 - **Grand Banks** (off Newfoundland) — Gulf Stream meets Labrador Current; one of the richest cod fisheries historically.
-- **North-east Pacific** — Kuroshio meets Oyashio; the basis of Japan's large fishing industry.
+- **North-west Pacific, off Japan** — Kuroshio meets Oyashio; the basis of Japan's large fishing industry.
 - **South Atlantic** — Falkland meets Brazilian current; productive fishing off Argentina.
 
 ### 12.3 El Niño and fishery collapse
@@ -365,11 +381,11 @@ The base of ocean food chains consists of microscopic photosynthetic organisms i
 
 - **Phytoplankton** — the collective term for microscopic marine plants and plant-like organisms; they perform most marine photosynthesis.
 - **Diatoms** — a group of phytoplankton with silica cell walls; among the most productive marine primary producers.
-- **Cyanobacteria** — photosynthetic bacteria found throughout the sunlit ocean; they can fix atmospheric nitrogen in addition to photosynthesising.
+- **Cyanobacteria** — photosynthetic bacteria found throughout the sunlit ocean; some groups also fix atmospheric nitrogen; this is not a property of every cyanobacterium.
 
 Diatoms and cyanobacteria are therefore **primary producers** in ocean food chains ([2021 Q90][pyq2021]). **Copepods** are tiny crustaceans — primary consumers (grazers on phytoplankton) — not producers. **Foraminifera** are single-celled heterotrophic protists — consumers — not producers.
 
-Marine phytoplankton and photosynthetic bacteria together produce approximately **50% of the world's oxygen** ([2025 Q20][pyq2025]). The idea that rain forests produce more oxygen than oceans (Statement I of [2025 Q20][pyq2025]) is incorrect; oceans outproduce terrestrial ecosystems when phytoplankton are counted. Statement III — that well-oxygenated surface water contains several times more oxygen than atmospheric air — is also incorrect; atmospheric air (~21% oxygen) contains far more oxygen per unit volume than even well-oxygenated seawater.
+Marine phytoplankton and photosynthetic bacteria together produce approximately **50% of the world's oxygen** ([2025 Q20][pyq2025]). The idea that rain forests produce more oxygen than oceans (Statement I of [2025 Q20][pyq2025]) is incorrect; a roughly half-global contribution does not imply that oceans necessarily exceed all terrestrial ecosystems combined. Statement III — that well-oxygenated surface water contains several times more oxygen than atmospheric air — is also incorrect; atmospheric air (~21% oxygen) contains far more oxygen per unit volume than even well-oxygenated seawater.
 
 ### 13.2 Indian Ocean Dipole
 
@@ -388,13 +404,21 @@ The key correction for the PYQ ([2017 Q81][pyq2017]): Statement 1 is incorrect b
 | **Equatorial counter-current flows east because of Earth's rotation** | Wrong. It flows east because water piles up in the west (pushed by trade winds) and flows back east down the pressure gradient — the convergence of two equatorial currents ([2015 Q89][pyq2015]). |
 | **IOD is defined relative to the Pacific Ocean** | Wrong. IOD is western Indian Ocean vs eastern Indian Ocean SST ([2017 Q81][pyq2017]). |
 | **Copepods are primary producers** | Wrong. Copepods are primary consumers (they eat phytoplankton) ([2021 Q90][pyq2021]). |
-| **Upwelling is driven by deep-water pressure** | Upwelling is primarily driven by surface winds blowing offshore and dragging surface water away; cold, nutrient-rich water from below rises to replace it. |
-| **Ocean salinity is uniform** | Surface salinity varies from about 24.7‰ near the equator and in polar regions to 41‰ in the Red Sea. |
+| **Coastal upwelling requires wind blowing straight offshore** | Alongshore winds can cause offshore Ekman transport; deeper water rises to replace it. Check hemisphere and wind direction. |
+| **Ocean salinity is uniform** | Evaporation, precipitation, runoff, ice formation/melt and circulation alter salinity. 24.7‰ is a density/freezing threshold, not a universal equatorial or polar value. |
 | **Thermocline exists everywhere** | Wrong. In polar seas, the water column is uniformly cold from surface to floor; there is no thermocline. |
 
 ---
 
 ## 15. Sources
+
+- **NOAA National Ocean Service.** [Elementary tidal theory—the equilibrium tide][noaa-tides]. Accessed 23 November 2026.
+
+- **Lynne Talley, Scripps Institution of Oceanography.** [SIO 210, Properties of seawater][scripps-density]. Accessed 23 November 2026.
+
+- **Scripps Institution of Oceanography, UC San Diego.** [Wave Measurement, Coastal Data Information Program][scripps-waves]. Accessed 23 November 2026.
+
+- **INCOIS-hosted physical-oceanography tutorial.** [Upwelling dynamics in deep and shallow water][incois-upwelling]. Accessed 23 November 2026.
 
 - **NCERT Class 11, Fundamentals of Physical Geography, Ch. 13 — Water (Oceans).** Via Bharat Notes, accessed November 2026.
 - **NCERT Class 11, Fundamentals of Physical Geography, Ch. 14 — Movements of Ocean Water.** Via Bharat Notes, accessed November 2026.
@@ -408,3 +432,9 @@ The key correction for the PYQ ([2017 Q81][pyq2017]): Statement 1 is incorrect b
 [pyq2021]: Prelims-General-Studies-I-PYQS/2021-Prelims-General-Studies-I.md
 [pyq2024]: Prelims-General-Studies-I-PYQS/2024-Prelims-General-Studies-I.md
 [pyq2025]: Prelims-General-Studies-I-PYQS/2025-Prelims-General-Studies-I.md
+[incois-upwelling]: https://incois.gov.in/Tutor/ShelfCoast/notes/chapter06.html
+
+[scripps-waves]: https://cdip.ucsd.edu/a/documents/wave_measurement.html
+[scripps-density]: https://talleylab.ucsd.edu/sio210/lect_2/lecture_2.html
+
+[noaa-tides]: https://repository.library.noaa.gov/view/noaa/45665/noaa_45665_DS1.pdf

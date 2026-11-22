@@ -1,5 +1,7 @@
 # 008. Earth's interior, rocks and tectonic hazards
 
+**Revision — 23 November 2026:** Corrected subduction-related melting and over-absolute collision claims; clarified the mostly solid asthenosphere and added a labelled subduction cross-section.
+
 - **Paper:** Prelims General Studies I, UPSC CSE 2027.
 - **Curriculum entry:** [008 — Earth's interior, rocks and tectonic hazards](Prelims-General-Studies-I-Curriculum.md#chapter-008).
 - **Prerequisites:** Chapters 003–006, then Chapter 007 in this topic.
@@ -75,7 +77,7 @@ The denser oceanic crust sits lower; the lighter continental crust rides higher 
 
 The mantle extends from the base of the crust to about 2,900 km depth and makes up about 83 % of Earth's volume and 67 % of its mass. It is composed mainly of iron and magnesium silicate minerals.
 
-The upper part of the mantle, together with the crust above it, forms the rigid **lithosphere** (from Greek *lithos*, rock). Below the lithosphere, from about 100 km to 350 km depth, lies the **asthenosphere** — a zone of partially molten, plastic rock over which the lithospheric plates slide. This distinction between the rigid lithosphere and the plastic asthenosphere is fundamental to plate tectonics.
+The upper part of the mantle, together with the crust above it, forms the rigid **lithosphere** (from Greek *lithos*, rock). Below the lithosphere, from about 100 km to 350 km depth, lies the **asthenosphere** — a zone of predominantly solid rock that can deform and flow slowly over geological time; small melt fractions occur in some settings ([USGS][usgs-mantle]). This distinction between the rigid lithosphere and the plastic asthenosphere is fundamental to plate tectonics.
 
 **Core**
 
@@ -198,7 +200,7 @@ Key transformations:
 - **Magma → igneous rock:** cooling and solidification (slow = intrusive; fast = extrusive).
 - **Any rock → sediment → sedimentary rock:** weathering breaks the rock down, erosion transports fragments, deposition and lithification consolidate them.
 - **Any rock → metamorphic rock:** heat and pressure, without melting, transform structure and mineralogy.
-- **Any rock → magma:** subduction at plate boundaries carries crustal material into the hot mantle, where it melts; at the surface, it may also be re-melted in the heat of a magmatic intrusion.
+- **Any rock → magma:** sufficiently high temperature, reduced pressure or added water can permit partial melting. Subduction commonly supplies water to the mantle above the descending slab; the whole slab does not simply melt as it sinks ([USGS][usgs-mantle]).
 
 > **[2021 Q64][pyq2021] (Answer: b):** Black cotton soil (Regur) of the Deccan formed primarily from the weathering of **fissure volcanic rock** — the basalt of the Deccan Traps. This directly illustrates the rock cycle: extrusive igneous rock (basalt) weathers into a distinctive clay-rich soil.
 
@@ -269,19 +271,34 @@ The denser plate sinks under the lighter one — **subduction**. Three subtypes:
 **Oceanic–continental convergence:**
 - Dense oceanic plate subducts under lighter continental plate.
 - Forms a deep **trench** where subduction occurs (e.g., Peru–Chile Trench, Japan Trench).
-- As the oceanic plate descends and melts, magma rises through the continental crust, forming a chain of explosive **stratovolcanoes** along the continental margin (e.g., the Andes).
+- As the oceanic plate descends, its water-bearing minerals release water. This lowers the melting temperature of the hot **mantle wedge** above the slab, allowing partial melting. Buoyant magma rises through the overriding continental plate and can feed explosive **stratovolcanoes** (e.g., the Andes). Slab melting can occur in some settings, but is not the standard explanation for an ordinary volcanic arc ([USGS][usgs-subduction]).
 - Intense earthquakes — shallow near the trench, deepening inland along the subducting slab.
 
 **Oceanic–oceanic convergence:**
 - The older, denser oceanic plate subducts.
 - Forms deep trenches (e.g., Mariana Trench — deepest point on Earth at ~11 km).
-- Magma from the melting slab erupts through the overlying oceanic plate as **island arcs** (curved chains of volcanic islands, e.g., Japan, Philippines, Aleutians).
+- Water released by the subducting slab promotes partial melting in the mantle wedge. Magma rises through the overriding oceanic plate to build **island arcs** (curved chains of volcanic islands, e.g., the Aleutians).
 
 **Continental–continental convergence:**
 - Neither plate is dense enough to subduct easily.
 - Crust crumples and buckles upward, forming high **fold mountain ranges**.
 - Himalayas: formed when the Indian plate collided with the Eurasian plate; the collision started about 40–50 million years ago and continues today, causing the Himalayas to still rise and generating frequent Himalayan earthquakes.
-- No significant volcanic activity (no subduction, so no melting).
+- No typical oceanic-subduction volcanic arc along the main collision zone. Continental underthrusting/subduction and local melting can still occur; “no melting anywhere” would be too absolute.
+
+**Cross-section through an ocean–continent subduction zone** — original schematic, not to scale; the mechanism follows [USGS][usgs-subduction].
+
+```text
+       ocean                    trench             continent
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ V ________________ /\ volcano
+oceanic plate moves right --->    \                /  \
+                                  \     magma ↑
+                       descending  \ water ↗  ↑
+                       solid slab   \   MANTLE WEDGE
+                                     \  partial melting
+                                      \ (water lowers melting point)
+```
+
+The **slab** is the descending plate; the **mantle wedge** lies above it and below the overriding plate. Keeping those two regions separate explains where most arc magma originates.
 
 #### Transform boundaries — plates slide past each other
 
@@ -418,9 +435,9 @@ The chapter's learning outcome is to perform this connection fluently. The table
 | Plate setting | Main process | Characteristic rocks formed | Characteristic landforms | Expected hazards |
 |---|---|---|---|---|
 | **Mid-ocean ridge (divergent)** | Seafloor spreading; basalt erupts; new oceanic crust forms | Basalt (extrusive igneous); gabbro (intrusive) | Submarine ridge and rift valley; Iceland above water | Shallow earthquakes; submarine volcanic activity |
-| **Oceanic–continental subduction (convergent)** | Dense oceanic plate sinks; melts; magma rises through continent | Andesitic/rhyolitic extrusive (stratovolcanoes) on continent; blueschist (metamorphic) in subduction zone | Deep trench (oceanic side); volcanic mountain chain (continental side); e.g., Andes | Explosive volcanic eruptions; deep and shallow earthquakes; tsunamis from large subduction quakes |
+| **Oceanic–continental subduction (convergent)** | Oceanic slab sinks; released water promotes mantle-wedge melting; magma rises through continent | Andesitic/rhyolitic extrusive (stratovolcanoes) on continent; blueschist (metamorphic) in subduction zone | Deep trench (oceanic side); volcanic mountain chain (continental side); e.g., Andes | Explosive volcanic eruptions; deep and shallow earthquakes; tsunamis from large subduction quakes |
 | **Oceanic–oceanic subduction (convergent)** | Older slab subducts; magma erupts through oceanic crust | Basalt–andesite island arc volcanics | Deep trench; island arc (curved chain of volcanic islands) | Deep earthquakes; explosive volcanism; tsunamis |
-| **Continental–continental collision (convergent)** | Neither subducts easily; rock crumples; crust thickens | No new volcanic rocks (no subduction melt); intense metamorphism of existing rock (schist, gneiss) | Fold mountains (Himalayas, Alps, Zagros) | Frequent, often large earthquakes; no volcanic activity |
+| **Continental–continental collision (convergent)** | Neither subducts easily; rock crumples; crust thickens | Typical outcome is crustal thickening and metamorphism (schist, gneiss), rather than a continuous oceanic-subduction volcanic arc | Fold mountains (Himalayas, Alps, Zagros) | Frequent, often large earthquakes; no typical continuous volcanic arc along the main collision front |
 | **Transform fault** | Plates grind horizontally; no creation or destruction | No new rock; older rocks ground and altered | Low ridges and sag ponds; offset river valleys | Shallow, strong earthquakes (no tsunamis unless fault is offshore and has vertical component) |
 | **Hot spot (intraplate)** | Mantle plume melts overlying plate; successive eruptions as plate moves | Basalt (shield volcanoes) | Chain of volcanic islands (older → younger → current hot spot); e.g., Hawaii–Emperor chain | Moderate volcanic activity; minor local earthquakes |
 | **Rift valley (continental divergent)** | Continent stretches and thins; block faulting | Basalt; rift-related sedimentary fill | Graben (rift valley); horst (flanking plateau or range) | Moderate earthquakes; minor volcanism |
@@ -431,7 +448,7 @@ The chapter's learning outcome is to perform this connection fluently. The table
 
 | Confusion | Clarification |
 |---|---|
-| **Epicentre vs focus (hypocenter)** | Focus is the actual rupture point inside the earth; epicentre is the surface point above it. Damage is highest at the epicentre, but the earthquake *happens* at the focus. |
+| **Epicentre vs focus (hypocenter)** | Focus is the actual rupture point inside the earth; epicentre is the surface point above it. The epicentre locates the focus at the surface; the strongest damage need not occur exactly there, because rupture geometry, depth, local ground and buildings also matter. |
 | **Magnitude vs intensity** | Magnitude (Richter) measures energy at the source — one value per earthquake. Intensity (Mercalli) measures felt effect at a place — different values at different locations for the same earthquake. |
 | **Magma vs lava** | Magma is molten rock underground. The same material becomes lava once it reaches the surface. |
 | **P waves travel through liquid** | P waves slow down in liquid but do not stop — they still travel through the outer core. S waves cannot travel through the outer core at all. The S-wave shadow zone confirms the outer core is liquid; the P-wave shadow zone results from refraction, not complete blockage. |
@@ -458,6 +475,10 @@ The chapter's learning outcome is to perform this connection fluently. The table
 
 ## Sources
 
+- **U.S. Geological Survey.** [Subduction zone: cross-section and magma generation][usgs-subduction]. Accessed 23 November 2026.
+
+- **U.S. Geological Survey.** [Are the tectonic plates floating on magma?][usgs-mantle]. Accessed 23 November 2026.
+
 - **NCERT Class 11, Fundamentals of Physical Geography, Ch 3 — Interior of the Earth.** Secondary reproduction via BPSC Pathshala, accessed November 2026. (Direct NCERT PDF not reachable from this session.)
 - **NCERT Class 11, Fundamentals of Physical Geography, Ch 4 — Distribution of Oceans and Continents.** Official PDF accessed via eVidyarthi (November 2026) and cross-checked via BPSC Pathshala.
 - **NCERT Class 11, Fundamentals of Physical Geography, Ch 5 — Minerals and Rocks.** Secondary reproduction via Bharat Notes, accessed November 2026.
@@ -474,3 +495,6 @@ The chapter's learning outcome is to perform this connection fluently. The table
 [pyq2023]: Prelims-General-Studies-I-PYQS/2023-Prelims-General-Studies-I.md
 [pyq2024]: Prelims-General-Studies-I-PYQS/2024-Prelims-General-Studies-I.md
 [pyq2025]: Prelims-General-Studies-I-PYQS/2025-Prelims-General-Studies-I.md
+[usgs-mantle]: https://www.usgs.gov/faqs/are-tectonic-plates-floating-magma
+
+[usgs-subduction]: https://www.usgs.gov/media/images/subduction-zone-3

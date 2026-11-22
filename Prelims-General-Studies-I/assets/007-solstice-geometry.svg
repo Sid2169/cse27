@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="350" viewBox="0 0 840 350" role="img" aria-labelledby="title desc">
+<title id="title">Axial tilt and opposite solstices</title>
+<desc id="desc">Earth is drawn on either side of the Sun. Both north poles lean right. The left globe has its north pole toward the Sun and represents June. The right globe has its north pole away from the Sun and represents December.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#a36600"/></marker></defs>
+<rect width="840" height="350" fill="white"/>
+<g font-family="sans-serif" fill="#172b4d">
+<text x="420" y="27" text-anchor="middle" font-size="20" font-weight="bold">Same axial direction, different illumination</text>
+<circle cx="420" cy="164" r="40" fill="#ffd166" stroke="#a36600" stroke-width="2"/>
+<text x="420" y="170" text-anchor="middle" font-size="17">SUN</text>
+<defs><clipPath id="earth135"><circle cx="135" cy="164" r="43"/></clipPath></defs>
+<circle cx="135" cy="164" r="43" fill="#7dd3fc" stroke="#155e75" stroke-width="2"/>
+<rect x="92" y="121" width="43" height="86" fill="#334155" clip-path="url(#earth135)"/>
+<path d="M135,86 V242" stroke="#94a3b8" stroke-dasharray="4 4"/>
+<path d="M107.08756517523277,228.19420520695869 L162.91243482476725,99.80579479304131" stroke="#172b4d" stroke-width="3"/>
+<text x="170.91243482476725" y="94.80579479304131" font-size="17" font-weight="bold">N</text>
+<text x="89.08756517523277" y="245.19420520695869" font-size="17" font-weight="bold">S</text>
+<path d="M95.56641680143966,146.8537900362144 L174.43358319856034,181.1462099637856" stroke="white" stroke-width="2"/>
+<text x="135" y="284" text-anchor="middle" font-size="17" font-weight="bold">June solstice</text>
+<text x="135" y="309" text-anchor="middle" font-size="16">NH summer: longer days</text>
+<path d="M367,139 H190" stroke="#a36600" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M367,164 H190" stroke="#a36600" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M367,189 H190" stroke="#a36600" stroke-width="2" marker-end="url(#arrow)"/>
+<defs><clipPath id="earth705"><circle cx="705" cy="164" r="43"/></clipPath></defs>
+<circle cx="705" cy="164" r="43" fill="#7dd3fc" stroke="#155e75" stroke-width="2"/>
+<rect x="705" y="121" width="43" height="86" fill="#334155" clip-path="url(#earth705)"/>
+<path d="M705,86 V242" stroke="#94a3b8" stroke-dasharray="4 4"/>
+<path d="M677.0875651752327,228.19420520695869 L732.9124348247673,99.80579479304131" stroke="#172b4d" stroke-width="3"/>
+<text x="740.9124348247673" y="94.80579479304131" font-size="17" font-weight="bold">N</text>
+<text x="659.0875651752327" y="245.19420520695869" font-size="17" font-weight="bold">S</text>
+<path d="M665.5664168014397,146.8537900362144 L744.4335831985603,181.1462099637856" stroke="white" stroke-width="2"/>
+<text x="705" y="284" text-anchor="middle" font-size="17" font-weight="bold">December solstice</text>
+<text x="705" y="309" text-anchor="middle" font-size="16">NH winter: shorter days</text>
+<path d="M473,139 H650" stroke="#a36600" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M473,164 H650" stroke="#a36600" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M473,189 H650" stroke="#a36600" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="420" y="225" text-anchor="middle" font-size="15">Sunlight travels outward</text>
+<text x="420" y="329" text-anchor="middle" font-size="14">White lines: equators • Dashed lines: perpendicular reference • Schematic, not to scale</text>
+</g></svg>

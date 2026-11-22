@@ -12,7 +12,9 @@ Use the official syllabus for the boundary, the curriculum entry and any shared 
 - Orient the reader to the topic and explain the content in a coherent, beginner-accessible sequence.
 - Link key factual claims to sources and provide a short source list with titles, publishers, URLs and access dates.
 
-Choose headings and teaching devices to suit the subject. Learning outcomes, glossaries, comparison tables, maps, timelines, diagrams and worked examples are useful when they aid understanding, not mandatory sections. Merge foundations into the explanation when that reads better.
+Choose headings and teaching devices to suit the subject. Learning outcomes, glossaries, comparison tables and worked examples are useful when they aid understanding, not mandatory sections. Merge foundations into the explanation when that reads better.
+
+Use visual techniques when they help explain the subject: for example, maps, timelines, images, diagrams, flowcharts or simple ASCII illustrations. Suitable visuals may be sourced from the internet or created within the chapter. Exercise judgment about their form, placement and frequency; no visual quota or fixed format is required. Integrate visuals with the explanation and make labels legible. For externally sourced visuals, check accuracy and relevance, credit and link the original source, record the access date, and respect reuse terms.
 
 For numerical or technical material, demonstrate the reasoning through worked examples where needed. For conceptual material, use concrete cases, contrasts and counterexamples. Let the subject determine emphasis: chronology and causation in history, institutional authority in polity, spatial processes in geography, measurement and mechanisms in economy, and so on. Do not force a common paper template or word target.
 

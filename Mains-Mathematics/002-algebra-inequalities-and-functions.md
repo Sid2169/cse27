@@ -1,5 +1,7 @@
 # 002 — Algebra, inequalities and functions
 
+**Revision — 23 November 2026:** Corrected overly restrictive division rules and rational-exponent notation; added worked range arguments, a labelled function graph and authoritative references.
+
 **Paper:** Mathematics optional, bridge chapter (supports both papers)
 **Curriculum entry:** [Phase A, chapter 002](Mains-Mathematics-Curriculum.md#authoritative-chapter-index)
 **Scope:** fractions, powers, factorisation, polynomials, equations, inequalities, absolute value, intervals, graphs, domains, ranges, inverse and composite functions; manipulate without losing solutions.
@@ -11,7 +13,7 @@
 
 ## 1. Why this chapter exists
 
-This chapter has no heading of its own in the official syllabus. It is a bridge: every later chapter assumes you can do this material without re-deriving it, and most errors in optional mathematics are not conceptual failures in the advanced topic — they are algebra slips carried in from here. A false step in factoring or an unjustified division can turn a correct method into a wrong final answer, and in a written exam, an unjustified step also loses marks even when the final answer happens to be right.
+This chapter has no heading of its own in the official syllabus. It is a bridge: every later chapter assumes you can do this material without re-deriving it, and algebra slips can undermine otherwise sound reasoning in advanced topics. A false step in factoring or an unjustified division can turn a correct method into a wrong final answer, and in a written exam, an unjustified step also loses marks even when the final answer happens to be right.
 
 The chapter is organised around one recurring judgement: **does this operation change the solution set?** Some operations are *reversible* (they give an equivalent statement, so nothing is gained or lost), and some are *one-directional* (they can introduce extra "solutions" that do not actually work, or silently discard real ones). Learning to tell which is which is the actual content of this chapter; the factual recipes (laws of exponents, factoring patterns) are the vocabulary you need to apply that judgement.
 
@@ -27,7 +29,7 @@ A fraction a/b (with b ≠ 0) names a number, not a pair of numbers to be manipu
 - **Multiplication:** (a/b)·(c/d) = (ac)/(bd).
 - **Division:** (a/b) ÷ (c/d) = (a/b)·(d/c), valid only when c ≠ 0 as well as b, d ≠ 0.
 
-**A common error.** (a + b)/a is **not** 1 + b. You can only cancel a factor that multiplies the *entire* numerator and the *entire* denominator: (a + b)/a = a/a + b/a = 1 + b/a. Cancellation across addition is the single most frequent fraction error; whenever you are tempted to "cancel," rewrite the fraction as a sum or product first and check what is actually being divided.
+**A common error.** (a + b)/a is **not** 1 + b. You can only cancel a factor that multiplies the *entire* numerator and the *entire* denominator: (a + b)/a = a/a + b/a = 1 + b/a. Cancellation across addition is a common fraction error; whenever you are tempted to "cancel," rewrite the fraction as a sum or product first and check what is actually being divided.
 
 ### 2.2 Powers and exponents
 
@@ -46,9 +48,9 @@ Fractional exponents extend this to roots: a^(1/n) means "the real number whose 
 - If n is **odd**, a^(1/n) exists and is unique for every real a (e.g. (−8)^(1/3) = −2).
 - If n is **even**, a^(1/n) exists as a real number only for a ≥ 0, and by convention it denotes the *non-negative* root (e.g. 4^(1/2) = 2, not −2, even though (−2)² = 4 too).
 
-Then aᵖ/ᵠ = (a^(1/q))ᵖ, for q > 0 in lowest terms, with the same domain restriction on a as above.
+For integers p and q with q > 0 and p/q in lowest terms, write **a^(p/q) = (a^(1/q))^p**, subject to the root restrictions above; also exclude a = 0 when p < 0. Parentheses matter: a^(p/q) is an exponent, whereas aᵖ/ᵠ can be misread as a power divided by q.
 
-**Caution with negative bases.** (a^m)^(1/n) and a^(m/n) can disagree when a < 0 and the fraction m/n is not already in lowest terms with odd denominator, because simplifying the exponent first can silently assume a root that does not exist as a real number, or pick the wrong sign. For example, ((−8)²)^(1/6) = 64^(1/6) = 2, but you cannot shortcut this as (−8)^(2/6) = (−8)^(1/3) = −2 — the two do not match. When a base might be negative, evaluate powers and roots in the order written, and do not reduce the exponent as a fraction first.
+**Caution with negative bases.** (a^m)^(1/n) and a^(m/n) can disagree when a < 0 and the fraction m/n is not already in lowest terms with odd denominator, because simplifying the exponent first can silently assume a root that does not exist as a real number, or pick the wrong sign. For example, ((−8)²)^(1/6) = 64^(1/6) = 2, but you cannot shortcut this as (−8)^(2/6) = (−8)^(1/3) = −2 — the two do not match. When a base might be negative, evaluate an explicitly nested power/root expression in the order written. For a single rational exponent, first use the reduced fraction to determine its real domain; do not assume the power-of-a-power law remains valid when fractional exponents enter.
 
 **Worked example.** Simplify (x⁻²y³)² / (x y⁻¹)³ for x, y ≠ 0.
 
@@ -83,7 +85,7 @@ These two are really one idea: dividing p(x) by (x − c) always gives p(x) = (x
 
 **Worked example.** Factor p(x) = x³ − 2x² − 5x + 6.
 
-Try small integer candidates using the factor theorem: p(1) = 1 − 2 − 5 + 6 = 0. So (x − 1) is a factor. Dividing (by synthetic or long division) gives p(x) = (x − 1)(x² − x − 6) = (x − 1)(x − 3)(x + 2). The roots are 1, 3, −2, which checks against the degree-3 bound above (at most 3 roots, and we found exactly 3 distinct ones).
+Try small integer candidates using the factor theorem: p(1) = 1 − 2 − 5 + 6 = 0. So (x − 1) is a factor. To find the quotient without assuming long division, match coefficients: write p(x) = (x − 1)(x² + Ax + B). Expanding gives x³ + (A − 1)x² + (B − A)x − B. Thus A − 1 = −2 gives A = −1, and −B = 6 gives B = −6; the x coefficient is then B − A = −5, as required. Hence p(x) = (x − 1)(x² − x − 6) = (x − 1)(x − 3)(x + 2). The roots are 1, 3, −2, which checks against the degree-3 bound above (at most 3 roots, and we found exactly 3 distinct ones).
 
 ---
 
@@ -109,7 +111,7 @@ Dividing both sides by a quantity that might equal zero is not reversible, becau
 
 A common wrong move: divide both sides by x to get x = 3, missing a solution. The correct method: bring everything to one side and factor, which never requires excluding a case. x² − 3x = 0 ⟹ x(x − 3) = 0 ⟹ x = 0 or x = 3. The division approach loses x = 0 precisely because it divides by x without first asking whether x could be 0.
 
-**General rule:** never divide an equation by an expression containing the unknown. Move all terms to one side and factor instead; factoring never discards a root, because ab = 0 if and only if a = 0 or b = 0 — this biconditional is exactly why factoring is reversible where division is not.
+**General rule:** divide only after establishing that the divisor is nonzero on the case being considered ([OpenStax, equality properties][os-equality]). An expression may contain the unknown and still be known nonzero. If it could be zero, separate that case first. In x² = 3x, the case x = 0 works; in the case x ≠ 0, division by x is valid and gives x = 3. Factoring is often the simplest way to keep both cases visible, since ab = 0 exactly when a = 0 or b = 0.
 
 ### 4.3 Cross-multiplying requires excluding where a denominator is zero
 
@@ -154,7 +156,7 @@ So the solution is x < −2 or x > 3, i.e. (−∞, −2) ∪ (3, ∞). The ineq
 
 ### 5.2 Rational inequalities
 
-**Never cross-multiply a rational inequality by an expression containing the unknown** — its sign is unknown, so you cannot tell whether the inequality should flip. Instead, move everything to one side, combine into a single fraction, and run a sign chart that includes the zeros of **both** the numerator and the denominator (the denominator's zeros are excluded from the solution — open circles — because the expression is undefined there).
+**Do not cross-multiply a rational inequality by an expression of unknown sign.** If its sign is established on a particular interval, multiplication is valid there, preserving the inequality for a positive factor and reversing it for a negative one. A convenient general method is to move everything to one side, combine into a single fraction, and run a sign chart that includes the zeros of **both** the numerator and the denominator (the denominator's zeros are excluded from the solution — open circles — because the expression is undefined there).
 
 **Worked example.** Solve (x − 1)/(x + 2) ≥ 0.
 
@@ -241,17 +243,47 @@ Two restrictions apply simultaneously:
 
 Intersecting: x ≥ 1, excluding x = 3 (note x = −2 is already excluded by x ≥ 1, so it adds nothing new here). Domain: [1, 3) ∪ (3, ∞).
 
-### 7.2 Range
+### 7.2 Range: prove both the restriction and attainability
 
-The **range** is the set of values the function actually outputs as x runs over the domain — not the codomain you happened to write down, but the image the formula actually produces. Finding a range algebraically typically means asking "for which y does f(x) = y have a solution x in the domain?" A graph often makes the range visible directly, by inspection of how high and low the curve goes.
+The **range** is the set of outputs actually attained. To find it, ask which y allow f(x) = y for at least one x **in the stated domain** ([OpenStax, domain and range][os-range]). Showing that outputs cannot go below a bound is only half the work: show that every claimed output can occur.
 
-### 7.3 Graphs
+**Worked example 1 — a quadratic.** Let f(x) = x² − 2x − 3, with domain ℝ. Complete the square:
 
-A graph is the set of points (x, f(x)) for x in the domain. Two facts worth fixing now, both proved rigorously later using derivatives (chapter 006 onward): a function is **increasing** on an interval if larger inputs give larger outputs there, and **decreasing** if larger inputs give smaller outputs. For now, you can read these off a sketched graph; chapter 017 gives the precise calculus-based test.
+**f(x) = (x − 1)² − 4.**
+
+Since a square is nonnegative, f(x) ≥ −4, with equality at x = 1. Conversely, for any y ≥ −4, the choice x = 1 + √(y + 4) is real and satisfies f(x) = y. Therefore the range is **[−4, ∞)**.
+
+Now restrict the same formula to **2 ≤ x ≤ 3**. Then 1 ≤ x − 1 ≤ 2, so 1 ≤ (x − 1)² ≤ 4 and −3 ≤ f(x) ≤ 0. Every y in [−3, 0] is attained by x = 1 + √(y + 4), which lies in [2, 3]. The restricted range is **[−3, 0]**. A formula alone does not determine the range without its domain.
+
+**Worked example 2 — a rational function.** Let g(x) = (2x + 1)/(x − 3), x ≠ 3. Solve y = g(x):
+
+y(x − 3) = 2x + 1 ⇒ x(y − 2) = 3y + 1.
+
+If y = 2, the original equation would require 2x − 6 = 2x + 1, which is impossible. If y ≠ 2, x = (3y + 1)/(y − 2) exists. This x can never equal 3, because that would imply 3y + 1 = 3y − 6. Thus every y other than 2 is attained by an allowed input, and the range is **(−∞, 2) ∪ (2, ∞)**. This also supplies the range needed to construct the inverse in Section 8.3.
+
+### 7.3 Graphs: read inputs horizontally and outputs vertically
+
+A graph consists of points **(x, f(x))**: move to the input on the horizontal axis, then to its output on the vertical axis. The graph below is drawn from the quadratic in Example 1. The orange portion uses only the restricted domain [2, 3].
+
+![Graph of y=(x−1)²−4. The vertex is (1,−4), roots are −1 and 3, and the segment for inputs 2 through 3 runs from (2,−3) to (3,0).](assets/002-quadratic-domain-range.svg)
+
+*Original graph generated from the stated formula; the visible plotting window is finite, but the full parabola continues upward on both sides.*
+
+| Input x | −1 | 0 | 1 | 2 | 3 |
+|---|---:|---:|---:|---:|---:|
+| Output f(x) | 0 | −3 | −4 | −3 | 0 |
+
+Read three features together: the **vertex** (turning point) is (1, −4), the x-intercepts (where y = 0) are −1 and 3, and the y-intercept (where x = 0) is −3. The lowest point is included, explaining the square bracket in [−4, ∞). Restricting the inputs to [2, 3] keeps only the orange arc; its outputs run from −3 to 0.
+
+A function is **strictly increasing** on an interval when x₁ < x₂ implies f(x₁) < f(x₂), and **strictly decreasing** when it implies f(x₁) > f(x₂). Here the curve decreases up to x = 1 and increases thereafter. You can justify this without calculus: for inputs on the same side of 1, compare their nonnegative distances from 1 and square those distances. Chapter 017 later develops derivative tests for more complicated functions.
+
+The **vertical-line test** asks whether a proposed graph gives more than one output for a single input. Any vertical line meeting it twice disqualifies it as the graph of a function y = f(x). The **horizontal-line test**, used below, asks a different question: whether distinct inputs can give the same output. Our parabola passes the first test but fails the second on ℝ, since f(0) = f(2) = −3.
 
 ---
 
 ## 8. Inverse and composite functions
+
+The domain/range and inverse distinctions below can also be checked in [OpenStax, inverse functions][os-inverse].
 
 ### 8.1 Composition
 
@@ -303,6 +335,20 @@ Before moving on, confirm you can do each of these without looking back at this 
 - Solve an equation that requires squaring both sides, and explain why checking the candidates against the *original* equation is not optional.
 - Solve a rational inequality using a sign chart, correctly excluding the denominator's zeros.
 - Solve an absolute-value inequality of the form |E| > k, and explain why its solution is a union of two rays rather than a single interval.
+- Find a quadratic's range by completing the square and checking attainability; explain how restricting its domain changes its graph and range.
 - Find the domain of a function combining a root and a denominator, and find the inverse of a simple rational function, explicitly tracking how domain restrictions on f become range restrictions on f⁻¹.
 
 The next chapter (003) builds directly on this one: trigonometric identities, inverse trigonometric functions (via the domain-restriction idea from section 8.2), and complex arithmetic all assume fluent, careful algebra of the kind practised here.
+
+## 11. Sources
+
+- **OpenStax, Rice University.** [Precalculus 2e, §1.7 Inverse Functions][os-inverse]. Accessed 23 November 2026.
+
+- **OpenStax, Rice University.** [Elementary Algebra 2e, §2.2 Division and Multiplication Properties of Equality][os-equality]. Accessed 23 November 2026.
+
+- **OpenStax, Rice University.** [Precalculus 2e, §1.2 Domain and Range][os-range]. Accessed 23 November 2026.
+
+[os-range]: https://openstax.org/books/precalculus-2e/pages/1-2-domain-and-range
+[os-equality]: https://openstax.org/books/elementary-algebra-2e/pages/2-2-solve-equations-using-the-division-and-multiplication-properties-of-equality
+
+[os-inverse]: https://openstax.org/books/precalculus-2e/pages/1-7-inverse-functions

@@ -1,5 +1,7 @@
 # 014. Freshwater, drainage and groundwater
 
+**Revision — 23 November 2026:** Corrected Lonar's impact origin, inconsistent global water shares, aquifer pressures and artesian-well terminology; clarified watershed usage and added aquifer cross-sections.
+
 - **Paper:** Prelims General Studies I, UPSC CSE 2027.
 - **Curriculum entry:** [014 — Freshwater, drainage and groundwater](Prelims-General-Studies-I-Curriculum.md#chapter-014).
 - **Prerequisites:** Chapters 007–013. Chapter 013 (ocean water properties) gives freshwater its global context.
@@ -14,7 +16,7 @@
 
 ## 1. Orientation
 
-Of all the water on Earth, only about 2.7% is fresh — and most of that is locked in glaciers and ice caps. The fraction actually available in rivers, lakes and underground stores is a thin margin that all terrestrial life depends on. This chapter explains where that water comes from, how it moves through a landscape, and what happens when it accumulates underground or in lakes.
+Of all the water on Earth, only about 2.5% is fresh ([USGS water distribution][usgs-water]) — and most of that is locked in glaciers and ice caps. The fraction actually available in rivers, lakes and underground stores is a thin margin that all terrestrial life depends on. This chapter explains where that water comes from, how it moves through a landscape, and what happens when it accumulates underground or in lakes.
 
 The chapter also introduces the applied ideas the paper tests: what a watershed development programme does, what sand mining does to underground water, how wetlands purify water, and how badly India's groundwater is overdrawn.
 
@@ -54,7 +56,7 @@ By the end you should be able to:
 
 | Term | Definition used in this chapter |
 |---|---|
-| **Watershed** | The boundary (a ridge line) separating two adjacent drainage basins; precipitation on one side drains to one river, precipitation on the other side drains to a different river. Also called a **drainage divide**. |
+| **Watershed** | The boundary (a ridge line) separating two adjacent drainage basins; precipitation on one side drains to one river, precipitation on the other side drains to a different river. Also called a **drainage divide**. In management contexts, “watershed” can instead mean the catchment area; read the convention in context. |
 | **Aquifer** | A permeable underground rock or sediment layer that holds and transmits usable quantities of groundwater. |
 | **Water table** | The upper surface of the saturated zone — the depth below which all pores in the rock or soil are filled with water. It rises after heavy rain and falls during drought. |
 | **Recharge** | The addition of water to an aquifer from above: by percolation of rain and surface water through the unsaturated zone (natural recharge) or by deliberate human interventions (artificial recharge). |
@@ -93,15 +95,16 @@ The hydrological cycle distributes fresh water over the land surface, moderates 
 Water covers about 71% of Earth's surface, but the distribution by type is very uneven:
 
 | Store | Approximate share of all water | Notes |
-|---|---|---|
-| Oceans and seas | ~97.3% | Saline; not directly usable |
-| Ice caps and glaciers | ~2.1% | Largest store of **fresh** water (~68.7% of all freshwater) |
-| **Groundwater** | ~0.6% | Largest share of **liquid** fresh water |
-| Soil moisture | ~0.001% | Directly supports plant growth |
-| Freshwater lakes and rivers | ~0.009% | Most visible; smallest liquid store |
-| Atmosphere | ~0.001% | Water vapour; short residence time |
+|---|---:|---|
+| Oceans, seas and bays | 96.5% | Saline; other saline stores also exist |
+| Ice caps, glaciers and permanent snow | 1.74% | About 68.7% of freshwater |
+| **Fresh groundwater** | 0.76% | About 30.1% of freshwater; distinguish it from saline groundwater |
+| Freshwater lakes | 0.007% | A small liquid freshwater store |
+| Rivers | 0.0002% | Much smaller than groundwater |
 
-Two PYQs directly test these proportions:
+These are rounded estimates from one consistent [USGS distribution table][usgs-water], which cites Shiklomanov (1993). They are historical global stock estimates, not annual measurements. This selection is not exhaustive and therefore does not sum to 100%; saline groundwater, soil moisture and other stores are omitted. Do not combine percentages drawn from different denominators.
+
+Two PYQs test the ordering of these stores:
 
 - [2013 Q21][pyq2013]: "On the planet Earth, most freshwater exists as ice caps and glaciers. Of the remaining freshwater, the largest proportion exists as groundwater." — correct; rivers and lakes hold far less ([2013 Q21][pyq2013], Answer: c).
 - [2021 Q73][pyq2021]: Statement 1 — rivers and lakes hold more than groundwater — is **wrong**; groundwater greatly exceeds surface water. Statement 2 — polar ice caps and glaciers hold more than groundwater — is **correct** (Answer: b — only 2).
@@ -132,7 +135,7 @@ The shape of a drainage network depends on rock type, structure and slope:
 
 ### 6.3 Watersheds and development
 
-Because a watershed is a self-contained hydrological unit, it is the natural unit for managing water, soil and vegetation together. The **Integrated Watershed Development Programme (IWDP)** works at the micro-watershed level to: (1) prevent soil runoff by building check dams and bunds; (3) harvest rainwater and recharge groundwater; and (4) regenerate natural vegetation through afforestation ([2014 Q53][pyq2014], Answer: c — options 1, 3 and 4). Option 2 — linking perennial rivers with seasonal rivers — is **not** an objective of watershed development; it describes a separate river-linking proposal.
+In **watershed management**, watershed means the catchment area draining to an outlet, rather than only its boundary. This makes the catchment a useful unit for managing water, soil and vegetation together, while recognising groundwater and human transfers can cross surface divides ([USGS][usgs-watershed]). The **Integrated Watershed Development Programme (IWDP)** works at the micro-watershed level to: (1) prevent soil runoff by building check dams and bunds; (3) harvest rainwater and recharge groundwater; and (4) regenerate natural vegetation through afforestation ([2014 Q53][pyq2014], Answer: c — options 1, 3 and 4). Option 2 — linking perennial rivers with seasonal rivers — is **not** an objective of watershed development; it describes a separate river-linking proposal.
 
 ---
 
@@ -157,13 +160,13 @@ Lakes form by several processes. Each type leaves a characteristic shape and loc
 | Type | Origin | Indian example |
 |---|---|---|
 | **Oxbow** | A meander loop cut off when a river straightens | Lakes along Himalayan floodplains (terai) |
-| **Glacial** | Carved by a glacier and filled by meltwater or rain | Dal Lake, Nainital |
+| **Glacial** | Ice erodes a basin, or glacial debris dams water | High-Himalayan glacial lakes; individual origins need site-specific evidence |
 | **Tectonic** | A block of crust subsides or tilts, forming a depression | Wular Lake (Kashmir), Kolleru Lake |
-| **Crater / volcanic** | The vent of an extinct volcano fills with water | Lonar Lake (Maharashtra) |
+| **Impact crater** | A meteorite impact makes a depression that later holds water | Lonar Lake (Maharashtra), in Deccan basalt ([NASA][nasa-lonar]) |
 | **Artificial / reservoir** | Constructed by damming a river | **Kodaikanal** (Tamil Nadu) |
 | **Lagoon** | A coastal water body cut off from the sea by a sandbar or spit | Chilika Lake, Vembanad Lake |
 
-[2018 Q100][pyq2018] asks which of Kodaikanal, Kolleru, Nainital and Renuka is artificial. The answer is **Kodaikanal** — it was created in 1863 by damming a stream on the Palani Hills. Kolleru is a tectonic lake, Nainital is glacial, and Renuka (Himachal Pradesh) is natural. The common confusion is assuming a hill-station lake must be natural; Kodaikanal's lake is a rare exception.
+[2018 Q100][pyq2018] asks which of Kodaikanal, Kolleru, Nainital and Renuka is artificial. The answer is **Kodaikanal** — it was created in 1863 by damming a stream on the Palani Hills. Kolleru, Nainital and Renuka are natural lakes. The artificial-versus-natural PYQ does not by itself establish the precise geological origin of each natural basin; avoid using its key to certify those extra classifications. The common confusion is assuming a hill-station lake must be natural; Kodaikanal's lake is a rare exception.
 
 ---
 
@@ -183,11 +186,25 @@ An **aquifer** is a saturated, permeable geological formation — gravel, sand, 
 
 | Aquifer type | Description | Pressure | Well behaviour |
 |---|---|---|---|
-| **Unconfined** | Water table is the upper boundary; directly recharged by rain percolating from above | At atmospheric pressure | Water in well stands at water-table depth |
-| **Confined (artesian)** | Sandwiched between two impermeable layers; not directly recharged from directly above | Above atmospheric pressure (from water entering the aquifer at a higher elevation) | Water rises in well above the aquifer top; may flow at the surface without pumping (artesian well) |
-| **Perched** | A localised unconfined aquifer sitting on an impermeable lens above the main water table | Atmospheric | Often small and unreliable; dries in drought |
+| **Unconfined** | Water table is the upper boundary; recharge can percolate from above | Atmospheric at the water table; pressure increases below it | Water in a non-pumped well stands near the local water table |
+| **Confined (artesian)** | Bounded by layers that restrict flow; may receive recharge at a distant outcrop or through leakage | Water is under sufficient pressure to rise above the aquifer top in a well | Artesian rise does not necessarily reach land surface; natural overflow requires a **flowing artesian well** |
+| **Perched** | A local saturated body above a low-permeability lens, separated from the main groundwater by unsaturated material | Atmospheric at its own water table | Often small and seasonally variable |
 
-An **artesian well** flows naturally when the pressure head in a confined aquifer is high enough to push water above the land surface. The name comes from the Artois region of France, where natural flowing wells were long known.
+In an **artesian well**, water rises above the top of the confined aquifer because of pressure. Only a **flowing artesian well** has enough head for water to rise above the land surface without pumping. The **potentiometric surface** is the height to which water would rise in tightly cased wells tapping that aquifer ([USGS][usgs-artesian]).
+
+**Two aquifer cross-sections** — original schematics, not to scale. The well on the right is artesian but **non-flowing**.
+
+```text
+UNCONFINED                         CONFINED, NON-FLOWING ARTESIAN
+ground ________ | | ________        ground ________ | | ________
+unsaturated     | |                 head level .....|~|.........
+water table ~~~~|~|~~~~~~~~         confining layer =| |=========
+saturated sand | |                 saturated       | |  water rises
+and gravel     | |                 aquifer         | |  inside well
+base ======================        base ========================
+```
+
+In the left well the water level follows the water table. In the right well the water rises through the casing above the confining layer, but stops below ground. Head level is not a separate underground water layer.
 
 ### 9.3 Springs
 
@@ -275,13 +292,21 @@ Groundwater depletion is accelerating this stress because groundwater sustains d
 | **Sand mining decreases river salinity** | Incorrect causal claim. Sand mining lowers the water table and pollutes groundwater; it has no meaningful effect on river salinity ([2018 Q77][pyq2018]). |
 | **Kodaikanal lake is natural** | Wrong — it is artificial, created by damming in 1863. Nainital and Kolleru are natural ([2018 Q100][pyq2018]). |
 | **India's large groundwater extraction is for drinking water** | Wrong. The driver is agricultural irrigation. Drinking and sanitation account for a small share ([2023 Q32][pyq2023]). |
-| **A watershed and a drainage basin are the same thing** | A drainage basin is the area; a watershed is its boundary — the ridge or divide between two basins. |
-| **A confined aquifer has no water pressure** | The opposite: confined aquifers are under pressure (from water entering at a higher elevation), which is why artesian wells flow without pumping. |
+| **Watershed always means only the boundary** | In the divide usage here it means a basin boundary. In watershed-management and much hydrological usage it means the catchment area itself; identify the source's convention ([USGS][usgs-watershed]). |
+| **A confined aquifer has no water pressure** | The opposite: confined aquifers are under pressure (from water entering at a higher elevation), which makes water rise in an artesian well; only some wells overflow without pumping. |
 | **Wetlands are lungs** | Forests are conventionally called lungs; wetlands are kidneys — they filter and purify water ([2022 Q45][pyq2022]). |
 
 ---
 
 ## 14. Sources
+
+- **U.S. Geological Survey, Water Science School.** [Watersheds and Drainage Basins][usgs-watershed]. Accessed 23 November 2026.
+
+- **U.S. Geological Survey, Water Science School.** [How Much Water is There on Earth? Global distribution table][usgs-water]. Accessed 23 November 2026.
+
+- **U.S. Geological Survey, Water Science School.** [Artesian Water and Artesian Wells][usgs-artesian]. Accessed 23 November 2026.
+
+- **NASA Earth Observatory.** [Lonar Crater, India][nasa-lonar]. Accessed 23 November 2026.
 
 - **NCERT Class 11, Fundamentals of Physical Geography, Ch. 11 — Water in the Atmosphere.** Via BPSC Pathshala, accessed November 2026.
 - **NCERT Class 11, India: Physical Environment, Ch. 3 — Drainage System.** Via BPSC Pathshala, accessed November 2026.
@@ -297,3 +322,9 @@ Groundwater depletion is accelerating this stress because groundwater sustains d
 [pyq2021]: Prelims-General-Studies-I-PYQS/2021-Prelims-General-Studies-I.md
 [pyq2022]: Prelims-General-Studies-I-PYQS/2022-Prelims-General-Studies-I.md
 [pyq2023]: Prelims-General-Studies-I-PYQS/2023-Prelims-General-Studies-I.md
+[nasa-lonar]: https://science.nasa.gov/earth/earth-observatory/lonar-crater-india-8654/
+
+[usgs-artesian]: https://www.usgs.gov/water-science-school/science/artesian-water-and-artesian-wells
+[usgs-water]: https://www.usgs.gov/water-science-school/science/how-much-water-there-earth
+
+[usgs-watershed]: https://www.usgs.gov/water-science-school/science/watersheds-and-drainage-basins
