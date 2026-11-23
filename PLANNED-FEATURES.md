@@ -50,7 +50,7 @@ For both language papers, establish section/item allocations and partial-credit 
 
 ## Dependencies and Open Decisions
 
-- The [Essay curriculum](Mains-Essay/Mains-Essay-Curriculum.md) is available with 30 planning chapter placeholders. Essay teaching content and the Hindi and English curricula and teaching content are pending. Sectional assessments will need substantive readiness; full-paper diagnostic proposals should explicitly state whether they may be based on a verified syllabus/PYQ blueprint before teaching is complete.
+- The [Essay curriculum](Mains-Essay/Mains-Essay-Curriculum.md) and [English Paper B curriculum](Mains-English/Mains-English-Curriculum.md) are available with 30 and 25 planning chapter placeholders respectively. Their teaching content and the Hindi curriculum and teaching content are pending. Sectional assessments will need substantive readiness; full-paper diagnostic proposals should explicitly state whether they may be based on a verified syllabus/PYQ blueprint before teaching is complete.
 - Verify current paper layouts, especially language section marks and Hindi translation allocations. Record the official sources and access dates in the eventual methods.
 - Decide whether to offer language sectional drills as well as full papers. If added, proposed IDs are `HINDI-A-SEC-<section>-T01` and `ENG-B-SEC-<section>-T01`.
 - Decide whether historical-pattern practice is useful alongside the current pattern, and label it distinctly if offered.
