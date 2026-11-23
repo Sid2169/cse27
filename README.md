@@ -57,6 +57,7 @@ Planned Essay and language-paper features: [PLANNED-FEATURES.md](PLANNED-FEATURE
 | Resource | Download |
 |---|---|
 | UPSC Prelims OMR practice sheet | [Download PDF](UPSC_Prelims_OMR_Practice.pdf) |
+| UPSC Mains GS I–III answer-writing practice copies | [Download PDF](UPSC_Mains_GS_1_2_3_Answer_Writing_Practice.pdf) |
 
 ## Status
 
