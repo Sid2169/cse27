@@ -57,7 +57,12 @@ Planned Essay and language-paper features: [PLANNED-FEATURES.md](PLANNED-FEATURE
 | Resource | Download |
 |---|---|
 | UPSC Prelims OMR practice sheet | [Download PDF](UPSC_Prelims_OMR_Practice.pdf) |
-| UPSC Mains GS I–III answer-writing practice copies | [Download PDF](UPSC_Mains_GS_1_2_3_Answer_Writing_Practice.pdf) |
+| UPSC Mains Essay (Paper I) answer-writing practice booklet | [Download PDF](UPSC_Mains_Essay_Paper_I.pdf) |
+| UPSC Mains GS I–III answer-writing practice booklet | [Download PDF](UPSC_Mains_GS_1_2_3_Answer_Writing_Practice.pdf) |
+| UPSC Mains GS IV (Ethics) answer-writing practice booklet | [Download PDF](UPSC_Mains_GS_IV_Ethics.pdf) |
+| UPSC Mains Hindi (Paper A) answer-writing practice booklet | [Download PDF](UPSC_Mains_Hindi_Paper_A.pdf) |
+| UPSC Mains English (Paper B) answer-writing practice booklet | [Download PDF](UPSC_Mains_English_Paper_B.pdf) |
+| UPSC Mains Mathematics Optional (Paper I) answer-writing practice booklet | [Download PDF](UPSC_Mains_Mathematics_Optional_Paper_I.pdf) |
 
 ## Status
 
