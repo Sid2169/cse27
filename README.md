@@ -52,6 +52,12 @@ Mains answer evaluation method: [MAINS-ANSWER-EVALUATION.md](MAINS-ANSWER-EVALUA
 
 Planned Essay and language-paper features: [PLANNED-FEATURES.md](PLANNED-FEATURES.md)
 
+## Practice Resources
+
+| Resource | Download |
+|---|---|
+| UPSC Prelims OMR practice sheet | [Download PDF](UPSC_Prelims_OMR_Practice.pdf) |
+
 ## Status
 
 Root [syllabus.md](syllabus.md) contains the complete official syllabus, and all per-paper syllabus files are populated verbatim. The Mathematics optional syllabus is copied verbatim from the official notification because root [syllabus.md](syllabus.md) does not reproduce detailed optional syllabi.
