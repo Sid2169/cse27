@@ -632,6 +632,8 @@ The chapter headings below are the authoritative file index. Each numbered entry
 
 #### 025. [Directive Principles, Fundamental Duties and social justice](025-directive-principles-fundamental-duties-and-social-justice.md)
 
+**Authored 25 November 2026, complete in one file:** directives and their legal effect; all eleven duties; welfare and social justice; rights–directives balance and Article 31C; sourced, dated current connections; summary and paper-specific revision notes.
+
 - **Scope:** DPSPs, Fundamental Duties, welfare goals and their relationship with enforceable rights and policy.
 - **Outcome:** Compare a right, directive and duty without confusing their legal effect.
 - **Define when teaching:** DPSP; justiciability; Fundamental Duty; social justice.

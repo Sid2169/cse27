@@ -21,7 +21,7 @@ Read the three parts in order. Together they constitute one curriculum chapter. 
 
 **Corpus discrepancy:** Part 3 flags an incorrect recorded key for local **2022 Q87**, concerning mandamus and quo warranto. The original question corpus is preserved; the chapter supplies an explicitly reasoned correction.
 
-**Next:** [025 — Directive Principles, Fundamental Duties and social justice](025-directive-principles-fundamental-duties-and-social-justice.md), currently a planning placeholder.
+**Next:** [025 — Directive Principles, Fundamental Duties and social justice](025-directive-principles-fundamental-duties-and-social-justice.md), now authored.
 
 <a id="summary-of-key-concepts-and-takeaways"></a>
 

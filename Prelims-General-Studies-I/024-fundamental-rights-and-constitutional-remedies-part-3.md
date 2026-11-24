@@ -229,7 +229,7 @@ For new religion, institutional-control or writ decisions, record the actual hol
 
 A right must be read with its beneficiary, relevant actor, restriction and remedy. Equality is not identical treatment in all circumstances; liberty is not absence of all law; religious freedom is not immunity for every associated secular activity. Constitutional enforcement requires identifying the legal problem and the court's power, not only naming a writ.
 
-Proceed to [Chapter 025 — Directive Principles, Fundamental Duties and social justice](025-directive-principles-fundamental-duties-and-social-justice.md), currently a planning placeholder. It will contrast directly enforceable rights with the constitutional roles of policy directions and duties. Return to the [Chapter 024 overview](024-fundamental-rights-and-constitutional-remedies.md) for all three parts.
+Proceed to [Chapter 025 — Directive Principles, Fundamental Duties and social justice](025-directive-principles-fundamental-duties-and-social-justice.md), now authored. It contrasts directly enforceable rights with the constitutional roles of policy directions and duties. Return to the [Chapter 024 overview](024-fundamental-rights-and-constitutional-remedies.md) for all three parts.
 
 <a id="update-watch"></a>
 
