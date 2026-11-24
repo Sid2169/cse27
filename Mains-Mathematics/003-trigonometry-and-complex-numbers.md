@@ -1,4 +1,7 @@
-# 003 — Trigonometry and complex numbers
+# 003. Trigonometry and complex numbers
+
+<a id="003--trigonometry-and-complex-numbers"></a>
+
 
 **Paper:** Mathematics optional, foundation bridge for both papers.
 **Learning outcome:** Use trigonometric, exponential and complex representations while preserving domains and all solutions.
@@ -24,16 +27,40 @@ This supports the [official syllabus](Mains-Mathematics-Syllabus.md), especially
 
 Sources and access dates appear in each part. Worked examples are original teaching examples, not newly generated tests. Part 3 discusses the later PYQ connection with corpus limitations retained.
 
-## Revision and next steps
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 1. Summary of key concepts and takeaways
+
+The three parts connect rotation, exponential scale and complex representation. Domains and conventions determine which transformations are valid: a principal inverse selects one value, while solving an equation requires every permitted solution. Derive identities from circle or exponential definitions, then retain restrictions when changing representation.
+
+<a id="upsc-specific-notes"></a>
+
+## 2. UPSC-specific notes
+
+| Part | Static revision focus | Detailed notes |
+|---|---|---|
+| 1 | Radians, unit-circle signs and periods, addition identities, all-angle solutions and principal inverse ranges. | [Trigonometric notes](003-trigonometry-and-complex-numbers-part-1.md#upsc-specific-notes) |
+| 2 | Positive-base powers, positive log arguments, monotonicity and inequality direction, hyperbolic definitions and inverse domains. | [Exponential/hyperbolic notes](003-trigonometry-and-complex-numbers-part-2.md#upsc-specific-notes) |
+| 3 | Conjugation and modulus, polar products, all roots, principal arguments/logs and the boundary before analytic methods. | [Complex-number notes](003-trigonometry-and-complex-numbers-part-3.md#upsc-specific-notes) |
+
+These support both papers; the bridge does not replace later proofs in analysis or the Paper II Complex Analysis syllabus. The mathematics has no current-affairs component. Keep the 2022 PYQ connection's transcription and prerequisite caveats in Part 3, and use [chapter 001](001-orientation-and-diagnostic-route.md#update-watch) for changing examination instructions.
+
+<a id="revision-and-next-steps"></a>
+
+## 3. Revision and next steps
 
 Use the ordered part links above for teaching and revision. The closing section of each part identifies what to retain and where to continue.
 
-## Update watch
+<a id="update-watch"></a>
+
+## 4. Update watch
 
 The chapter’s mathematics is stable; no routine factual update is needed. Each part notes the limited correction or notation-change triggers relevant to it.
 
 [Part 1 watch](003-trigonometry-and-complex-numbers-part-1.md#update-watch) · [Part 2 watch](003-trigonometry-and-complex-numbers-part-2.md#update-watch) · [Part 3 watch](003-trigonometry-and-complex-numbers-part-3.md#update-watch).
 
-## Sources
+<a id="sources"></a>
+
+## 5. Sources
 
 The teaching references, caveats and original access dates are retained with the relevant part: [Part 1 sources](003-trigonometry-and-complex-numbers-part-1.md#sources) · [Part 2 sources](003-trigonometry-and-complex-numbers-part-2.md#sources) · [Part 3 sources](003-trigonometry-and-complex-numbers-part-3.md#sources).

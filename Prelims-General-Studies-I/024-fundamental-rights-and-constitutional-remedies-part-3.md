@@ -1,5 +1,8 @@
 # 024. Fundamental Rights and constitutional remedies
-## Part 3 of 3 — Religion, culture and remedies
+
+<a id="part-3-of-3--religion-culture-and-remedies"></a>
+
+**Part:** 3 of 3 — Religion, culture and remedies
 
 **Paper:** Prelims General Studies I. **Authored:** 24 November 2026.
 **Learning outcome:** Connect a simple infringement to the relevant guarantee, jurisdiction and remedy.
@@ -12,7 +15,9 @@
 
 ## 1. Articles 25–28: individual freedom and religious institutions
 
-### Article 25: conscience and religious practice
+<a id="article-25-conscience-and-religious-practice"></a>
+
+### 1.1 Article 25: conscience and religious practice
 
 **Freedom of conscience** concerns a person's beliefs and convictions. To **profess** a religion is to affirm it, to **practise** it is to observe it, and to **propagate** it is to communicate its teachings. Article 25 protects all persons in freely professing, practising and propagating religion, subject to **public order, morality, health and the other provisions of Part III**. The freedom belongs to persons, not only Indian citizens. [Article 25][constitution]
 
@@ -20,17 +25,23 @@ The article also preserves legislative power to regulate economic, financial, po
 
 **Worked distinction:** A belief and the financial administration of an institution associated with that belief are different subjects. Article 25 does not establish that any activity becomes immune from regulation once someone calls it religious. Conversely, the existence of a regulatory power does not remove the need to respect religious freedom and the other constitutional limits.
 
-### Article 26: denominational affairs
+<a id="article-26-denominational-affairs"></a>
+
+### 1.2 Article 26: denominational affairs
 
 Subject to public order, morality and health, every religious denomination or section of one has rights to establish and maintain religious/charitable institutions, manage its religious affairs, own/acquire property and administer that property according to law. **Denomination** here concerns an identifiable religious group, not simply any association that adopts a name. [Article 26][constitution]
 
 Separate the individual's Article 25 guarantee from the institutional interests in Article 26. Also distinguish managing religious affairs from administering property: the latter expressly operates according to law. A specific dispute requires the relevant constitutional interpretation; the article's title alone does not decide it.
 
-### Article 27: a specified tax prohibition
+<a id="article-27-a-specified-tax-prohibition"></a>
+
+### 1.3 Article 27: a specified tax prohibition
 
 Article 27 protects a person from compulsion to pay taxes whose proceeds are **specifically appropriated** for promoting or maintaining a particular religion or religious denomination. It does not say that every tax paid by a religious person is prohibited. The purpose and appropriation of the proceeds matter. [Article 27][constitution]
 
-### Article 28: the institution's funding and status matter
+<a id="article-28-the-institutions-funding-and-status-matter"></a>
+
+### 1.4 Article 28: the institution's funding and status matter
 
 | Setting | Constitutional rule |
 |---|---|
@@ -88,7 +99,9 @@ The phrase **“for any other purpose”** in Article 226 does not mean any pers
 
 The constitutional lists appear in [Articles 32 and 226][constitution]. NIOS explains the basic functions in [Section 7.5 of its law lesson][nios]; public-duty and public-office qualifications are discussed in the [Ramakrishna Mission][mandamus] and [Premachandran Keezhoth][quo] judgments. The certiorari distinction between supervisory review, jurisdictional error and denial of a fair hearing is explained in [Hari Vishnu Kamath v. Ahmad Ishaque][certiorari]. **Natural justice** includes fair-hearing and impartial-decision requirements in the applicable setting; the exact procedural requirements depend on the case.
 
-### Paired examples
+<a id="paired-examples"></a>
+
+### 4.1 Paired examples
 
 **Detention versus public duty:** If a person is secretly confined without lawful authority, habeas corpus addresses the legality of that confinement. If an authority refuses to perform an applicable mandatory public duty, mandamus may be appropriate. Detention does not become a mandamus problem merely because an official is involved.
 
@@ -113,13 +126,17 @@ The ability to identify a possible right is not a guarantee of success. These in
 
 ## 6. Qualifications that prevent overgeneralisation
 
-### Property and the saving provisions
+<a id="property-and-the-saving-provisions"></a>
+
+### 6.1 Property and the saving provisions
 
 The **Forty-fourth Amendment** removed the former property provisions from the Fundamental Rights framework. **Article 300A** now provides that no person may be deprived of property except by authority of law. It is a constitutional right outside Part III, not a Fundamental Right and not merely a right available to citizens. An allegation concerning property may involve Article 300A and potentially other guarantees on its facts; loss of its former Part III classification did not abolish all legal protection. [Article 300A, Article 19(1)(f)/31 omission notes][constitution]
 
 Articles **31A, 31B and 31C** protect specified laws against specified challenges within their operative scope. Do not read these as a blanket exemption for every policy called social reform. Chapter 023 explains the Ninth Schedule and basic-structure qualification; Chapter 025 will explain the rights–Directive Principles relationship. The official text's judicial-invalidity footnotes are especially important when reading Article 31C.
 
-### Articles 33–35: specified parliamentary powers
+<a id="articles-3335-specified-parliamentary-powers"></a>
+
+### 6.2 Articles 33–35: specified parliamentary powers
 
 | Provision | What it addresses | What not to infer |
 |---|---|---|
@@ -129,7 +146,9 @@ Articles **31A, 31B and 31C** protect specified laws against specified challenge
 
 Source: [Articles 33–35][constitution]. **Abrogate** means remove the application of the relevant right to the specified extent. These powers have constitutional subjects and purposes; they are not a free-standing permission for an administrator to disregard Part III.
 
-### Emergencies: suspension is not one undifferentiated rule
+<a id="emergencies-suspension-is-not-one-undifferentiated-rule"></a>
+
+### 6.3 Emergencies: suspension is not one undifferentiated rule
 
 | Provision | Key distinction |
 |---|---|
@@ -144,7 +163,9 @@ Article 359(1A) also addresses the effect on qualifying legislation and executiv
 
 **[2021 Q10](Prelims-General-Studies-I-PYQS/2021-Prelims-General-Studies-I.md):** The right to property is a legal right available to **any person**, option **(b)**, grounded in Article 300A. “Citizens only” is too narrow; the Fundamental Right label is no longer correct; saying neither legal nor fundamental protection exists ignores Article 300A.
 
-### Explicit discrepancy: local 2022 Q87
+<a id="explicit-discrepancy-local-2022-q87"></a>
+
+### 7.1 Explicit discrepancy: local 2022 Q87
 
 **Encountered and checked on 24 November 2026.** The [local 2022 file](Prelims-General-Studies-I-PYQS/2022-Prelims-General-Studies-I.md) records **(d), all three statements**, for its mandamus/quo-warranto question. For the reproduced stem, the legally supported analysis is:
 
@@ -158,15 +179,61 @@ The supported combination is **1 and 3 only: option (c)**. Option (a) incorrectl
 
 This is an **independently reasoned correction for the local transcription**, not a claim that the original UPSC booklet and official answer-key mapping were verified in this task. The corpus has been left unchanged. Read its provenance caveats and do not memorise the conflicting recorded key as doctrine.
 
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 8. Summary of key concepts and takeaways
+
+- Religious, cultural and educational guarantees protect different persons and institutions with different qualifications. Funding, management, consent and the regulated activity can change the applicable rule.
+- Identify the legal problem before choosing a remedy: unlawful detention, unperformed public duty, jurisdictional proceedings, defective determination and unlawful public-office occupation call for different analysis.
+- Rights enforcement has limits and exceptions, but property protection, Ninth Schedule rules or emergency provisions cannot be reduced to “all protection disappears”. Read the operative provision and legal-status notes.
+
+<a id="upsc-specific-notes"></a>
+
+## 9. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 9.1 Static notes
+
+| Area | Revision notes and traps |
+|---|---|
+| Articles 25–27 | Article 25 protects persons' conscience/profession/practice/propagation subject to its limits and secular-activity/reform powers. Article 26 concerns denominational institutions/affairs/property with its limits. Article 27 concerns taxes specifically appropriated for promoting/maintaining a particular religion, not every tax on a religious person. |
+| Article 28 | Wholly State-maintained institutions: religious-instruction prohibition; specified trust/endowment State-administered institutions: exception; recognised/aided institutions: consent protection against compulsory instruction/worship. Funding, administration and recognition are different facts. |
+| Articles 29–30 | 29(1): any section of citizens conserving distinct language/script/culture; 29(2): specified admission discrimination in State-maintained/aided institutions. Article 30: religious/linguistic minority institutions; minority management does not justify discriminatory aid denial or guarantee any requested grant. |
+| Articles 32/226 | Supreme Court Article 32: Fundamental Rights; High Court Article 226: those and other enforceable legal claims within jurisdiction. Article 32 is not merely an appeal after a High Court loss. Article 226's cause-of-action rule matters; “any other purpose” is not any personal wish. |
+| Writs | Habeas corpus—unlawful detention, including relevant private confinement; mandamus—public/statutory duty; prohibition—prevent jurisdictionally defective continuation; certiorari—quash legally defective determination; quo warranto—lawful entitlement to a substantive public office, not comparative merit. |
+| Property and protected laws | Article 300A: property deprivation only by authority of law, available to persons, outside Part III. Articles 31A–31C have specified protection, not blanket immunity; read invalidity footnotes and the Ninth Schedule/basic-structure qualification. |
+| Articles 33–35 | Specified parliamentary powers for service/discipline, martial-law-related indemnity/validation and designated Part III legislation. Neither every government job nor every law affecting a right falls within a universal exception. |
+| Emergency qualifications | Article 358's Article 19 framework: war/external aggression, not armed rebellion, with qualifying-law/action conditions. Article 359: presidential order specifying affected enforcement; **20/21 excluded**; qualifying-legislation/action effects also matter. Neither validates every official act. |
+
+Source basis: [Constitution][constitution] and the [writ references](#sources).
+
+<a id="current-connections"></a>
+
+### 9.2 Current connections
+
+The legal snapshot uses the **10 September 2026 constitutional edition**, accessed **24 November 2026**. Existing judicial examples connect it to recurring institutional disputes:
+
+- **Ramakrishna Mission v. Kago Kunya (2019):** examine the actual public duty/activity and facts, not merely whether a body's label is private or it receives some public benefit. Neither “all private hospitals are public authorities” nor blanket private-body immunity follows. [Judgment][mandamus]
+- **Premachandran Keezhoth (2023):** quo warranto tests legal entitlement to public office; a bona fide public-minded petitioner need not establish personal entitlement. It is not a judicial competition over the best candidate. [Judgment][quo]
+- **Local 2022 Q87 discrepancy:** the chapter's supported combination is **1 and 3 only, option (c)**, conflicting with the recorded local key. Original UPSC wording/key mapping remains unverified. Preserve that qualification when using the question to revise mandamus/quo warranto.
+
+For new religion, institutional-control or writ decisions, record the actual holding and qualifications rather than substituting a headline for the rule. The [Update watch](#update-watch) covers changed law and the unresolved corpus mapping.
+
+
 <a id="8-what-to-retain-for-the-next-chapter"></a>
 
-## Revision and next steps
+<a id="revision-and-next-steps"></a>
+
+## 10. Revision and next steps
 
 A right must be read with its beneficiary, relevant actor, restriction and remedy. Equality is not identical treatment in all circumstances; liberty is not absence of all law; religious freedom is not immunity for every associated secular activity. Constitutional enforcement requires identifying the legal problem and the court's power, not only naming a writ.
 
 Proceed to [Chapter 025 — Directive Principles, Fundamental Duties and social justice](025-directive-principles-fundamental-duties-and-social-justice.md), currently a planning placeholder. It will contrast directly enforceable rights with the constitutional roles of policy directions and duties. Return to the [Chapter 024 overview](024-fundamental-rights-and-constitutional-remedies.md) for all three parts.
 
-## Update watch
+<a id="update-watch"></a>
+
+## 11. Update watch
 
 Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
 
@@ -175,9 +242,12 @@ Use the corresponding references in [Sources](#sources). Keep historical observa
 | Writ jurisdiction and legal exceptions | Controlling judgments or amendments may refine the scope of a remedy or exception. | Check the relevant constitutional provision and authoritative judgment when applying a new rule. |
 | Local 2022 Q87 discrepancy | Verified original wording and official key mapping may resolve the recorded corpus conflict. | Revisit on obtaining those specific primary records; do not silently adopt or overwrite the conflicting entry. |
 
+
 <a id="sources-and-maintenance"></a>
 
-## Sources
+<a id="sources"></a>
+
+## 12. Sources
 
 External sources accessed **24 November 2026**:
 

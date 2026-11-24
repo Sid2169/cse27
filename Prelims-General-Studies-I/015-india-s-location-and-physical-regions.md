@@ -11,13 +11,17 @@
 
 ---
 
-## India's location and strategic position
+<a id="indias-location-and-strategic-position"></a>
+
+## 1. India's location and strategic position
 
 India occupies the southern portion of the Asian continent, projecting as a triangular **peninsula** — a landmass bounded by water on three sides — into the Indian Ocean between the Arabian Sea (west) and the Bay of Bengal (east). Its position gives it both overland and oceanic connections: mountain passes provide restricted routes across the Himalayan barrier, while the peninsula lies near shipping routes across the northern Indian Ocean. A pass is a gap through high ground, not an absence of the barrier. The Tropic of Cancer (23°30′N) divides the country into roughly two equal halves, so India spans both the tropics and the subtropics ([NCERT][ncert-location]).
 
 ---
 
-## Extent, coordinates and time
+<a id="extent-coordinates-and-time"></a>
+
+## 2. Extent, coordinates and time
 
 | Dimension | Value |
 |---|---|
@@ -40,7 +44,9 @@ The coastline figures use different measurement methods. The 2025 circular attri
 
 ---
 
-## Neighbours
+<a id="neighbours"></a>
+
+## 3. Neighbours
 
 **Land borders (seven countries in India's official accounting):** The rounded lengths below follow the [Ministry of Home Affairs][mha-border], checked 23 November 2026. These describe official boundary claims, not seven equivalent, fully settled and accessible frontiers. In particular, the listed Afghanistan boundary lies in territory claimed by India but administered by Pakistan.
 
@@ -60,7 +66,9 @@ The coastline figures use different measurement methods. The 2025 circular attri
 
 ---
 
-## Maritime zones
+<a id="maritime-zones"></a>
+
+## 4. Maritime zones
 
 The **United Nations Convention on the Law of the Sea (UNCLOS, 1982)** distinguishes sovereignty from specified economic rights. Its distances are measured from legally determined **baselines**, normally the low-water line, with other methods such as straight baselines allowed under the Convention. One **nautical mile** is 1.852 km. The authoritative provisions are Articles 3, 5, 7, 17, 19, 33, 56–58 and 76–78 ([UN text][unclos]).
 
@@ -77,7 +85,9 @@ UPSC has tested all three UNCLOS statements directly: the 12 nm territorial sea,
 
 ---
 
-## States and Union Territories: attach names to the physical framework
+<a id="states-and-union-territories-attach-names-to-the-physical-framework"></a>
+
+## 5. States and Union Territories: attach names to the physical framework
 
 India has **28 states and eight Union Territories** as of 23 November 2026 ([Government of India state list][states]; [MHA UT list][uts]). A **state** and a **Union Territory (UT)** are administrative units with different constitutional arrangements; neither is a landform. A river basin or mountain range can cross several of them. Detailed constitutional arrangements belong in the polity chapters.
 
@@ -108,7 +118,9 @@ Use a current [Survey of India map][soi-maps] beside these tables. The groupings
 
 ---
 
-## India's six physical divisions
+<a id="indias-six-physical-divisions"></a>
+
+## 6. India's six physical divisions
 
 A **plateau** is a raised, relatively flat-topped landmass; a **pass** is a low gap in a mountain ridge used for crossing. India is conventionally divided into six major physiographic regions ([NCERT][ncert-physio]):
 
@@ -121,9 +133,13 @@ A **plateau** is a raised, relatively flat-topped landmass; a **pass** is a low 
 
 ---
 
-## 1. Northern and north-eastern mountains
+<a id="1-northern-and-north-eastern-mountains"></a>
 
-### Himalayan ranges (south to north)
+## 7. Northern and north-eastern mountains
+
+<a id="himalayan-ranges-south-to-north"></a>
+
+### 7.1 Himalayan ranges (south to north)
 
 The Himalayas form an arc of about 2,500 km from the Indus gorge (west) to the Brahmaputra gorge (east). Three parallel ranges run broadly west-to-east:
 
@@ -142,11 +158,15 @@ The Himalayas form an arc of about 2,500 km from the Indus gorge (west) to the B
 
 **Peak–mountain matching (PYQ):** Nanda Devi correctly belongs to the **Kumaon Himalaya**. Namcha Barwa, near the great bend of the Yarlung Tsangpo in **southeastern Tibet, China**, is not in Garhwal or Arunachal Pradesh. A field study records its height as 7,782 m ([Jiang and Bleisch, 1996][namcha]); its location is the decisive distinction in this PYQ. Nokrek is a biosphere reserve in the Garo Hills of Meghalaya (Shillong Plateau), not the Sikkim Himalaya — only Nanda Devi → Kumaon Himalaya is a correct match [2022 Q50][pyq2022].
 
-### Trans-Himalaya
+<a id="trans-himalaya"></a>
+
+### 7.2 Trans-Himalaya
 
 North of the Himadri lie the Karakoram, Ladakh and Zaskar ranges, together called the Trans-Himalaya. This is a cold, arid high plateau — a rain shadow desert. The world's second highest peak, K2 (8,611 m), lies in the Karakoram. Major glaciers include Siachen and Baltoro. The Khardung La pass (Ladakh Range) is among the highest motor roads in the world.
 
-### Regional divisions of the Himalaya
+<a id="regional-divisions-of-the-himalaya"></a>
+
+### 7.3 Regional divisions of the Himalaya
 
 Here the **traditional NCERT river-boundary scheme** runs west to east. Do not substitute modern state names for these broader historical regional labels ([NCERT Class IX][ncert-ix]).
 
@@ -161,13 +181,17 @@ Class XI's more detailed physiographic treatment also distinguishes Kashmir/nort
 
 **States crossed by Himalayas (PYQ):** The working key for [2017 Q71][pyq2017] accepts only the Pulicat Lake statement: Tamil Nadu and Andhra Pradesh. The “five states only” claims for the Himalayas and Western Ghats are rejected. The Western Ghats extend across Gujarat, Maharashtra, Goa, Karnataka, Kerala and Tamil Nadu in the conventional six-state listing. Keep the PYQ's **2017** administrative context separate from the present map: Jammu and Kashmir and Ladakh are now **UTs**, not two states. Do not count every northeastern hill region as the Greater Himalaya; first identify the physical range and then overlay administrative boundaries.
 
-### Purvachal (north-eastern hills)
+<a id="purvachal-north-eastern-hills"></a>
+
+### 7.4 Purvachal (north-eastern hills)
 
 Beyond the Dihang gorge, the Himalaya bends southward as the Purvachal — the north-eastern hills: Patkai Bum, Naga Hills, Manipur Hills and Mizo (Lushai) Hills. These form India's border with Myanmar.
 
 ---
 
-## 2. Northern plains
+<a id="2-northern-plains"></a>
+
+## 8. Northern plains
 
 The northern plain is formed by sediment deposited by the Indus, Ganga and Brahmaputra river systems. It extends about 3,200 km east-to-west and is 150–300 km wide, with maximum alluvial-deposit thickness given as roughly 1,000–2,000 m in the textbook account and elevation generally 50–150 m — almost flat, highly fertile ([NCERT][ncert-physio]).
 
@@ -184,17 +208,23 @@ Haryana and Delhi form the water divide between the Indus drainage (west) and th
 
 ---
 
-## 3. Peninsular plateau
+<a id="3-peninsular-plateau"></a>
+
+## 9. Peninsular plateau
 
 The **Peninsular Plateau** is an ancient, stable block of crystalline rock, the remnant of the Gondwana landmass. It is a triangular tableland with many plateau surfaces at several hundred metres elevation, while individual hill ranges and peaks rise much higher; **600–900 m is not a ceiling** for the whole peninsular region. Its outer limits are the Delhi ridge (northern Aravalli extension), Rajmahal hills (northeast), Gir range (west) and Cardamom hills (south) ([NCERT][ncert-physio]).
 
-### Central Highlands
+<a id="central-highlands"></a>
+
+### 9.1 Central Highlands
 
 Lying north of the Narmada and south of the Indo-Gangetic plain, the Central Highlands include the Malwa Plateau and its eastward extensions, with the Vindhyan uplands. The Satpura system lies on the southern side of the Narmada and should not all be placed in a region defined as north of that river. Rivers such as the Chambal, Sind, Betwa and Ken drain parts of the highlands toward the Yamuna; this helps explain the general northeastward slope ([NCERT Class IX][ncert-ix]). The Aravalli hills run northeast-to-southwest across Rajasthan into Delhi.
 
 **Hill region facts (PYQ):** Amarkantak is at the confluence of the Vindhya and Maikal ranges (not Sahyadri/Western Ghats). Biligirirangan Hills (BRT) are in Karnataka — a biodiversity link between the Eastern and Western Ghats, not part of the Satpura range. Seshachalam Hills are part of the Eastern Ghats in Andhra Pradesh, not the Western Ghats. All three statements in [2023 Q57][pyq2023] are wrong; the answer is none.
 
-### Deccan Plateau
+<a id="deccan-plateau"></a>
+
+### 9.2 Deccan Plateau
 
 The Deccan Plateau proper lies south of the Satpura–Narmada line, bounded by the Western Ghats to the west and the Eastern Ghats to the east. The two Ghats meet in the Nilgiris in Tamil Nadu. Black (regur) soil derived from the Deccan Traps covers much of the western and northwestern Deccan, well suited to cotton cultivation.
 
@@ -206,29 +236,39 @@ The Deccan Plateau proper lies south of the Satpura–Narmada line, bounded by t
 
 **Waterfalls (PYQ):** In [2024 Q12][pyq2024], check **both region and river in each row**. Dhuandhar is on the Narmada at Bhedaghat/Jabalpur, but the row assigns it to **Malwa**, so that row is incorrect. Hundru → Chota Nagpur → Subarnarekha is fully correct. Gersoppa/Jog is on the **Sharavati**, not the listed Netravati. Thus only **one complete row**, Hundru's, is correct, matching the working key (a). The earlier chapter's “both correctly placed” wording incorrectly treated a correct river as sufficient to validate the Dhuandhar row.
 
-### Chotanagpur Plateau and north-eastern plateau
+<a id="chotanagpur-plateau-and-north-eastern-plateau"></a>
+
+### 9.3 Chotanagpur Plateau and north-eastern plateau
 
 Chotanagpur plateau, centred on Jharkhand, is an **eastward extension of the Central Highlands**, not the southernmost part of peninsular India ([NCERT Class IX][ncert-ix]), rich in coal, iron ore and other minerals. To the northeast, the Meghalaya (Shillong) Plateau — with Garo, Khasi and Jaintia hills — is separated from the main peninsular block by a fault. Cherrapunji (Sohra) on the Khasi hills receives some of the world's highest rainfall; the bare surface results from soil erosion. Nokrek peak in the Garo Hills is a biosphere reserve.
 
 ---
 
-## 4. Indian Desert (Thar / Marusthali)
+<a id="4-indian-desert-thar--marusthali"></a>
+
+## 10. Indian Desert (Thar / Marusthali)
 
 The Thar Desert lies northwest of the Aravalli hills, mainly in western Rajasthan with extensions into Gujarat. Rainfall is low and variable across the desert; do not treat 150 mm as an upper limit for every station. For example, Jaisalmer station averaged **201.6 mm annually in 1981–2010** ([IMD station climatology][imd-jaisalmer]). The terrain is undulating, with longitudinal dunes (parallel to wind direction) and barchans (crescent-shaped dunes). The **Luni** is the only significant river, draining southwestward into the Rann of Kachchh. Sambhar Lake is a saline lake used for salt production. The Indira Gandhi Canal (Rajasthan Canal) has brought irrigation to parts of the desert. Fossil wood at Aakal and marine deposits near Jaisalmer record different past environments: wood indicates former vegetation, while marine deposits support past marine conditions. Fossil wood alone is not proof that its site was seabed ([NCERT][ncert-physio]).
 
 ---
 
-## 5. Coastal plains
+<a id="5-coastal-plains"></a>
+
+## 11. Coastal plains
 
 **A coastal plain** is a flat lowland strip between the sea and an inland elevated area.
 
-### Western coastal plain
+<a id="western-coastal-plain"></a>
+
+### 11.1 Western coastal plain
 
 The western coastal plain extends along the Arabian Sea side from Gujarat toward Kerala and the southern tip. Much of it is narrow, with drowned coastal features and estuaries; large deltas are less characteristic than on the eastern coast. The contrasting landforms reflect gradient, sediment supply and coastal history, not a rule that every western river must have an estuary. The Narmada and Tapi are rift-valley rivers flowing westward. Mumbai and Kochi illustrate sheltered harbour settings. A **natural harbour** is a sheltered physical setting; a **port** includes constructed facilities, so a list of port names is not automatically a list of untouched natural harbours.
 
 Named sections north to south: **Kachchh and Kathiawar** (Gujarat) → **Konkan** (Maharashtra/Goa) → **Karnataka/Kanara coast** → **Malabar** (Kerala). Some textbook regional schemes name the Goan coast separately; do not count it twice in a single scheme. The Malabar coast has *kayals* (backwater lagoons) used for fishing, transport and tourism; Punnamada Kayal hosts the Nehru Trophy boat race.
 
-### Eastern coastal plain
+<a id="eastern-coastal-plain"></a>
+
+### 11.2 Eastern coastal plain
 
 The eastern coastal plain extends along the Bay of Bengal side from West Bengal through Odisha and Andhra Pradesh to Tamil Nadu. It is broader (an emergent coastline), with well-developed deltas of the Mahanadi, Godavari, Krishna and Kaveri. Broad deltaic stretches and sediment accumulation contrast with many western estuaries. Shelf width varies along the coast; do not assign a single maximum shelf width to the entire east coast without a named section and source.
 
@@ -238,21 +278,29 @@ Named sections: **Northern Circars** (Odisha and northern Andhra) → **Coromand
 
 ---
 
-## 6. Islands
+<a id="6-islands"></a>
+
+## 12. Islands
 
 **An island group** is a cluster of islands sharing a common geologic or geographic origin.
 
-### Andaman and Nicobar Islands (Bay of Bengal)
+<a id="andaman-and-nicobar-islands-bay-of-bengal"></a>
+
+### 12.1 Andaman and Nicobar Islands (Bay of Bengal)
 
 About 572 islands and islets, scattered between ~6°N and 14°N and 92°E–94°E. The **Ten Degree Channel** at 10°N latitude separates the **Andaman** group (north) from the **Nicobar** group (south) [2014 Q88][pyq2014]. The islands are of tectonic and volcanic origin, with dense tropical forest. **Barren Island**, in the Andaman group, is India's only active volcano. Principal peaks: Saddle Peak (738 m, North Andaman). The southernmost point of India — **Indira Point** — is on Great Nicobar Island.
 
-### Lakshadweep (Arabian Sea)
+<a id="lakshadweep-arabian-sea"></a>
+
+### 12.2 Lakshadweep (Arabian Sea)
 
 About 36 coral islands and islets totalling ~32 km², lying 220–440 km off the Kerala coast. All are of **coral/coralline** origin — atolls and coral reefs. The **Nine Degree Channel** separates **Minicoy to the south** from the northern Lakshadweep island group ([Cochin Port report][lakshadweep-channel]). It is not the divider between an Amini group and a Cannanore group. The island territory is administered from Kavaratti. Minicoy Island lies furthest south, closest to the Maldives.
 
 ---
 
-## Summary table: six physical divisions
+<a id="summary-table-six-physical-divisions"></a>
+
+## 13. Summary table: six physical divisions
 
 | Division | Key feature | Soil/material | Drainage |
 |---|---|---|---|
@@ -265,7 +313,9 @@ About 36 coral islands and islets totalling ~32 km², lying 220–440 km off the
 
 ---
 
-## Glossary
+<a id="glossary"></a>
+
+## 14. Glossary
 
 **Peninsula:** A landmass projecting into the sea and surrounded by water on three sides, connected to a larger body of land on one side.
 
@@ -279,9 +329,49 @@ About 36 coral islands and islets totalling ~32 km², lying 220–440 km off the
 
 ---
 
+
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 15. Summary of key concepts and takeaways
+
+- India's location, relief and surrounding seas explain routes, climatic contrasts and drainage. Physical regions cross administrative borders; a state or Union Territory is not a landform.
+- The young Himalayan mountain system, alluvial northern plains and older peninsular block have different origins and structures. Coasts, desert and islands add further contrasts rather than forming interchangeable map labels.
+- Coordinates describe position; longitude explains local solar-time differences, while IST supplies one standard reference. Maritime distances require legal baselines and different rights in different zones.
+- Map matching requires the whole relationship: feature, region, river and administrative location. A correctly named river does not rescue a wrongly assigned physical region.
+
+<a id="upsc-specific-notes"></a>
+
+## 16. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 16.1 Static notes
+
+| Topic | Prelims GS-I revision notes |
+|---|---|
+| Extent and time | Separate mainland extent from island-inclusive extent. Standard meridian: 82°30′E; IST: UTC + 5:30. Tropic of Cancer west to east: Gujarat, Rajasthan, Madhya Pradesh, Chhattisgarh, Jharkhand, West Bengal, Tripura, Mizoram. |
+| Neighbours and sea | Locate land neighbours, Sri Lanka across Palk Strait/Gulf of Mannar and Maldives south of Lakshadweep. Official boundary claims and actual administration are not identical; retain the Afghanistan-boundary qualification above. |
+| Maritime zones | Territorial sea: 12 nautical miles; contiguous zone: 24; EEZ: 200, measured from the applicable baseline. Sovereignty, specified enforcement powers and economic rights differ. Legal continental-shelf rights concern seabed/subsoil and do not establish sovereignty over the water above. |
+| Mountains and plains | South to north: Shiwalik, Lesser Himalaya, Greater Himalaya; locate Trans-Himalayan ranges separately. Distinguish Bhabar, Terai and alluvial plains; do not place every Himalayan peak inside India. A pass, a road tunnel and a railway tunnel are different features. |
+| Plateau and desert | Locate Central Highlands, Deccan and Chotanagpur; distinguish the Meghalaya plateau from Himalayan/Purvachal mountains. Western Ghats form a major escarpment/divide; Eastern Ghats are discontinuous. Thar rainfall is low and variable, not everywhere below one fixed station threshold. |
+| Coasts and islands | Contrast narrow western and broader delta-bearing eastern coastal plains. Ten Degree Channel separates Andaman/Nicobar groups; Nine Degree Channel separates Minicoy from northern Lakshadweep. Indira Point is on Great Nicobar; Barren Island is volcanic, Lakshadweep coral/coralline. |
+| Map and pair traps | Check hill–range, peak–region, river–waterfall and island–channel independently. Hundru–Chotanagpur–Subarnarekha is a complete valid row; Jog/Gersoppa is on Sharavati. A correct river paired with the wrong region is still an incorrect row. |
+
+Sources: [NCERT physical regions][ncert-ix], [NCERT location][ncert-location], [UNCLOS][unclos], [island-channel report][lakshadweep-channel] and the cited map/PYQ explanations above.
+
+<a id="current-connections"></a>
+
+### 16.2 Current connections
+
+- **Coastline remeasurement:** the **29 April 2025** official circular gives **11,098.81 km**, compared with the historical textbook total **7,516.6 km**. The chapter attributes the revision to methodology; it is not equivalent to territorial gain. Do not subtract an old mainland estimate from the new total to infer island coastline ([official circular][coastline]).
+- **Administrative map:** the chapter records **28 states and eight Union Territories as of 23 November 2026**. A subsequent law or renaming requires a dated map update, while the physical-region framework remains distinct. The older state-list page's obsolete UT count is already qualified in [Sources](#sources).
+- **Infrastructure and location:** the cited **21 November 2024** BRO release identifies Jawahar as a road tunnel. Infrastructure news should retain the route, pass/range, transport mode and project date, rather than treating every Banihal/Pir Panjal reference as the same tunnel ([BRO/PIB][jawahar]). Recheck changing measurements and administrative labels through [Update watch](#update-watch).
+
 <a id="reconstruct-the-relationships-on-a-map"></a>
 
-## Revision and next steps
+<a id="revision-and-next-steps"></a>
+
+## 17. Revision and next steps
 
 Use the [Survey of India outline-map collection][soi-maps] and a current physical/political atlas. An outline supports recall; a physical map supplies relief and a political map supplies administrative boundaries. Check the date and legend of each. Do not infer a national or state boundary from the edges of a coloured relief region.
 
@@ -315,7 +405,9 @@ Cover the reference map and reconstruct the large relationships first. Then comp
 
 ---
 
-## Update watch
+<a id="update-watch"></a>
+
+## 18. Update watch
 
 Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
 
@@ -324,7 +416,9 @@ Use the corresponding references in [Sources](#sources). Keep historical observa
 | State/Union territory names, counts and boundaries | The chapter explicitly dates its administrative description; later legal changes can alter it. | After a relevant territorial law or renaming, verify against the official State/UT and Survey of India sources cited below. |
 | Coastline and other measured dimensions | A revised measurement method need not mean physical or territorial gain. | When a new official measurement is issued, retain its method and date and do not combine incompatible old/new estimates. |
 
-## Sources
+<a id="sources"></a>
+
+## 19. Sources
 
 **Primary references checked for this revision (23 November 2026):**
 

@@ -274,9 +274,10 @@ The table below traces every important phenomenon in this chapter back to the sa
 
 ---
 
-<a id="11-common-confusions"></a>
 
-## Common confusions
+<a id="common-confusions"></a>
+
+## 11. Common confusions
 
 | Confusion | Clarification |
 |---|---|
@@ -290,14 +291,55 @@ The table below traces every important phenomenon in this chapter back to the sa
 
 ---
 
-## Revision and next steps
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 12. Summary of key concepts and takeaways
+
+- Rotation explains day/night and longitude-based time differences; revolution supplies the year. Revolution combined with the tilted axis explains seasonal illumination and day-length changes.
+- Seasons follow the angle and duration of sunlight, not simply Earth–Sun distance. The hemispheres have opposite astronomical seasons.
+- Lunar phases show changing views of the sunlit Moon; eclipses additionally require alignment near an orbital node. A new or full moon alone is insufficient.
+- Astronomical geometry and civil conventions are different: solstice dates depend on year/time zone, while legal clock zones need not be neat 15° strips.
+
+<a id="upsc-specific-notes"></a>
+
+## 13. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 13.1 Static notes
+
+| Topic | Revision facts and MCQ distinctions |
+|---|---|
+| Solar-system order | Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune; asteroid belt between Mars and Jupiter. Pluto is classified as a dwarf planet. A light-year measures distance. |
+| Motions and tilt | Rotation west to east ≈24 hours; revolution ≈365¼ days. Tilt ≈23½° from the perpendicular to the orbital plane, or 66½° to the plane itself. |
+| Solstices | June: overhead Sun at Cancer, longer NH days; December: overhead Sun at Capricorn, longer SH days. Calendar dates in the body are approximations, not fixed dates for every year. |
+| Equinoxes and key circles | Overhead Sun at the Equator; day/night approximately equal. Tropics bound the overhead Sun; polar circles (≈66½°) mark the idealised limits of continuous solstitial day/night. Seasonal day-length variation increases toward the poles. |
+| Moon | Rotation and sidereal orbit ≈27.3 days; phase cycle ≈29.5 days. The same face generally points toward Earth; libration permits some additional surface to be seen over time. |
+| Eclipses | Solar: new moon, Moon between Sun and Earth. Lunar: full moon, Earth between Sun and Moon. The lunar orbit's ≈5° inclination prevents monthly eclipses; umbra versus penumbra distinguishes complete from partial shadow. |
+| Eclipse type | Total solar versus annular depends on apparent angular sizes and alignment. An annular “ring” is exposed photosphere, not the corona seen in totality. |
+| Time | Longitude: 15°/hour, east ahead. IST = UTC+5:30 from 82°30′E. Count simultaneous offsets using the specified territorial scope, not database identifiers or seasonal clock settings. |
+
+Use the chapter's [NASA, NCERT and time-standard sources](#sources) for the underlying definitions; the body supplies diagrams and worked reasoning.
+
+<a id="current-connections"></a>
+
+### 13.2 Current connections
+
+- **Time-zone question, 2025 Q96:** the chapter's **23 November 2026 correction** restores the actual country list and records Brazil's four standard offsets. The working key remains unverified against the official booklet/key. Do not copy the earlier substituted-country explanation or treat an IANA identifier count as an offset count ([PYQ][pyq2025b]; [INPE][inpe-time]; [IANA][iana-zones]).
+- News about an eclipse, lunar finding or solstice connects to stable geometry; exact visibility, event times and mission discoveries require their own dated evidence. The chapter's NASA Moon reference distinguishes polar water ice from surface liquid-water lakes. It is not an inventory of later discoveries ([NASA][nasa-moon]). Recheck year-specific details through [Update watch](#update-watch).
+
+<a id="revision-and-next-steps"></a>
+
+## 14. Revision and next steps
 
 - Explain seasons using axial tilt and revolution, then distinguish that mechanism from changing Earth–Sun distance.
 - Trace an eclipse alignment and calculate a longitude-based time difference with the sign made explicit.
 
 Next: [008 — Earth's interior, rocks and tectonic hazards](008-earth-s-interior-rocks-and-tectonic-hazards.md).
 
-## Update watch
+<a id="update-watch"></a>
+
+## 15. Update watch
 
 Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
 
@@ -306,7 +348,9 @@ Use the corresponding references in [Sources](#sources). Keep historical observa
 | Calendar examples and event dates | The motion geometry is stable; an eclipse, solstice or equinox date belongs to a particular year and time zone. | Before quoting a date for a new year, check the astronomical source cited below. |
 | Civil time conventions | Longitude calculations do not themselves determine legal time-zone policy. | Recheck the relevant official time standard if a government announces a policy change; retain the date of historical examples. |
 
-## Sources
+<a id="sources"></a>
+
+## 16. Sources
 
 - **IANA.** [Time Zone Database: zone1970.tab and its explanatory comments][iana-zones]. Accessed 23 November 2026.
 

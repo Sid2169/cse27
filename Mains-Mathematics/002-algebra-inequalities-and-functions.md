@@ -1,4 +1,7 @@
-# 002 — Algebra, inequalities and functions
+# 002. Algebra, inequalities and functions
+
+<a id="002--algebra-inequalities-and-functions"></a>
+
 
 **Revision — 23 November 2026:** Corrected overly restrictive division rules and rational-exponent notation; added worked range arguments, a labelled function graph and authoritative references.
 
@@ -326,9 +329,48 @@ This chapter is deliberately not tied to one syllabus heading, so its payoff app
 
 ---
 
+
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 10. Summary of key concepts and takeaways
+
+- Algebra preserves meaning only when its domain restrictions survive the manipulation. Squaring may add candidates; division by a possible zero may remove solutions; cancellation does not restore excluded inputs.
+- Factorisation exposes zeros; sign charts turn those zeros and denominator exclusions into solution intervals. Inequality direction depends on the sign of the multiplier.
+- Absolute value is distance. Its cases explain why an upper distance bound gives an interval and a lower bound usually gives separate rays.
+- A function includes its domain. Finding its range requires both a bound and attainability; finding an inverse requires injectivity on the stated domain. Composition must respect both functions' input restrictions.
+
+<a id="upsc-specific-notes"></a>
+
+## 11. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 11.1 Static notes
+
+| Tool | Conditions and conclusions to retain for written solutions |
+|---|---|
+| Fractions and cancellation | Denominators and divisors must be nonzero. Cancel common factors of the entire numerator and denominator, never terms across addition. Record exclusions before simplifying. |
+| Powers and roots | Integer power laws require the stated nonzero-base conditions when reciprocals arise. For a reduced rational exponent, an even denominator requires a nonnegative real base; a negative exponent also excludes zero. Nested fractional powers of negative bases cannot be flattened without checking signs and domains. |
+| Polynomials | The remainder on division by $x-c$ is $p(c)$; $p(c)=0$ iff $x-c$ is a factor. A nonzero degree-$n$ polynomial has at most $n$ distinct roots. Keep this separate from the later theorem counting complex roots with multiplicity. |
+| Equations | State the original domain, separate any zero-divisor case, and check candidates after a one-way step such as squaring. For $x^2=3x$, factoring retains both $0$ and $3$. |
+| Inequalities | A negative multiplier reverses order. For a rational expression, mark numerator zeros and denominator zeros, test interval signs, then include equality points only when defined. Thus $(x-1)/(x+2)\ge0$ gives $(-\infty,-2)\cup[1,\infty)$. |
+| Absolute value | For $k>0$, $\vertE\vert<k$ means $-k<E<k$; $\vertE\vert>k$ means $E<-k$ or $E>k$. Non-strict bounds include equality where defined. Use $\verta+b\vert\le\verta\vert+\vertb\vert$ for bounds; equality is not automatic. |
+| Domain and range | Intersect all input conditions. To claim a range, show both that no other output is possible and that every claimed output is attained by an allowed input. A changed domain can change the range. |
+| Composition and inverse | $(f\circ g)(x)=f(g(x))$ requires $x\in D_g$ and $g(x)\in D_f$. An inverse on the range exists when $f$ is injective; restricting a domain may achieve this. Swap domain/range, and check both compositions on their permitted sets. |
+
+These are bridge skills for both papers, not a separate official syllabus heading. The chapter's **2024 Paper I Q1(c)** connection concerns reading a piecewise domain before studying continuity; it does not supply a continuity solution. Definitions and domain/inverse conventions are supported by the existing [OpenStax sources](#sources).
+
+<a id="current-applicability"></a>
+
+### 11.2 Current applicability
+
+These results are stable and have no current-affairs component. Use later PYQs to identify which algebraic prerequisite a problem needs; preserve the corpus's source caveats and consult [chapter 001](001-orientation-and-diagnostic-route.md#upsc-specific-notes) for dated examination-rule updates.
+
 <a id="10-completion-check"></a>
 
-## Revision and next steps
+<a id="revision-and-next-steps"></a>
+
+## 12. Revision and next steps
 
 Before moving on, confirm you can do each of these without looking back at this chapter:
 
@@ -342,13 +384,18 @@ Before moving on, confirm you can do each of these without looking back at this 
 
 The next chapter (003) builds directly on this one: trigonometric identities, inverse trigonometric functions (via the domain-restriction idea from section 8.2), and complex arithmetic all assume fluent, careful algebra of the kind practised here.
 
-## Update watch
+<a id="update-watch"></a>
+
+## 13. Update watch
 
 The mathematical definitions, identities and reasoning taught here are stable; no routine factual update is needed. Revisit only if a cited reference is corrected or the course changes its notation, domain or principal-value conventions.
 
+
 <a id="11-sources"></a>
 
-## Sources
+<a id="sources"></a>
+
+## 14. Sources
 
 - **OpenStax, Rice University.** [Precalculus 2e, §1.7 Inverse Functions][os-inverse]. Accessed 23 November 2026.
 

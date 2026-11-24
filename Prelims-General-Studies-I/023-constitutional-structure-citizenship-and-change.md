@@ -25,16 +25,36 @@ The split follows three different questions: how the document is organised; how 
 
 **Next chapter:** [024 — Fundamental Rights and constitutional remedies](024-fundamental-rights-and-constitutional-remedies.md). That chapter now contains authored teaching material.
 
-## Revision and next steps
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 1. Summary of key concepts and takeaways
+
+A constitutional claim must be matched to its operative provision, legal category and date. The three parts connect document reading and territorial authority to citizenship/language rules, then distinguish an authorised amendment procedure from constitutional validity. Schedule changes, statutory changes and Article 368 amendments do not all use the same route.
+
+<a id="upsc-specific-notes"></a>
+
+## 2. UPSC-specific notes
+
+- **Static:** revise the Parts/schedule map and Article 3 consultation-versus-consent rule in [Part 1 notes](023-constitutional-structure-citizenship-and-change-part-1.md#upsc-specific-notes); citizenship routes/date bands, OCI and language-status distinctions in [Part 2 notes](023-constitutional-structure-citizenship-and-change-part-2.md#upsc-specific-notes); both Article 368 majority thresholds, specified ratification categories and basic-structure/Ninth Schedule qualifications in [Part 3 notes](023-constitutional-structure-citizenship-and-change-part-3.md#upsc-specific-notes).
+- **Current connections:** the parts retain their **10 September 2026 constitutional-edition** basis and **24 November 2026 source-access dates**. Their dated examples include the 2015 territorial amendment, CAA 2019/2024 implementation and judicial-status footnotes. A new legal development must be classified as an amendment, statute, rule, commencement or judgment before changing the corresponding static note. These examples are not a fresh audit of later developments.
+- **PYQ caveat:** local 2020 Q28 has a disclosed key conflict; use Part 3's source-based reasoning while retaining its unverified original-booklet/key qualification.
+
+<a id="revision-and-next-steps"></a>
+
+## 3. Revision and next steps
 
 Use the ordered part links above for teaching and revision. The closing section of each part identifies what to retain and where to continue.
 
-## Update watch
+<a id="update-watch"></a>
+
+## 4. Update watch
 
 Use the part-specific watches for the exact legal provisions, source discrepancies and recheck triggers. Source dates and observation periods are recorded with the relevant part.
 
 [Part 1 watch](023-constitutional-structure-citizenship-and-change-part-1.md#update-watch) · [Part 2 watch](023-constitutional-structure-citizenship-and-change-part-2.md#update-watch) · [Part 3 watch](023-constitutional-structure-citizenship-and-change-part-3.md#update-watch).
 
-## Sources
+<a id="sources"></a>
+
+## 5. Sources
 
 The teaching references, caveats and original access dates are retained with the relevant part: [Part 1 sources](023-constitutional-structure-citizenship-and-change-part-1.md#sources) · [Part 2 sources](023-constitutional-structure-citizenship-and-change-part-2.md#sources) · [Part 3 sources](023-constitutional-structure-citizenship-and-change-part-3.md#sources).

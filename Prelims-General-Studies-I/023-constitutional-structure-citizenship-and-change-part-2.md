@@ -1,5 +1,8 @@
 # 023. Constitutional structure, citizenship and change
-## Part 2 of 3 — Citizenship and official languages
+
+<a id="part-2-of-3--citizenship-and-official-languages"></a>
+
+**Part:** 2 of 3 — Citizenship and official languages
 
 **Paper:** Prelims General Studies I. **Authored:** 24 November 2026.
 **Learning outcome:** Separate citizenship from residence and scheduled-language status from official use.
@@ -18,7 +21,9 @@ India has a single Indian citizenship, rather than separate citizenships conferr
 
 Citizenship also does not mean that every legal protection is available only to citizens. Article 14 speaks of **any person**; Article 19 confers its listed freedoms on **citizens**. Conversely, citizenship does not eliminate age, electoral-registration or other conditions for a political right. Article 58 requires the President to be an Indian citizen but does not restrict that office to citizens by birth. Detailed rights and election eligibility belong to Chapters 024, 026 and 039. [Articles 14, 19, 58 and 326][constitution]
 
-### The Constitution's starting point and Parliament's continuing law
+<a id="the-constitutions-starting-point-and-parliaments-continuing-law"></a>
+
+### 1.1 The Constitution's starting point and Parliament's continuing law
 
 Part II contains Articles 5–11. Its historical citizenship provisions must not be misread as a complete present-day application code.
 
@@ -50,7 +55,9 @@ The Act distinguishes five principal routes. A route is a legal category, not a 
 
 Source: [Citizenship Act, acquisition provisions][citizenship]. There are also special provisions, including Section 6A for persons covered by the Assam Accord and Section 6B for the category specified by the 2019 amendment. Do not assume the general route table exhausts every special case.
 
-### Birth: the date changes the rule
+<a id="birth-the-date-changes-the-rule"></a>
+
+### 2.1 Birth: the date changes the rule
 
 For persons born **in India**, Section 3 divides the ordinary rule into three periods:
 
@@ -70,13 +77,17 @@ These are the Section 3(1) rules, **subject to Section 3(2)**: the specified dip
 
 Always identify the period **before** applying the condition. Do not apply the newest birth rule backwards to every person alive today.
 
-### Descent, registration and naturalisation
+<a id="descent-registration-and-naturalisation"></a>
+
+### 2.2 Descent, registration and naturalisation
 
 For birth **outside India**, consult Section 4 rather than the domestic-birth table. Its requirements depend on date, parental citizenship and, in applicable cases, consular registration. For births on or after 3 December 2004, consular registration within the statutory period, or registration later with Central Government permission, is important; the prescribed parental declaration concerning another country's passport must also be satisfied. A parental connection does not remove the statutory formalities. [Section 4][citizenship]
 
 Registration and naturalisation require applications and satisfaction of the relevant conditions. Marriage to an Indian citizen is not itself an automatic grant of citizenship: spouses are a specified registration category with conditions. Registration as an OCI Cardholder is also not the same act as registration **as an Indian citizen**. Similar words in two procedures do not make their legal consequences identical. [Sections 5–7B][citizenship]
 
-### A dated example of statutory change: CAA 2019
+<a id="a-dated-example-of-statutory-change-caa-2019"></a>
+
+### 2.3 A dated example of statutory change: CAA 2019
 
 The **Citizenship (Amendment) Act, 2019** created a conditional framework concerning specified Hindu, Sikh, Buddhist, Jain, Parsi and Christian persons from Afghanistan, Bangladesh and Pakistan who entered India on or before **31 December 2014**, with the required statutory exemption. Section 6B concerns the route to registration/naturalisation for that category and provides territorial exclusions for specified Sixth Schedule tribal areas and Inner Line areas. The **Citizenship (Amendment) Rules, 2024** were notified on **11 March 2024** to provide the application mechanism. [Sections 2 and 6B][citizenship]; [MHA/PIB, 2024 implementation account][caa]
 
@@ -102,7 +113,9 @@ Likewise, **Aadhaar is not proof of citizenship or domicile**. Section 9 of the 
 
 Different language provisions govern different functions. Ask: language for **which institution, which activity and under which provision**?
 
-### Union and State official business
+<a id="union-and-state-official-business"></a>
+
+### 4.1 Union and State official business
 
 Article 343(1) identifies **Hindi in Devanagari script** as the official language of the Union and specifies the international form of Indian numerals. It does not declare Hindi India's “national language”. The Constitution does not designate a national language. [Article 343 and Part XVII][constitution]
 
@@ -110,7 +123,9 @@ Article 343 initially provided for continued English use for fifteen years and e
 
 Under Article 345, a State legislature can adopt one or more languages in use in the State, or Hindi, for all or specified State official purposes, subject to Articles 346 and 347. The provision does not require that every adopted State language first appear in the Eighth Schedule. Article 346 and the Act regulate relevant intergovernmental communication. [Articles 345–347][constitution]
 
-### Scheduled languages: a constitutional list with a different function
+<a id="scheduled-languages-a-constitutional-list-with-a-different-function"></a>
+
+### 4.2 Scheduled languages: a constitutional list with a different function
 
 The **Eighth Schedule** presently lists **22 languages** in the constitutional edition used here:
 
@@ -118,7 +133,9 @@ Assamese, Bengali, Bodo, Dogri, Gujarati, Hindi, Kannada, Kashmiri, Konkani, Mal
 
 English is not listed. Listing does not make all 22 languages official languages of the Union. Scheduled status, Union official-language status, State official-language status and **classical-language recognition** are distinct categories; a claim about one cannot be established merely by evidence about another. The Eighth Schedule is referred to in Articles 344 and 351, including the official-language commission and development of Hindi. [Articles 344 and 351][constitution]
 
-### Courts, grievances and linguistic minorities
+<a id="courts-grievances-and-linguistic-minorities"></a>
+
+### 4.3 Courts, grievances and linguistic minorities
 
 Article 348 provides the English-language baseline for Supreme Court and High Court proceedings and specified authoritative legal texts until Parliament otherwise provides. Article 348(2) allows the Governor, with the President's previous consent, to authorise Hindi or another relevant State official language for High Court proceedings; that clause's proviso excludes judgments, decrees and orders. **Section 7 of the Official Languages Act separately addresses their language**, requiring an English translation under the High Court's authority when the authorised alternative is used. Do not turn the general baseline into the assertion that no qualified exception exists. [Article 348][constitution]; [Act, Section 7][languages]
 
@@ -134,14 +151,56 @@ These provisions show why language policy is not solely a choice of administrati
 
 **[2024 Q9](Prelims-General-Studies-I-PYQS/2024-Prelims-General-Studies-I.md)** asks which languages were added by the **71st Amendment, 1992**. Konkani, Manipuri and Nepali were the three, making option **(a)** correct. Maithili is also in the Eighth Schedule today, but it was added by the **92nd Amendment, 2003**, together with Bodo, Dogri and Santhali. Today's membership cannot establish which historical amendment inserted a name. The [Eighth Schedule's official footnotes][constitution] resolve the distinction.
 
-## Revision and next steps
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 6. Summary of key concepts and takeaways
+
+- Citizenship is legal membership; residence, domicile, ancestry, OCI status and identity documents do not establish it interchangeably. The relevant date and statutory conditions determine the route.
+- Part II sets the constitutional framework, including commencement-era categories and Parliament's continuing power. Present acquisition and loss require the Citizenship Act and applicable rules, not Article 5 alone.
+- Language status is functional: Union official use, State official use, scheduled listing, court language and classical recognition are different questions. Read the institution and activity before answering.
+
+<a id="upsc-specific-notes"></a>
+
+## 7. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 7.1 Static notes
+
+| Area | Revision notes and qualifications |
+|---|---|
+| Constitutional citizenship | Articles 5–8 concern specified commencement-era connections/migration/overseas categories; Article 9 addresses voluntary foreign citizenship for its specified constitutional claims; Article 10 is subject to parliamentary law; Article 11 enables continuing citizenship legislation. India has single Indian citizenship, not separate State citizenships. |
+| Acquisition routes | Birth—Section 3; descent—4; registration—5; naturalisation—6/Third Schedule; incorporation of territory—7. The Act also contains special routes. Marriage or ancestry alone does not bypass application conditions. |
+| Birth in India | 26 January 1950–30 June 1987: no parental-citizenship condition under the ordinary rule; 1 July 1987–2 December 2004: one citizen parent; from 3 December 2004: both citizen parents, or one citizen parent and the other not an illegal migrant. Section 3(2)'s diplomatic/enemy-alien exceptions remain relevant. Apply the birth-period rule, not today's condition retrospectively. |
+| Loss and documentation | Renunciation—Section 8; voluntary foreign-citizenship termination—9; deprivation on specified grounds/procedure—10. OCI is eligible foreign-national status, not dual Indian citizenship or voting entitlement. Aadhaar Act Section 9 denies citizenship/domicile proof status to Aadhaar. |
+| Union/State language | Article 343: Hindi in Devanagari and international form of Indian numerals; no constitutionally designated national language. Continued specified English use rests on the Official Languages Act, 1963. Article 345 State adoption does not require Eighth Schedule membership. |
+| Language categories | The edition used lists 22 scheduled languages; English is absent. Scheduled does not mean official for every government. The 71st Amendment, 1992 added Konkani/Manipuri/Nepali; the 92nd, 2003 added Bodo/Dogri/Maithili/Santhali. Membership today is not evidence of which amendment inserted a language. |
+| Courts and safeguards | Article 348 supplies the English baseline with qualified alternatives; High Court judgment/decree/order language also requires the Act's Section 7 and translation rule. Articles 350/350A/350B concern grievance representations, primary-stage mother-tongue facilities for linguistic-minority children, and the Special Officer respectively. |
+
+Sources: [Constitution][constitution], [Citizenship Act][citizenship], [official-language compilation][languages], [OCI explanation][oci] and [Aadhaar Act][aadhaar].
+
+<a id="current-connections"></a>
+
+### 7.2 Current connections
+
+- **CAA 2019 / Rules notified 11 March 2024:** the chapter's dated framework concerns specified Hindu, Sikh, Buddhist, Jain, Parsi and Christian persons from Afghanistan, Bangladesh and Pakistan entering by **31 December 2014**, with the required exemption and statutory conditions. Section 6B has territorial exclusions for specified Sixth Schedule and Inner Line areas. Category, eligibility, application and grant remain separate; neither a listed religion nor an identity document alone proves citizenship. [Act][citizenship]; [2024 implementation account][caa]
+- **Procedure changes:** the MHA register consulted for the chapter lists later 2026 rule changes. The 2024 example therefore supplies historical implementation context, not an up-to-date form checklist. Use the [MHA register][mha] and [Update watch](#update-watch) when a new eligibility/procedure claim is tested.
+- **Language news:** a claim about classical recognition cannot prove an Eighth Schedule amendment or official-use authorisation. Compare the actual instrument with the constitutional edition and language law before changing the relevant note.
+
+These connections retain the chapter's original **24 November 2026 source-access scope**; they do not certify every later rule or litigation development.
+
+<a id="revision-and-next-steps"></a>
+
+## 8. Revision and next steps
 
 - Separate constitutional citizenship at commencement from statutory acquisition and loss.
 - Distinguish residence, citizenship and OCI, and scheduled-language status from official use.
 
 Continue to [Part 3 — Amendment and constitutional limits](023-constitutional-structure-citizenship-and-change-part-3.md).
 
-## Update watch
+<a id="update-watch"></a>
+
+## 9. Update watch
 
 Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
 
@@ -150,9 +209,12 @@ Use the corresponding references in [Sources](#sources). Keep historical observa
 | Citizenship/OCI eligibility and procedures | Statutory rules, notifications and controlling decisions can change the applicable conditions or process. | Check the Act, MHA/OCI rules and orders for an actual current question; a dated implementation example is not a current application checklist. |
 | Official-language provisions and classifications | Constitutional amendments or applicable language legislation can change a legal statement. | Check the official constitutional text and Department of Official Language sources after a relevant change. |
 
+
 <a id="sources-and-update-boundaries"></a>
 
-## Sources
+<a id="sources"></a>
+
+## 10. Sources
 
 All external sources accessed **24 November 2026**:
 

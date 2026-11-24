@@ -283,9 +283,10 @@ Groundwater depletion is accelerating this stress because groundwater sustains d
 
 ---
 
-<a id="13-common-confusions"></a>
 
-## Common confusions
+<a id="common-confusions"></a>
+
+## 13. Common confusions
 
 | Confusion | Clarification |
 |---|---|
@@ -300,14 +301,54 @@ Groundwater depletion is accelerating this stress because groundwater sustains d
 
 ---
 
-## Revision and next steps
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 14. Summary of key concepts and takeaways
+
+- Water moves among atmospheric, surface, soil and underground stores; a large store is not necessarily accessible or rapidly renewable. Groundwater greatly exceeds rivers and lakes as a store of liquid freshwater.
+- Surface drainage follows relief and rock structure, but groundwater can cross surface divides. “Watershed” may mean a divide or a catchment, depending on context.
+- Aquifers are permeable, saturated formations that yield water. Confinement changes pressure: artesian rise above an aquifer does not guarantee flow above the land surface.
+- Extraction, recharge, water quality, wetland storage and river baseflow interact. More wells or recharge structures alone do not prove a sustainable water balance.
+
+<a id="upsc-specific-notes"></a>
+
+## 15. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 15.1 Static notes
+
+| Topic | Prelims GS-I revision notes |
+|---|---|
+| Freshwater stores and cycle | Ice caps/glaciers hold most freshwater; groundwater holds most of the remainder. Evaporation/transpiration, condensation, precipitation, infiltration, percolation and runoff transfer water between stores. Keep the denominator clear when comparing percentages. |
+| Basin and drainage pattern | A basin drains to a common outlet; a divide separates surface drainage. Dendritic networks favour relatively uniform substrate; trellis relates to alternating resistant/weak bands; rectangular to jointing/faulting; radial flows outward from a high, centripetal inward toward a depression. |
+| Regime and lakes | River regime is seasonal discharge, not river length or drainage pattern. Separate natural lakes from constructed reservoirs, then establish an individual lake's origin from evidence. Kodaikanal is artificial; Lonar is an impact crater. A PYQ key establishing “natural” does not prove a precise geological origin. |
+| Aquifers | Unconfined groundwater has a water table; confined water can rise under pressure; perched groundwater is a local saturated body above the main system. A flowing artesian well requires hydraulic head above the ground surface. Porosity and useful permeability are not identical. |
+| Recharge and extraction | Rainwater harvesting/check dams can slow runoff and support infiltration. Over-extraction can lower water tables, reduce baseflow and cause coastal saline intrusion. Watershed development addresses soil, water and vegetation within a catchment; inter-basin river linking is a different intervention. |
+| Wetlands and scarcity | Wetlands store water, moderate flows, support biodiversity and filter pollutants. The “kidneys” analogy concerns purification. Water scarcity concerns usable availability relative to demand; quantity, timing and quality all matter. |
+
+The definitions and qualifications follow the chapter's [USGS water distribution][usgs-water], [watershed][usgs-watershed], [artesian well][usgs-artesian], [NCERT drainage][ncert-drainage] and [Lonar][nasa-lonar] references.
+
+<a id="current-connections"></a>
+
+### 15.2 Current connections
+
+- **Dated groundwater evidence:** the [2023 Q32][pyq2023] discussion cites the UN World Water Development Report **2022** finding that India accounted for over a quarter of annual global groundwater withdrawal. Retain that report period; the tested explanation concerns irrigation demand, rather than attributing withdrawal primarily to drinking and sanitation.
+- **Assessment figures:** a reported “critical” or “over-exploited” share must identify its assessment year, denominator and unit. The rejected district-percentage statement in [2020 Q44][pyq2020] is not a verified current statistic. Read extraction and recharge together before inferring stress.
+- **Wetland and water-management news:** link a designated site or restoration project to its catchment, inflows, water quality, storage and groundwater connection. A designation count can change without changing the underlying hydrology. The chapter's undated “over 80” Ramsar-site statement is not an exam-date count; verify designations and groundwater assessments through [Update watch](#update-watch).
+
+<a id="revision-and-next-steps"></a>
+
+## 16. Revision and next steps
 
 - Trace water through a catchment and distinguish a river basin from a groundwater system.
 - Explain pressure and water-table conditions before identifying an artesian or flowing well.
 
 Next: [015 — India's location and physical regions](015-india-s-location-and-physical-regions.md).
 
-## Update watch
+<a id="update-watch"></a>
+
+## 17. Update watch
 
 Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
 
@@ -316,9 +357,12 @@ Use the corresponding references in [Sources](#sources). Keep historical observa
 | Groundwater assessment figures | Extraction, recharge and stress estimates depend on the assessment year and method. | When a new official groundwater assessment appears, compare its period and method before updating the figures. |
 | Wetland designations and water-body condition | A designation or assessment can change while the hydrological concepts remain stable. | Check the responsible official site or assessment record before quoting current status; preserve the dates of historical observations. |
 
+
 <a id="14-sources"></a>
 
-## Sources
+<a id="sources"></a>
+
+## 18. Sources
 
 - **U.S. Geological Survey, Water Science School.** [Watersheds and Drainage Basins][usgs-watershed]. Accessed 23 November 2026.
 

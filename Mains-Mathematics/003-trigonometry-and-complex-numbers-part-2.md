@@ -1,5 +1,10 @@
-# 003 — Trigonometry and complex numbers
-## Part 2 of 3 — Exponentials, logarithms and hyperbolic functions
+# 003. Trigonometry and complex numbers
+
+<a id="003--trigonometry-and-complex-numbers"></a>
+
+<a id="part-2-of-3--exponentials-logarithms-and-hyperbolic-functions"></a>
+
+**Part:** 2 of 3 — Exponentials, logarithms and hyperbolic functions
 
 **Paper:** Mathematics optional, both-paper foundation bridge.
 **Learning outcome:** Use exponential, logarithmic and hyperbolic definitions with justified domains and inverse restrictions.
@@ -56,7 +61,9 @@ $$
  e^{\ln x}=x\quad(x>0).
 $$
 
-### Derive logarithm laws from exponential laws
+<a id="derive-logarithm-laws-from-exponential-laws"></a>
+
+### 2.1 Derive logarithm laws from exponential laws
 
 Let $u=\ln x$, $v=\ln y$, with $x,y>0$. Then $e^u=x$, $e^v=y$, so $xy=e^{u+v}$ and $x/y=e^{u-v}$. Applying the inverse gives
 
@@ -89,7 +96,9 @@ First impose $x-1>0$ and $x+1>0$, giving $x>1$. On that domain the left side is 
 
 **Worked example — an exponential equation.** Solve $e^{2x}-3e^x+2=0$. Put $t=e^x>0$. The polynomial equation is $(t-1)(t-2)=0$, so $t=1$ or 2, both allowed. Therefore $x=0$ or $x=\ln2$. The substitution must retain $t>0$; a negative polynomial root would not produce a real $x$.
 
-### Inequalities depend on the base
+<a id="inequalities-depend-on-the-base"></a>
+
+### 2.2 Inequalities depend on the base
 
 Since $\ln$ is increasing, applying it to two positive quantities preserves their order. For $0<a<1$, $\log_a$ is decreasing, so it reverses order. To solve $\log_{1/2}(x-1)>2$, first require $x>1$. As $\log_{1/2}((1/2)^2)=2$, the decreasing function gives $x-1<1/4$. The result is
 
@@ -130,7 +139,9 @@ This explains the name. The point $(X,Y)=(\cosh x,\sinh x)$ lies on the right br
 
 *Original graphs computed from the definitions. Neither function is periodic on the real line.*
 
-### Read properties from the definitions
+<a id="read-properties-from-the-definitions"></a>
+
+### 3.1 Read properties from the definitions
 
 Replacing $x$ by $-x$ shows that $\cosh$ is even and $\sinh$ is odd. Also $\cosh0=1$, $\sinh0=0$, and $\cosh x>0$ for every real $x$. Thus $\tanh$ has no real denominator zeros. Since
 
@@ -152,7 +163,9 @@ shows $-1<\tanh x<1$. Every $t$ in that interval is attained by $x=\frac12\ln((1
 
 The remaining reciprocal functions are $\operatorname{sech}x=1/\cosh x$, $\operatorname{csch}x=1/\sinh x$ and $\coth x=\cosh x/\sinh x$. Sech is defined for every real $x$; csch and coth exclude zero. Dividing the basic identity by $\cosh^2x$ gives $1-\tanh^2x=\operatorname{sech}^2x$.
 
-### Addition identities retain a different sign
+<a id="addition-identities-retain-a-different-sign"></a>
+
+### 3.2 Addition identities retain a different sign
 
 Expand the definitions and use $e^{a+b}=e^ae^b$ to obtain
 
@@ -196,7 +209,9 @@ $$
 
 Division by $e^{x/2}$ is always allowed. The answer therefore lies strictly between $-1$ and 1, consistent with the original fraction's positive denominator.
 
-### Inverse hyperbolic functions: derive the logarithm rather than guess it
+<a id="inverse-hyperbolic-functions-derive-the-logarithm-rather-than-guess-it"></a>
+
+### 3.3 Inverse hyperbolic functions: derive the logarithm rather than guess it
 
 Because $\sinh$ is injective on $\mathbb R$, it has an inverse, denoted $\operatorname{arsinh}$ or $\operatorname{asinh}$. To solve $y=\sinh x$, put $t=e^x>0$:
 
@@ -224,19 +239,60 @@ $$
 
 as already derived from its ratio. Here too, inverse notation does not mean a reciprocal.
 
+
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 4. Summary of key concepts and takeaways
+
+- A positive-base exponential extends powers to every real exponent. Its monotonicity depends on the base; its inverse logarithm requires a positive argument and a base other than 1.
+- Logarithm laws come from exponential laws, with domains retained before combining expressions. Substituting $t=e^x$ adds the condition $t>0$.
+- Hyperbolic functions are combinations of exponentials, not circular functions with a changed name. Their definitions explain the different identity signs, ranges and inverse restrictions.
+
+<a id="upsc-specific-notes"></a>
+
+## 5. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 5.1 Static notes
+
+| Tool | Revision note for the Mathematics optional |
+|---|---|
+| Real exponentials | $a^x>0$ for $a>0$. Increasing for $a>1$, decreasing for $0<a<1$; range $(0,\infty)$. Base 1 gives a constant and cannot define an inverse on $\mathbb R$. |
+| Real logarithms | $\log_a x=\ln x/\ln a$ requires $a>0$, $a\ne1$, $x>0$. Product/quotient laws require positive individual arguments; $\ln(x^2)=2\ln\vertx\vert$ for $x\ne0$, not $2\ln x$ throughout that domain. |
+| Equations and inequalities | Record each original log argument's positivity before combining. Reject roots outside it. A base between 0 and 1 reverses comparisons; a base above 1 preserves them. |
+| Hyperbolic definitions | $\cosh x=(e^x+e^{-x})/2$, $\sinh x=(e^x-e^{-x})/2$, $\tanh x=\sinh x/\cosh x$. Hence $\cosh^2x-\sinh^2x=1$ and $1-\tanh^2x=\operatorname{sech}^2x$. |
+| Domains and ranges | Cosh is even, range $[1,\infty)$; sinh is odd and increasing, range $\mathbb R$; tanh is increasing, range $(-1,1)$. All three have domain $\mathbb R$. Csch/coth exclude zero; sech has no real denominator zero. |
+| Inverses | $\operatorname{arsinh}y=\ln(y+\sqrt{y^2+1})$, $y\in\mathbb R$; $\operatorname{arcosh}y=\ln(y+\sqrt{y^2-1})$, $y\ge1$, choosing nonnegative outputs; $\operatorname{artanh}y=\tfrac12\ln((1+y)/(1-y))$, $\verty\vert<1$. |
+| Later use | Exponentials support ODEs and Laplace transforms; hyperbolic expressions support the catenary. Their physical or analytic justification belongs to the relevant later chapter, not to resemblance of graphs. |
+
+The existing [OpenStax/NIST sources](#sources) support these conventions. In a derivation, return to the definitions to recover the hyperbolic signs. Completeness and limits needed for a rigorous real-exponential construction remain deferred.
+
+<a id="current-applicability"></a>
+
+### 5.2 Current applicability
+
+These mathematical results have no changing current-affairs content. Retain stated real domains when consulting references that also treat complex variables; current examination instructions are tracked in [chapter 001](001-orientation-and-diagnostic-route.md#update-watch).
+
 <a id="4-connections-and-readiness"></a>
 
-## Revision and next steps
+<a id="revision-and-next-steps"></a>
+
+## 6. Revision and next steps
 
 Hyperbolic functions will appear in the [common catenary](053-common-catenary-and-suspended-strings.md); that later chapter derives the physical model and does not follow merely from the shape of the graph. Exponentials also enter [ODEs](045-constant-coefficient-linear-odes.md) and [Laplace transforms](047-laplace-transforms-and-initial-value-problems.md). Part 3 explains how the complex exponential joins exponential scale with circular rotation.
 
 Before continuing, reconstruct the logarithm product law from its inverse definition, justify every domain restriction in the logarithmic worked example, and derive the hyperbolic basic identity directly from exponentials. Explain why cosh needs a domain restriction for inversion while sinh does not. These are checks on this teaching material, not a separate scored practice set.
 
-## Update watch
+<a id="update-watch"></a>
+
+## 7. Update watch
 
 The mathematical definitions, identities and reasoning taught here are stable; no routine factual update is needed. Revisit only if a cited reference is corrected or the course changes its notation, domain or principal-value conventions.
 
-## Sources
+<a id="sources"></a>
+
+## 8. Sources
 
 All accessed **24 November 2026**. Algebraic derivations and worked examples above are original.
 

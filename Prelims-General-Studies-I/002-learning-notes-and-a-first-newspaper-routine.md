@@ -428,9 +428,12 @@ The textbook teaches the concept; the newspaper shows the concept in a current e
 
 ---
 
+
 <a id="10-common-mistakes"></a>
 
-## Common confusions
+<a id="common-confusions"></a>
+
+## 10. Common confusions
 
 | Mistake | Correction |
 |---|---|
@@ -479,9 +482,50 @@ The answers are models, not the only acceptable wording. The purpose is to pract
 
 ---
 
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 12. Summary of key concepts and takeaways
+
+- Learning requires producing an explanation from memory and correcting it; recognising a familiar page is insufficient evidence of recall.
+- A usable note preserves the claim, definition, mechanism, evidence and qualifications in compact form. Questions expose what remains unknown.
+- Space retrieval and correction across time, adjusting the gap to difficulty and retention needs rather than treating one timetable as universal.
+- Current affairs becomes study material when a dated event is connected to a syllabus concept and a question. Keep the stable framework separate from changing implementation.
+
+<a id="upsc-specific-notes"></a>
+
+## 13. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 13.1 Static notes
+
+| Revision task | What a usable GS-I note contains |
+|---|---|
+| Learn a concept | A definition, causal explanation, example and boundary; enough to discriminate it from a similar concept in an MCQ. |
+| Record a changing fact | The exact claim, primary source, observation/publication date and recheck trigger; publication date and the period described may differ. |
+| Handle mixed topics | Separate a treaty or law's framework from current rules, decisions, implementation and data. “Static” does not mean immune to amendment. |
+| Read evidence | Distinguish facts, interpretation and opinion; record attribution and qualifications. A company announcement is evidence of what it announced, not independent proof of every performance claim. |
+| Revise | Answer without looking, compare with the source, correct the gap and return after an interval. Add MCQ discrimination to blank-page recall. |
+| Use a PYQ | Identify the underlying concept and why alternatives fail; do not infer guaranteed future weightage from one appearance. |
+
+The retrieval and spacing rationale comes from the studies already discussed ([retrieval][retrieval]; [review][dunlosky]; [spacing][spacing]). The chapter's newspaper timings and review intervals are practical defaults, not UPSC rules or experimentally fixed prescriptions.
+
+<a id="current-connections"></a>
+
+### 13.2 Current connections
+
+These examples retain the chapter's **21 November 2026 source-access baseline**; they illustrate how to build current-affairs notes, rather than supplying an annual current-affairs compilation.
+
+- **INDC/NDC:** intended contributions preceded the Paris Agreement and became first NDCs on joining it. Pair the term's history with the relevant country's dated commitment; do not treat every climate pledge as the same instrument ([UNFCCC][ndc]; [2016 Q28][pyq2016]).
+- **Paris Agreement Article 6:** distinguish cooperative approaches involving internationally transferred mitigation outcomes (**6.2**), the crediting mechanism (**6.4**) and non-market approaches (**6.8**). Current negotiating decisions concern implementation; “Article 6 means only carbon markets” loses part of the framework ([UNFCCC][article6]; [2025 Q14][pyq2025]).
+- **Majorana 1:** Microsoft announced the chip on **19 February 2025**. Record the announcer and date, then learn the underlying computing concepts; the announcement alone cannot settle every technical claim or the mixed statements in a PYQ ([announcement][majorana]; [2025 Q7][pyq2025]). Later technical assessments require a new dated check, as set out in [Update watch](#update-watch).
+
+
 <a id="12-readiness-check"></a>
 
-## Revision and next steps
+<a id="revision-and-next-steps"></a>
+
+## 14. Revision and next steps
 
 You are ready to move to Chapter 003 when you can:
 
@@ -499,7 +543,9 @@ If you cannot do one of these, repeat the relevant section with a different para
 
 Next: [003 — Maps and historical time](003-maps-and-historical-time.md).
 
-## Update watch
+<a id="update-watch"></a>
+
+## 15. Update watch
 
 Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
 
@@ -507,7 +553,9 @@ Use the corresponding references in [Sources](#sources). Keep historical observa
 |---|---|---|
 | News examples and factual updates | The reading and revision methods are reusable; the facts in a dated news example may develop. | Before reusing an example as current news, check its original source and observation date. |
 
-## Sources
+<a id="sources"></a>
+
+## 16. Sources
 
 - **Roediger, H. L., III, and Karpicke, J. D. (2006).** “Test-Enhanced Learning: Taking Memory Tests Improves Long-Term Retention.” *Psychological Science* 17(3): 249–255. DOI: [10.1111/j.1467-9280.2006.01693.x][retrieval]. Accessed 21 November 2026.
 - **Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J., and Willingham, D. T. (2013).** “Improving Students’ Learning With Effective Learning Techniques: Promising Directions From Cognitive and Educational Psychology.” *Psychological Science in the Public Interest* 14(1): 4–58. DOI: [10.1177/1529100612453266][dunlosky]. Accessed 21 November 2026.

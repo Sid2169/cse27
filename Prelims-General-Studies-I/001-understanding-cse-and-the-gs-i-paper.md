@@ -363,7 +363,9 @@ Before choosing, restate the task in one sentence: “I must decide whether stat
 
 This is not a mock test. There is no time limit, no negative marking and no score out of 200. Its purpose is to show you which skills to build in Chapters 002–006 and 132. You can do it in one sitting or across a few days. Write your answers down; the act of writing reveals more than a mental check.
 
-### Part A — Vocabulary inventory (about 5 minutes)
+<a id="part-a--vocabulary-inventory-about-5-minutes"></a>
+
+### 7.1 Part A — Vocabulary inventory (about 5 minutes)
 
 Mark each term in one column. Be honest; “new” is useful information, not a failure.
 
@@ -393,13 +395,17 @@ Where the unfamiliar terms are taught:
 | Sustainable development, biodiversity | Chapters 044–066 and 099–109 |
 | Per capita | Chapters 045 and 064 |
 
-### Part B — Syllabus question-making (about 10 minutes)
+<a id="part-b--syllabus-question-making-about-10-minutes"></a>
+
+### 7.2 Part B — Syllabus question-making (about 10 minutes)
 
 For each of the seven syllabus bullets, write one question that you think UPSC could ask. Do not answer it. Use the examples in Section 4.2 as models, not as a list to copy.
 
 If a bullet produces no question, write the first word you do not understand. That word is your starting point.
 
-### Part C — Question parsing (about 10 minutes)
+<a id="part-c--question-parsing-about-10-minutes"></a>
+
+### 7.3 Part C — Question parsing (about 10 minutes)
 
 Take [2024 Q2][pyq2024], [2024 Q6][pyq2024] and [2024 Q1][pyq2024]. For each, write:
 
@@ -409,7 +415,9 @@ Take [2024 Q2][pyq2024], [2024 Q6][pyq2024] and [2024 Q1][pyq2024]. For each, wr
 
 Do not answer the questions. The model parses are in Section 6.4; compare your notes with them after you finish.
 
-### Part D — Seven warm-ups (about 15 minutes)
+<a id="part-d--seven-warm-ups-about-15-minutes"></a>
+
+### 7.4 Part D — Seven warm-ups (about 15 minutes)
 
 These questions test prerequisite skills, not GS-I knowledge. Answer them without a calculator.
 
@@ -436,7 +444,9 @@ Where to go next: questions 1, 2 and 5 point to Chapter 004; question 3 points t
 
 </details>
 
-### Part E — Confidence log (about 5 minutes)
+<a id="part-e--confidence-log-about-5-minutes"></a>
+
+### 7.5 Part E — Confidence log (about 5 minutes)
 
 Rate yourself from 1 (not confident) to 5 (confident). There are no right answers.
 
@@ -460,7 +470,9 @@ Use the lowest ratings to choose your first bridge:
 | Question logic and elimination | Chapter 132 |
 | Timing a full paper | Chapter 136 |
 
-### Part F — Calculate a sample practice score
+<a id="part-f--calculate-a-sample-practice-score"></a>
+
+### 7.6 Part F — Calculate a sample practice score
 
 Suppose a practice paper has 100 questions of 2 marks each. A learner answers 62 correctly, 21 wrongly and leaves 17 blank.
 
@@ -515,9 +527,12 @@ Current affairs starts in Chapter 002 and continues throughout. It is not a sepa
 
 ---
 
+
 <a id="9-common-beginner-mistakes"></a>
 
-## Common confusions
+<a id="common-confusions"></a>
+
+## 9. Common confusions
 
 | Mistake | Correction |
 |---|---|
@@ -534,9 +549,48 @@ Current affairs starts in Chapter 002 and continues throughout. It is not a sepa
 
 ---
 
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 10. Summary of key concepts and takeaways
+
+- Prelims screens candidates for Mains; final merit comes from the counted Mains papers and the Interview. The same “GS-I” label refers to different papers at the two stages.
+- CSAT is a qualifying gate; GS-I supplies the competitive Prelims selection mark. Both must be attended under the documented examination scheme.
+- Net marks depend on correct and wrong responses together. Evidence-based elimination changes the odds; unfamiliarity alone does not establish that an option is false.
+- Read a question's task, qualifiers and scope before deciding its answer. The syllabus sets the boundary; the curriculum and PYQs help turn that boundary into a study sequence.
+
+<a id="upsc-specific-notes"></a>
+
+## 11. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 11.1 Static notes
+
+The examination rules below are the **2026-notice baseline**, not a guarantee for 2027 ([notice][notice]).
+
+| Point to retain | Prelims GS-I implication |
+|---|---|
+| GS-I and CSAT | Each is 200 marks and two hours; recent papers have 100 GS-I questions and 80 CSAT questions. The booklet establishes that year's question count. |
+| Qualifying versus competitive | CSAT requires 33% (66/200); GS-I has a year- and category-specific qualifying standard. A higher CSAT mark does not add to GS-I. |
+| Marking in a 2-mark question | Correct +2; wrong −2/3; blank zero; more than one response counts as wrong. Net score: **2C − (2/3)W**. |
+| Guessing and elimination | Blind four-option guessing has zero expected marks under these assumptions; eliminating a genuinely false option improves expected value, without guaranteeing an individual answer. |
+| Syllabus coverage | Current events; history; geography; polity/governance; economic/social development; environment; general science. These overlap; subject weightages are not fixed by the syllabus. |
+| Question logic | Judge statement truth before explanatory links; evaluate each item before counting; respect “only”, “all”, “incorrect”, period and institutional scope. Unknown is not synonymous with false. |
+| Corpus use | Use local PYQs to calibrate demand and analyse rejected options. Retain extraction gaps and key caveats; a practice score does not predict selection. |
+
+<a id="current-connections"></a>
+
+### 11.2 Current connections
+
+- **Notification status recorded on 20 November 2026:** this chapter had the 2026 notice as its baseline and recorded that the 2027 notice had not yet been issued. That dated observation does not establish the status on a later reading date. Recheck the new notice, corrigenda and exam-day instructions through the [Update watch](#update-watch).
+- **Historical cutoffs:** the cited UPSC notices record General-category GS-I cutoffs of **87.98 in 2024** and **92.66 in 2025**. These describe completed cycles; neither is a 2027 target or “safe score” ([2024 notice][cutoff2024]; [2025 notice][cutoff2025]).
+
+
 <a id="10-readiness-check"></a>
 
-## Revision and next steps
+<a id="revision-and-next-steps"></a>
+
+## 12. Revision and next steps
 
 You are ready to move to Chapter 002 when you can:
 
@@ -553,7 +607,9 @@ If you cannot do one of these, reread the relevant section. This chapter is a ma
 
 Next: [002 — Learning, notes and a first newspaper routine](002-learning-notes-and-a-first-newspaper-routine.md).
 
-## Update watch
+<a id="update-watch"></a>
+
+## 13. Update watch
 
 Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
 
@@ -561,7 +617,9 @@ Use the corresponding references in [Sources](#sources). Keep historical observa
 |---|---|---|
 | Examination scheme and scoring rules | The chapter uses the cited examination notice; a later notice may change eligibility, attendance, paper or marking rules. | Read the new UPSC CSE notice and corrections before applying its rules to a later examination or full-paper attempt. |
 
-## Sources
+<a id="sources"></a>
+
+## 14. Sources
 
 - **UPSC, Civil Services Examination Notice No. 05/2026-CSE, dated 4 February 2026**, Appendix I, Sections I–III (plan of examination, preliminary scheme, main scheme, syllabi, negative marking, qualifying papers). Official PDF: [Notif-CSP-2026-Engl-060226Rev.pdf][notice]. Accessed 20 November 2026. The direct PDF link did not open on the access date; the text was verified against a mirrored copy of the same notice.
 - **UPSC, “Civil Services (Preliminary) Examination, 2026” examination page** (notification date 04/02/2026; examination date 24/05/2026). [UPSC Prelims 2026 page][upsc-page]. Accessed 20 November 2026.

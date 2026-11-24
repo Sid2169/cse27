@@ -11,13 +11,17 @@
 
 ---
 
-## Why rivers matter to the exam
+<a id="why-rivers-matter-to-the-exam"></a>
+
+## 1. Why rivers matter to the exam
 
 River questions are among the most frequently tested topics in Prelims GS-I. They demand precise knowledge: which river flows through which national park, which tributaries belong to which basin, which river shaped a particular landform, why a river flows in an unusual direction. The 2013–2024 set includes at least eighteen questions tagged to this chapter. Getting them right is mostly about knowing your river systems cold — there is no guesswork when you have mapped each system carefully.
 
 ---
 
-## Core vocabulary
+<a id="core-vocabulary"></a>
+
+## 2. Core vocabulary
 
 A **drainage basin** (or catchment) is the total land area whose rain and snowmelt drain into a single river. The boundary ridge separating two basins is called the **drainage divide** or watershed. Within a basin, a **tributary** is any stream that feeds the main river. When a river nears the sea it may fan out into distributaries — channels that carry water away from the main stem toward the ocean. At the mouth, fine sediment deposited by distributaries builds a **delta**; where a coast is submerging or waves are strong, the river mouth stays open as an **estuary** instead.
 
@@ -29,7 +33,9 @@ A **drainage basin** (or catchment) is the total land area whose rain and snowme
 
 ---
 
-## Two families of rivers
+<a id="two-families-of-rivers"></a>
+
+## 3. Two families of rivers
 
 India's rivers divide into two fundamentally different families based on their origin, age, and behaviour:
 
@@ -47,9 +53,13 @@ About **77 %** of India's drainage area empties into the Bay of Bengal; about **
 
 ---
 
-## Himalayan drainage
+<a id="himalayan-drainage"></a>
 
-### How the Himalayan river system formed
+## 4. Himalayan drainage
+
+<a id="how-the-himalayan-river-system-formed"></a>
+
+### 4.1 How the Himalayan river system formed
 
 An ancient river called **Indo-Brahma** once flowed the full length of what is now the Himalayan arc (Miocene epoch, roughly 5–24 million years ago). Progressive uplift of the western Himalayas and the formation of the Malda gap in the mid-Pleistocene split it into the three systems we know today: Indus, Ganga, and Brahmaputra. Because these rivers predate the mountains they cross, they maintain their courses by cutting gorges faster than the mountains rise — this is **antecedence**.
 
@@ -65,7 +75,9 @@ An ancient river called **Indo-Brahma** once flowed the full length of what is n
 
 ---
 
-### The Indus system
+<a id="the-indus-system"></a>
+
+### 4.2 The Indus system
 
 The Indus rises near **Bokhar Chu** in the Kailash Range of Tibet at about 4,164 m, known locally as *Singi Khamban* ("Lion's Mouth") [ncert-11-geo][]. Its total length is approximately **2,880 km**, of which only about **1,114 km** lies within modern India (Ladakh). The river enters Pakistan near Chilas before cutting south to discharge into the Arabian Sea east of Karachi. The total basin is about 11,65,000 km²; India's share is roughly 3,21,289 km².
 
@@ -85,7 +97,9 @@ The five **Punjab rivers** (Jhelum, Chenab, Ravi, Beas, Satluj) join as the **Pa
 
 ---
 
-### The Ganga system
+<a id="the-ganga-system"></a>
+
+### 4.3 The Ganga system
 
 The Ganga system drains India's most populous region and is the country's hydrological and cultural spine.
 
@@ -139,7 +153,9 @@ Prayagraj
 
 ---
 
-### The Brahmaputra system
+<a id="the-brahmaputra-system"></a>
+
+### 4.4 The Brahmaputra system
 
 The Brahmaputra is one of the world's largest rivers by discharge.
 
@@ -162,7 +178,9 @@ Only statement 2 is correct. Answer: **(b) 2 only**.
 
 ---
 
-## Peninsular drainage
+<a id="peninsular-drainage"></a>
+
+## 5. Peninsular drainage
 
 The Peninsular rivers are far older than the Himalayan rivers — they formed on the stable Gondwana block and have had hundreds of millions of years to develop wide, shallow, graded valleys [leverageedu][]. Three tectonic events shaped the present arrangement:
 
@@ -170,7 +188,9 @@ The Peninsular rivers are far older than the Himalayan rivers — they formed on
 2. **Himalayan upheaval** created trough faults on the northern edge of the Peninsular block — the Narmada and Tapi flow in these faults (rift valleys), explaining why they head west and have no deltas.
 3. A slight **northwest-to-southeast tilt** of the Peninsular block oriented most drainage toward the Bay of Bengal.
 
-### Major east-flowing peninsular rivers (Bay of Bengal)
+<a id="major-east-flowing-peninsular-rivers-bay-of-bengal"></a>
+
+### 5.1 Major east-flowing peninsular rivers (Bay of Bengal)
 
 **Mahanadi**
 - Origin: near Sihawa, Raipur district, Chhattisgarh.
@@ -207,7 +227,9 @@ The Peninsular rivers are far older than the Himalayan rivers — they formed on
 
 ---
 
-### Major west-flowing peninsular rivers (Arabian Sea)
+<a id="major-west-flowing-peninsular-rivers-arabian-sea"></a>
+
+### 5.2 Major west-flowing peninsular rivers (Arabian Sea)
 
 **Narmada**
 - Origin: western flank of Amarkantak Plateau (~1,057 m), Madhya Pradesh.
@@ -235,7 +257,9 @@ Answer: (a) 1 only — the rift valley.
 
 ---
 
-## ASCII drainage schematic
+<a id="ascii-drainage-schematic"></a>
+
+## 6. ASCII drainage schematic
 
 The map below shows the principal rivers by family. Himalayan rivers are marked with arrows pointing to the sea; major tributaries shown with dashes.
 
@@ -264,11 +288,15 @@ The map below shows the principal rivers by family. Himalayan rivers are marked 
 
 ---
 
-## Lakes of India
+<a id="lakes-of-india"></a>
+
+## 7. Lakes of India
 
 India's lakes can be grouped by origin and salinity [vajiramandravi][]:
 
-### Freshwater lakes
+<a id="freshwater-lakes"></a>
+
+### 7.1 Freshwater lakes
 
 | Lake | State | Location / type | Key fact |
 |------|-------|----------------|---------|
@@ -280,7 +308,9 @@ India's lakes can be grouped by origin and salinity [vajiramandravi][]:
 | **Vembanad** | Kerala | Coastal backwater lagoon | India's longest lake; Ramsar site; Kuttanad (rice below sea level) is in its basin |
 | **Kanwar (Kabartal)** | Bihar | Oxbow lake | Formed by the **Gandak River's** old meanders cutting off — but the formation mechanism is **oxbow lake formation by the Gandak**, not meandering of Gandak per se ([2023 Q42][pyq2023] ✗ — the statement says "meandering formed Kanwar" which is contested; Kanwar is an oxbow, not formed solely by meandering but by an avulsion/cutoff). The official answer records only Wular–Jhelum as correct. |
 
-### Saline / inland lakes
+<a id="saline--inland-lakes"></a>
+
+### 7.2 Saline / inland lakes
 
 | Lake | State | Key fact |
 |------|-------|---------|
@@ -292,7 +322,9 @@ India's lakes can be grouped by origin and salinity [vajiramandravi][]:
 
 ---
 
-## Important reservoirs and projects
+<a id="important-reservoirs-and-projects"></a>
+
+## 8. Important reservoirs and projects
 
 | Project | River | State(s) | Purpose |
 |---------|-------|----------|---------|
@@ -309,7 +341,9 @@ India's lakes can be grouped by origin and salinity [vajiramandravi][]:
 
 ---
 
-## Drainage patterns and basin divides
+<a id="drainage-patterns-and-basin-divides"></a>
+
+## 9. Drainage patterns and basin divides
 
 **PYQ application — Godavari–Krishna interlinking** ([2016 Q8][pyq2016]): The National River Linking Project's Peninsular Component proposes a chain starting with Mahanadi–Godavari–Krishna–Pennar–Kaveri. The first completed link in this chain is the **Godavari–Krishna** transfer via the Polavaram project's diversion works. This matches the question's answer (b).
 
@@ -318,7 +352,9 @@ The canyon known as the "Grand Canyon of India" was carved by the **Penna (Penna
 
 ---
 
-## Worked example: tracing the Ganga downstream
+<a id="worked-example-tracing-the-ganga-downstream"></a>
+
+## 10. Worked example: tracing the Ganga downstream
 
 A common exam technique is to follow a river downstream and confirm the order of tributaries. Let's trace the Ganga from Prayagraj to the sea, noting the left-bank Himalayan tributaries ([2024 Q70][pyq2024]):
 
@@ -335,9 +371,50 @@ A common trap is inverting Gomati and Ghaghara, or putting Kosi before Gandak. R
 
 ---
 
+
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 11. Summary of key concepts and takeaways
+
+- A river system is a connected network: learn source, course, tributary, confluence and outlet together. Left and right banks are judged while facing downstream.
+- Relief, structure, rainfall and snowmelt explain broad contrasts between Himalayan and Peninsular drainage; individual rivers still require their own course and regime evidence.
+- A lake's location between two deltas does not prove that either main river feeds it. Likewise, a reservoir, wetland, tributary and independent coastal river are different entities.
+- Basin maps connect geography to ecology and infrastructure: river–park, city–river and dam–river matching is easier when each place is attached to the same drainage network.
+
+<a id="upsc-specific-notes"></a>
+
+## 12. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 12.1 Static notes
+
+| System or task | Prelims GS-I revision notes |
+|---|---|
+| Drainage framework | Most drainage area leads toward the Bay of Bengal; Western Ghats and other divides separate basins. Narmada and Tapi are important west-flowing rift-valley exceptions to the general east-flowing Peninsular pattern. Location between ranges is not by itself a causal explanation of direction. |
+| Indus | Locate Indus, Jhelum, Chenab, Ravi, Beas and Satluj as one system; Chenab forms from Chandra/Bhaga. Harike is the Beas–Satluj confluence. Keep a river's geographical basin separate from a treaty's legal allocation. |
+| Ganga | Bhagirathi + Alaknanda at Devprayag form the Ganga. Yamuna and Son are major right-bank tributaries; follow the left-bank sequence downstream: Gomati → Ghaghara → Gandak → Kosi. Chambal, Ken and Betwa connect through Yamuna. |
+| Brahmaputra | Trace Tsangpo → Siang/Dihang → Brahmaputra and onward into Bangladesh. Dibang and Lohit join near the Assam entry; Teesta joins the Brahmaputra/Jamuna system in Bangladesh rather than independently entering the sea. Distinguish a river's source from the states it flows through. |
+| Peninsular systems | Godavari: Pranahita and Indravati; Krishna: Bhima and Tungabhadra; Kaveri: Kabini, Hemavati and Bhavani. Pennar, Vamsadhara and Nagavali are not Godavari tributaries. Narmada drains between Vindhya and Satpura; Tapi lies farther south. |
+| Map associations | Hampi–Tungabhadra; Pandharpur–Bhima; Tiruchirappalli–Kaveri; Corbett–Ramganga; Kaziranga–Brahmaputra; Silent Valley–Kuntipuzha. Attach a park to its actual river/basin, not simply the nearest famous river. |
+| Lakes and reservoirs | Wular is associated with Jhelum; Kolleru lies between Krishna/Godavari deltas but receives local inflows. Identify lakes by location, inflow, outlet, origin and salinity separately. Aliyar, Isapur and Kangsabati are reservoirs; project names are not independent river basins. |
+| Interventions and ecology | Dams can fragment dolphin habitat; fishing-net entanglement and agricultural pollution are distinct pressures. A river-link proposal is not evidence of completion or current operation. |
+
+The [NCERT drainage chapter][sathee-iitk] and the system tables above supply the underlying map framework. The Arunachal question wording/item-number caveat and contested Kanwar explanation remain unresolved in the body; do not memorise an inferred origin or answer-label repair as settled evidence.
+
+<a id="current-connections"></a>
+
+### 12.2 Current connections
+
+- **River-linking context:** [2016 Q8][pyq2016] supplies the historical Godavari–Krishna link context. For later Ken–Betwa or other project news, retain the parent basins, proposed transfer and dated approval/construction/operation stage. A historical PYQ or the chapter's project description does not establish present completion.
+- **Conservation and flood reports:** connect a named affected location to its tributary and basin before interpreting the report. The river-dolphin example distinguishes habitat fragmentation, bycatch and chemical pollution; a new population estimate needs its own date and survey method ([2014 Q78][pyq2014]).
+- **Water-body status:** separate enduring basin relationships from changing storage, water quality, designation or jurisdiction. The [Update watch](#update-watch) identifies project-status and lake-evidence checks; current treaty operation and new infrastructure status are not freshly verified by these revision notes.
+
 <a id="check-your-understanding"></a>
 
-## Revision and next steps
+<a id="revision-and-next-steps"></a>
+
+## 13. Revision and next steps
 
 Before moving on, verify that you can answer these without notes:
 
@@ -356,7 +433,9 @@ Before moving on, verify that you can answer these without notes:
 
 Next: [017 — Indian soils, vegetation and regional links](017-indian-soils-vegetation-and-regional-links.md) (currently a planning placeholder).
 
-## Update watch
+<a id="update-watch"></a>
+
+## 14. Update watch
 
 Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
 
@@ -365,7 +444,9 @@ Use the corresponding references in [Sources](#sources). Keep historical observa
 | Reservoir/project names, status and administrative labels | Project status and jurisdictional labels can change without changing the river system. | Before describing a project as current, check the responsible water/project authority and the dated map. |
 | Lake designations and disputed PYQ interpretations | Site records or verified original questions/keys may clarify a contested description. | Recheck the specific official site evidence or original booklet/key when resolving a caveat; do not infer a formation mechanism from an answer label alone. |
 
-## Sources
+<a id="sources"></a>
+
+## 15. Sources
 
 [sathee-iitk]: https://sathee.iitk.ac.in/ncert-books/class-11/geography/india-physical-environment/chapter-03-drainage-system "Chapter 3: Drainage System — NCERT Class 11 Geography India Physical Environment, via SATHEE IIT Kanpur. Accessed 23 November 2026."
 [bpscpathshala]: https://bpscpathshala.com/?p=8583 "NCERT Class 11 Drainage System Notes — BPSC Pathshala. Accessed 22 November 2026."

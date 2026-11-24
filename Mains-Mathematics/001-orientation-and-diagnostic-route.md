@@ -1,4 +1,7 @@
-# 001 — Orientation and diagnostic route
+# 001. Orientation and diagnostic route
+
+<a id="001--orientation-and-diagnostic-route"></a>
+
 
 **Revision — 23 November 2026:** Corrected the post-bridge route to include Phase B before Phase C.
 
@@ -163,9 +166,43 @@ Advance to the next topic when you can explain the central definitions, reconstr
 
 ---
 
+
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 9. Summary of key concepts and takeaways
+
+- The syllabus defines coverage; the curriculum orders prerequisites; a chapter supplies teaching. Recognition of a syllabus heading is not evidence that you can solve its problems.
+- Read a theorem as hypotheses, conclusion and proof. Read a PYQ as given information, requested result and required tools before attempting a method.
+- Route each foundation skill separately as demonstrated, rusty or unfamiliar, using dated written work. Repair the affected prerequisite rather than restarting everything.
+- After selective bridges, proceed through linear algebra before the analysis/calculus sequence unless the curriculum's dependencies support another route. Keep definitions, justified methods, independent solutions and later retrieval connected.
+
+<a id="upsc-specific-notes"></a>
+
+## 10. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 10.1 Static notes
+
+| Area | Revision note for the Mathematics optional |
+|---|---|
+| Paper I scope | Linear Algebra; Calculus; Analytic Geometry; Ordinary Differential Equations; Dynamics and Statics; Vector Analysis. Use the [verbatim syllabus](Mains-Mathematics-Syllabus.md) for the full subtopics. |
+| Paper II scope | Algebra; Real Analysis; Complex Analysis; Linear Programming; Partial Differential Equations; Numerical Analysis and Computer Programming; Mechanics and Fluid Dynamics. |
+| Written reasoning | State definitions, hypotheses, permitted operations and the conclusion. A numerical example can disprove a universal claim but cannot establish it. Keep arithmetic errors distinct from missing hypotheses. |
+| Breadth and routing | Compulsory questions and combined topics make unsupported omissions risky. Algebra/functions, trigonometry/complex arithmetic, geometry/vectors, proof, elementary calculus and physical modelling each need their own evidence of readiness. |
+| PYQ use | The 2025 Paper I Q1(d) functional-equation example illustrates hypothesis and dependency reading; its differential-equation solution belongs later. The Q1(a) basis question requires justification through linear independence and dimension. Respect the corpus transcription caveat. |
+
+<a id="current-applicability"></a>
+
+### 10.2 Current applicability
+
+The chapter's examination baseline is **UPSC Notice 05/2026-CSE**: two optional papers, each 250 marks and three hours, with scientific non-programmable calculators permitted. The **2025 Paper I cover**, used historically, specifies eight questions, five answers, compulsory Q1 and Q5 and at least one further question from each section. These are dated sources, not verified 2027 instructions. Check the 2027 notification, corrigenda and paper cover through [Sources](#sources) and [Update watch](#update-watch). The mathematics itself needs no current-affairs supplement.
+
 <a id="10-completion-check"></a>
 
-## Revision and next steps
+<a id="revision-and-next-steps"></a>
+
+## 11. Revision and next steps
 
 Before moving on, confirm that you can do each of these without looking at this chapter:
 
@@ -177,7 +214,9 @@ Before moving on, confirm that you can do each of these without looking at this 
 
 Once you have a completed skill record, the next step is the foundation routing in section 6. Chapters 002 to 007 are the bridges, and the curriculum's [phase exit](Mains-Mathematics-Curriculum.md#authoritative-chapter-index) describes what a completed route should let you do.
 
-## Update watch
+<a id="update-watch"></a>
+
+## 12. Update watch
 
 Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
 
@@ -185,9 +224,12 @@ Use the corresponding references in [Sources](#sources). Keep historical observa
 |---|---|---|
 | Paper rules, calculator policy and selection instructions | The chapter uses the cited examination notice rather than a guarantee of future rules. | Check the UPSC CSE 2027 notification and corrections when published, and before a full-paper attempt. |
 
+
 <a id="9-sources"></a>
 
-## Sources
+<a id="sources"></a>
+
+## 13. Sources
 
 - UPSC Civil Services Examination Notice 05/2026-CSE, Appendix I, Optional Subject Papers VI and VII — Mathematics: [PDF](https://www.upsc.gov.in/sites/default/files/Notif-CSP-2026-Engl-060226Rev.pdf). Accessed 15 November 2026.
 - UPSC, 2025 Mathematics Paper I question paper front cover: [PDF](https://www.upsc.gov.in/sites/default/files/MATHEMATICS-PAPER%20I-QP-CSM-25-010925.pdf). Accessed 15 November 2026. Used as a historical reference only.

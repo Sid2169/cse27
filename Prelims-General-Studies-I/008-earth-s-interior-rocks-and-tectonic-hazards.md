@@ -253,7 +253,9 @@ Plates move at 2–10 cm per year, driven by **mantle convection currents** — 
 
 Everything important in this chapter — mountains, volcanoes, earthquakes, rock types, ocean basins — can be traced to what happens at plate boundaries. There are three kinds:
 
-#### Divergent boundaries — plates move apart
+<a id="divergent-boundaries--plates-move-apart"></a>
+
+#### 7.4.1 Divergent boundaries — plates move apart
 
 Magma wells up to fill the gap, creating new crust and pushing the plates further apart.
 
@@ -264,7 +266,9 @@ Magma wells up to fill the gap, creating new crust and pushing the plates furthe
 | **Volcanism** | Basalt erupts where magma reaches the surface. Lava pours out in long fissures rather than through a single vent — called **fissure eruption**. |
 | **Earthquakes** | Shallow and moderate; rock fractures as plates pull apart. |
 
-#### Convergent boundaries — plates move together
+<a id="convergent-boundaries--plates-move-together"></a>
+
+#### 7.4.2 Convergent boundaries — plates move together
 
 The denser plate sinks under the lighter one — **subduction**. Three subtypes:
 
@@ -300,7 +304,9 @@ oceanic plate moves right --->    \                /  \
 
 The **slab** is the descending plate; the **mantle wedge** lies above it and below the overriding plate. Keeping those two regions separate explains where most arc magma originates.
 
-#### Transform boundaries — plates slide past each other
+<a id="transform-boundaries--plates-slide-past-each-other"></a>
+
+#### 7.4.3 Transform boundaries — plates slide past each other
 
 - Crust is neither created nor destroyed.
 - Rocks grind against each other; stress builds and releases as earthquakes.
@@ -444,9 +450,10 @@ The chapter's learning outcome is to perform this connection fluently. The table
 
 ---
 
-<a id="13-common-confusions"></a>
 
-## Common confusions
+<a id="common-confusions"></a>
+
+## 13. Common confusions
 
 | Confusion | Clarification |
 |---|---|
@@ -475,14 +482,58 @@ The chapter's learning outcome is to perform this connection fluently. The table
 
 ---
 
-## Revision and next steps
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 15. Summary of key concepts and takeaways
+
+- Earth's inaccessible interior is inferred chiefly from wave behaviour: changes in speed, refraction and transmission reveal boundaries and physical state.
+- Lithosphere and asthenosphere describe mechanical behaviour, while crust, mantle and core describe a different layering scheme. The asthenosphere is predominantly solid, yet deforms over geological time.
+- The rock cycle is a network of transformations, not a compulsory one-way sequence. Cooling, weathering/lithification, metamorphism and melting produce different outcomes.
+- Start with plate motion to infer landforms, rocks and hazards. Subduction, continental collision, rifting, transforms and hotspots should not be treated as interchangeable settings.
+
+<a id="upsc-specific-notes"></a>
+
+## 16. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 16.1 Static notes
+
+| Topic | Revision facts and distinctions |
+|---|---|
+| Internal layers | Moho: crust–mantle; Gutenberg: mantle–outer core; Lehmann: outer–inner core. Liquid outer core versus solid inner core; rigid lithosphere includes crust and uppermost mantle. |
+| Seismic waves | P waves are faster and compressional, travelling through solids and fluids; S waves are transverse and cannot cross the liquid outer core. P-wave shadowing involves refraction, not the same blocking mechanism as S waves. |
+| Rock families | Igneous: cooled magma/lava (slow intrusive cooling generally gives coarser crystals). Sedimentary: deposited material consolidated or precipitated. Metamorphic: pre-existing rock changed without wholesale melting. Limestone→marble; sandstone→quartzite; granite→gneiss. |
+| Drift and spreading evidence | Continental fit, matching rocks/fossils and glacial evidence support former connections; symmetric magnetic stripes and increasing seafloor age away from ridges support spreading. Plates include both continental and oceanic lithosphere. |
+| Divergence and transforms | Divergence creates new oceanic crust at ridges and may form continental rifts. Transforms mainly accommodate horizontal slip; crust is neither systematically created nor consumed there. Both can generate earthquakes. |
+| Convergence | Oceanic subduction produces trenches and volcanic arcs; water from the slab helps mantle-wedge melting. Continental collision thickens crust and builds mountains without a typical continuous oceanic-subduction volcanic arc. |
+| Volcanism | Magma is underground; lava is erupted. Basaltic low-viscosity flows favour shields/flood basalts; more viscous magma favours explosive forms. Hotspots need not lie at plate boundaries. |
+| Earthquake versus effect | Focus is at depth; epicentre is its surface projection. Magnitude describes the event; intensity varies by location, ground and structures. Strongest damage is not guaranteed to coincide with the epicentre. |
+| Tsunami | Large water displacement, often from seafloor uplift/subsidence, is central; not every offshore earthquake generates a tsunami. Deep-water speed and near-shore wave growth are distinct properties. |
+
+Mechanism references: [NCERT and USGS sources](#sources). In particular, do not picture tectonic plates floating on a global liquid-magma ocean ([USGS][usgs-mantle]).
+
+<a id="current-connections"></a>
+
+### 16.2 Current connections
+
+- **Indian hazard geography:** connect Himalayan seismicity to continuing collision, Andaman island-arc volcanism to subduction, and Deccan basalt/regur to ancient fissure eruptions and subsequent weathering. These explain a news location; they do not establish a present warning level.
+- **Barren Island:** the body uses eruptions since **1991** and [2018 Q52][pyq2018] to reject the claim of continuous inactivity. This is historical evidence; a current eruption bulletin is a separate dated claim.
+- **26 December 2004 Indian Ocean tsunami:** the historical subduction case links rupture, seafloor displacement and coastal impact. Keep its date rather than treating it as an ongoing event.
+- The chapter's seismic-zone table cites a secondary summary of IS 1893. Before using it as a **current** zoning map, check the official version; do not infer a city's current classification solely from this recap. Event magnitudes and activity assessments also require the responsible agency's dated report ([Update watch](#update-watch)).
+
+<a id="revision-and-next-steps"></a>
+
+## 17. Revision and next steps
 
 - Use seismic-wave behaviour to distinguish the main internal layers.
 - Connect a plate boundary to likely rocks, relief and hazards without treating a schematic map as a live warning.
 
 Next: [009 — Weathering, erosion and landforms](009-weathering-erosion-and-landforms.md).
 
-## Update watch
+<a id="update-watch"></a>
+
+## 18. Update watch
 
 Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
 
@@ -491,7 +542,9 @@ Use the corresponding references in [Sources](#sources). Keep historical observa
 | Seismic zoning and hazard classifications | A national classification or map can be formally revised independently of the underlying plate mechanism. | Check the current official Indian seismic-zoning reference before treating the chapter table as a current operational map. |
 | Named earthquake, eruption and tsunami observations | Event magnitudes, activity reports and assessments may be revised. | Check the responsible geological or warning agency before quoting current activity; retain the observation period for historical cases. |
 
-## Sources
+<a id="sources"></a>
+
+## 19. Sources
 
 - **U.S. Geological Survey.** [Subduction zone: cross-section and magma generation][usgs-subduction]. Accessed 23 November 2026.
 

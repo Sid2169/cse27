@@ -23,7 +23,9 @@ Political institutions address both sides: they enable common decisions and cons
 
 An institution's name does not answer all three. An elected body may misuse power; a written rule may authorise oppressive conduct. Understanding the arrangement requires examining powers, limits and remedies together. NCERT introduces constitutions through precisely these problems of coordination, allocation of authority, restraint and social aspirations. [S1]
 
-### State, government and society
+<a id="state-government-and-society"></a>
+
+### 1.1 State, government and society
 
 | Term | Meaning in this chapter | Concrete distinction |
 |---|---|---|
@@ -39,7 +41,9 @@ Usage matters. In “the State of Maharashtra”, *State* means a constituent un
 
 ## 2. Sovereignty and constitutional government
 
-### Sovereignty: independence of public authority
+<a id="sovereignty-independence-of-public-authority"></a>
+
+### 2.1 Sovereignty: independence of public authority
 
 **Sovereignty** means supreme authority in the relevant political order. Its external aspect concerns independence from another State's governing authority; its internal aspect concerns ultimate public authority within the political community. The Preamble describes India as sovereign. [S2, Preamble]
 
@@ -47,7 +51,9 @@ This does not mean every government official has unlimited power. Separate the s
 
 Nor is international cooperation automatically a loss of sovereignty. As a conceptual example, a country can undertake a treaty obligation through its own authorised institutions. The existence of an obligation and the existence of an external ruler are different facts. Whether a particular treaty creates a particular domestic power must be answered from the applicable legal provisions.
 
-### A constitution and constitutionalism are different ideas
+<a id="a-constitution-and-constitutionalism-are-different-ideas"></a>
+
+### 2.2 A constitution and constitutionalism are different ideas
 
 A **constitution** supplies the fundamental framework. **Constitutionalism** is the principle that public power must operate under effective limits, rather than the unrestricted will of the rulers. A country can possess an impressive constitutional document while its rulers evade its limits. [S1]
 
@@ -75,7 +81,9 @@ These terms answer different questions. Learn their relationship rather than tre
 | **Parliamentary government** | How does the political executive depend on the legislature? | That the head of State is necessarily elected |
 | **Constitutionalism** | Is the exercise of power effectively limited? | That limits are respected merely because they are written |
 
-### Democracy: more than counting votes
+<a id="democracy-more-than-counting-votes"></a>
+
+### 3.1 Democracy: more than counting votes
 
 In a **direct democracy**, people themselves decide public questions. In a **representative democracy**, people choose representatives to make decisions and remain answerable to them. India's national parliamentary institutions operate through representation. Article 326 establishes adult suffrage for elections to the Lok Sabha and State Legislative Assemblies, subject to its conditions and disqualifications. *Adult suffrage* means voting eligibility based on adulthood, rather than a general property or educational qualification; the present constitutional voting age is eighteen. [S2]
 
@@ -83,13 +91,17 @@ Elections help authorise and replace rulers. Meaningful political choice also re
 
 **Worked distinction:** Suppose a majority supports excluding a religious community from a public service solely because of its religion. The number supporting the policy answers the question of popularity. It does not answer the separate question of constitutional validity.
 
-### Republic: non-hereditary head of State
+<a id="republic-non-hereditary-head-of-state"></a>
+
+### 3.2 Republic: non-hereditary head of State
 
 A republic rejects hereditary monarchy as the basis of the head of State's office. In India, the President is elected indirectly through the electoral college specified in Article 54. A direct popular election for President is not necessary for India to be a republic. Detailed composition and election procedure belong to [Chapter 026](026-president-and-vice-president.md). [S2]
 
 The categories are logically independent. A hypothetical country with an elected President but no meaningful political competition may be republican in institutional form without being democratic in practice. Conversely, a hereditary monarch can coexist with an elected, accountable ministry: parliamentary government does not inherently require a republic.
 
-### Parliamentary government: the executive depends on legislative confidence
+<a id="parliamentary-government-the-executive-depends-on-legislative-confidence"></a>
+
+### 3.3 Parliamentary government: the executive depends on legislative confidence
 
 Three functions help explain the arrangement:
 
@@ -107,7 +119,9 @@ In a presidential arrangement, the executive's ordinary tenure does not rest on 
 
 ## 4. Secularism and the other constitutional commitments
 
-### Secularism: religious freedom and equal citizenship
+<a id="secularism-religious-freedom-and-equal-citizenship"></a>
+
+### 4.1 Secularism: religious freedom and equal citizenship
 
 **Secularism** concerns the relationship between public power, religious communities and individual freedom. In the Indian constitutional setting, religious identity must not become a basis for unequal civic standing, and the State must protect freedom of conscience. This is different from demanding that citizens abandon religion. [S4]
 
@@ -117,7 +131,9 @@ Indian secularism also cannot be reduced to “the State never interacts with re
 
 In **Balram Singh v. Union of India, 2024 INSC 893**, the Supreme Court rejected the challenge to the insertion of “socialist” and “secular” in the Preamble. The Court explains secularism through equality and religious freedom, rather than hostility towards religious practice (paragraphs 3–4). It also explains that Indian constitutional socialism does not impose one exclusive economic model or prohibit private enterprise (paragraphs 5–6). [S5]
 
-### Socialism, justice, liberty, equality and fraternity
+<a id="socialism-justice-liberty-equality-and-fraternity"></a>
+
+### 4.2 Socialism, justice, liberty, equality and fraternity
 
 In this constitutional setting, **socialism** expresses a commitment to social and economic justice. It does not allow you to infer that every productive asset must be owned by government. The constitutional goal and the detailed policy instruments chosen to pursue it are separate questions. [S5]
 
@@ -132,7 +148,9 @@ These are explanatory meanings; the Preamble's exact allocation of words is set 
 
 ## 5. How the Constitution came to be made
 
-### A short colonial bridge
+<a id="a-short-colonial-bridge"></a>
+
+### 5.1 A short colonial bridge
 
 Under colonial government, institutions operated under authority ultimately controlled from Britain. Legislative councils and administrative reforms developed within this unequal relationship. They were not equivalent to a sovereign democratic constitution made by India's people.
 
@@ -152,7 +170,9 @@ For the colonial sequence, see the President's 2017 lecture on parliamentary his
 
 This bridge explains institutional inheritance without equating colonial authority with popular sovereignty. Detailed nationalist movements and negotiations are studied in Chapters [086](086-european-arrival-and-british-expansion.md)–[097](097-negotiations-partition-and-independence.md).
 
-### Who made the Constitution?
+<a id="who-made-the-constitution"></a>
+
+### 5.2 Who made the Constitution?
 
 The **Constituent Assembly** was the body that deliberated on and adopted the Constitution. *Constituent power* concerns establishing or altering the fundamental constitutional framework; it differs from an ordinary legislature's work of making laws within that framework.
 
@@ -160,7 +180,9 @@ Under the Cabinet Mission scheme, the intended membership was **389**: 292 provi
 
 The Assembly was **not elected by universal adult franchise**. That fact should not be replaced with the claim that its provincial members were simply nominated by political parties. Indirect election and nomination are different procedures. Its authority also drew on the national movement, deliberation and a wide range of represented views; this is an account of its political legitimacy, not a claim that its selection met today's universal-franchise standard. [S1, S8]
 
-### Keep the offices and dates distinct
+<a id="keep-the-offices-and-dates-distinct"></a>
+
+### 5.3 Keep the offices and dates distinct
 
 | Date or person | Role or event | Frequent confusion |
 |---|---|---|
@@ -180,7 +202,9 @@ The **Objectives Resolution** stated foundational commitments, including authori
 
 The Constitution was not the unaided work of one author. Committees considered subjects; advisers and the Drafting Committee contributed to formulation; the Assembly debated and adopted provisions. Ambedkar's drafting leadership and Prasad's presidency were different contributions to a collective process. [S1, S8]
 
-### Adoption is not the same as commencement
+<a id="adoption-is-not-the-same-as-commencement"></a>
+
+### 5.4 Adoption is not the same as commencement
 
 **Adoption** means formal acceptance of the constitutional text. **Commencement** means that provisions become legally operative. Article 394 brought specified provisions into force immediately, while the remaining provisions commenced on 26 January 1950. Therefore, “every provision first came into force on 26 January 1950” is inaccurate. [S2, Article 394]
 
@@ -208,13 +232,17 @@ The important word associations are:
 
 **Worked reading:** “Economic” is attached to justice; “economic liberty” is not an expressly listed Preamble phrase. That textual distinction does not establish that economic freedom is absent from the rest of the Constitution. Always separate “not listed here” from “not recognised anywhere”. [S2]
 
-### Original wording and later amendment
+<a id="original-wording-and-later-amendment"></a>
+
+### 6.1 Original wording and later amendment
 
 The original description was **sovereign democratic republic**. Section 2 of the **Constitution (Forty-second Amendment) Act, 1976** added **socialist** and **secular**, and added **integrity** to the phrase concerning national unity. The Preamble amendment took effect on **3 January 1977**, as recorded in the official constitutional footnotes. Calling it the 1976 amendment and giving its 1977 commencement date are compatible statements. [S2]
 
 Do not infer that religious freedom and equal citizenship first appeared only when the word “secular” was inserted. Their substantive constitutional foundations existed independently of that later wording. Similarly, the amendment changed the Preamble without replacing its adoption date. [S5]
 
-### Legal role: part of the Constitution, not an independent power
+<a id="legal-role-part-of-the-constitution-not-an-independent-power"></a>
+
+### 6.2 Legal role: part of the Constitution, not an independent power
 
 The Preamble is part of the Constitution and helps explain its purposes. It is not independently enforceable as if each aspiration were a separate operative right, nor is it an independent grant of power to Parliament or the executive. The Government of India explanatory note on the Preamble distinguishes its interpretive role from the grant of enforceable substantive rights. [S12]
 
@@ -236,9 +264,52 @@ The following are explanations of existing questions, not a new test. Question n
 
 The reasoning above is explained from the cited constitutional and historical sources, not merely inferred from the transcribed answer keys. It does not certify the wording or provenance of every question in those files.
 
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 8. Summary of key concepts and takeaways
+
+- Public power must be understood through **authority, limits and accountability**. A sovereign political community can have institutions whose powers are constitutionally limited.
+- Democracy, republic, parliamentary government and constitutionalism describe different features. Elections do not remove constitutional restraints; an elected President does not establish a presidential system.
+- Constitution-making was a collective process. The Assembly's selection, officers, adoption of the text and commencement of provisions are separate historical questions.
+- The Preamble states the Constitution's authority, character and purposes. Its interpretive value does not create an independent legislative power or an independently enforceable remedy.
+
+<a id="upsc-specific-notes"></a>
+
+## 9. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 9.1 Static notes
+
+| Area | Revision notes and statement traps |
+|---|---|
+| Political vocabulary | State is the enduring political organisation; government changes office-holders. Constitutionalism means effective limitation of power, not merely possession of a written constitution. |
+| Democratic and parliamentary principles | Adult suffrage under Article 326 concerns Lok Sabha/Assembly elections. Republic excludes hereditary headship; India elects its President indirectly. Articles 74–75 distinguish the President's formal position from the politically responsible ministry; collective responsibility is to the **Lok Sabha**, not Parliament's two Houses jointly. |
+| Secularism and socialism | Religious freedom and equal citizenship do not require a ban on all State interaction with religion. Social and economic justice does not prescribe exclusive State ownership of every enterprise. |
+| Colonial bridge | 1858: Crown replaced Company rule; 1909: separate Muslim electorates; 1919: provincial dyarchy; 1935: provincial autonomy, but the proposed all-India federation did not operate. Representation under colonial control was not sovereign popular government. |
+| Assembly membership | Cabinet Mission scheme: 389 planned members; after Partition: 299. Provincial representatives were indirectly elected by Provincial Legislative Assemblies; this was neither universal direct election nor simple party nomination. |
+| People and dates | First sitting: 9 December 1946, provisional President Sachchidananda Sinha; permanent President Rajendra Prasad; Drafting Committee chair B. R. Ambedkar; Constitutional Adviser B. N. Rau. Adoption: 26 November 1949; signing: 24 January 1950; general commencement: 26 January 1950. Article 394 made specified provisions operative earlier. |
+| Preamble wording | Justice: social/economic/political; liberty: thought/expression/belief/faith/worship; equality: status/opportunity; fraternity: individual dignity and national unity/integrity. “Economic liberty” is not an expressly listed phrase. The source of authority is “the people”, distinct from how Assembly members were selected. |
+
+These notes condense the constitutional and historical references in [Sources](#sources); retain the exact provisions and qualifications taught above when eliminating an MCQ statement.
+
+<a id="current-connections"></a>
+
+### 9.2 Current connections
+
+The chapter's legal snapshot uses the **10 September 2026 constitutional edition**, checked on **23 November 2026**. Two dated connections link that framework to public debate:
+
+- **Forty-second Amendment, 1976:** “socialist”, “secular” and “integrity” were inserted into the Preamble; that amendment commenced on **3 January 1977**. Amendment year, commencement and the retained 1949 adoption date answer different questions. [S2]
+- **Balram Singh v. Union of India, 25 November 2024:** the Court rejected the challenge to those insertions, affirmed amendment power and explained secularism and socialism without equating them with hostility to religion or a ban on private enterprise. A later report about these words must be compared with the actual text and judgment, rather than a political slogan. [S5]
+
+For new constitutional or court developments, use the [Update watch](#update-watch); these dated connections do not claim an audit of subsequent decisions.
+
+
 <a id="8-what-to-retain-before-proceeding"></a>
 
-## Revision and next steps
+<a id="revision-and-next-steps"></a>
+
+## 10. Revision and next steps
 
 A political community can be sovereign while its institutions are constitutionally limited. A republic has a non-hereditary head of State; a democracy requires public authorisation and accountability; parliamentary government makes the ministry dependent on legislative confidence. None of these labels is a substitute for the others.
 
@@ -246,7 +317,9 @@ For constitution-making, retain the difference between indirect provincial elect
 
 Continue to [Chapter 023 — Constitutional structure, citizenship and change](023-constitutional-structure-citizenship-and-change.md) for how to locate a provision and distinguish ordinary legislation from constitutional amendment. The linked chapter now contains authored teaching material.
 
-## Update watch
+<a id="update-watch"></a>
+
+## 11. Update watch
 
 Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
 
@@ -255,9 +328,12 @@ Use the corresponding references in [Sources](#sources). Keep historical observa
 | Constitutional wording and interpretation | Amendments, commencement notifications or controlling judgments may change a present legal proposition. | Check the Legislative Department text and relevant Supreme Court decision before applying a changed rule; the source dates below remain the original verification dates. |
 | Historical dates and PYQ provenance | Completed constitution-making events are historical; a transcription or source correction is a different kind of update. | Revisit only when primary evidence or a verified booklet/key corrects a specific claim; retain the original corpus caveat. |
 
+
 <a id="sources-and-maintenance"></a>
 
-## Sources
+<a id="sources"></a>
+
+## 12. Sources
 
 **Access/check date: 23 November 2026.** Historical dates describe completed events. Current constitutional propositions should be rechecked when a relevant amendment commences or a Supreme Court ruling changes the interpretation. This chapter uses the Legislative Department's constitutional edition dated 10 September 2026; it does not claim to audit every subsequent legal development.
 

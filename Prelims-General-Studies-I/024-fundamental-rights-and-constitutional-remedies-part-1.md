@@ -1,5 +1,8 @@
 # 024. Fundamental Rights and constitutional remedies
-## Part 1 of 3 — Foundations and equality
+
+<a id="part-1-of-3--foundations-and-equality"></a>
+
+**Part:** 1 of 3 — Foundations and equality
 
 **Paper:** Prelims General Studies I. **Authored:** 24 November 2026.
 **Learning outcome:** Identify a right’s beneficiary and actor and explain a justified equality distinction.
@@ -26,7 +29,9 @@ Distinguish three sources:
 
 The distinction concerns legal source and enforcement route, not whether the interest matters in ordinary life. A statutory entitlement can be legally enforceable. Article 226 enables High Courts to enforce legal rights beyond Part III; Article 32 is specifically for Fundamental Rights. Part 3 explains this difference. [Articles 32, 226 and 300A][constitution]
 
-### A map of Part III
+<a id="a-map-of-part-iii"></a>
+
+### 1.1 A map of Part III
 
 | Article range | Subject |
 |---|---|
@@ -43,7 +48,9 @@ Article 31 is omitted. Its number does not prove that the former property right 
 
 ## 2. Ask who is acting and who is protected
 
-### Article 12: “the State” is wider than the ministry
+<a id="article-12-the-state-is-wider-than-the-ministry"></a>
+
+### 2.1 Article 12: “the State” is wider than the ministry
 
 For Part III, Article 12 includes the Union government and Parliament, State governments and legislatures, and local or other authorities within India's territory or under the Government of India's control. A municipality can therefore be relevant even though it is not the Union ministry. “Other authorities” requires legal interpretation: a familiar organisational label alone does not decide a body's constitutional status. [Article 12][constitution]
 
@@ -51,7 +58,9 @@ Many rights regulate State action. But **do not memorise “Fundamental Rights o
 
 The scope of a particular right and the availability of a particular writ are separate questions. Under Article 226, a body outside Article 12 may still be answerable for an applicable public duty. That does not turn every private dispute into constitutional litigation; the relevant duty and public-law element matter. Part 3 develops this distinction.
 
-### “Person”, “citizen” and “minority” are not interchangeable
+<a id="person-citizen-and-minority-are-not-interchangeable"></a>
+
+### 2.2 “Person”, “citizen” and “minority” are not interchangeable
 
 | Provision | Beneficiary wording or focus | Consequence for reading a question |
 |---|---|---|
@@ -89,7 +98,9 @@ Likewise, a rule treating unlike situations identically can create disadvantage.
 
 ## 5. Articles 15 and 16: distinguish discrimination from safeguards
 
-### Article 15: discrimination and access
+<a id="article-15-discrimination-and-access"></a>
+
+### 5.1 Article 15: discrimination and access
 
 Article 15(1) prohibits State discrimination against citizens on grounds **only** of religion, race, caste, sex, place of birth, or any of them. Article 15(2) covers specified discriminatory disabilities in access to shops, public restaurants, hotels and places of public entertainment, and the listed public-use facilities. Read the grounds and setting precisely. For example, **place of birth** and **residence** are not the same concept. [Article 15][constitution]
 
@@ -104,7 +115,9 @@ Article 15 also permits specified special provisions:
 
 **Scheduled Castes (SCs)** and **Scheduled Tribes (STs)** refer to constitutionally recognised categories under Articles 341 and 342; the names do not mean everyone with a low income. The backward-class and economically weaker-section categories also have their own legal criteria. This chapter identifies the enabling constitutional provisions rather than current certificate rules or every reservation judgment. [Articles 15, 341 and 342][constitution]
 
-### Article 16: public employment
+<a id="article-16-public-employment"></a>
+
+### 5.2 Article 16: public employment
 
 Article 16 addresses equality of opportunity in **employment or appointment under the State**, not every job in the economy. Clause (2)'s prohibited grounds include **descent and residence**, in addition to the listed religion/race/caste/sex/place-of-birth grounds. Under clause (3), **Parliament** may prescribe the specified residence requirements by law. It is not a general permission for any official to invent a local-residence rule. [Article 16][constitution]
 
@@ -118,20 +131,65 @@ These are **enabling provisions with conditions**, not a declaration that every 
 
 **Article 18 concerns titles.** The State cannot confer titles other than military or academic distinctions. Citizens cannot accept a title from a foreign State; the article gives additional consent rules concerning non-citizens in offices of profit or trust and foreign presents, emoluments or offices. Therefore “all distinctions, including academic degrees, are constitutionally banned” is false. Read the express exceptions rather than enlarging the prohibition. [Article 18][constitution]
 
-### Existing PYQ reasoning
+<a id="existing-pyq-reasoning"></a>
+
+### 6.1 Existing PYQ reasoning
 
 For **[2018 Q76](Prelims-General-Studies-I-PYQS/2018-Prelims-General-Studies-I.md)**, limitation of powers, equality before law and liberty/civil rights fit the rule-of-law framework. “People's responsibility to the Government” is not the relevant defining protection against arbitrary government. Statements 1, 2 and 4 give option **(c)**. The other combinations either omit an applicable safeguard or include statement 3.
 
 For **[2020 Q4](Prelims-General-Studies-I-PYQS/2020-Prelims-General-Studies-I.md)**, untouchability belongs to the **Right to Equality**, under Article 17, rather than the separate Articles 23–24 exploitation group. See Part 2 for why adjacent protections must still be distinguished. Local PYQ numbering and keys retain the files' transcription caveats, including the 2020 file's excess-item warning.
 
-## Revision and next steps
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 7. Summary of key concepts and takeaways
+
+- A Fundamental Right is a Part III guarantee, read with its beneficiary, relevant actor, limitation and remedy. “Fundamental” does not mean unlimited or available only to citizens.
+- Article 12's State extends beyond the current ministry, while some guarantees also reach private conduct. A body's legal status and its liability for a particular public duty are separate questions.
+- Equality rejects arbitrary distinctions, but need not mean identical treatment. Protective provisions require their own beneficiary, institutional setting and conditions; the word “reservation” does not supply a universal rule.
+
+<a id="upsc-specific-notes"></a>
+
+## 8. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 8.1 Static notes
+
+| Provision | Retain for MCQ reasoning |
+|---|---|
+| Part III / Articles 32, 226 | Fundamental versus other constitutional/statutory rights is a source distinction. Article 32 enforces Part III; Article 226 extends to other enforceable legal claims. Article 300A property protection is outside Part III. |
+| 12–13 | State includes governments, legislatures and local/other authorities within the article's scope. Article 13 reaches Acts and other instruments/customs having force of law; inconsistency invalidates to the extent of conflict. Amendment review has the separate basic-structure qualification. |
+| Beneficiaries | Article 14—persons; 15/16/19—citizens in their respective guarantees; 20/21—persons; 21A—children six–fourteen; 25—all persons; 29(1)—any section of citizens with distinct language/script/culture; 30—religious/linguistic minorities. |
+| 14 | Equality before law plus equal protection. A classification needs intelligible differentia and rational nexus to its purpose; this is an important test, not the whole of equality jurisprudence. |
+| 15 | Clauses (1)/(2) have specified grounds/settings; place of birth is not residence. Clauses (3)/(4) address women/children and specified disadvantaged classes; (5) and (6) contain educational-admission powers with minority-institution exclusions; (6)'s EWS power has its category and ten-per-cent conditions. |
+| 16 | State employment, not all private jobs. Clause (2) includes descent/residence; Parliament has the specified residence-law power under (3). Backward-class reservation, SC/ST promotion, carried-forward vacancies, religious offices and EWS each have distinct clauses/conditions. |
+| 17–18 | Untouchability abolition belongs to equality, not the separate exploitation group. Title prohibition retains military/academic exceptions and distinct foreign-title/present consent rules. |
+| Private conduct | Articles 15(2), 17, 23 and 24 defeat the universal claim that every right regulates only government conduct. This does not make every private dispute a writ case. |
+
+Source basis: [Constitution, cited articles][constitution] and the [equality judgment][equality].
+
+<a id="current-connections"></a>
+
+### 8.2 Current connections
+
+The chapter uses the **10 September 2026 constitutional edition**, accessed **24 November 2026**. Read current reservation or admission reports by separating the **enabling constitutional clause** from the actual statute, policy, eligibility rules and controlling judgment; an enabling clause does not grant an identical quota to every group or institution.
+
+The existing judicial example is **Dev Gupta v. PEC University of Technology (2023)**, paragraphs 14–16, restating the classification test. Its dated use supports intelligible differentia/rational nexus, not the proposition that this test exhausts Article 14. [Official judgment][equality]
+
+No current certificate rules or exhaustive reservation-case survey is supplied. The [Update watch](#update-watch) identifies when an operative provision or controlling decision needs rechecking; the source-access date is not a guarantee against later change.
+
+<a id="revision-and-next-steps"></a>
+
+## 9. Revision and next steps
 
 - For a claim, identify the beneficiary, the actor and the article before considering the remedy.
 - Distinguish arbitrary discrimination from a special provision authorised under a relevant constitutional clause.
 
 Proceed to [Part 2 — Freedom, personal liberty and protection from exploitation](024-fundamental-rights-and-constitutional-remedies-part-2.md).
 
-## Update watch
+<a id="update-watch"></a>
+
+## 10. Update watch
 
 Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
 
@@ -139,7 +197,9 @@ Use the corresponding references in [Sources](#sources). Keep historical observa
 |---|---|---|
 | Equality and enabling safeguards | Constitutional amendments and controlling reservation/equality judgments may change a legal proposition. | Check the operative articles and relevant judgment before applying a changed rule; use current official criteria for a specific scheme. |
 
-## Sources
+<a id="sources"></a>
+
+## 11. Sources
 
 External sources accessed **24 November 2026**:
 

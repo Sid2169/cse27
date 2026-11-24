@@ -503,9 +503,12 @@ For current affairs, the same habit applies. When you read about an event, write
 
 ---
 
+
 <a id="11-common-mistakes"></a>
 
-## Common confusions
+<a id="common-confusions"></a>
+
+## 11. Common confusions
 
 | Mistake | Correction |
 |---|---|
@@ -562,9 +565,48 @@ The answers are models, not the only acceptable wording. For scale and time ques
 
 ---
 
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 13. Summary of key concepts and takeaways
+
+- A map selects and simplifies information. Its scale, legend, orientation, purpose and date determine what can legitimately be inferred from it.
+- Latitude and longitude are angular positions, not interchangeable ground distances. Longitude also gives local solar-time differences; legal standard time is a separate convention.
+- Historical ordering depends on the dating system: larger BCE numbers are earlier, and historical BCE/CE chronology has no year zero.
+- Attach an event to both a place and a date. A map without its date or an event without spatial context can produce a correct-looking but historically false inference.
+
+<a id="upsc-specific-notes"></a>
+
+## 14. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 14.1 Static notes
+
+| Skill | Facts and distinctions to retain |
+|---|---|
+| Scale | RF **1:n** uses identical units on both sides. A smaller denominator means a larger-scale, more detailed map; convert units before multiplying map distance. |
+| Direction | Check the north arrow; bearings are clockwise from north (N 0°, E 90°, S 180°, W 270°). Page-top is not automatically geographic north. |
+| Coordinates | Write latitude (N/S, from the Equator) before longitude (E/W, from the prime meridian). A degree of latitude is approximately 111 km; longitude spacing narrows toward the poles. |
+| Solar versus standard time | **15° = 1 hour; 1° = 4 minutes.** East is ahead, west behind. India's standard meridian is **82°30′E** and IST is **UTC+5:30**; a town's solar time may differ from its clock time. |
+| Date Line | Approximately 180° longitude: crossing eastward subtracts a day; crossing westward adds a day. Its actual route need not follow the meridian exactly. |
+| BCE/CE | 1 BCE is followed by 1 CE. Across the boundary, elapsed years = BCE year + CE year − 1. The 20th century is 1901–2000; 300 BCE belongs to the 3rd century BCE. |
+| Timelines | Keep approximate dates/ranges explicit and use one consistent convention. Equal drawn spacing need not represent equal time; “ancient” or “medieval” is not an exact universal date range. |
+
+The map and date rules follow the [NCERT references](#sources); retain the chapter's caveat about a reversed direction sentence in the NCERT time chapter. The worked historical sequence is **Second Round Table Conference (1931) → Quit India (1942) → Royal Indian Navy mutiny (1946)**, not the order in which the question lists them ([2017 Q20][pyq2017]).
+
+<a id="current-connections"></a>
+
+### 14.2 Current connections
+
+- A place in the news can be tested as a region–country, reservoir–state, river–city or pass–range pair. Locate it within a larger physical framework; spelling or a familiar-sounding name is not geographic evidence. The chapter uses [2022 Q71 and Q76][pyq2022] as examples of the matching task, not as current political-map verification.
+- Coordinates and scale reasoning remain usable across news cycles. Administrative boundaries, names and territorial labels require a **dated map**; record the event date and map edition together. A present-day boundary must not be projected backwards into a historical question. See [Update watch](#update-watch).
+
+
 <a id="13-readiness-check"></a>
 
-## Revision and next steps
+<a id="revision-and-next-steps"></a>
+
+## 15. Revision and next steps
 
 You are ready to move to Chapter 004 when you can:
 
@@ -585,7 +627,9 @@ If one of these is weak, repeat the relevant section with a different map or a d
 
 Next: [004 — Numbers, units, tables and graphs](004-numbers-units-tables-and-graphs.md) (currently a planning placeholder).
 
-## Update watch
+<a id="update-watch"></a>
+
+## 16. Update watch
 
 Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
 
@@ -593,7 +637,9 @@ Use the corresponding references in [Sources](#sources). Keep historical observa
 |---|---|---|
 | Map editions and place labels | Coordinates, scale and BCE/CE reasoning are stable; administrative boundaries and place names in map exercises can change. | Use a dated authoritative map when applying the method to a new place or current-affairs question. |
 
-## Sources
+<a id="sources"></a>
+
+## 17. Sources
 
 - **NCERT.** *Practical Work in Geography*, Class XI, Chapter 1: “Introduction to Maps.” [NCERT Chapter 1][ncert-maps]. Accessed 21 November 2026.
 - **NCERT.** *Practical Work in Geography*, Class XI, Chapter 2: “Map Scale.” [NCERT Chapter 2][ncert-scale]. Accessed 21 November 2026.

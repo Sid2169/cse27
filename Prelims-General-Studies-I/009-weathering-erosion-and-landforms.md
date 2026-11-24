@@ -289,9 +289,10 @@ The chapter's stated learning outcome, worked through five short descriptions. I
 
 ---
 
-<a id="13-common-confusions"></a>
 
-## Common confusions
+<a id="common-confusions"></a>
+
+## 13. Common confusions
 
 | Easily confused | The difference |
 |---|---|
@@ -319,14 +320,57 @@ A short list of standing Indian examples, each explained by a mechanism taught a
 
 ---
 
-## Revision and next steps
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 15. Summary of key concepts and takeaways
+
+- Weathering changes rock in place; mass movement shifts it downslope under gravity; erosion removes material through an agent; deposition adds it where transport conditions change.
+- Landforms record both removal and accumulation. Identify the agent and mechanism before attaching a name, and use shape as evidence rather than proof on its own.
+- Climate, rock type/structure, relief and available material control which processes dominate. Chemical weathering generally benefits from warmth and moisture; a desert is not its universal optimum.
+- River “youth/maturity/old age” is a descriptive model, not a guaranteed history. Later tectonics, changing climate and multiple agents can modify the same landscape.
+
+<a id="upsc-specific-notes"></a>
+
+## 16. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 16.1 Static notes
+
+| Process or agent | Recognition notes and distinctions |
+|---|---|
+| Weathering | Physical: unloading, freeze–thaw, thermal/salt stresses. Chemical: solution, carbonation, hydration, oxidation/reduction. Biological processes may act mechanically or chemically. Rainwater's dissolved CO₂ supports carbonation. |
+| Slope failure | Separate susceptibility (weak material, steep slope, structure, sparse cover) from a trigger (rain saturation, undercutting, loading, earthquake). Water can assist failure without being the transporting agent in the strict mass-movement definition. |
+| Rivers: removal | Downcutting produces V-shaped valleys, gorges/canyons, waterfalls and potholes; lateral erosion widens valleys. Rock structure and gradient qualify simple stage labels. |
+| Rivers: accumulation | Floodplains, levees, alluvial fans and deltas are deposits. Meander cutoff leaves an oxbow lake; outer-bank erosion and inner-bank deposition work together. |
+| Groundwater/karst | Soluble rock plus water produces sinkholes, caves and related depressions. Stalactites hang from ceilings; stalagmites grow upward from floors through mineral deposition. |
+| Glaciers | Erosion: cirques, arêtes, horns, U-shaped troughs, hanging valleys and fjords (drowned troughs). Deposition: unsorted till/moraines; meltwater sorts outwash and deposits eskers. Moraine names describe position. |
+| Dryland processes | Wind deflation removes fines; abrasion undercuts exposed rock. Dunes and loess are deposits. Barchan horns point downwind; parabolic tips are held back by vegetation. Pediments also involve running-water processes, not wind alone. |
+| Coasts | Erosion: cliffs, wave-cut platforms, caves and stacks. Deposition: beaches, bars and spits; a barrier may enclose a lagoon. A spit is attached to land at one end. |
+| Indian examples | Gandikota–Pennar–Andhra Pradesh: river-cut canyon. Kanwar–Bihar: oxbow origin. Chambal ravines: gully erosion. Deccan basalt→regur: weathering. Residual hills: resistant remnants after denudation. |
+
+These consolidate the [NCERT and case references](#sources) already used in the body. The named examples calibrate matching and process questions; they do not imply fixed topic weightage.
+
+<a id="current-connections"></a>
+
+### 16.2 Current connections
+
+- The chapter cites a **10 March 2025 report** describing high/very high gully-erosion priority in **77 districts**, concentrated in Jharkhand, Chhattisgarh, Madhya Pradesh and Rajasthan. It is a secondary account of a particular study, not a timeless count of every erosion-affected district. Connect it to concentrated runoff, erodible material and vegetation loss ([report][gully-report]).
+- The **2017 Chambal field guide** supplies a dated regional ravine example. New mapping may refine extent without changing the headward-erosion mechanism ([field guide][chambal]). A landslide report should similarly distinguish the slope's pre-existing weaknesses from its immediate trigger.
+- A lake's origin, current ecological condition and legal designation are different claims. For example, learning Kanwar's oxbow mechanism does not establish its present boundary or condition. Preserve dates and consult the relevant record when adding current site notes ([Update watch](#update-watch)).
+
+<a id="revision-and-next-steps"></a>
+
+## 17. Revision and next steps
 
 - Distinguish breakdown in place, downslope movement and transport by an agent.
 - For a landform, name the agent and explain the formation sequence rather than matching its name alone.
 
 Next: [010 — Atmospheric structure and heat balance](010-atmospheric-structure-and-heat-balance.md).
 
-## Update watch
+<a id="update-watch"></a>
+
+## 18. Update watch
 
 Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
 
@@ -335,7 +379,9 @@ Use the corresponding references in [Sources](#sources). Keep historical observa
 | Dated erosion and landslide cases | A field study describes a location and observation period; later mapping can add evidence or revise an estimate. | When using a case as a current condition, check the study or responsible survey cited in Sources. |
 | Named wetland and site descriptions | Designation, mapped boundaries and reported condition can change without changing the formation mechanism. | Check the relevant official site record after a designation or boundary revision; keep historical evidence dated. |
 
-## Sources
+<a id="sources"></a>
+
+## 19. Sources
 
 - **Hong Kong Geological Survey, Civil Engineering and Development Department.** [Weathering & Erosion — Introduction to Geomorphological Processes][hkg-weathering]. Accessed 23 November 2026.
 

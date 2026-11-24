@@ -27,12 +27,12 @@ Chapters 010 and 011 explained how the atmosphere is heated and how air moves. T
 
 | Idea tested | Local PYQ | Taught in |
 |---|---|---|
-| Land and water heat differently, so continental interiors have a larger annual temperature range | [2013 Q25][pyq2013] | 3.2, A4 |
-| Recognise a climate from a short description | [2013 Q98][pyq2013], [2015 Q80][pyq2015], [2024 Q99][pyq2024] | A3, A5 |
-| Seasonal reversal of winds is the signature of a monsoon climate | [2014 Q54][pyq2014] | B1 |
-| The Indian Ocean Dipole, and how it interacts with El Niño | [2017 Q81][pyq2017] | C4 |
-| Ocean temperature as an input to monsoon forecasts | [2020 Q45][pyq2020] | B10, C |
-| The climate of an island region fed by both monsoons | [2026 Q33][pyq2026] | B7 |
+| Land and water heat differently, so continental interiors have a larger annual temperature range | [2013 Q25][pyq2013] | 3.2, 4.4 |
+| Recognise a climate from a short description | [2013 Q98][pyq2013], [2015 Q80][pyq2015], [2024 Q99][pyq2024] | 4.3, 4.5 |
+| Seasonal reversal of winds is the signature of a monsoon climate | [2014 Q54][pyq2014] | 5.1 |
+| The Indian Ocean Dipole, and how it interacts with El Niño | [2017 Q81][pyq2017] | 6.4 |
+| Ocean temperature as an input to monsoon forecasts | [2020 Q45][pyq2020] | 5.10, 6 |
+| The climate of an island region fed by both monsoons | [2026 Q33][pyq2026] | 5.7 |
 
 Two neighbouring topics are taught elsewhere: cyclone origin and jet streams ([2015 Q78][pyq2015], [2020 Q37][pyq2020]) belong to [Chapter 011](011-winds-rainfall-and-weather-systems.md), and east–west ocean temperature differences ([2021 Q51][pyq2021]) to [Chapter 013](013-ocean-properties-and-circulation.md). Use the PYQs after reading the relevant section, not before.
 
@@ -55,7 +55,7 @@ By the end you should be able to:
 
 **Weather** is the state of the atmosphere at a place over hours to days: today's temperature, a thunderstorm, a heat wave. **Climate** is the typical pattern of weather over many years, described by averages and by how conditions swing through the year. The convention is to average over about 30 years; NOAA's ENSO index, for example, uses 30-year base periods ([CPC][cpc-oni]). A **climate region** is an area whose averages and seasonal rhythm are alike enough to share one label.
 
-A cold, foggy morning in Delhi is weather; the fact that Delhi's winters are far cooler than Mumbai's is climate. A monsoon that ends 13% short of its average, as in 2026, is a departure from the climate, not a new climate. Sections B10 and C5 return to this distinction.
+A cold, foggy morning in Delhi is weather; the fact that Delhi's winters are far cooler than Mumbai's is climate. A monsoon that ends 13% short of its average, as in 2026, is a departure from the climate, not a new climate. Sections 5.10 and 6.5 return to this distinction.
 
 ### 3.2 Six controls on a place's climate
 
@@ -80,23 +80,29 @@ Six controls explain most differences between places. Each is taught in depth el
 | Lapse rate | The rate at which temperature falls with height ([Chapter 010](010-atmospheric-structure-and-heat-balance.md)). |
 | Windward, leeward, rain shadow | The slope facing the wind; the slope away from it; the dry zone downwind of a mountain barrier. |
 | LPA (Long Period Average) | The average rainfall over a reference period. For all-India June–September rainfall, IMD's LPA is 87 cm, based on 1971–2020 ([PIB][pib-lrf]). |
-| Western disturbance | IMD: a cyclonic circulation or trough in the mid and lower troposphere that forms in the mid-latitude westerlies, originates over the Mediterranean, Caspian or Black Sea, and moves east across north India ([IMD glossary][imd-gloss]). Section B8. |
+| Western disturbance | IMD: a cyclonic circulation or trough in the mid and lower troposphere that forms in the mid-latitude westerlies, originates over the Mediterranean, Caspian or Black Sea, and moves east across north India ([IMD glossary][imd-gloss]). Section 5.8. |
 | SST; anomaly | Sea-surface temperature; and its departure from the long-term average for that place and season. |
 | Teleconnection | A link between conditions in one region and weather far away, for example Pacific warming and Indian rainfall. |
 | ENSO; El Niño; La Niña | El Niño–Southern Oscillation, "a naturally occurring climate phenomenon resulting from interactions between the tropical Pacific Ocean and the atmosphere"; El Niño is its warm phase and La Niña its cool phase ([IMD FAQ][imd-faq]). Part C. |
-| IOD (Indian Ocean Dipole) | A difference in sea-surface temperature between the western and eastern tropical Indian Ocean ([IMD FAQ][imd-faq]). Section C4. |
+| IOD (Indian Ocean Dipole) | A difference in sea-surface temperature between the western and eastern tropical Indian Ocean ([IMD FAQ][imd-faq]). Section 6.4. |
 
 ---
 
-## Part A — World climates
+<a id="part-a--world-climates"></a>
 
-### A1. Why classify, and the idea behind Köppen's scheme
+## 4. Part A — World climates
+
+<a id="a1-why-classify-and-the-idea-behind-köppens-scheme"></a>
+
+### 4.1 Why classify, and the idea behind Köppen's scheme
 
 The Earth has too many local climates to learn one by one, so geographers group places that behave alike. The Köppen scheme, introduced by Köppen in 1900 and revised by Geiger in the 1950s and 1960s ([Kottek et al. 2006][kottek]), is **empirical**: it starts from measurements (monthly temperature and rainfall) and draws its boundaries where natural vegetation changes, because vegetation is a visible record of climate. The NCERT chapter presents it as five groups, four defined by temperature and one (dry climates) by rainfall ([textbook scheme, as summarised in study notes][notes-edzy]).
 
 Two cautions apply throughout. A classification describes **averages**, not any one year's weather. And its boundaries are lines drawn across gradual change, so places near a boundary share traits of both neighbours.
 
-### A2. Reading a Köppen code
+<a id="a2-reading-a-köppen-code"></a>
+
+### 4.2 Reading a Köppen code
 
 A code has up to three letters. Read left to right, from broad to specific.
 
@@ -136,7 +142,9 @@ NCERT's tables use shorter forms (for example **Cs** and **Df**) that merge the 
 - *Station 2.* Coldest month 8 °C, warmest 26 °C; nearly all rain falls in the cooler months and summer is dry. Coldest month between −3 and 18 °C → **C**. Dry summer → **s**. Warmest month ≥ 22 °C → **a**. Code **Csa**: the Mediterranean pattern.
 - *Station 3.* Coldest month −20 °C; only three months above 10 °C; precipitation in every month. Coldest month ≤ −3 °C → **D**. No dry season → **f**. Fewer than four months ≥ 10 °C → **c**. Code **Dfc**: a subarctic climate.
 
-### A3. The climate types, group by group
+<a id="a3-the-climate-types-group-by-group"></a>
+
+### 4.3 The climate types, group by group
 
 The tables follow the textbook scheme. The figures are the textbook's approximate values, cross-checked against two independent sets of study notes ([notes 1][notes-bharat], [notes 2][notes-leverage]); the official NCERT chapter could not be retrieved (see Sources).
 
@@ -174,7 +182,9 @@ The unifying idea: A climates lie where the Sun is high all year (Af) or for mos
 
 Group D appears only in the Northern Hemisphere because land exists at these latitudes mainly there. Highland is a separate category in the NCERT scheme rather than part of the A–E temperature tests.
 
-### A4. Why the types sit where they do
+<a id="a4-why-the-types-sit-where-they-do"></a>
+
+### 4.4 Why the types sit where they do
 
 Start from the pressure belts of [Chapter 011](011-winds-rainfall-and-weather-systems.md). Air rises (cloud and rain) at the equatorial low and at the sub-polar lows, and sinks (clear and dry) under the subtropical and polar highs.
 
@@ -198,7 +208,9 @@ Three contrasts refine the pattern:
 2. **Coast versus interior.** Water heats and cools slowly, so coasts have small annual ranges and interiors large ones ([2013 Q25][pyq2013]). This is why group D, with the largest ranges, lies deep inside the northern continents.
 3. **Low versus high ground.** Highland climates cut across the latitude pattern altogether.
 
-### A5. From a description to a type
+<a id="a5-from-a-description-to-a-type"></a>
+
+### 4.5 From a description to a type
 
 Questions rarely quote a code; they paraphrase a textbook signature. Learn the signature as three things together: the temperature pattern, the timing of rainfall, and the location.
 
@@ -211,7 +223,9 @@ Questions rarely quote a code; they paraphrase a textbook signature. Learn the s
 | Hot dry summer, mild wet winter | Mediterranean (Cs) | Subtropical high in summer, westerlies in winter |
 | Very large annual range, long freezing winter, light rain mostly in summer | Dw (north-eastern Asia) | Deep continental interior |
 
-### A6. What a climate region is, and is not
+<a id="a6-what-a-climate-region-is-and-is-not"></a>
+
+### 4.6 What a climate region is, and is not
 
 - A climate region is a statistical summary. Kottek et al.'s world map, for example, rests on temperature and rainfall data for 1951–2000 ([2006][kottek]). As the climate changes, boundaries drift; [Chapter 108](108-climate-science-impacts-and-responses.md) treats that.
 - The scheme describes the typical year, not extremes: a Cfb station can still have a heat wave.
@@ -226,9 +240,13 @@ Questions rarely quote a code; they paraphrase a textbook signature. Learn the s
 
 ---
 
-## Part B — The Indian monsoon
+<a id="part-b--the-indian-monsoon"></a>
 
-### B1. What "monsoon" means, and why it matters
+## 5. Part B — The Indian monsoon
+
+<a id="b1-what-monsoon-means-and-why-it-matters"></a>
+
+### 5.1 What "monsoon" means, and why it matters
 
 IMD defines the monsoon as "the seasonal reversal of winds and the associated rainfall" ([IMD glossary][imd-gloss]). Both halves matter. An equatorial rainforest has heavy rain but no regular reversal of winds, and the Mediterranean has a wet and a dry season but no reversal either; neither is a monsoon climate ([2014 Q54][pyq2014]). Monsoon climates exist outside India too: the textbook scheme gives Am examples in north-eastern South America and northern Australia ([study notes][notes-bharat]).
 
@@ -236,7 +254,7 @@ For India the stakes are large:
 
 - About 75% of the year's rainfall arrives in the south-west monsoon season, June–September ([IMD, 2025][imd-2025]).
 - IMD's long period average (LPA) for that season, for the country as a whole, is 87 cm for 1971–2020 ([PIB][pib-lrf]); an earlier base period, 1961–2010, gave 880.6 mm ([IMD monsoon FAQ][imd-mfaq]). `[DYNAMIC: LPA — the figure depends on the base period and changes whenever IMD moves to a new one; revisit when IMD announces new normals]`
-- The year-to-year variation is modest on average, with a standard deviation of only about 10% of the mean ([Gadgil 2003][gadgil]); yet a few points of rainfall decide whether a season counts as normal or deficient (Section B10).
+- The year-to-year variation is modest on average, with a standard deviation of only about 10% of the mean ([Gadgil 2003][gadgil]); yet a few points of rainfall decide whether a season counts as normal or deficient (Section 5.10).
 - NCERT's summary: despite regional differences, India's climate is "monsoonal in rhythm and character", and the monsoon ties India's climate to that of the rest of south-east Asia ([NCERT][ncert-ipe]).
 
 The reversal is easiest to see as two snapshots:
@@ -251,7 +269,9 @@ Surface wind: land to sea, from the           Surface wind: sea to land, from th
 
 The pressure pattern in the winter panel is the standard textbook account. The wind shift itself is recorded by IMD: after the south-west monsoon withdraws, the winds turn north-easterly ([IMD glossary][imd-gloss]).
 
-### B2. How the monsoon arises: four steps
+<a id="b2-how-the-monsoon-arises-four-steps"></a>
+
+### 5.2 How the monsoon arises: four steps
 
 The textbook explanation builds in four steps. Each step is a fact about pressure or wind, and the order matters.
 
@@ -273,7 +293,9 @@ The ocean adds a further influence that changes from year to year: the Southern 
 > *Research view:* for over 300 years the monsoon was seen as a gigantic land–sea breeze, but Gadgil (2003) argued that observations fit better with seeing it as the seasonal migration of the ITCZ ([Gadgil][gadgil]). A second debate concerns the Tibetan Plateau. Many books credit its summer heating with driving the monsoon; Boos and Kuang (2010) found in model experiments that the narrow mountain ranges at the plateau's edge matter most, by insulating warm moist air over India from cold dry air to the north, while plateau heating mainly adds rain locally along its southern edge ([Boos and Kuang][boos-kuang]). Some reference books also add a high-pressure cell over the southern Indian Ocean east of Madagascar; that is a commonly taught element which this chapter has not independently sourced.
 > For the examination, learn Steps 1–4 as the standard account, and hold the explanation loosely: it simplifies an active research question.
 
-### B3. The two branches
+<a id="b3-the-two-branches"></a>
+
+### 5.3 The two branches
 
 After crossing the equator the south-west monsoon reaches India in two currents:
 
@@ -292,7 +314,9 @@ south-east trades --(cross the equator, turn right)--> SOUTH-WEST MONSOON --+-->
 
 Source for the table: [NCERT][ncert-ipe].
 
-### B4. The monsoon calendar: onset, advance, burst
+<a id="b4-the-monsoon-calendar-onset-advance-burst"></a>
+
+### 5.4 The monsoon calendar: onset, advance, burst
 
 IMD defines **onset** as the "commencement of rainy season with the establishment of monsoon flow pattern", and **withdrawal** as the "cessation of southwest monsoon rainfall" ([IMD glossary][imd-gloss]). Onset is declared first over Kerala, normally about 1 June. The rains then advance north and the monsoon covers the country by early July. NCERT describes the arrival as abrupt, with thunder and lightning (the "burst"), and day temperatures fall by about 5–8 °C between mid-June and mid-July ([NCERT][ncert-ipe]).
 
@@ -308,21 +332,27 @@ Other normals from the same revision: onset over Mumbai and Kolkata on 11 June a
 
 The monsoon reaches the Andaman Sea before Kerala. In 2025 it arrived there on 13 May, which IMD described as nine days earlier than its climatological date ([IMD, 2025][imd-2025]).
 
-### B5. Active and break spells
+<a id="b5-active-and-break-spells"></a>
+
+### 5.5 Active and break spells
 
 Within the season the rain is not steady. IMD's glossary describes an **active** spell as one with rainfall 1½ to 4 times the normal (one of its criteria), and a **break** as a spell in which the monsoon trough shifts north and runs close to the foothills of the Himalaya, sharply reducing rainfall over the plains ([IMD glossary][imd-gloss]). NCERT describes breaks as one or more rainless weeks in the middle of the monsoon: in north India they occur when rain-bearing storms are infrequent along the trough, and on the west coast when the winds blow parallel to the coast ([NCERT][ncert-ipe]).
 
 Northward-moving bands of cloud and rain recur every two to six weeks, so a season is a sequence of wet and dry spells, not a steady downpour ([Gadgil 2003][gadgil]). This is why a season's total can hide long dry gaps, and why a "normal" season is not the same as a uniform one.
 
-### B6. Retreat, "October heat" and the north-east monsoon
+<a id="b6-retreat-october-heat-and-the-north-east-monsoon"></a>
+
+### 5.6 Retreat, "October heat" and the north-east monsoon
 
 From mid-September the monsoon withdraws, beginning from west Rajasthan (normally about 17 September) and continuing southwards; in IMD's normal calendar the withdrawal ends around 15 October ([IMD, 2020][imd-dates]). Skies clear, humidity stays high and temperatures rise, which NCERT calls the "October heat", before north India turns drier and cooler ([NCERT][ncert-ipe]).
 
 As the south-west flow gives way to north-easterly winds, the **north-east monsoon** takes over in the south. IMD defines the season as October to December; it is the main rainy season of the south peninsula, and in the coastal districts of Tamil Nadu it supplies nearly 60% of annual rainfall ([IMD glossary][imd-gloss]). This explains a pattern that puzzles beginners: the Tamil Nadu coast lies parallel to the Bay of Bengal branch and in the rain shadow of the Arabian Sea branch, so it is comparatively dry from June to September and wet from October to December ([NCERT][ncert-ipe]). Cyclones that form over the Andaman Sea and the Bay of Bengal in October–November strike the deltas of the Godavari, Krishna and Kaveri ([NCERT][ncert-ipe]).
 
-`[DYNAMIC: north-east monsoon 2026 — the season is in progress as of 12 November 2026; IMD's outlooks are in Section C5; revisit once IMD publishes its season summary]`
+`[DYNAMIC: north-east monsoon 2026 — the season is in progress as of 12 November 2026; IMD's outlooks are in Section 6.5; revisit once IMD publishes its season summary]`
 
-### B7. India's seasons and local weather
+<a id="b7-indias-seasons-and-local-weather"></a>
+
+### 5.7 India's seasons and local weather
 
 IMD divides the year into four meteorological seasons: winter (January–February), pre-monsoon (March–May), south-west monsoon (June–September) and post-monsoon (October–December) ([IMD glossary][imd-gloss]). NCERT uses a similar four-way split with different names and boundaries. The two schemes overlap but do not match, so note which one a source is using.
 
@@ -333,9 +363,11 @@ IMD divides the year into four meteorological seasons: winter (January–Februar
 | South-west monsoon (Jun–Sep) | Advancing monsoon (rainy season) | South-westerly moist flow; the monsoon trough | Abrupt onset; heavy rain; break spells |
 | Post-monsoon (Oct–Dec) | Retreating monsoon (October–November), then the cold season | Withdrawal; north-easterly flow | October heat; north-east monsoon rain in the south-east peninsula; Bay of Bengal cyclones |
 
-**An island example.** The Andaman and Nicobar Islands have a humid tropical climate and receive rain from both monsoons; the south-west monsoon reaches the Andaman Sea first (Section B4). The Andaman and Nicobar Administration's statistics directorate puts the south-west monsoon's rain from mid-May to the end of September and the north-east monsoon's from November to January, with rainfall generally higher from May to October and moderate to low from November to April ([A&N Directorate][an-ecostat]). An ICAR–CIARI bulletin prepared with IMD's agrometeorology division gives the share of the year's rain by period: about 61% in June–September, 22% in October–December, 12% in May and 5% in January–April ([ICAR–CIARI][ciari]). The two sources place the north-east monsoon's months a little differently, but both show the rain concentrated from about May to December and the driest months at the start of the calendar year, not a December-to-May rainy season. The humid-tropical and two-monsoon statements agree with the [2026 PYQ key][pyq2026].
+**An island example.** The Andaman and Nicobar Islands have a humid tropical climate and receive rain from both monsoons; the south-west monsoon reaches the Andaman Sea first (Section 5.4). The Andaman and Nicobar Administration's statistics directorate puts the south-west monsoon's rain from mid-May to the end of September and the north-east monsoon's from November to January, with rainfall generally higher from May to October and moderate to low from November to April ([A&N Directorate][an-ecostat]). An ICAR–CIARI bulletin prepared with IMD's agrometeorology division gives the share of the year's rain by period: about 61% in June–September, 22% in October–December, 12% in May and 5% in January–April ([ICAR–CIARI][ciari]). The two sources place the north-east monsoon's months a little differently, but both show the rain concentrated from about May to December and the driest months at the start of the calendar year, not a December-to-May rainy season. The humid-tropical and two-monsoon statements agree with the [2026 PYQ key][pyq2026].
 
-### B8. Western disturbances
+<a id="b8-western-disturbances"></a>
+
+### 5.8 Western disturbances
 
 In winter, north India lies under the westerlies rather than the monsoon winds. A **western disturbance** (WD) is a system within that westerly flow. IMD's glossary describes it as a cyclonic circulation or trough in the mid and lower troposphere (or a surface low) that originates over the Mediterranean, Caspian or Black Sea and moves east across north India ([IMD glossary][imd-gloss]). IMD Srinagar adds that WDs travel across the Middle East (Iran, Afghanistan, Pakistan) into the subcontinent and describes their precipitation as non-monsoonal ([IMD Srinagar][imd-wd]).
 
@@ -355,7 +387,9 @@ Three systems are easily confused. They differ in origin, season and place:
 | Typical weather | Light to moderate rain, mountain snow; sometimes cold wave and dense fog | Strong wind, storm surge, heavy rain | Heavy, widespread rain with active and break spells |
 | Who benefits or suffers | Rabi crops benefit; excess brings landslides and floods | Coastal communities and deltas | Kharif agriculture and water supply ([Chapter 018](018-agricultural-geography-and-land-use.md)) |
 
-### B9. Where it rains: the regional pattern
+<a id="b9-where-it-rains-the-regional-pattern"></a>
+
+### 5.9 Where it rains: the regional pattern
 
 NCERT groups India's annual rainfall into four zones (approximate ranges; the country's average is about 125 cm):
 
@@ -383,7 +417,9 @@ To explain any regional pattern, ask five questions in order:
 | Western Rajasthan (Jaisalmer) | Arid; 20.16 cm mean annual rainfall at the station, 1981–2010 ([IMD][imd-jaisalmer]) | The Arabian Sea branch brings little rain to Rajasthan, and withdrawal begins here, normally about 17 September ([NCERT][ncert-ipe]; [IMD, 2020][imd-dates]) |
 | Ladakh | Below 50 cm; winter snow | The Himalaya holds the monsoon winds back so that they shed their moisture in India ([NCERT][ncert-ipe]) |
 
-### B10. Variability, droughts and forecasting
+<a id="b10-variability-droughts-and-forecasting"></a>
+
+### 5.10 Variability, droughts and forecasting
 
 **Variability.** Interannual variation is modest on average (a standard deviation of about 10% of the mean), yet it decides harvests and reservoir levels ([Gadgil 2003][gadgil]). IMD classes the all-India season by percentage of LPA; the categories in its 2026 forecast were deficient (below 90%), below normal (90–95%), normal (96–104%), above normal (105–110%) and excess (above 110%) ([PIB][pib-lrf]). In IMD's glossary an all-India drought year is one with rainfall deficiency above 10% and 20–40% of the country under drought conditions ([IMD glossary][imd-gloss]). `[DYNAMIC: IMD category thresholds — taken from the 2026 forecast release; IMD may revise its categories; revisit at each April forecast]`
 
@@ -401,13 +437,19 @@ To explain any regional pattern, ask five questions in order:
 
 ---
 
-## Part C — Ocean–atmosphere links: ENSO and the Indian Ocean Dipole
+<a id="part-c--oceanatmosphere-links-enso-and-the-indian-ocean-dipole"></a>
 
-### C1. Why the monsoon needs the ocean
+## 6. Part C — Ocean–atmosphere links: ENSO and the Indian Ocean Dipole
+
+<a id="c1-why-the-monsoon-needs-the-ocean"></a>
+
+### 6.1 Why the monsoon needs the ocean
 
 Part B explained the average monsoon. Part C explains why one year differs from another. The monsoon is a circulation of moist air across the Indian Ocean and South Asia, and that circulation is connected to circulations elsewhere in the tropics. Warm and cool patches of ocean surface, in the Pacific and in the Indian Ocean, change where air rises and rain falls, and the effect can reach India. A link of this kind between distant places is a **teleconnection**.
 
-### C2. ENSO: the Pacific mechanism
+<a id="c2-enso-the-pacific-mechanism"></a>
+
+### 6.2 ENSO: the Pacific mechanism
 
 **The neutral state.** Along the equator the surface winds (the trade winds) normally blow from east to west ([climate.gov][cg-nutshell]). Warm surface water collects in the western Pacific around Indonesia, where moist air rises and heavy rain falls; cooler water lies at the surface in the east, where deeper water wells up (upwelling, [Chapter 013](013-ocean-properties-and-circulation.md)). The air that rose in the west flows east at height and sinks in the east, closing a loop called the **Walker circulation**: "rising air in the west and sinking air in the east connect the flow in one big, continuous loop" ([climate.gov][cg-walker]).
 
@@ -433,7 +475,9 @@ Sources: [climate.gov][cg-nutshell]; [climate.gov, Walker circulation][cg-walker
 
 **The Southern Oscillation** is the atmospheric half of the story: a see-saw of sea-level pressure between the eastern and western tropical Pacific. NCERT identifies the pressure difference between Tahiti and Port Darwin as a measure of it ([NCERT][ncert-ipe]). The index turns negative in El Niño, and the two halves together give the name ENSO (El Niño–Southern Oscillation). Australia's Bureau of Meteorology (BoM) reported a 30-day Southern Oscillation Index of −14.4 on 8 November 2026, consistent with El Niño ([BoM][bom-enso]). `[DYNAMIC: Southern Oscillation Index — changes daily; revisit with the latest BoM update]`
 
-### C3. Measuring ENSO, and what it does to the monsoon
+<a id="c3-measuring-enso-and-what-it-does-to-the-monsoon"></a>
+
+### 6.3 Measuring ENSO, and what it does to the monsoon
 
 **Measurement.**
 
@@ -443,16 +487,18 @@ Sources: [climate.gov][cg-nutshell]; [climate.gov, Walker circulation][cg-walker
 - NOAA's Climate Prediction Center now uses the **Relative Oceanic Niño Index (RONI)** as its official index. RONI compares Niño-3.4 with the wider tropics rather than relying only on a 30-year base period ([CPC][cpc-roni]; [CPC][cpc-oni]); IMD notes that the familiar ±0.5 °C thresholds still apply ([IMD FAQ][imd-faq]). `[DYNAMIC: ENSO index — NOAA's switch to RONI is recent (2026) and other agencies may still quote the older ONI; revisit when a source quotes an index]`
 - Events develop every 2 to 7 years and usually peak between November and February. El Niño generally lasts 9–18 months; La Niña can persist for two or three years ([IMD FAQ][imd-faq]).
 
-**What El Niño does to the monsoon.** IMD states that El Niño "generally suppresses the Indian summer monsoon by weakening the large-scale atmospheric circulation" ([IMD FAQ][imd-faq]). In terms of Section C2: the main rising branch of the Pacific circulation moves east, rain shifts away from the Indonesian side, and the circulation across the tropics that feeds the monsoon is disturbed. Gadgil describes the strong ENSO–monsoon link as a consequence of the tropical convergence zone over the Pacific influencing the monsoon's year-to-year variation ([Gadgil 2003][gadgil]).
+**What El Niño does to the monsoon.** IMD states that El Niño "generally suppresses the Indian summer monsoon by weakening the large-scale atmospheric circulation" ([IMD FAQ][imd-faq]). In terms of Section 6.2: the main rising branch of the Pacific circulation moves east, rain shifts away from the Indonesian side, and the circulation across the tropics that feeds the monsoon is disturbed. Gadgil describes the strong ENSO–monsoon link as a consequence of the tropical convergence zone over the Pacific influencing the monsoon's year-to-year variation ([Gadgil 2003][gadgil]).
 
 It is a tendency, not a rule:
 
 - El Niño raises the probability of below-normal rainfall, but the relationship is "not deterministic". Many major drought years (IMD lists 1982, 1987, 2002, 2009 and 2015) fell in El Niño events, but not every El Niño ends in drought ([IMD FAQ][imd-faq]).
-- 1997 saw a strong El Niño and yet a normal monsoon ([IMD FAQ][imd-faq]); Section C4 shows why.
+- 1997 saw a strong El Niño and yet a normal monsoon ([IMD FAQ][imd-faq]); Section 6.4 shows why.
 - Long break spells have also occurred without El Niño, as in 1979 ([Gadgil 2003][gadgil]).
 - **La Niña** generally strengthens the monsoon circulation and raises the likelihood of above-normal rainfall ([IMD FAQ][imd-faq]).
 
-### C4. The Indian Ocean Dipole
+<a id="c4-the-indian-ocean-dipole"></a>
+
+### 6.4 The Indian Ocean Dipole
 
 The **Indian Ocean Dipole (IOD)** is a difference in sea-surface temperature between the western and eastern tropical Indian Ocean ([IMD FAQ][imd-faq]; [BoM][bom-iod]). It is measured by the **Dipole Mode Index (DMI)**: the SST anomaly in a western box (50° E–70° E, 10° S–10° N) minus the anomaly in an eastern box (90° E–110° E, 10° S–equator) ([IMD FAQ][imd-faq]).
 
@@ -477,7 +523,9 @@ Do not confuse the two. ENSO is a Pacific phenomenon; the IOD is a west-minus-ea
 | Timing | Peaks November–February; El Niño lasts 9–18 months | Develops in boreal summer; peaks late summer to autumn; decays quickly |
 | Effect on the monsoon | El Niño tends to suppress it; La Niña tends to strengthen it | Positive IOD can offset El Niño; negative IOD can reinforce its drying |
 
-### C5. A worked case: the 2026 season and its aftermath
+<a id="c5-a-worked-case-the-2026-season-and-its-aftermath"></a>
+
+### 6.5 A worked case: the 2026 season and its aftermath
 
 The 2026 season shows the pieces working together. Every figure here is dated, and each passage is flagged because the situation is still moving.
 
@@ -509,10 +557,10 @@ For the north-east monsoon, IMD's 30 September outlook put October–December ra
 
 What the case teaches:
 
-1. **A tendency, not a verdict.** El Niño strengthened through the season while the IOD stayed neutral, so no positive IOD was present to offset it, and the season ended 13% below the LPA. That is consistent with El Niño raising the odds of a deficient monsoon. IMD's summary reports the ocean state beside the rainfall but does not assign the shortfall to one cause, and Section C3 shows why: the link is probabilistic.
+1. **A tendency, not a verdict.** El Niño strengthened through the season while the IOD stayed neutral, so no positive IOD was present to offset it, and the season ended 13% below the LPA. That is consistent with El Niño raising the odds of a deficient monsoon. IMD's summary reports the ocean state beside the rainfall but does not assign the shortfall to one cause, and Section 6.3 shows why: the link is probabilistic.
 2. **One figure hides geography.** North-west and central India came close to normal (94% and 97%) while the south peninsula and the east and north-east fell far short (76% and 74%).
-3. **One figure hides time.** July reached 101% of LPA between a June at 65% and an August at 84% (active and break spells, Section B5).
-4. **Forecasts carry error.** The seasonal total fell inside the forecast range, and a monthly outlook missed (Section B10).
+3. **One figure hides time.** July reached 101% of LPA between a June at 65% and an August at 84% (active and break spells, Section 5.5).
+4. **Forecasts carry error.** The seasonal total fell inside the forecast range, and a monthly outlook missed (Section 5.10).
 5. **Climate versus weather.** One deficient monsoon is a departure from the monsoon climate, not a new climate (Section 3.1).
 
 **Part C in brief**
@@ -524,35 +572,80 @@ What the case teaches:
 
 ---
 
-## Common confusions
+<a id="common-confusions"></a>
+
+## 7. Common confusions
 
 Each row sets a tempting idea against the correct picture and points to the section that teaches it.
 
 | Tempting idea | What is actually true | Section |
 |---|---|---|
-| "Monsoon" means any heavy seasonal rain | IMD defines it as the seasonal reversal of winds and the associated rainfall. An equatorial rainforest has heavy rain without a reversal, and the Mediterranean has a wet and a dry season without one. | B1, A5 |
-| Only India has a monsoon | India is the standard case, but monsoon climates occur elsewhere; the textbook scheme gives Am examples in north-eastern South America and northern Australia. | B1, A3 |
-| The monsoon is simply a giant sea breeze, and Tibetan heating drives it | That is the textbook picture. Gadgil (2003) argued that the seasonal migration of the ITCZ fits observations better, and Boos and Kuang (2010) found that the mountain ranges at the plateau's edge matter more than plateau heating. Learn the four steps for the examination and hold the mechanism loosely. | B2 |
-| When the monsoon retreats, the rain is over everywhere | Withdrawal begins from west Rajasthan in mid-September, but the south-east peninsula gets its main rain from the north-east monsoon in October–December (nearly 60% of the annual total in coastal Tamil Nadu). | B6 |
-| IMD and the textbooks agree on seasons and dates | IMD's four seasons and its 2020-revised normals (whole country covered by 8 July; withdrawal from west Rajasthan about 17 September) differ from NCERT's season names and from the mid-July coverage date in older books. Note which scheme a source uses. | B4, B7 |
-| A western disturbance, a tropical cyclone and the monsoon are one kind of rain-bringer | A western disturbance is a mid-latitude westerly system that gives winter rain and snow in the north-west; a tropical cyclone forms over warm tropical seas; the monsoon is a seasonal wind reversal. They differ in origin, season and place. | B8 |
-| A normal season is an evenly wet season | Rain comes in active spells separated by breaks, so a normal total can hide long dry gaps. | B5 |
-| "90% of LPA" is a forecast for every place and every month | It is a national, seasonal figure with a model error. In 2026 the four regions ranged from 74% to 97% of their own LPAs, and July came in at 101%. | B10, C5 |
-| 87 cm and 868.6 mm are two different LPAs | They are the same all-India LPA for 1971–2020 quoted at different precision (868.6 mm is 86.86 cm). The LPA itself changes when the base period changes. | B1, C5 |
-| ENSO and the IOD are the same, or the IOD is an Indian–Pacific difference | ENSO is a Pacific cycle read from the Niño-3.4 region; the IOD is a west-minus-east temperature difference within the Indian Ocean, with a ±0.4 °C threshold against ENSO's ±0.5 °C. | C4 |
-| El Niño guarantees a drought | El Niño raises the odds of a deficient monsoon but is "not deterministic": 1997 had a strong El Niño and a normal monsoon, a positive IOD can offset the weakening, and a long break spell in 1979 came without El Niño. | C3, C4 |
-| A Köppen code tells you the weather | It summarises long-term averages. Cs and Cfb, for example, differ in whether summer is dry, and even a Cfb station can have a heat wave. | A2, A6 |
+| "Monsoon" means any heavy seasonal rain | IMD defines it as the seasonal reversal of winds and the associated rainfall. An equatorial rainforest has heavy rain without a reversal, and the Mediterranean has a wet and a dry season without one. | 5.1, 4.5 |
+| Only India has a monsoon | India is the standard case, but monsoon climates occur elsewhere; the textbook scheme gives Am examples in north-eastern South America and northern Australia. | 5.1, 4.3 |
+| The monsoon is simply a giant sea breeze, and Tibetan heating drives it | That is the textbook picture. Gadgil (2003) argued that the seasonal migration of the ITCZ fits observations better, and Boos and Kuang (2010) found that the mountain ranges at the plateau's edge matter more than plateau heating. Learn the four steps for the examination and hold the mechanism loosely. | 5.2 |
+| When the monsoon retreats, the rain is over everywhere | Withdrawal begins from west Rajasthan in mid-September, but the south-east peninsula gets its main rain from the north-east monsoon in October–December (nearly 60% of the annual total in coastal Tamil Nadu). | 5.6 |
+| IMD and the textbooks agree on seasons and dates | IMD's four seasons and its 2020-revised normals (whole country covered by 8 July; withdrawal from west Rajasthan about 17 September) differ from NCERT's season names and from the mid-July coverage date in older books. Note which scheme a source uses. | 5.4, 5.7 |
+| A western disturbance, a tropical cyclone and the monsoon are one kind of rain-bringer | A western disturbance is a mid-latitude westerly system that gives winter rain and snow in the north-west; a tropical cyclone forms over warm tropical seas; the monsoon is a seasonal wind reversal. They differ in origin, season and place. | 5.8 |
+| A normal season is an evenly wet season | Rain comes in active spells separated by breaks, so a normal total can hide long dry gaps. | 5.5 |
+| "90% of LPA" is a forecast for every place and every month | It is a national, seasonal figure with a model error. In 2026 the four regions ranged from 74% to 97% of their own LPAs, and July came in at 101%. | 5.10, 6.5 |
+| 87 cm and 868.6 mm are two different LPAs | They are the same all-India LPA for 1971–2020 quoted at different precision (868.6 mm is 86.86 cm). The LPA itself changes when the base period changes. | 5.1, 6.5 |
+| ENSO and the IOD are the same, or the IOD is an Indian–Pacific difference | ENSO is a Pacific cycle read from the Niño-3.4 region; the IOD is a west-minus-east temperature difference within the Indian Ocean, with a ±0.4 °C threshold against ENSO's ±0.5 °C. | 6.4 |
+| El Niño guarantees a drought | El Niño raises the odds of a deficient monsoon but is "not deterministic": 1997 had a strong El Niño and a normal monsoon, a positive IOD can offset the weakening, and a long break spell in 1979 came without El Niño. | 6.3, 6.4 |
+| A Köppen code tells you the weather | It summarises long-term averages. Cs and Cfb, for example, differ in whether summer is dry, and even a Cfb station can have a heat wave. | 4.2, 4.6 |
 
 ---
 
-## Revision and next steps
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 8. Summary of key concepts and takeaways
+
+- Climate describes a long-term pattern; weather and a single season are departures within that pattern. Classifying a place requires its temperature and rainfall rhythm, not one extreme event.
+- Latitude, continentality, prevailing winds, ocean currents and relief work together. Seasonal migration of pressure and wind belts explains contrasts such as equatorial year-round rain, savanna seasonality and Mediterranean winter rain.
+- The Indian monsoon is a seasonal circulation involving differential heating, the migrating convergence zone, cross-equatorial flow, upper-air circulation and relief. Local rain depends on moisture delivery and uplift, not simply distance from the sea.
+- ENSO and the IOD influence rainfall probabilities through ocean–atmosphere connections; neither provides a deterministic verdict for every Indian region or month. Forecasts, observations and climate normals answer different questions.
+
+<a id="upsc-specific-notes"></a>
+
+## 9. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 9.1 Static notes
+
+| Topic | Prelims GS-I revision notes |
+|---|---|
+| Climate recognition | Read Köppen's first letter as the broad group, then rainfall seasonality and thermal qualifiers. Equatorial climates lack a marked dry season; monsoon climates have strong seasonal rainfall; savanna has a longer dry season; Mediterranean climates have dry summers and wetter winters. Dry climates depend on moisture balance, not heat alone. |
+| Spatial explanation | Tropical west-coast deserts combine subsidence and often cold currents; continental interiors have larger annual thermal ranges than comparable coasts. Mountains produce altitude effects and windward/leeward contrasts, so latitude alone is insufficient. |
+| Monsoon circulation | Southern-Hemisphere southeast trades cross the equator and become southwest winds in the Northern Hemisphere. Follow the Arabian Sea and Bay of Bengal branches separately and distinguish the seasonal migration of the trough and jets from daily weather. |
+| Rainfall geography | Western Ghats windward slopes and northeastern relief favour heavy rain; leeward Deccan is drier. Tamil Nadu receives important October–December rain. A normal national total can coexist with regional deficits or damaging short-duration rain. |
+| Timing and variability | Onset, advance, active/break spells, withdrawal and northeast-monsoon rain are distinct. Normal onset dates are climatological reference dates; an actual year's onset is an observation. Western disturbances supply an additional winter precipitation mechanism. |
+| ENSO versus IOD | ENSO couples tropical Pacific SST and atmospheric circulation; IOD compares western and eastern tropical Indian Ocean SST anomalies. El Niño generally raises deficient-monsoon risk; La Niña generally favours stronger rain; positive IOD can offset some El Niño influence. These are tendencies, with exceptions. |
+| Reading a forecast | Retain the issue date, region, season, LPA/base period, probability and uncertainty range. An index crossing a threshold once is not automatically a sustained coupled event. ONI, RONI and DMI are different measures; identify the agency's actual index. |
+
+Sources and qualifications: [NCERT][ncert-ipe], [IMD monsoon FAQ][imd-mfaq], [IMD ENSO/IOD FAQ][imd-faq] and the measurement discussions above.
+
+<a id="current-connections"></a>
+
+### 9.2 Current connections
+
+The following is the chapter's **dated 2026 case record**, not a fresh status check:
+
+- IMD's 30 September season summary, as recorded above, gives **87% of LPA** for June–September: northwest 94%, central India 97%, south peninsula 76%, and east/northeast 74%. July reached 101% despite June at 65%. This illustrates why national totals cannot stand in for regional or monthly conditions ([season summary][imd-2026]).
+- The recorded progression from seasonal forecasts to observed rainfall distinguishes a probability forecast from an outcome. The chapter's early-November ENSO/IOD reports are dated snapshots; use the agency, index and issue date together, and preserve the difference between an index crossing and sustained-event criteria ([IMD FAQ][imd-faq]; [CPC][cpc-enso]; [BoM][bom-enso]).
+- The October–December northeast-monsoon outlooks quoted above were forecasts while that season was ongoing. Do not relabel them as measured seasonal totals. Recheck the final seasonal report and current ocean-state bulletins through [Update watch](#update-watch); retain the original 2026 figures as the historical comparison.
+
+<a id="revision-and-next-steps"></a>
+
+## 10. Revision and next steps
 
 - Infer a climate type from its temperature and rainfall pattern, then explain the seasonal monsoon reversal.
 - Distinguish a mechanism, a seasonal forecast and an observed outcome; explain why ENSO changes probabilities rather than guaranteeing a result.
 
 Next: [013 — Ocean properties and circulation](013-ocean-properties-and-circulation.md).
 
-## Update watch
+<a id="update-watch"></a>
+
+## 11. Update watch
 
 Inline flags mark every passage that depends on a date, an agency's figures or the present state of the ocean. Part A (the Köppen scheme) and the monsoon's mechanism are stable and are not listed.
 
@@ -571,7 +664,9 @@ Inline flags mark every passage that depends on a date, an agency's figures or t
 
 ---
 
-## Sources
+<a id="sources"></a>
+
+## 12. Sources
 
 - **India Meteorological Department.** [Jaisalmer climatological table, period 1981–2010, annual rainfall 201.6 mm][imd-jaisalmer]. Accessed 23 November 2026.
 
@@ -579,10 +674,10 @@ Web sources were accessed on 12 November 2026. Where a document's exact title wa
 
 **Evidence notes**
 
-- The official NCERT chapter *Fundamentals of Physical Geography*, Chapter 11, "World Climate and Climate Change" (<https://ncert.nic.in/textbook/pdf/kegy211.pdf>), could not be retrieved because the site disallows automated access. The group thresholds in Section A2 therefore come from Kottek et al. (2006). The climate-type descriptions and approximate ranges in Sections A3–A5 follow the textbook scheme as reproduced in study notes, cross-checked between two independent sets. Treat those ranges as approximate and confirm an exact figure against the NCERT chapter before relying on it.
-- Two explanations are labelled in the text as commonly taught but not independently sourced: the high-pressure cell over the southern Indian Ocean east of Madagascar (Section B2) and the idea that a warm western Indian Ocean adds heat and moisture to the monsoon winds (Section C4).
+- The official NCERT chapter *Fundamentals of Physical Geography*, Chapter 11, "World Climate and Climate Change" (<https://ncert.nic.in/textbook/pdf/kegy211.pdf>), could not be retrieved because the site disallows automated access. The group thresholds in Section 4.2 therefore come from Kottek et al. (2006). The climate-type descriptions and approximate ranges in Sections 4.3–4.5 follow the textbook scheme as reproduced in study notes, cross-checked between two independent sets. Treat those ranges as approximate and confirm an exact figure against the NCERT chapter before relying on it.
+- Two explanations are labelled in the text as commonly taught but not independently sourced: the high-pressure cell over the southern Indian Ocean east of Madagascar (Section 5.2) and the idea that a warm western Indian Ocean adds heat and moisture to the monsoon winds (Section 6.4).
 - IMD's 2026 season summary gives two slightly different millimetre totals for East and Northeast India, so the chapter quotes percentages for the regions and no millimetres.
-- Where agencies differ, the text says so with dates: IMD and BoM on the IOD's status (Section C5), and IMD and BoM on the months in which the IOD peaks (Section C4). The two Andaman and Nicobar sources place the north-east monsoon's months a little differently (Section B7).
+- Where agencies differ, the text says so with dates: IMD and BoM on the IOD's status (Section 6.5), and IMD and BoM on the months in which the IOD peaks (Section 6.4). The two Andaman and Nicobar sources place the north-east monsoon's months a little differently (Section 5.7).
 
 **Textbooks and study notes**
 
@@ -617,7 +712,7 @@ Web sources were accessed on 12 November 2026. Where a document's exact title wa
 - **CPC** (ENSO status). NOAA Climate Prediction Center, ENSO Diagnostic Discussion. The page is replaced each month; the 8 October 2026 issue was read. <https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml>
 - **CPC** (ONI). NOAA Climate Prediction Center, Oceanic Niño Index page. <https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/oni/v6/>
 - **CPC** (RONI). NOAA Climate Prediction Center, announcement of the Relative Oceanic Niño Index. <https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/announcement.php>
-- **climate.gov** (ENSO overview). NOAA climate.gov ENSO blog, post on ENSO in a nutshell. <https://www.climate.gov/news-features/blogs/enso/what-el-ni%C3%B1o%E2%80%93southern-oscillation-enso-nutshell>
+- **climate.gov** (ENSO overview). NOAA climate.gov ENSO blog, post on ENSO in a nutshell. <https://www.climate.gov/news-features/blogs/enso/what-el-ni%6.3%B1o%E2%80%93southern-oscillation-enso-nutshell>
 - **climate.gov, Walker circulation.** NOAA climate.gov ENSO blog, post on the Walker circulation and ENSO. <https://www.climate.gov/news-features/blogs/enso/walker-circulation-ensos-atmospheric-buddy>
 - **BoM** (ENSO). Australian Bureau of Meteorology, ENSO and climate driver pages; the update of 10 November 2026 was read. <https://www.bom.gov.au/climate/enso/>
 - **BoM** (IOD). Australian Bureau of Meteorology, Indian Ocean Dipole page. <https://www.bom.gov.au/climate/iod/>

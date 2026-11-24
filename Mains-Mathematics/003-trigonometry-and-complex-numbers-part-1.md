@@ -1,5 +1,10 @@
-# 003 — Trigonometry and complex numbers
-## Part 1 of 3 — Radians, trigonometric identities and inverse functions
+# 003. Trigonometry and complex numbers
+
+<a id="003--trigonometry-and-complex-numbers"></a>
+
+<a id="part-1-of-3--radians-trigonometric-identities-and-inverse-functions"></a>
+
+**Part:** 1 of 3 — Radians, trigonometric identities and inverse functions
 
 **Paper:** Mathematics optional, both-paper foundation bridge.
 **Learning outcome:** Derive and apply trigonometric identities while distinguishing principal values from full solution sets.
@@ -71,7 +76,9 @@ $$
 1+\cot^2\theta=\csc^2\theta.
 $$
 
-### Exact values come from two triangles
+<a id="exact-values-come-from-two-triangles"></a>
+
+### 2.1 Exact values come from two triangles
 
 An isosceles right triangle has legs 1 and 1 and hypotenuse $\sqrt2$. Its acute angles are $\pi/4$. Bisecting an equilateral triangle of side 2 gives a right triangle with hypotenuse 2, short side 1 and remaining side $\sqrt3$. Its angles are $\pi/6$ and $\pi/3$. This yields the non-axis entries in the table; the axis entries follow directly from circle coordinates.
 
@@ -91,7 +98,9 @@ $$
 
 The acute angle to the nearest horizontal-axis ray is the **reference angle**. It gives the magnitudes; the quadrant gives the signs.
 
-### Symmetry, period and graph behaviour
+<a id="symmetry-period-and-graph-behaviour"></a>
+
+### 2.2 Symmetry, period and graph behaviour
 
 Reflection across the horizontal axis replaces $\theta$ by $-\theta$, changing $y$ but not $x$. Thus
 
@@ -143,7 +152,9 @@ $$
 
 The answer is positive and below 1, as required for this first-quadrant angle.
 
-### Generate the formulas you need
+<a id="generate-the-formulas-you-need"></a>
+
+### 3.1 Generate the formulas you need
 
 Putting $a=b=\theta$ gives
 
@@ -190,7 +201,9 @@ $$
 
 Deriving a formula from addition and parity reduces the number of independent facts to memorise.
 
-### Combine two waves with the same argument
+<a id="combine-two-waves-with-the-same-argument"></a>
+
+### 3.2 Combine two waves with the same argument
 
 If real $A,B$ are not both zero, set $R=\sqrt{A^2+B^2}>0$ and choose $\phi$ with $\cos\phi=A/R$, $\sin\phi=B/R$. Expansion proves
 
@@ -256,7 +269,9 @@ Here $0<b-a<\pi$ gives positive numerator and both cosines are positive. Near ei
 
 The notation $\sin^{-1}x$ often means arcsine, **not** $1/\sin x$. Use $\arcsin x$ when that distinction matters. For the reciprocal inverse functions, a convention must be stated. In this chapter take $\operatorname{arccot}x=\pi/2-\arctan x\in(0,\pi)$, $\operatorname{arcsec}x=\arccos(1/x)$, and $\operatorname{arccsc}x=\arcsin(1/x)$, the last two defined for $|x|\ge1$. Other texts may choose different arccot ranges.
 
-### Composition is sensitive to the range restriction
+<a id="composition-is-sensitive-to-the-range-restriction"></a>
+
+### 5.1 Composition is sensitive to the range restriction
 
 For $-1\le t\le1$, $\sin(\arcsin t)=t$. But $\arcsin(\sin x)=x$ only for $x\in[-\pi/2,\pi/2]$. For example,
 
@@ -283,19 +298,59 @@ The sign of the second expression follows the sign of $t$, as it must.
 
 An addition formula for tangent does not automatically produce a correct addition formula for principal arctangents. For example, $\arctan2+\arctan3=3\pi/4$: both terms lie in $(\pi/4,\pi/2)$, their sum lies in $(\pi/2,\pi)$, and its tangent is $(2+3)/(1-6)=-1$. Applying $\arctan$ directly to that ratio returns $-\pi/4$, requiring a correction of $\pi$. Always locate the angle before choosing a principal representative.
 
+
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 6. Summary of key concepts and takeaways
+
+- Radians measure arc length relative to radius. The unit circle extends sine and cosine beyond acute right triangles and explains signs, symmetries and periods.
+- Rotation addition generates the main identities. Division-based identities need exclusions, and half-angle square roots need a quadrant-dependent sign.
+- Solving a trigonometric equation means finding all periodic families and then filtering the requested interval. An inverse trigonometric function instead selects one principal angle from a restricted range.
+
+<a id="upsc-specific-notes"></a>
+
+## 7. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 7.1 Static notes
+
+| Area | Revision note for both-paper foundations |
+|---|---|
+| Units and domains | $180^\circ=\pi$ radians; $s=r\theta$ uses radians. Sine/cosine accept every real input; tan/sec exclude $\pi/2+k\pi$, cot/csc exclude $k\pi$, $k\in\mathbb Z$. |
+| Circle facts | $\sin^2x+\cos^2x=1$; sine is odd, cosine even. Their period is $2\pi$; tangent's is $\pi$. For $A\sin(bx+c)+d$, $A,b\ne0$, range is $[d-\vertA\vert,d+\vertA\vert]$, period $2\pi/\vertb\vert$, shift $-c/b$. |
+| Identity use | Reconstruct addition formulas first; derive double-angle, power-reduction and product formulas from them. For $A\sin x+B\cos x=R\sin(x+\phi)$, $R=\sqrt{A^2+B^2}>0$ and both coordinate signs determine $\phi$. |
+| All solutions | $\sin x=\sin\alpha$: $x=\alpha+2k\pi$ or $\pi-\alpha+2k\pi$; $\cos x=\cos\alpha$: $x=\pm\alpha+2k\pi$; $\tan x=\tan\alpha$: $x=\alpha+k\pi$ on its domain. Solve for the full argument before interval filtering. |
+| Principal values | Arcsin range $[-\pi/2,\pi/2]$; arccos $[0,\pi]$; arctan $(-\pi/2,\pi/2)$. Inverse notation does not mean reciprocal. $\arcsin(\sin x)=x$ only on the selected range. State reciprocal-inverse conventions when used. |
+| Written checks | Keep zero-factor solutions before division, justify half-angle signs and locate a quadrant before taking an arctangent. Principal arctangent addition may require a multiple-of-$\pi$ correction. |
+
+Use the chapter's [OpenStax and NIST references](#sources) for conventions. These methods support later calculus, geometry and complex analysis; derivations and conditions matter alongside the formula.
+
+<a id="current-applicability"></a>
+
+### 7.2 Current applicability
+
+No current-affairs supplement is needed for these stable identities. A different text's principal-value convention should be stated explicitly; it does not change the full solution set. Examination-rule changes belong to [chapter 001](001-orientation-and-diagnostic-route.md#update-watch).
+
 <a id="6-what-to-retain-before-part-2"></a>
 
-## Revision and next steps
+<a id="revision-and-next-steps"></a>
+
+## 8. Revision and next steps
 
 Reconstruct the addition formulas and derive a double-angle or product formula from them. Explain, using domains, why tangent identities need exclusions. Revisit the double-angle equation until the general solution and interval filtering are separate steps. Explain why an inverse trigonometric value and the full solution set of a trigonometric equation answer different questions.
 
 [Part 2](003-trigonometry-and-complex-numbers-part-2.md) develops exponentials and hyperbolic functions. Part 3 will reuse this part's rotation formulas to explain complex multiplication.
 
-## Update watch
+<a id="update-watch"></a>
+
+## 9. Update watch
 
 The mathematical definitions, identities and reasoning taught here are stable; no routine factual update is needed. Revisit only if a cited reference is corrected or the course changes its notation, domain or principal-value conventions.
 
-## Sources
+<a id="sources"></a>
+
+## 10. Sources
 
 All accessed **24 November 2026**. Explanations, examples and diagram are original; these references support the definitions and identities.
 

@@ -294,9 +294,10 @@ Also common in **polar regions** throughout the year.
 
 ---
 
-<a id="10-common-confusions"></a>
 
-## Common confusions
+<a id="common-confusions"></a>
+
+## 10. Common confusions
 
 | Confusion | Clarification |
 |---|---|
@@ -323,14 +324,57 @@ India's temperature patterns illustrate this chapter's mechanisms directly:
 
 ---
 
-## Revision and next steps
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 12. Summary of key concepts and takeaways
+
+- Atmospheric layers are distinguished by temperature trends; the ionosphere describes ionisation and overlaps those layers rather than forming a separate temperature slab.
+- The surface and atmosphere exchange energy through radiation, sensible heat and latent heat. Internal transfers must not be counted again as energy escaping to space.
+- Temperature patterns arise from solar angle/day length, height, land–water response, currents and local conditions. A global-average statement does not describe every place.
+- An environmental lapse rate describes the surrounding air; an adiabatic rate describes a moving parcel. Inversions reverse the usual local temperature trend and suppress mixing.
+
+<a id="upsc-specific-notes"></a>
+
+## 13. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 13.1 Static notes
+
+| Topic | Revision facts and MCQ distinctions |
+|---|---|
+| Composition | Dry air is mostly nitrogen (~78%) and oxygen (~21%). Water vapour is variable; trace greenhouse gases can have major radiative effects despite small concentrations. Aerosols scatter/absorb radiation and can supply condensation nuclei. |
+| Temperature layers | Troposphere: usual cooling upward, most weather, generally deeper at the equator. Stratosphere: ozone-related warming upward. Mesosphere: cooling upward. Thermosphere: warming at very low density. Boundaries are approximate and variable. |
+| Ionosphere | Defined by charged particles, overlapping temperature layers; solar activity changes its extent and radio effects. It is not a synonym for the thermosphere ([NASA][nasa-ionosphere]). |
+| Radiation and albedo | Insolation is incoming solar energy; terrestrial radiation is predominantly longwave. Albedo is reflected fraction: higher albedo reduces absorbed energy, other things equal. Greenhouse absorption/re-emission concerns longwave energy, not an absolute barrier to all radiation. |
+| Energy accounting | In the chapter's simplified 100-unit budget: **35 reflected + 17 surface-to-space + 48 atmosphere-to-space = 100**. The 34 surface-to-atmosphere units are an internal transfer already included in the atmospheric account, not another escape. |
+| Heat transfer | Conduction: molecular contact; convection: vertical air motion; advection: horizontal transport. Evaporation/condensation also transfers latent heat. “Heated from below” does not mean no sunlight is absorbed aloft. |
+| Lapse rates | Reference environmental lapse rate ~6.5°C/km; dry adiabatic parcel rate ~9.8°C/km. Actual environmental and saturated-parcel rates vary; expansion in lower pressure cools rising air ([NOAA][noaa-lapse]). |
+| Surface and season | Water's greater heat capacity moderates coastal temperatures. NH winter oceans retain heat relative to land: January isotherms tend poleward over oceans and equatorward over continents. Control latitude when comparing continentality. |
+| Inversion | Temperature increases with height in a layer. Clear, calm nights favour surface cooling and inversions; suppressed mixing can concentrate pollutants, while cold air pools in valleys and favours frost/fog. |
+
+Underlying references and qualifications remain in [Sources](#sources); rounded textbook budgets illustrate accounting rather than a newly measured current balance.
+
+<a id="current-connections"></a>
+
+### 13.2 Current connections
+
+- **Winter fog and pollution:** the Indo-Gangetic example connects cold surface air, stable layering, moisture and pollutants. An inversion helps explain accumulation; it does not itself provide a day's pollution reading or establish the full cause of an episode.
+- **Climate measurements:** distinguish a gas concentration (with station/global scope and period), an energy imbalance and a temperature anomaly. The chapter's concentration example is dated; do not relabel it as the latest reading without a new source check. Natural greenhouse warming and its anthropogenic enhancement are distinct ideas ([NOAA energy account][noaa-energy]; [Update watch](#update-watch)).
+- **Unresolved 2025 Q49 key conflict, flagged 23 November 2026:** an estimated atmosphere-free global mean near −18°C does **not** prove “below freezing everywhere.” Preserve that distinction and the corpus caveat until the exact official booklet/key is checked ([PYQ][pyq2025c]; [NOAA lesson][noaa-greenhouse]).
+
+<a id="revision-and-next-steps"></a>
+
+## 14. Revision and next steps
 
 - Trace incoming solar and outgoing terrestrial energy through the heat-budget explanation.
 - Distinguish a temperature inversion, an environmental lapse rate and the cooling of a rising parcel.
 
 Next: [011 — Winds, rainfall and weather systems](011-winds-rainfall-and-weather-systems.md).
 
-## Update watch
+<a id="update-watch"></a>
+
+## 15. Update watch
 
 Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
 
@@ -339,7 +383,9 @@ Use the corresponding references in [Sources](#sources). Keep historical observa
 | Atmospheric concentrations and energy-budget estimates | Measurements depend on observation period, averaging and the cited scientific assessment. | Before presenting a value as current, check the corresponding scientific source in Sources and record its period. |
 | Dated examples and the flagged PYQ-key conflict | A later source correction or verified official booklet/key may resolve an existing caveat. | Revisit when that specific evidence is available; do not silently overwrite the original question or its explanation. |
 
-## Sources
+<a id="sources"></a>
+
+## 16. Sources
 
 - **Australian Bureau of Meteorology Training Centre, hosted by NOAA/NWS.** [Adiabatic processes and lapse rates](https://www.weather.gov/media/zhu/ZHU_Training_Page/clouds/stability_clouds/stability_clouds2.pdf), pp. 3–5. Accessed 23 November 2026.
 

@@ -1,5 +1,8 @@
 # 024. Fundamental Rights and constitutional remedies
-## Part 2 of 3 — Freedom, personal liberty and protection from exploitation
+
+<a id="part-2-of-3--freedom-personal-liberty-and-protection-from-exploitation"></a>
+
+**Part:** 2 of 3 — Freedom, personal liberty and protection from exploitation
 
 **Paper:** Prelims General Studies I. **Authored:** 24 November 2026.
 **Learning outcome:** Read a freedom with its limits and distinguish safeguards concerning criminal process and detention.
@@ -25,7 +28,9 @@ Article 19(1) protects six freedoms of **citizens**. Each must be read with the 
 
 The lettering jumps from (e) to (g) because the former property provision, Article 19(1)(f), was omitted. Do not silently invent a seventh present freedom. [Official text and Forty-fourth Amendment footnote][constitution]
 
-### The speech grounds are a defined list
+<a id="the-speech-grounds-are-a-defined-list"></a>
+
+### 1.1 The speech grounds are a defined list
 
 Article 19(2) names:
 
@@ -44,7 +49,9 @@ These are not interchangeable descriptions. For example, criticism of government
 
 A peaceful assembly without arms is expressly protected. That does not establish an unconditional entitlement to occupy any road at any time. A valid restriction requires its own constitutional basis; the existence of a right and the validity of a specific restriction are two questions, not mutually exclusive assertions.
 
-### Law can protect liberty as well as restrict it
+<a id="law-can-protect-liberty-as-well-as-restrict-it"></a>
+
+### 1.2 Law can protect liberty as well as restrict it
 
 Suppose no enforceable rule prevents an employer from confining workers. Mere absence of regulation does not give those workers practical freedom. Laws prohibiting confinement can protect liberty. Conversely, laws allowing arbitrary confinement can undermine it. The relevant inquiry is the law's content and constitutional limits, not its mere existence or frequency of amendment.
 
@@ -72,7 +79,9 @@ Article 21 protects every **person** against deprivation of life or personal lib
 
 **Worked illustration:** A statute says an official may detain anyone the official dislikes without explaining why or providing meaningful safeguards. Pointing to the statute's existence does not settle the constitutional question. The source of power, fair procedure and the substantive rights involved still require examination.
 
-### Privacy is constitutionally protected
+<a id="privacy-is-constitutionally-protected"></a>
+
+### 3.1 Privacy is constitutionally protected
 
 In **Justice K. S. Puttaswamy (Retd.) v. Union of India**, decided **24 August 2017**, the Supreme Court recognised privacy as intrinsic to life and personal liberty under Article 21 and to the freedoms guaranteed in Part III. Privacy was recognised through interpretation; a new article explicitly titled “Right to Privacy” was not inserted. [Judgment's final order][privacy]
 
@@ -82,7 +91,9 @@ Privacy includes interests concerning personal autonomy and personal information
 
 The **2017 privacy decision** is distinct from the **2018 Aadhaar merits decision**. Do not identify every conclusion about privacy with a conclusion approving or invalidating every particular use of Aadhaar.
 
-### Existing privacy questions
+<a id="existing-privacy-questions"></a>
+
+### 3.2 Existing privacy questions
 
 For **[2018 Q42](Prelims-General-Studies-I-PYQS/2018-Prelims-General-Studies-I.md)**, option **(c)** correctly links Article 21 with the freedoms in Part III. The other alternatives pair it with unrelated combinations: Article 14 and the Forty-second Amendment; Article 17 and Directive Principles; or Article 24 and the Forty-fourth Amendment. For **[2021 Q23](Prelims-General-Studies-I-PYQS/2021-Prelims-General-Studies-I.md)**, Article **21**, option **(c)**, is the answer among Articles 15, 19, 21 and 29. Article 19 may interact with privacy without replacing the Article 21 answer to that stem.
 
@@ -106,7 +117,9 @@ Clauses (4)–(7) provide a separate framework. Important features include commu
 
 ## 6. Articles 23 and 24: protection against exploitation
 
-### Article 23: trafficking and forced labour
+<a id="article-23-trafficking-and-forced-labour"></a>
+
+### 6.1 Article 23: trafficking and forced labour
 
 Article 23 prohibits traffic in human beings, **begar** and similar forms of forced labour. Begar refers to compulsory labour without payment. The constitutional prohibition can apply to private exploitation as well as State action. [Article 23][constitution]
 
@@ -114,7 +127,9 @@ Article 23(2) preserves compulsory service for public purposes, but the State ca
 
 **Worked illustration:** An employer keeps workers confined and makes them work against their will. A wage payment does not, by itself, establish genuine freedom to leave or remove the forced-labour issue. Identify coercion and the applicable protection, rather than assuming that the employer's private status settles the matter.
 
-### Article 24: a precise constitutional prohibition
+<a id="article-24-a-precise-constitutional-prohibition"></a>
+
+### 6.2 Article 24: a precise constitutional prohibition
 
 Article 24 prohibits employment of a child **below fourteen** in **any factory or mine**, or engagement in **other hazardous employment**. The factories/mines prohibition is not limited to jobs an employer labels hazardous. [Article 24][constitution]
 
@@ -122,14 +137,55 @@ The article does not itself say “all work by all persons below eighteen”. Bu
 
 **[2017 Q62](Prelims-General-Studies-I-PYQS/2017-Prelims-General-Studies-I.md)** illustrates classification by constitutional heading. Trafficking/forced labour and the specified child-employment prohibition fall under protection against exploitation. Abolition of untouchability belongs to equality; minority protections belong to cultural/educational rights. Statements **1 and 4**, option **(c)**, are correct. Each other option includes a protection from a different group.
 
-## Revision and next steps
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 7. Summary of key concepts and takeaways
+
+- Each Article 19 freedom has a particular restriction clause. A valid aim does not make every interference lawful, and a ground from one clause cannot simply be transferred to another.
+- Criminal safeguards, fair procedure and privacy protect related interests through different rules. Constitutional wording, judicial interpretation and statutory implementation must be distinguished.
+- Ordinary arrest, preventive detention and punishment after conviction are different processes. A constitutional exception or minimum does not remove all other safeguards or statutory restrictions.
+
+<a id="upsc-specific-notes"></a>
+
+## 8. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 8.1 Static notes
+
+- **Article 19:** six citizen freedoms—speech/expression, peaceful unarmed assembly, association, movement, residence and profession/trade/business. Former property clause (f) is omitted. Clauses (2)–(6) supply different restriction frameworks.
+- **Speech grounds under 19(2):** sovereignty/integrity; State security; friendly foreign relations; public order; decency/morality; contempt; defamation; incitement to an offence. “General public interest” is not an additional free-standing speech ground because it occurs in another clause.
+- **Article 20:** no retrospective criminal conviction/heavier retrospective penalty; no prosecution **and punishment** for the same offence more than once; no compelled self-incriminating testimony by an accused. Not every second proceeding, civil retrospectivity or investigation violates these rules.
+- **Article 21:** every person; deprivation of life/personal liberty requires constitutionally valid law/procedure. *Maneka Gandhi* links procedure to fairness; privacy under *Puttaswamy* is not absolute and was recognised through interpretation, not a newly inserted privacy article.
+- **Article 21A:** free compulsory education for ages **six–fourteen**. Eighty-sixth Amendment Act—2002; commencement—**1 April 2010**; RTE Act—2009. These are three different dates/events, not competing descriptions of one enactment.
+- **Article 22:** ordinary arrest includes grounds, legal-practitioner access and nearest-magistrate production within **24 hours excluding necessary travel**; it does not guarantee release after 24 hours regardless of judicial authority. Enemy-alien/preventive-detention exceptions concern clauses (1)/(2); separate clauses (4)–(7) still matter.
+- **Article 23:** trafficking, begar and similar forced labour; private actors can violate it. Compulsory public service has the stated non-discrimination qualification; wage payment alone cannot prove absence of coercion.
+- **Article 24:** below-fourteen employment in factories/mines and other hazardous employment. Not “all work below eighteen”; also not permission for everything outside its exact text, because ordinary laws may impose wider limits.
+
+Sources: [Constitution][constitution], [Puttaswamy judgment][privacy] and [RTE Act][rte].
+
+<a id="current-connections"></a>
+
+### 8.2 Current connections
+
+- **Privacy and public-data issues:** the **24 August 2017 Puttaswamy** decision supplies the chapter's legality, legitimate-aim and proportionality framework. Apply it to a reported data practice by asking what is collected, under which authority, for what purpose and with what justified burden. The 2017 privacy ruling and the 2018 Aadhaar merits decision are different decisions; this part does not audit any current data-protection statute. [Judgment][privacy]
+- **Preventive-detention commencement:** in the **10 September 2026 edition**, Article 22(4)'s advisory-board framework uses **three months**, with its exceptions; the printed two-month replacement under Section 3 of the Forty-fourth Amendment is marked uncommenced. Neither term is an unconditional maximum for every detention. A new commencement notification would require updating this note. [Text and footnotes][constitution]
+- **Education/labour reports:** distinguish the constitutional age/scope from the applicable statute and policy, rather than deriving every current entitlement or prohibition from the article alone.
+
+These notes retain the chapter's **24 November 2026 source-access scope**. Use the [Update watch](#update-watch) for new judgments, laws or commencement notifications.
+
+<a id="revision-and-next-steps"></a>
+
+## 9. Revision and next steps
 
 - Match each Article 19 freedom to its own restriction clause.
 - Distinguish criminal safeguards, ordinary arrest and preventive detention; read the operative text and commencement notes.
 
 Continue to [Part 3 — Religion, culture and remedies](024-fundamental-rights-and-constitutional-remedies-part-3.md). Local PYQ references retain their files' source and transcription caveats.
 
-## Update watch
+<a id="update-watch"></a>
+
+## 10. Update watch
 
 Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
 
@@ -138,7 +194,9 @@ Use the corresponding references in [Sources](#sources). Keep historical observa
 | Arrest/preventive-detention commencement notes | The part distinguishes operative Article 22 wording from an uncommenced amendment printed in a footnote. | Recheck a relevant Gazette commencement notification before treating that proposed text as operative. |
 | Privacy, education and other legal applications | Later legislation or judgments can change a specific application without erasing the date of a historical decision. | Check the operative text and controlling decision when adding a current case; keep the 2017 judgment and education commencement dates as historical references. |
 
-## Sources
+<a id="sources"></a>
+
+## 11. Sources
 
 External sources accessed **24 November 2026**:
 

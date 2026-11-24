@@ -23,16 +23,36 @@ Read the three parts in order. Together they constitute one curriculum chapter. 
 
 **Next:** [025 — Directive Principles, Fundamental Duties and social justice](025-directive-principles-fundamental-duties-and-social-justice.md), currently a planning placeholder.
 
-## Revision and next steps
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 1. Summary of key concepts and takeaways
+
+Read each guarantee through **actor, beneficiary, right, limit and remedy**. Equality can accommodate relevant differences; liberty requires valid limits and fair procedure; religious and minority rights depend on their particular wording. A court remedy follows the legal problem and jurisdiction, not simply the fact that someone alleges unfairness.
+
+<a id="upsc-specific-notes"></a>
+
+## 2. UPSC-specific notes
+
+- **Static:** [Part 1 notes](024-fundamental-rights-and-constitutional-remedies-part-1.md#upsc-specific-notes) consolidate State/beneficiary distinctions and Articles 12–18; [Part 2 notes](024-fundamental-rights-and-constitutional-remedies-part-2.md#upsc-specific-notes) cover six freedoms, restrictions, Articles 20–24, age ranges and arrest/detention; [Part 3 notes](024-fundamental-rights-and-constitutional-remedies-part-3.md#upsc-specific-notes) cover religion/culture, Article 32 versus 226, five writs, property and emergency qualifications.
+- **Current connections:** the parts retain the **10 September 2026 constitutional-edition** and **24 November 2026 source-access** basis. Dated connections include equality classification, privacy interpretation, public-duty/quo-warranto judgments and the distinction between enacted and commenced detention amendments. Link a new report to the actual provision and holding before revising a rule; the existing examples are not a new survey of later law.
+- **PYQ caveat:** Part 3 explains the local 2022 Q87 key conflict. Its supported reasoning does not certify the original UPSC booklet/key mapping.
+
+<a id="revision-and-next-steps"></a>
+
+## 3. Revision and next steps
 
 Use the ordered part links above for teaching and revision. The closing section of each part identifies what to retain and where to continue.
 
-## Update watch
+<a id="update-watch"></a>
+
+## 4. Update watch
 
 Use the part-specific watches for the exact legal provisions, source discrepancies and recheck triggers. Source dates and observation periods are recorded with the relevant part.
 
 [Part 1 watch](024-fundamental-rights-and-constitutional-remedies-part-1.md#update-watch) · [Part 2 watch](024-fundamental-rights-and-constitutional-remedies-part-2.md#update-watch) · [Part 3 watch](024-fundamental-rights-and-constitutional-remedies-part-3.md#update-watch).
 
-## Sources
+<a id="sources"></a>
+
+## 5. Sources
 
 The teaching references, caveats and original access dates are retained with the relevant part: [Part 1 sources](024-fundamental-rights-and-constitutional-remedies-part-1.md#sources) · [Part 2 sources](024-fundamental-rights-and-constitutional-remedies-part-2.md#sources) · [Part 3 sources](024-fundamental-rights-and-constitutional-remedies-part-3.md#sources).

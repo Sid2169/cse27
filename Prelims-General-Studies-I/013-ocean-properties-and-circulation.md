@@ -395,9 +395,10 @@ The key correction for the PYQ ([2017 Q81][pyq2017]): Statement 1 is incorrect b
 
 ---
 
-<a id="14-common-confusions"></a>
 
-## Common confusions
+<a id="common-confusions"></a>
+
+## 14. Common confusions
 
 | Confusion | Clarification |
 |---|---|
@@ -412,20 +413,65 @@ The key correction for the PYQ ([2017 Q81][pyq2017]): Statement 1 is incorrect b
 
 ---
 
-## Revision and next steps
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 15. Summary of key concepts and takeaways
+
+- Ocean relief provides the setting, while temperature, salinity and pressure influence density and vertical structure. A thermocline or halocline is a zone of rapid change, not a fixed universal depth.
+- Waves mainly transmit energy; tides respond to astronomical forcing and local coastal geometry; currents transport water. Storm surge is a separate meteorological rise in sea level.
+- Winds drive surface circulation, while density differences help drive deep overturning. These connected movements redistribute heat and influence coastal climate.
+- Productivity requires light and nutrients. Offshore Ekman transport can bring nutrient-rich deep water upward; a warm surface alone does not establish productive fishing conditions.
+
+<a id="upsc-specific-notes"></a>
+
+## 16. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 16.1 Static notes
+
+| Topic | Prelims GS-I revision notes |
+|---|---|
+| Ocean-floor sequence | Distinguish continental shelf, slope, rise and abyssal plain; trenches are deep depressions and mid-oceanic ridges are submarine mountain systems. A geological shelf and a legal continental shelf are different concepts. |
+| Temperature, salinity, density | Evaporation raises salinity; rain, runoff and ice melt lower it; freezing leaves the remaining water saltier. Colder or saltier seawater is generally denser, with pressure also relevant. Fresh water's maximum density near 4°C cannot simply be transferred to ordinary seawater. |
+| Layering | Thermocline concerns temperature; halocline concerns salinity. Their depths and strength vary. Stratification can restrict nutrient exchange between deep water and the sunlit layer. |
+| Waves and tides | Wave energy can travel without the same water parcel crossing an ocean. Spring tides occur near new/full moon, neaps near quarter phases; “spring” is not a season here. Tidal range depends on geometry as well as lunar/solar forcing; tide and storm surge are distinct. |
+| Current map | Warm: Gulf Stream/North Atlantic Drift, Kuroshio, Brazil, Agulhas. Cold: Labrador, Oyashio, California, Humboldt, Benguela and West Australian. Link each to its ocean margin and flow direction, rather than memorising the adjective alone. The Somali circulation changes with monsoon winds. |
+| Counter-current and overturning | Equatorial counter-current flows east against westward equatorial currents, responding to accumulated water/pressure gradients. Deep thermohaline circulation depends on density; it is not merely the surface gyre drawn at a greater depth. |
+| Upwelling and ecology | Apply the hemisphere first: net Ekman transport is right of wind in the north, left in the south. Alongshore wind can produce offshore water transport and upwelling. Diatoms and cyanobacteria are producers; copepods and foraminifera are consumers. Nutrient supply and light matter together. |
+| Atmosphere linkage | ENSO belongs to the Pacific; IOD compares two regions within the Indian Ocean. OMT incorporates subsurface warmth; do not turn a dated isotherm-depth figure into a constant. |
+
+These are condensed from the chapter's [ocean properties][ncert-oceans], [ocean movements][ncert-movements], [NOAA tides][noaa-tides], [Scripps density][scripps-density] and [INCOIS upwelling][incois-upwelling] sources.
+
+<a id="current-connections"></a>
+
+### 16.2 Current connections
+
+- **ENSO and fisheries:** the chapter's El Niño example links weakened trades and a deeper eastern-Pacific thermocline to reduced nutrient supply off Peru. Use that mechanism to interpret a dated fishery report; it does not establish the current catch or ocean state. The dated monsoon/ocean-state case is in [Chapter 012](012-world-climates-and-the-indian-monsoon.md).
+- **Marine productivity:** [2025 Q20][pyq2025] uses the approximately half-global oxygen contribution of marine photosynthesis. Distinguish oxygen production from dissolved oxygen concentration; a producer's global contribution does not imply that seawater contains more oxygen per unit volume than air.
+- **Ocean warming and circulation news:** separate a measured SST anomaly, a subsurface heat measure and an overturning-circulation assessment. Each needs its own location, observation period and source. [Update watch](#update-watch) applies before using these mechanisms as evidence for present conditions; this section adds no new AMOC trend or forecast.
+
+<a id="revision-and-next-steps"></a>
+
+## 17. Revision and next steps
 
 - Use temperature, salinity and density to explain a circulation or mixing pattern.
 - Distinguish a wave, a tide, a current and coastal upwelling, including the coastline and wind orientation.
 
 Next: [014 — Freshwater, drainage and groundwater](014-freshwater-drainage-and-groundwater.md).
 
-## Update watch
+<a id="update-watch"></a>
+
+## 18. Update watch
 
 The circulation, wave, tide and upwelling mechanisms are stable; no routine factual update is needed for those explanations. The maps teach general patterns, not present-day ocean conditions. Before using any measurement or climate example as current, check its observation period and the corresponding reference in [Sources](#sources). Revisit a definition or estimate when its cited authority issues a correction or revised assessment.
 
+
 <a id="15-sources"></a>
 
-## Sources
+<a id="sources"></a>
+
+## 19. Sources
 
 - **NOAA National Ocean Service.** [Elementary tidal theory—the equilibrium tide][noaa-tides]. Accessed 23 November 2026.
 

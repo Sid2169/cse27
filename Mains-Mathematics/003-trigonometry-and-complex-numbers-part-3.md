@@ -1,5 +1,10 @@
-# 003 — Trigonometry and complex numbers
-## Part 3 of 3 — Complex arithmetic, polar form and roots
+# 003. Trigonometry and complex numbers
+
+<a id="003--trigonometry-and-complex-numbers"></a>
+
+<a id="part-3-of-3--complex-arithmetic-polar-form-and-roots"></a>
+
+**Part:** 3 of 3 — Complex arithmetic, polar form and roots
 
 **Paper:** Mathematics optional, both-paper foundation bridge.
 **Learning outcome:** Choose rectangular or polar form, find all roots and distinguish arguments from principal values.
@@ -139,7 +144,9 @@ $$
 
 The full set of arguments is $\operatorname{Arg}z+2k\pi$. Other texts may use $[0,2\pi)$; state the convention. Zero has no argument: it has no direction from the origin. It can be represented by radius zero with any angle, which does not define a unique argument.
 
-### Find the quadrant before choosing an angle
+<a id="find-the-quadrant-before-choosing-an-angle"></a>
+
+### 4.1 Find the quadrant before choosing an angle
 
 For $z=-\sqrt3+i$, the modulus is 2 and the point is in quadrant II. Its cosine is $-\sqrt3/2$, its sine is $1/2$, so
 
@@ -150,7 +157,9 @@ $$
 
 Blindly using $\arctan(y/x)=\arctan(-1/\sqrt3)=-\pi/6$ selects a quadrant-IV point with the same tangent. Tangent determines direction only up to $\pi$, so check both coordinate signs. On the axes, use their directions directly: $\operatorname{Arg}(-2)=\pi$, $\operatorname{Arg}(-2i)=-\pi/2$.
 
-### Products multiply lengths and add angles
+<a id="products-multiply-lengths-and-add-angles"></a>
+
+### 4.2 Products multiply lengths and add angles
 
 Put $\operatorname{cis}\theta=\cos\theta+i\sin\theta$. Multiplication and the addition identities from Part 1 give
 
@@ -188,7 +197,9 @@ $$
 
 The modulus is 8, agreeing with $|1+i|^6$. As an algebra check, $(1+i)^2=2i$, whose cube is $-8i$.
 
-### Derive the full root formula
+<a id="derive-the-full-root-formula"></a>
+
+### 5.1 Derive the full root formula
 
 Let $a=R\operatorname{cis}\Theta\ne0$ and let $n$ be a positive integer. To solve $z^n=a$, write $z=r\operatorname{cis}\theta$. The equality requires
 
@@ -247,7 +258,9 @@ $$
 
 Thus the exponential never vanishes. It also repeats: $e^{z+2k\pi i}=e^z$. In particular $e^z=1$ requires $e^x=1$, hence $x=0$, and $\cos y=1$, $\sin y=0$, hence $y=2k\pi$. The complex solutions are $z=2k\pi i$, whereas the real equation has only zero.
 
-### A logarithm has many values until a choice is imposed
+<a id="a-logarithm-has-many-values-until-a-choice-is-imposed"></a>
+
+### 6.1 A logarithm has many values until a choice is imposed
 
 To solve $e^w=z\ne0$, write $w=u+iv$. The modulus condition gives $e^u=|z|$, so $u=\ln|z|$; the direction condition gives $v=\operatorname{Arg}z+2k\pi$. All logarithm values are therefore
 
@@ -272,7 +285,9 @@ $$
 
 They differ by a full angular turn. This is exactly the principal-argument issue already seen for products, not a failure of $e^{z+w}=e^ze^w$.
 
-### Circular and hyperbolic expressions meet at imaginary inputs
+<a id="circular-and-hyperbolic-expressions-meet-at-imaginary-inputs"></a>
+
+### 6.2 Circular and hyperbolic expressions meet at imaginary inputs
 
 For complex $z$, define
 
@@ -312,19 +327,62 @@ For real $x,y$, this vanishes exactly when $\cos x=1$ and $\cosh y=1$: each side
 
 This is a limited algebra-and-domain reading of the actual stem, not a claimed solution of the analytic reconstruction. The corpus is a typed transcription with its existing source caveat, not a newly verified official scan. No corpus text has been altered.
 
+
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 8. Summary of key concepts and takeaways
+
+- Rectangular form makes addition and conjugation transparent; polar form makes multiplication, powers and roots transparent. Choose a representation to suit the operation.
+- Modulus is a real distance, while an argument is an angle defined only for nonzero numbers and only up to full turns. A principal argument chooses one representative.
+- All $n$th roots require all angular classes. A principal root or logarithm selects values and can lose familiar unrestricted real product laws.
+- The complex exponential combines positive scale and rotation; its periodicity explains multiple logarithm values. Elementary identities do not establish analyticity or justify removing singularities.
+
+<a id="upsc-specific-notes"></a>
+
+## 9. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 9.1 Static notes
+
+| Tool | Revision note for Paper I foundations and Paper II Complex Analysis |
+|---|---|
+| Arithmetic | $i^2=-1$; equate real and imaginary parts. For $z=x+iy$, $\bar z=x-iy$, $z\bar z=\vertz\vert^2=x^2+y^2$. Divide by nonzero $w$ using $z/w=z\bar w/\vertw\vert^2$. |
+| Geometry and bounds | $\vertz-a\vert$ is a distance; $\vertzw\vert=\vertz\vert\vertw\vert$, $\vertz+w\vert\le\vertz\vert+\vertw\vert$, and $\bigl\vert\vertz\vert-\vertw\vert\bigr\vert\le\vertz-w\vert$. An arbitrary complex number has no real order relation; modulus comparisons do. |
+| Argument | Here $\operatorname{Arg}z\in(-\pi,\pi]$ for $z\ne0$; all arguments are $\operatorname{Arg}z+2k\pi$. Check both coordinate signs; arctangent of a quotient alone can miss the quadrant. Zero has no argument. |
+| Products and powers | For $z=r\operatorname{cis}\theta$, multiply moduli and add angles. Integer de Moivre: $z^n=r^n\operatorname{cis}(n\theta)$; nonpositive powers require $z\ne0$. Reduce angles afterward if a principal result is requested. |
+| Roots | For $a=R\operatorname{cis}\Theta\ne0$, roots of $z^n=a$ are $R^{1/n}\operatorname{cis}((\Theta+2k\pi)/n)$, $k=0,\ldots,n-1$. They are distinct, equally spaced; for $a=0$ the only distinct root is zero. |
+| Exponential and logarithm | $e^{x+iy}=e^x(\cos y+i\sin y)$ is never zero and has period $2\pi i$. All logarithms of $z\ne0$ are $\ln\vertz\vert+i(\operatorname{Arg}z+2k\pi)$. The pointwise principal value differs from the analytic branch on $\mathbb C\setminus(-\infty,0]$. |
+| Convention traps | Principal arguments do not add without reduction. Principal logs and roots do not obey unconditional product rules: at $z=w=-1$, principal log values differ by $2\pi i$ after multiplication. Real sine/cosine bounds do not extend to all complex inputs. |
+| Circular/hyperbolic link | $\cos(iy)=\cosh y$ and $\sin(iy)=i\sinh y$ for real $y$. Recover complex-input expressions from exponentials rather than importing real-input bounds. |
+
+The **2022 Paper II Q1(b)** connection only rewrites $2\cos x-e^y-e^{-y}=2(\cos x-\cosh y)$ and identifies excluded points $y=0$, $x=2k\pi$. Analytic reconstruction and possible extension need later methods; the typed PYQ's transcription caveat remains. See the existing [NIST, OpenStax, MIT and corpus sources](#sources).
+
+<a id="current-applicability"></a>
+
+### 9.2 Current applicability
+
+These are stable mathematical results, not current-affairs facts. Recheck a convention or transcription correction when encountered; do not treat a new PYQ's appearance as a change to the identities. Current paper rules are tracked in [chapter 001](001-orientation-and-diagnostic-route.md#update-watch).
+
 <a id="8-what-this-chapter-enables"></a>
 
-## Revision and next steps
+<a id="revision-and-next-steps"></a>
+
+## 10. Revision and next steps
 
 Before moving on, reconstruct complex division using conjugation, explain why the modulus is real and nonnegative, and find an argument using both coordinate signs. Derive the product rule in polar form from the addition identities, and derive all $n$th roots rather than taking only a principal angle divided by $n$. Finally, distinguish a real logarithm, all complex logarithm values, and a principal complex value.
 
 The next bridge is [004 — Coordinates, conics and vector algebra](004-coordinates-conics-and-vector-algebra.md). Complex arithmetic will also support [008 — Matrices and linear systems](008-matrices-and-linear-systems.md) and later spaces over $\mathbb C$. This chapter teaches representations and elementary functions; proofs involving analytic functions, contour integrals and branch domains require the later analysis sequence.
 
-## Update watch
+<a id="update-watch"></a>
+
+## 11. Update watch
 
 The mathematical definitions, identities and reasoning taught here are stable; no routine factual update is needed. Revisit only if a cited reference is corrected or the course changes its notation, domain or principal-value conventions.
 
-## Sources
+<a id="sources"></a>
+
+## 12. Sources
 
 All external references accessed **24 November 2026**. Explanations, derivations, numerical examples and diagrams are original.
 

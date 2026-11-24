@@ -322,9 +322,10 @@ Bay of Bengal tropical cyclones follow a different development mechanism: organi
 
 ---
 
-<a id="14-common-confusions"></a>
 
-## Common confusions
+<a id="common-confusions"></a>
+
+## 14. Common confusions
 
 | Confusion | Clarification |
 |---|---|
@@ -351,14 +352,54 @@ India sits at the junction of multiple circulation systems — this is what make
 
 ---
 
-## Revision and next steps
+<a id="summary-of-key-concepts-and-takeaways"></a>
+
+## 16. Summary of key concepts and takeaways
+
+- Unequal heating creates pressure differences; pressure gradients, rotation and surface friction together determine wind direction. The three-cell model explains broad belts, while their seasonal migration helps explain monsoon reversal.
+- Moisture alone does not produce rain: air needs lifting or cooling to reach saturation. Convection, relief and fronts supply different lifting mechanisms, so their rainfall patterns differ.
+- Tropical cyclones draw energy from condensation over warm oceans; extra-tropical cyclones develop around contrasts between air masses. A cyclone's energy source, fronts and vertical structure are more useful identifiers than its name.
+- India's weather links these global mechanisms: western disturbances bring winter precipitation, monsoon winds change seasonally, and relief creates windward rain and leeward rain shadows.
+
+<a id="upsc-specific-notes"></a>
+
+## 17. UPSC-specific notes
+
+<a id="static-notes"></a>
+
+### 17.1 Static notes
+
+| Topic | Prelims GS-I revision notes |
+|---|---|
+| Pressure and winds | Equatorial and sub-polar lows favour ascent; subtropical and polar highs favour subsidence. Trades flow toward the equatorial low, westerlies toward sub-polar lows, and polar easterlies away from polar highs. Belt positions are approximate and seasonally mobile. |
+| Rotation and friction | Horizontal Coriolis deflection is rightward in the Northern Hemisphere, leftward in the Southern; it vanishes at the equator and increases with latitude and speed. Upper-air geostrophic flow follows isobars; surface friction permits flow across them toward low pressure. |
+| Jets | Jets occur in both hemispheres. Distinguish the subtropical westerly jet from the tropical easterly jet; “jet” does not mean every such wind blows west to east. |
+| Humidity and clouds | Relative humidity depends on temperature as well as water vapour. Dew requires surface cooling to the dew point; clouds can reduce that nocturnal cooling. Rain falling through unsaturated surface air does not require ground-level relative humidity of 100%. |
+| Rain and fronts | Heating → convectional rain; mountain uplift → orographic rain; contrasting air masses → frontal rain. Cold fronts lift warm air sharply; warm fronts lift it more gently; occlusion occurs when a cold front overtakes a warm front. |
+| Cyclones and anticyclones | Tropical cyclones favour warm water, weak shear, adequate rotation and an initial disturbance; a developed eye is relatively warm and calm, the eyewall intense. Extra-tropical cyclones have fronts. Surface convergence characterises lows; divergence characterises highs. Hemisphere determines rotation. |
+| India connections | Locate the Western Ghats/Deccan rain shadow, the Himalayan barrier, northwest winter-rain region and southern peninsular northeast-monsoon region. Northeast-monsoon rain is especially important for Tamil Nadu, but is not confined to it. |
+
+These notes condense the [NCERT circulation][ncert11-circ], [NCERT moisture][ncert11-water], [IMD monsoon][imd-monsoon] and [humidity][nws-humidity] explanations used above.
+
+<a id="current-connections"></a>
+
+### 17.2 Current connections
+
+- **Cloud-seeding context:** the chapter's [2025 Q65][pyq2025] discussion connects artificial rainfall to nucleation agents. For a reported trial, distinguish the intervention from ordinary condensation, then ask whether suitable clouds and moisture existed; a seeding announcement alone establishes neither rainfall nor effectiveness.
+- **Storm and winter-weather reports:** classify a reported system by its basin, season, energy source, fronts and movement. Distinguish a tropical cyclone warning from a western-disturbance forecast; a storm name does not supply those properties. The [IMD monsoon references][imd-monsoon] and [Update watch](#update-watch) identify the continuing seasonal context. No storm's present position or intensity is asserted here.
+
+<a id="revision-and-next-steps"></a>
+
+## 18. Revision and next steps
 
 - Connect pressure gradients, rotation and friction to a wind pattern.
 - Explain a rainfall mechanism and distinguish a tropical cyclone from a frontal system.
 
 Next: [012 — World climates and the Indian monsoon](012-world-climates-and-the-indian-monsoon.md).
 
-## Update watch
+<a id="update-watch"></a>
+
+## 19. Update watch
 
 Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
 
@@ -367,7 +408,9 @@ Use the corresponding references in [Sources](#sources). Keep historical observa
 | Weather-event examples and warnings | A cyclone or weather bulletin describes a particular event and issue time, not a permanent atmospheric state. | Use the latest responsible meteorological agency bulletin for a current event; retain historical examples as dated cases. |
 | Agency classifications and terminology | Operational categories or naming guidance may be revised while the physical mechanisms remain valid. | Recheck the cited meteorological guidance after an announced revision or before applying a category to a new event. |
 
-## Sources
+<a id="sources"></a>
+
+## 20. Sources
 
 - **NOAA/National Weather Service.** [Water Vapor, Humidity, Dewpoint and Relationship to Precipitation][nws-humidity]. Accessed 23 November 2026.
 
