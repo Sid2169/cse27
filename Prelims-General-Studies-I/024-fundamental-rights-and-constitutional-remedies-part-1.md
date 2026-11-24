@@ -2,6 +2,9 @@
 ## Part 1 of 3 — Foundations and equality
 
 **Paper:** Prelims General Studies I. **Authored:** 24 November 2026.
+**Learning outcome:** Identify a right’s beneficiary and actor and explain a justified equality distinction.
+**Scope:** Fundamental Right beneficiaries and State action; Articles 12–18 and equality safeguards.
+**Curriculum entry:** [Chapter 024](Prelims-General-Studies-I-Curriculum.md#chapter-024).
 
 **Navigation:** [Chapter overview](024-fundamental-rights-and-constitutional-remedies.md) · [curriculum entry](Prelims-General-Studies-I-Curriculum.md#chapter-024) · [Part 2](024-fundamental-rights-and-constitutional-remedies-part-2.md) · [Part 3](024-fundamental-rights-and-constitutional-remedies-part-3.md).
 
@@ -121,7 +124,20 @@ For **[2018 Q76](Prelims-General-Studies-I-PYQS/2018-Prelims-General-Studies-I.m
 
 For **[2020 Q4](Prelims-General-Studies-I-PYQS/2020-Prelims-General-Studies-I.md)**, untouchability belongs to the **Right to Equality**, under Article 17, rather than the separate Articles 23–24 exploitation group. See Part 2 for why adjacent protections must still be distinguished. Local PYQ numbering and keys retain the files' transcription caveats, including the 2020 file's excess-item warning.
 
+## Revision and next steps
+
+- For a claim, identify the beneficiary, the actor and the article before considering the remedy.
+- Distinguish arbitrary discrimination from a special provision authorised under a relevant constitutional clause.
+
 Proceed to [Part 2 — Freedom, personal liberty and protection from exploitation](024-fundamental-rights-and-constitutional-remedies-part-2.md).
+
+## Update watch
+
+Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
+
+| Item | Why it may change | Revisit trigger |
+|---|---|---|
+| Equality and enabling safeguards | Constitutional amendments and controlling reservation/equality judgments may change a legal proposition. | Check the operative articles and relevant judgment before applying a changed rule; use current official criteria for a specific scheme. |
 
 ## Sources
 

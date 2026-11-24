@@ -294,7 +294,9 @@ Also common in **polar regions** throughout the year.
 
 ---
 
-## 10. Common confusions
+<a id="10-common-confusions"></a>
+
+## Common confusions
 
 | Confusion | Clarification |
 |---|---|
@@ -320,6 +322,22 @@ India's temperature patterns illustrate this chapter's mechanisms directly:
 - **Central India — continental extremes:** Far from the sea, Nagpur and Bhopal experience high summer temperatures and cold winters relative to coastal cities at similar latitudes.
 
 ---
+
+## Revision and next steps
+
+- Trace incoming solar and outgoing terrestrial energy through the heat-budget explanation.
+- Distinguish a temperature inversion, an environmental lapse rate and the cooling of a rising parcel.
+
+Next: [011 — Winds, rainfall and weather systems](011-winds-rainfall-and-weather-systems.md).
+
+## Update watch
+
+Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
+
+| Item | Why it may change | Revisit trigger |
+|---|---|---|
+| Atmospheric concentrations and energy-budget estimates | Measurements depend on observation period, averaging and the cited scientific assessment. | Before presenting a value as current, check the corresponding scientific source in Sources and record its period. |
+| Dated examples and the flagged PYQ-key conflict | A later source correction or verified official booklet/key may resolve an existing caveat. | Revisit when that specific evidence is available; do not silently overwrite the original question or its explanation. |
 
 ## Sources
 

@@ -1,14 +1,15 @@
 # 022. Political foundations and constitution-making
 
 **Paper:** Prelims General Studies I, UPSC CSE 2027.
-**Curriculum:** [Chapter 022](Prelims-General-Studies-I-Curriculum.md#chapter-022), within [State, democracy and the Constitution](Prelims-General-Studies-I-Curriculum.md#topic-political-foundations-and-constitution-making).
+**Learning outcome:** Explain a political principle, distinguish it from an institutional procedure, reconstruct the main stages of constitution-making, and read the Preamble without confusing its words or legal role.
+**Curriculum entry:** [Chapter 022](Prelims-General-Studies-I-Curriculum.md#chapter-022), within [State, democracy and the Constitution](Prelims-General-Studies-I-Curriculum.md#topic-political-foundations-and-constitution-making).
 **Status:** Authored teaching chapter, 23 November 2026.
 
 **Scope:** State and government; sovereignty, constitutionalism, democracy, republic and secularism; the parliamentary principle; the colonial-to-Constituent-Assembly bridge; and the Preamble. This supplies foundations for the official syllabus topic “Indian Polity and Governance-Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc.”
 
 **Prerequisites:** The reading and chronology skills introduced in Chapters [001](001-understanding-cse-and-the-gs-i-paper.md), [002](002-learning-notes-and-a-first-newspaper-routine.md), [003](003-maps-and-historical-time.md) and [004](004-numbers-units-tables-and-graphs.md). Chapter 004 remains a planning placeholder; no specialised numerical knowledge from it is required here. No prior civics or completion of the intervening geography chapters is necessary.
 
-By the end, you should be able to explain a political principle, distinguish it from an institutional procedure, reconstruct the main stages of constitution-making, and read the Preamble without confusing its words or legal role. Parts, schedules, citizenship, territorial changes, official languages and the detailed amendment/basic-structure framework belong to [Chapter 023](023-constitutional-structure-citizenship-and-change.md).
+Parts, schedules, citizenship, territorial changes, official languages and the detailed amendment/basic-structure framework belong to [Chapter 023](023-constitutional-structure-citizenship-and-change.md).
 
 ## 1. Begin with the problem of public power
 
@@ -235,15 +236,28 @@ The following are explanations of existing questions, not a new test. Question n
 
 The reasoning above is explained from the cited constitutional and historical sources, not merely inferred from the transcribed answer keys. It does not certify the wording or provenance of every question in those files.
 
-## 8. What to retain before proceeding
+<a id="8-what-to-retain-before-proceeding"></a>
+
+## Revision and next steps
 
 A political community can be sovereign while its institutions are constitutionally limited. A republic has a non-hereditary head of State; a democracy requires public authorisation and accountability; parliamentary government makes the ministry dependent on legislative confidence. None of these labels is a substitute for the others.
 
 For constitution-making, retain the difference between indirect provincial elections and universal adult franchise; between the Assembly's President, Drafting Committee chair and Constitutional Adviser; and between adoption and commencement. For the Preamble, retain its word associations and its interpretive role without inventing an independent power or remedy.
 
-Continue to [Chapter 023 — Constitutional structure, citizenship and change](023-constitutional-structure-citizenship-and-change.md) for how to locate a provision and distinguish ordinary legislation from constitutional amendment. That linked file remains a planning placeholder at this chapter's preparation date.
+Continue to [Chapter 023 — Constitutional structure, citizenship and change](023-constitutional-structure-citizenship-and-change.md) for how to locate a provision and distinguish ordinary legislation from constitutional amendment. The linked chapter now contains authored teaching material.
 
-## Sources and maintenance
+## Update watch
+
+Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
+
+| Item | Why it may change | Revisit trigger |
+|---|---|---|
+| Constitutional wording and interpretation | Amendments, commencement notifications or controlling judgments may change a present legal proposition. | Check the Legislative Department text and relevant Supreme Court decision before applying a changed rule; the source dates below remain the original verification dates. |
+| Historical dates and PYQ provenance | Completed constitution-making events are historical; a transcription or source correction is a different kind of update. | Revisit only when primary evidence or a verified booklet/key corrects a specific claim; retain the original corpus caveat. |
+
+<a id="sources-and-maintenance"></a>
+
+## Sources
 
 **Access/check date: 23 November 2026.** Historical dates describe completed events. Current constitutional propositions should be rechecked when a relevant amendment commences or a Supreme Court ruling changes the interpretation. This chapter uses the Legislative Department's constitutional edition dated 10 September 2026; it does not claim to audit every subsequent legal development.
 

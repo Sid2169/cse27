@@ -1,7 +1,10 @@
 # 003 — Trigonometry and complex numbers
 ## Part 2 of 3 — Exponentials, logarithms and hyperbolic functions
 
-**Paper and entry:** Mathematics optional, both-paper foundation bridge; [curriculum 003](Mains-Mathematics-Curriculum.md#phase-a--orientation-and-selective-bridges).
+**Paper:** Mathematics optional, both-paper foundation bridge.
+**Learning outcome:** Use exponential, logarithmic and hyperbolic definitions with justified domains and inverse restrictions.
+
+**Curriculum entry:** [Chapter 003](Mains-Mathematics-Curriculum.md#phase-a--orientation-and-selective-bridges).
 
 **Scope:** real exponentials and logarithms, equations and inequalities, and real hyperbolic functions.
 
@@ -221,11 +224,17 @@ $$
 
 as already derived from its ratio. Here too, inverse notation does not mean a reciprocal.
 
-## 4. Connections and readiness
+<a id="4-connections-and-readiness"></a>
+
+## Revision and next steps
 
 Hyperbolic functions will appear in the [common catenary](053-common-catenary-and-suspended-strings.md); that later chapter derives the physical model and does not follow merely from the shape of the graph. Exponentials also enter [ODEs](045-constant-coefficient-linear-odes.md) and [Laplace transforms](047-laplace-transforms-and-initial-value-problems.md). Part 3 explains how the complex exponential joins exponential scale with circular rotation.
 
 Before continuing, reconstruct the logarithm product law from its inverse definition, justify every domain restriction in the logarithmic worked example, and derive the hyperbolic basic identity directly from exponentials. Explain why cosh needs a domain restriction for inversion while sinh does not. These are checks on this teaching material, not a separate scored practice set.
+
+## Update watch
+
+The mathematical definitions, identities and reasoning taught here are stable; no routine factual update is needed. Revisit only if a cited reference is corrected or the course changes its notation, domain or principal-value conventions.
 
 ## Sources
 

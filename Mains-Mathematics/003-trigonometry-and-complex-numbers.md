@@ -1,6 +1,8 @@
 # 003 — Trigonometry and complex numbers
 
 **Paper:** Mathematics optional, foundation bridge for both papers.
+**Learning outcome:** Use trigonometric, exponential and complex representations while preserving domains and all solutions.
+**Scope:** Trigonometric, exponential, logarithmic, hyperbolic and elementary complex-number foundations, across three linked parts.
 
 **Curriculum entry:** [Phase A, chapter 003](Mains-Mathematics-Curriculum.md#phase-a--orientation-and-selective-bridges).
 
@@ -21,3 +23,17 @@ The scope is divided at conceptual boundaries. Read the parts in order unless th
 This supports the [official syllabus](Mains-Mathematics-Syllabus.md), especially spaces over the real and complex numbers in Paper I and elementary functions within Paper II Complex Analysis. Rigorous real-function construction and power-series arguments belong to [014](014-real-numbers-completeness-and-sequences.md), [015](015-series-of-real-and-complex-numbers.md) and [017](017-differentiation-taylor-theorem-and-curves.md); analyticity and branches receive their full treatment in [039](039-complex-differentiability-and-analytic-functions.md). Each part distinguishes derivations here from deeper results deferred.
 
 Sources and access dates appear in each part. Worked examples are original teaching examples, not newly generated tests. Part 3 discusses the later PYQ connection with corpus limitations retained.
+
+## Revision and next steps
+
+Use the ordered part links above for teaching and revision. The closing section of each part identifies what to retain and where to continue.
+
+## Update watch
+
+The chapter’s mathematics is stable; no routine factual update is needed. Each part notes the limited correction or notation-change triggers relevant to it.
+
+[Part 1 watch](003-trigonometry-and-complex-numbers-part-1.md#update-watch) · [Part 2 watch](003-trigonometry-and-complex-numbers-part-2.md#update-watch) · [Part 3 watch](003-trigonometry-and-complex-numbers-part-3.md#update-watch).
+
+## Sources
+
+The teaching references, caveats and original access dates are retained with the relevant part: [Part 1 sources](003-trigonometry-and-complex-numbers-part-1.md#sources) · [Part 2 sources](003-trigonometry-and-complex-numbers-part-2.md#sources) · [Part 3 sources](003-trigonometry-and-complex-numbers-part-3.md#sources).

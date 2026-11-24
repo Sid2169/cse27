@@ -1,6 +1,7 @@
 # 016. Indian rivers, lakes and water geography
 
 - **Paper:** Prelims General Studies I, UPSC CSE 2027.
+- **Learning outcome:** Trace major river systems and distinguish tributaries, basin divides, lakes and reservoirs using a map.
 - **Curriculum entry:** [016 — Indian rivers, lakes and water geography](Prelims-General-Studies-I-Curriculum.md#chapter-016).
 - **Prerequisites:** Chapters [007](007-earth-in-the-solar-system-and-its-motions.md) · [008](008-earth-s-interior-rocks-and-tectonic-hazards.md) · [009](009-weathering-erosion-and-landforms.md) · [014](014-freshwater-drainage-and-groundwater.md) · [015](015-india-s-location-and-physical-regions.md).
 - **Scope:** Himalayan and peninsular drainage systems, their tributaries and basin divides; major lakes; drainage patterns; regional water and hazard patterns.
@@ -334,7 +335,9 @@ A common trap is inverting Gomati and Ghaghara, or putting Kosi before Gandak. R
 
 ---
 
-## Check your understanding
+<a id="check-your-understanding"></a>
+
+## Revision and next steps
 
 Before moving on, verify that you can answer these without notes:
 
@@ -350,6 +353,17 @@ Before moving on, verify that you can answer these without notes:
 *(Answers: 1. Ramganga. 2. Jhelum. 3. It flows in a rift valley (trough fault between Vindhyas and Satpuras). 4. Devprayag. 5. Gomati → Ghaghara → Gandak → Kosi. 6. Penna (Pennar) River. 7. Harike. 8. "Sorrow of Bihar" — it shifts course frequently due to heavy sediment deposition.)*
 
 ---
+
+Next: [017 — Indian soils, vegetation and regional links](017-indian-soils-vegetation-and-regional-links.md) (currently a planning placeholder).
+
+## Update watch
+
+Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
+
+| Item | Why it may change | Revisit trigger |
+|---|---|---|
+| Reservoir/project names, status and administrative labels | Project status and jurisdictional labels can change without changing the river system. | Before describing a project as current, check the responsible water/project authority and the dated map. |
+| Lake designations and disputed PYQ interpretations | Site records or verified original questions/keys may clarify a contested description. | Recheck the specific official site evidence or original booklet/key when resolving a caveat; do not infer a formation mechanism from an answer label alone. |
 
 ## Sources
 

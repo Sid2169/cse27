@@ -1,6 +1,7 @@
 # 024. Fundamental Rights and constitutional remedies
 
 **Paper:** Prelims General Studies I, UPSC CSE 2027.
+**Learning outcome:** Identify the right, applicable limit and possible remedy in a simple situation.
 
 **Status:** Authored teaching chapter in three parts, 24 November 2026.
 
@@ -21,3 +22,17 @@ Read the three parts in order. Together they constitute one curriculum chapter. 
 **Corpus discrepancy:** Part 3 flags an incorrect recorded key for local **2022 Q87**, concerning mandamus and quo warranto. The original question corpus is preserved; the chapter supplies an explicitly reasoned correction.
 
 **Next:** [025 — Directive Principles, Fundamental Duties and social justice](025-directive-principles-fundamental-duties-and-social-justice.md), currently a planning placeholder.
+
+## Revision and next steps
+
+Use the ordered part links above for teaching and revision. The closing section of each part identifies what to retain and where to continue.
+
+## Update watch
+
+Use the part-specific watches for the exact legal provisions, source discrepancies and recheck triggers. Source dates and observation periods are recorded with the relevant part.
+
+[Part 1 watch](024-fundamental-rights-and-constitutional-remedies-part-1.md#update-watch) · [Part 2 watch](024-fundamental-rights-and-constitutional-remedies-part-2.md#update-watch) · [Part 3 watch](024-fundamental-rights-and-constitutional-remedies-part-3.md#update-watch).
+
+## Sources
+
+The teaching references, caveats and original access dates are retained with the relevant part: [Part 1 sources](024-fundamental-rights-and-constitutional-remedies-part-1.md#sources) · [Part 2 sources](024-fundamental-rights-and-constitutional-remedies-part-2.md#sources) · [Part 3 sources](024-fundamental-rights-and-constitutional-remedies-part-3.md#sources).

@@ -2,6 +2,9 @@
 ## Part 3 of 3 — Religion, culture and remedies
 
 **Paper:** Prelims General Studies I. **Authored:** 24 November 2026.
+**Learning outcome:** Connect a simple infringement to the relevant guarantee, jurisdiction and remedy.
+**Scope:** Religion and culture, constitutional remedies and writs, property and specified emergency qualifications.
+**Curriculum entry:** [Chapter 024](Prelims-General-Studies-I-Curriculum.md#chapter-024).
 
 **Navigation:** [Chapter overview](024-fundamental-rights-and-constitutional-remedies.md) · [curriculum entry](Prelims-General-Studies-I-Curriculum.md#chapter-024) · [Part 1](024-fundamental-rights-and-constitutional-remedies-part-1.md) · [Part 2](024-fundamental-rights-and-constitutional-remedies-part-2.md).
 
@@ -155,13 +158,26 @@ The supported combination is **1 and 3 only: option (c)**. Option (a) incorrectl
 
 This is an **independently reasoned correction for the local transcription**, not a claim that the original UPSC booklet and official answer-key mapping were verified in this task. The corpus has been left unchanged. Read its provenance caveats and do not memorise the conflicting recorded key as doctrine.
 
-## 8. What to retain for the next chapter
+<a id="8-what-to-retain-for-the-next-chapter"></a>
+
+## Revision and next steps
 
 A right must be read with its beneficiary, relevant actor, restriction and remedy. Equality is not identical treatment in all circumstances; liberty is not absence of all law; religious freedom is not immunity for every associated secular activity. Constitutional enforcement requires identifying the legal problem and the court's power, not only naming a writ.
 
 Proceed to [Chapter 025 — Directive Principles, Fundamental Duties and social justice](025-directive-principles-fundamental-duties-and-social-justice.md), currently a planning placeholder. It will contrast directly enforceable rights with the constitutional roles of policy directions and duties. Return to the [Chapter 024 overview](024-fundamental-rights-and-constitutional-remedies.md) for all three parts.
 
-## Sources and maintenance
+## Update watch
+
+Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
+
+| Item | Why it may change | Revisit trigger |
+|---|---|---|
+| Writ jurisdiction and legal exceptions | Controlling judgments or amendments may refine the scope of a remedy or exception. | Check the relevant constitutional provision and authoritative judgment when applying a new rule. |
+| Local 2022 Q87 discrepancy | Verified original wording and official key mapping may resolve the recorded corpus conflict. | Revisit on obtaining those specific primary records; do not silently adopt or overwrite the conflicting entry. |
+
+<a id="sources-and-maintenance"></a>
+
+## Sources
 
 External sources accessed **24 November 2026**:
 

@@ -444,7 +444,9 @@ The chapter's learning outcome is to perform this connection fluently. The table
 
 ---
 
-## 13. Common confusions
+<a id="13-common-confusions"></a>
+
+## Common confusions
 
 | Confusion | Clarification |
 |---|---|
@@ -472,6 +474,22 @@ The chapter's learning outcome is to perform this connection fluently. The table
 **Seismic vulnerability and geography:** The concentration of Zone IV and V hazard in the Himalayan arc, the North-East, and the Rann of Kutch aligns directly with active plate boundaries. The Indo-Gangetic Plain sits in a region of elevated risk (Zone III–IV) because stress is transmitted from the collision zone into the foreland. The stable Deccan plateau is Zone II, reflecting its cratonic character.
 
 ---
+
+## Revision and next steps
+
+- Use seismic-wave behaviour to distinguish the main internal layers.
+- Connect a plate boundary to likely rocks, relief and hazards without treating a schematic map as a live warning.
+
+Next: [009 — Weathering, erosion and landforms](009-weathering-erosion-and-landforms.md).
+
+## Update watch
+
+Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
+
+| Item | Why it may change | Revisit trigger |
+|---|---|---|
+| Seismic zoning and hazard classifications | A national classification or map can be formally revised independently of the underlying plate mechanism. | Check the current official Indian seismic-zoning reference before treating the chapter table as a current operational map. |
+| Named earthquake, eruption and tsunami observations | Event magnitudes, activity reports and assessments may be revised. | Check the responsible geological or warning agency before quoting current activity; retain the observation period for historical cases. |
 
 ## Sources
 

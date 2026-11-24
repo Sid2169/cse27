@@ -274,7 +274,9 @@ The table below traces every important phenomenon in this chapter back to the sa
 
 ---
 
-## 11. Common confusions
+<a id="11-common-confusions"></a>
+
+## Common confusions
 
 | Confusion | Clarification |
 |---|---|
@@ -287,6 +289,22 @@ The table below traces every important phenomenon in this chapter back to the sa
 | **IST is 5½ hours ahead of GMT** | Correct. IST = UTC + 5:30. The standard meridian is 82°30′E = 82.5°, and 82.5 ÷ 15 = 5.5 hours. |
 
 ---
+
+## Revision and next steps
+
+- Explain seasons using axial tilt and revolution, then distinguish that mechanism from changing Earth–Sun distance.
+- Trace an eclipse alignment and calculate a longitude-based time difference with the sign made explicit.
+
+Next: [008 — Earth's interior, rocks and tectonic hazards](008-earth-s-interior-rocks-and-tectonic-hazards.md).
+
+## Update watch
+
+Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
+
+| Item | Why it may change | Revisit trigger |
+|---|---|---|
+| Calendar examples and event dates | The motion geometry is stable; an eclipse, solstice or equinox date belongs to a particular year and time zone. | Before quoting a date for a new year, check the astronomical source cited below. |
+| Civil time conventions | Longitude calculations do not themselves determine legal time-zone policy. | Recheck the relevant official time standard if a government announces a policy change; retain the date of historical examples. |
 
 ## Sources
 

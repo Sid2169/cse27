@@ -7,7 +7,7 @@
 **Scope:** read the syllabus and the paper rules; learn the symbols used throughout the course; start a skill record; choose your first bridge chapter.
 **Prerequisites:** none.
 
-**Learning outcome.** By the end of this chapter you should be able to (a) locate every syllabus heading in the official text, (b) read the notation that appears in the questions, (c) state the examination rules that affect how you practise, and (d) fill in a skill record that tells you where to start.
+**Learning outcome:** By the end of this chapter you should be able to (a) locate every syllabus heading in the official text, (b) read the notation that appears in the questions, (c) state the examination rules that affect how you practise, and (d) fill in a skill record that tells you where to start.
 
 ---
 
@@ -163,18 +163,9 @@ Advance to the next topic when you can explain the central definitions, reconstr
 
 ---
 
-## 9. Sources
+<a id="10-completion-check"></a>
 
-- UPSC Civil Services Examination Notice 05/2026-CSE, Appendix I, Optional Subject Papers VI and VII — Mathematics: [PDF](https://www.upsc.gov.in/sites/default/files/Notif-CSP-2026-Engl-060226Rev.pdf). Accessed 15 November 2026.
-- UPSC, 2025 Mathematics Paper I question paper front cover: [PDF](https://www.upsc.gov.in/sites/default/files/MATHEMATICS-PAPER%20I-QP-CSM-25-010925.pdf). Accessed 15 November 2026. Used as a historical reference only.
-- NextGenPSC, UPSC Mains 2025 Mathematics optional transcription, used for the PYQ text in this repository: [link](https://www.nextgenpsc.com/mains/pyq/optional/mathematics/2025). Accessed 13 November 2026. Compare with the official paper before relying on exact wording.
-- Official syllabus text: [Mains-Mathematics-Syllabus.md](Mains-Mathematics-Syllabus.md), copied verbatim from Notice 05/2026-CSE.
-
-**Recheck triggers.** The paper rules, calculator policy and selection instructions should be rechecked when the CSE 2027 notification is published and again before any full-paper attempt.
-
----
-
-## 10. Completion check
+## Revision and next steps
 
 Before moving on, confirm that you can do each of these without looking at this chapter:
 
@@ -185,3 +176,23 @@ Before moving on, confirm that you can do each of these without looking at this 
 - Name your first bridge chapter and the evidence that led you to choose it.
 
 Once you have a completed skill record, the next step is the foundation routing in section 6. Chapters 002 to 007 are the bridges, and the curriculum's [phase exit](Mains-Mathematics-Curriculum.md#authoritative-chapter-index) describes what a completed route should let you do.
+
+## Update watch
+
+Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
+
+| Item | Why it may change | Revisit trigger |
+|---|---|---|
+| Paper rules, calculator policy and selection instructions | The chapter uses the cited examination notice rather than a guarantee of future rules. | Check the UPSC CSE 2027 notification and corrections when published, and before a full-paper attempt. |
+
+<a id="9-sources"></a>
+
+## Sources
+
+- UPSC Civil Services Examination Notice 05/2026-CSE, Appendix I, Optional Subject Papers VI and VII — Mathematics: [PDF](https://www.upsc.gov.in/sites/default/files/Notif-CSP-2026-Engl-060226Rev.pdf). Accessed 15 November 2026.
+- UPSC, 2025 Mathematics Paper I question paper front cover: [PDF](https://www.upsc.gov.in/sites/default/files/MATHEMATICS-PAPER%20I-QP-CSM-25-010925.pdf). Accessed 15 November 2026. Used as a historical reference only.
+- NextGenPSC, UPSC Mains 2025 Mathematics optional transcription, used for the PYQ text in this repository: [link](https://www.nextgenpsc.com/mains/pyq/optional/mathematics/2025). Accessed 13 November 2026. Compare with the official paper before relying on exact wording.
+- Official syllabus text: [Mains-Mathematics-Syllabus.md](Mains-Mathematics-Syllabus.md), copied verbatim from Notice 05/2026-CSE.
+
+
+---

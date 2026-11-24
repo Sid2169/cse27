@@ -1,7 +1,10 @@
 # 003 — Trigonometry and complex numbers
 ## Part 1 of 3 — Radians, trigonometric identities and inverse functions
 
-**Paper and entry:** Mathematics optional, both-paper foundation bridge; [curriculum 003](Mains-Mathematics-Curriculum.md#phase-a--orientation-and-selective-bridges).
+**Paper:** Mathematics optional, both-paper foundation bridge.
+**Learning outcome:** Derive and apply trigonometric identities while distinguishing principal values from full solution sets.
+
+**Curriculum entry:** [Chapter 003](Mains-Mathematics-Curriculum.md#phase-a--orientation-and-selective-bridges).
 
 **Scope:** radians, unit-circle functions, identities, equations and real inverse trigonometry.
 
@@ -280,11 +283,17 @@ The sign of the second expression follows the sign of $t$, as it must.
 
 An addition formula for tangent does not automatically produce a correct addition formula for principal arctangents. For example, $\arctan2+\arctan3=3\pi/4$: both terms lie in $(\pi/4,\pi/2)$, their sum lies in $(\pi/2,\pi)$, and its tangent is $(2+3)/(1-6)=-1$. Applying $\arctan$ directly to that ratio returns $-\pi/4$, requiring a correction of $\pi$. Always locate the angle before choosing a principal representative.
 
-## 6. What to retain before Part 2
+<a id="6-what-to-retain-before-part-2"></a>
+
+## Revision and next steps
 
 Reconstruct the addition formulas and derive a double-angle or product formula from them. Explain, using domains, why tangent identities need exclusions. Revisit the double-angle equation until the general solution and interval filtering are separate steps. Explain why an inverse trigonometric value and the full solution set of a trigonometric equation answer different questions.
 
 [Part 2](003-trigonometry-and-complex-numbers-part-2.md) develops exponentials and hyperbolic functions. Part 3 will reuse this part's rotation formulas to explain complex multiplication.
+
+## Update watch
+
+The mathematical definitions, identities and reasoning taught here are stable; no routine factual update is needed. Revisit only if a cited reference is corrected or the course changes its notation, domain or principal-value conventions.
 
 ## Sources
 

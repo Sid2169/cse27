@@ -4,7 +4,7 @@
 
 - **Paper:** Prelims General Studies I, UPSC CSE 2027.
 - **Curriculum entry:** [012 — World climates and the Indian monsoon](Prelims-General-Studies-I-Curriculum.md#chapter-012).
-- **Structure:** one file in three parts — **A** world climates, **B** the Indian monsoon, **C** the ocean links to the monsoon (ENSO and the Indian Ocean Dipole) — followed by common confusions, an update watch and sources.
+- **Structure:** one file in three parts — **A** world climates, **B** the Indian monsoon, **C** the ocean links to the monsoon (ENSO and the Indian Ocean Dipole) — followed by common confusions, revision and next steps, an update watch and sources.
 - **Prerequisites:** Chapters 005–009, then [010](010-atmospheric-structure-and-heat-balance.md) and [011](011-winds-rainfall-and-weather-systems.md). Section 3 restates, in a few lines, what this chapter reuses from them.
 - **Scope:** Climate classification and regional patterns; seasonal monsoon circulation, onset/retreat, western disturbances, ENSO and IOD.
 - **Update status:** Mixed. Climate types and the monsoon's mechanism are stable. Seasonal figures, forecasts and the present state of ENSO and the IOD are dated and marked `[DYNAMIC]`. Researched and written on 12 November 2026.
@@ -544,6 +544,13 @@ Each row sets a tempting idea against the correct picture and points to the sect
 | A Köppen code tells you the weather | It summarises long-term averages. Cs and Cfb, for example, differ in whether summer is dry, and even a Cfb station can have a heat wave. | A2, A6 |
 
 ---
+
+## Revision and next steps
+
+- Infer a climate type from its temperature and rainfall pattern, then explain the seasonal monsoon reversal.
+- Distinguish a mechanism, a seasonal forecast and an observed outcome; explain why ENSO changes probabilities rather than guaranteeing a result.
+
+Next: [013 — Ocean properties and circulation](013-ocean-properties-and-circulation.md).
 
 ## Update watch
 

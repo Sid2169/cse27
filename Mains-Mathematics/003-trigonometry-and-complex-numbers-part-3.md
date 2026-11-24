@@ -1,7 +1,10 @@
 # 003 — Trigonometry and complex numbers
 ## Part 3 of 3 — Complex arithmetic, polar form and roots
 
-**Paper and entry:** Mathematics optional, both-paper foundation bridge; [curriculum 003](Mains-Mathematics-Curriculum.md#phase-a--orientation-and-selective-bridges).
+**Paper:** Mathematics optional, both-paper foundation bridge.
+**Learning outcome:** Choose rectangular or polar form, find all roots and distinguish arguments from principal values.
+
+**Curriculum entry:** [Chapter 003](Mains-Mathematics-Curriculum.md#phase-a--orientation-and-selective-bridges).
 
 **Scope:** complex arithmetic, conjugation, modulus, argument, polar form, integer powers, roots, and the elementary complex exponential and logarithm.
 
@@ -309,11 +312,17 @@ For real $x,y$, this vanishes exactly when $\cos x=1$ and $\cosh y=1$: each side
 
 This is a limited algebra-and-domain reading of the actual stem, not a claimed solution of the analytic reconstruction. The corpus is a typed transcription with its existing source caveat, not a newly verified official scan. No corpus text has been altered.
 
-## 8. What this chapter enables
+<a id="8-what-this-chapter-enables"></a>
+
+## Revision and next steps
 
 Before moving on, reconstruct complex division using conjugation, explain why the modulus is real and nonnegative, and find an argument using both coordinate signs. Derive the product rule in polar form from the addition identities, and derive all $n$th roots rather than taking only a principal angle divided by $n$. Finally, distinguish a real logarithm, all complex logarithm values, and a principal complex value.
 
 The next bridge is [004 — Coordinates, conics and vector algebra](004-coordinates-conics-and-vector-algebra.md). Complex arithmetic will also support [008 — Matrices and linear systems](008-matrices-and-linear-systems.md) and later spaces over $\mathbb C$. This chapter teaches representations and elementary functions; proofs involving analytic functions, contour integrals and branch domains require the later analysis sequence.
+
+## Update watch
+
+The mathematical definitions, identities and reasoning taught here are stable; no routine factual update is needed. Revisit only if a cited reference is corrected or the course changes its notation, domain or principal-value conventions.
 
 ## Sources
 

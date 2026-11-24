@@ -2,8 +2,11 @@
 ## Part 3 of 3 — Amendment and constitutional limits
 
 **Paper:** Prelims General Studies I. **Authored:** 24 November 2026.
+**Learning outcome:** Choose an amendment route, calculate its majority and distinguish procedure from constitutional validity.
+**Scope:** Ordinary-law exceptions, Article 368, voting thresholds, State ratification and basic structure.
+**Curriculum entry:** [Chapter 023](Prelims-General-Studies-I-Curriculum.md#chapter-023).
 
-**Chapter and curriculum:** [Chapter overview](023-constitutional-structure-citizenship-and-change.md) · [curriculum entry](Prelims-General-Studies-I-Curriculum.md#chapter-023).
+**Navigation:** [Chapter overview](023-constitutional-structure-citizenship-and-change.md) · [curriculum entry](Prelims-General-Studies-I-Curriculum.md#chapter-023).
 
 **Prerequisites:** Chapter 022 and Parts [1](023-constitutional-structure-citizenship-and-change-part-1.md) and [2](023-constitutional-structure-citizenship-and-change-part-2.md). This part teaches all arithmetic needed for its majority examples. The voting scenarios are invented illustrations, not accounts of actual divisions.
 
@@ -156,7 +159,9 @@ Therefore **(b), statement 2 only**, is the independently reasoned answer for th
 
 This is a disclosed correction to the teaching interpretation, **not a claim that the official UPSC answer key or original booklet has been verified here**. The original corpus entry has been left intact. Do not memorise its recorded answer as constitutional doctrine.
 
-## 6. Finish with a method you can reuse
+<a id="6-finish-with-a-method-you-can-reuse"></a>
+
+## Revision and next steps
 
 For any proposed change, identify the legal provision being changed and the provision authorising the change. Ask whether the Constitution supplies an ordinary-law exception. If Article 368 applies, calculate both parliamentary thresholds, check whether the State-ratification proviso applies, and distinguish proper passage from substantive constitutional validity.
 
@@ -164,7 +169,18 @@ For a document question, read the operative article together with its provisos, 
 
 **Next:** [024 — Fundamental Rights and constitutional remedies](024-fundamental-rights-and-constitutional-remedies.md), currently a planning placeholder. Return to the [Chapter 023 overview](023-constitutional-structure-citizenship-and-change.md) for all three parts.
 
-## Sources and maintenance
+## Update watch
+
+Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
+
+| Item | Why it may change | Revisit trigger |
+|---|---|---|
+| Amendment provisions and basic-structure interpretation | A relevant constitutional amendment or controlling decision can change the legal framework. | Check the operative Article 368 and the relevant judgment before applying a changed rule; hypothetical voting examples are not current House counts. |
+| Local 2020 Q28 discrepancy | Verified original wording and official key mapping may resolve the recorded corpus conflict. | Revisit on obtaining those specific primary records; preserve the disclosed reasoning and original entry. |
+
+<a id="sources-and-maintenance"></a>
+
+## Sources
 
 External sources accessed **24 November 2026**:
 

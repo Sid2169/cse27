@@ -265,7 +265,23 @@ About 36 coral islands and islets totalling ~32 km², lying 220–440 km off the
 
 ---
 
-## Reconstruct the relationships on a map
+## Glossary
+
+**Peninsula:** A landmass projecting into the sea and surrounded by water on three sides, connected to a larger body of land on one side.
+
+**Plateau:** A large area of elevated, relatively flat or rolling land that rises steeply from the surrounding terrain on at least one side.
+
+**Pass (mountain pass):** A low gap or col in a mountain ridge, allowing passage from one side to the other. Examples: Zoji La (Greater Himalaya, Kashmir–Ladakh), Banihal (Pir Panjal, Kashmir), Khardung La (Ladakh Range).
+
+**Coastal plain:** A flat, low-lying strip of land between the shoreline and an inland elevated area, formed by sediment deposition or by the emergence of the sea floor.
+
+**Island group:** A cluster of islands that share a common geographic area, origin or administrative jurisdiction. India has two principal island groups: the Andaman and Nicobar Islands (Bay of Bengal) and Lakshadweep (Arabian Sea).
+
+---
+
+<a id="reconstruct-the-relationships-on-a-map"></a>
+
+## Revision and next steps
 
 Use the [Survey of India outline-map collection][soi-maps] and a current physical/political atlas. An outline supports recall; a physical map supplies relief and a political map supplies administrative boundaries. Check the date and legend of each. Do not infer a national or state boundary from the edges of a coloured relief region.
 
@@ -299,19 +315,14 @@ Cover the reference map and reconstruct the large relationships first. Then comp
 
 ---
 
-## Glossary
+## Update watch
 
-**Peninsula:** A landmass projecting into the sea and surrounded by water on three sides, connected to a larger body of land on one side.
+Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
 
-**Plateau:** A large area of elevated, relatively flat or rolling land that rises steeply from the surrounding terrain on at least one side.
-
-**Pass (mountain pass):** A low gap or col in a mountain ridge, allowing passage from one side to the other. Examples: Zoji La (Greater Himalaya, Kashmir–Ladakh), Banihal (Pir Panjal, Kashmir), Khardung La (Ladakh Range).
-
-**Coastal plain:** A flat, low-lying strip of land between the shoreline and an inland elevated area, formed by sediment deposition or by the emergence of the sea floor.
-
-**Island group:** A cluster of islands that share a common geographic area, origin or administrative jurisdiction. India has two principal island groups: the Andaman and Nicobar Islands (Bay of Bengal) and Lakshadweep (Arabian Sea).
-
----
+| Item | Why it may change | Revisit trigger |
+|---|---|---|
+| State/Union territory names, counts and boundaries | The chapter explicitly dates its administrative description; later legal changes can alter it. | After a relevant territorial law or renaming, verify against the official State/UT and Survey of India sources cited below. |
+| Coastline and other measured dimensions | A revised measurement method need not mean physical or territorial gain. | When a new official measurement is issued, retain its method and date and do not combine incompatible old/new estimates. |
 
 ## Sources
 

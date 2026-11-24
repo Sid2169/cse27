@@ -2,6 +2,9 @@
 ## Part 2 of 3 — Freedom, personal liberty and protection from exploitation
 
 **Paper:** Prelims General Studies I. **Authored:** 24 November 2026.
+**Learning outcome:** Read a freedom with its limits and distinguish safeguards concerning criminal process and detention.
+**Scope:** Articles 19–24: freedoms and restrictions, personal liberty, education, detention and exploitation.
+**Curriculum entry:** [Chapter 024](Prelims-General-Studies-I-Curriculum.md#chapter-024).
 
 **Navigation:** [Chapter overview](024-fundamental-rights-and-constitutional-remedies.md) · [curriculum entry](Prelims-General-Studies-I-Curriculum.md#chapter-024) · [Part 1](024-fundamental-rights-and-constitutional-remedies-part-1.md) · [Part 3](024-fundamental-rights-and-constitutional-remedies-part-3.md).
 
@@ -119,7 +122,21 @@ The article does not itself say “all work by all persons below eighteen”. Bu
 
 **[2017 Q62](Prelims-General-Studies-I-PYQS/2017-Prelims-General-Studies-I.md)** illustrates classification by constitutional heading. Trafficking/forced labour and the specified child-employment prohibition fall under protection against exploitation. Abolition of untouchability belongs to equality; minority protections belong to cultural/educational rights. Statements **1 and 4**, option **(c)**, are correct. Each other option includes a protection from a different group.
 
+## Revision and next steps
+
+- Match each Article 19 freedom to its own restriction clause.
+- Distinguish criminal safeguards, ordinary arrest and preventive detention; read the operative text and commencement notes.
+
 Continue to [Part 3 — Religion, culture and remedies](024-fundamental-rights-and-constitutional-remedies-part-3.md). Local PYQ references retain their files' source and transcription caveats.
+
+## Update watch
+
+Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
+
+| Item | Why it may change | Revisit trigger |
+|---|---|---|
+| Arrest/preventive-detention commencement notes | The part distinguishes operative Article 22 wording from an uncommenced amendment printed in a footnote. | Recheck a relevant Gazette commencement notification before treating that proposed text as operative. |
+| Privacy, education and other legal applications | Later legislation or judgments can change a specific application without erasing the date of a historical decision. | Check the operative text and controlling decision when adding a current case; keep the 2017 judgment and education commencement dates as historical references. |
 
 ## Sources
 

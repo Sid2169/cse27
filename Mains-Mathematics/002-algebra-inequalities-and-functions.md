@@ -7,7 +7,7 @@
 **Scope:** fractions, powers, factorisation, polynomials, equations, inequalities, absolute value, intervals, graphs, domains, ranges, inverse and composite functions; manipulate without losing solutions.
 **Prerequisites:** school arithmetic, repaired within this chapter.
 
-**Learning outcome.** By the end of this chapter you should be able to (a) simplify expressions with fractions, powers and factorisations without silently changing their value, (b) solve equations and inequalities while keeping track of exactly which operations are reversible, (c) find the domain and range of a function given by a formula, and (d) construct and verify the composite and inverse of a function.
+**Learning outcome:** By the end of this chapter you should be able to (a) simplify expressions with fractions, powers and factorisations without silently changing their value, (b) solve equations and inequalities while keeping track of exactly which operations are reversible, (c) find the domain and range of a function given by a formula, and (d) construct and verify the composite and inverse of a function.
 
 ---
 
@@ -326,7 +326,9 @@ This chapter is deliberately not tied to one syllabus heading, so its payoff app
 
 ---
 
-## 10. Completion check
+<a id="10-completion-check"></a>
+
+## Revision and next steps
 
 Before moving on, confirm you can do each of these without looking back at this chapter:
 
@@ -340,7 +342,13 @@ Before moving on, confirm you can do each of these without looking back at this 
 
 The next chapter (003) builds directly on this one: trigonometric identities, inverse trigonometric functions (via the domain-restriction idea from section 8.2), and complex arithmetic all assume fluent, careful algebra of the kind practised here.
 
-## 11. Sources
+## Update watch
+
+The mathematical definitions, identities and reasoning taught here are stable; no routine factual update is needed. Revisit only if a cited reference is corrected or the course changes its notation, domain or principal-value conventions.
+
+<a id="11-sources"></a>
+
+## Sources
 
 - **OpenStax, Rice University.** [Precalculus 2e, §1.7 Inverse Functions][os-inverse]. Accessed 23 November 2026.
 

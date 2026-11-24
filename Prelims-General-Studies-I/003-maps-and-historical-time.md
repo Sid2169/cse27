@@ -503,7 +503,9 @@ For current affairs, the same habit applies. When you read about an event, write
 
 ---
 
-## 11. Common mistakes
+<a id="11-common-mistakes"></a>
+
+## Common confusions
 
 | Mistake | Correction |
 |---|---|
@@ -560,7 +562,9 @@ The answers are models, not the only acceptable wording. For scale and time ques
 
 ---
 
-## 13. Readiness check
+<a id="13-readiness-check"></a>
+
+## Revision and next steps
 
 You are ready to move to Chapter 004 when you can:
 
@@ -578,6 +582,16 @@ You are ready to move to Chapter 004 when you can:
 If one of these is weak, repeat the relevant section with a different map or a different set of dates. The skills improve with practice, not with memorising a list of facts.
 
 ---
+
+Next: [004 — Numbers, units, tables and graphs](004-numbers-units-tables-and-graphs.md) (currently a planning placeholder).
+
+## Update watch
+
+Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
+
+| Item | Why it may change | Revisit trigger |
+|---|---|---|
+| Map editions and place labels | Coordinates, scale and BCE/CE reasoning are stable; administrative boundaries and place names in map exercises can change. | Use a dated authoritative map when applying the method to a new place or current-affairs question. |
 
 ## Sources
 

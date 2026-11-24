@@ -322,7 +322,9 @@ Bay of Bengal tropical cyclones follow a different development mechanism: organi
 
 ---
 
-## 14. Common confusions
+<a id="14-common-confusions"></a>
+
+## Common confusions
 
 | Confusion | Clarification |
 |---|---|
@@ -348,6 +350,22 @@ India sits at the junction of multiple circulation systems — this is what make
 - **India's single ITCZ position:** In July, the ITCZ lies roughly over the Gangetic plain, dragging monsoon winds deep into the subcontinent. In January, it retreats to ~10°S.
 
 ---
+
+## Revision and next steps
+
+- Connect pressure gradients, rotation and friction to a wind pattern.
+- Explain a rainfall mechanism and distinguish a tropical cyclone from a frontal system.
+
+Next: [012 — World climates and the Indian monsoon](012-world-climates-and-the-indian-monsoon.md).
+
+## Update watch
+
+Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
+
+| Item | Why it may change | Revisit trigger |
+|---|---|---|
+| Weather-event examples and warnings | A cyclone or weather bulletin describes a particular event and issue time, not a permanent atmospheric state. | Use the latest responsible meteorological agency bulletin for a current event; retain historical examples as dated cases. |
+| Agency classifications and terminology | Operational categories or naming guidance may be revised while the physical mechanisms remain valid. | Recheck the cited meteorological guidance after an announced revision or before applying a category to a new event. |
 
 ## Sources
 

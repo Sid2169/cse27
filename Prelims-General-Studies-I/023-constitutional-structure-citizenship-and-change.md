@@ -1,6 +1,7 @@
 # 023. Constitutional structure, citizenship and change
 
 **Paper:** Prelims General Studies I, UPSC CSE 2027.
+**Learning outcome:** Locate a provision and distinguish ordinary legislation from constitutional amendment.
 
 **Status:** Authored teaching chapter in three parts, 24 November 2026.
 
@@ -22,4 +23,18 @@ The split follows three different questions: how the document is organised; how 
 
 **Corpus discrepancy encountered:** Part 3 explains why the answer recorded for local **2020 Q28** conflicts with the constitutional provisions. The original PYQ file is preserved; its key is not silently adopted or changed.
 
-**Next chapter:** [024 — Fundamental Rights and constitutional remedies](024-fundamental-rights-and-constitutional-remedies.md). That file remains a planning placeholder at this chapter's preparation date.
+**Next chapter:** [024 — Fundamental Rights and constitutional remedies](024-fundamental-rights-and-constitutional-remedies.md). That chapter now contains authored teaching material.
+
+## Revision and next steps
+
+Use the ordered part links above for teaching and revision. The closing section of each part identifies what to retain and where to continue.
+
+## Update watch
+
+Use the part-specific watches for the exact legal provisions, source discrepancies and recheck triggers. Source dates and observation periods are recorded with the relevant part.
+
+[Part 1 watch](023-constitutional-structure-citizenship-and-change-part-1.md#update-watch) · [Part 2 watch](023-constitutional-structure-citizenship-and-change-part-2.md#update-watch) · [Part 3 watch](023-constitutional-structure-citizenship-and-change-part-3.md#update-watch).
+
+## Sources
+
+The teaching references, caveats and original access dates are retained with the relevant part: [Part 1 sources](023-constitutional-structure-citizenship-and-change-part-1.md#sources) · [Part 2 sources](023-constitutional-structure-citizenship-and-change-part-2.md#sources) · [Part 3 sources](023-constitutional-structure-citizenship-and-change-part-3.md#sources).

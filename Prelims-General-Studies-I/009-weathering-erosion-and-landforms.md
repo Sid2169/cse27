@@ -6,7 +6,7 @@
 - **Curriculum entry:** [009 — Weathering, erosion and landforms](Prelims-General-Studies-I-Curriculum.md#chapter-009).
 - **Prerequisites:** Chapters 003–006. Then [007](007-earth-in-the-solar-system-and-its-motions.md) and [008](008-earth-s-interior-rocks-and-tectonic-hazards.md) in this topic — in particular Chapter 008's rock cycle and plate boundaries, which this chapter builds on without re-teaching.
 - **Scope:** Weathering, mass movement, erosion and deposition by rivers, groundwater, glaciers, wind and waves.
-- **Status:** The processes and landform vocabulary are stable, long-established geography. A few illustrative examples (recent gully-erosion mapping, a specific landslide) are dated observations rather than permanent facts; the Sources section says when they were read.
+- **Update status:** The processes and landform vocabulary are stable, long-established geography. A few illustrative examples (recent gully-erosion mapping, a specific landslide) are dated observations rather than permanent facts; the Sources section says when they were read.
 
 **Related chapters:** [007 — Earth in the solar system and its motions](007-earth-in-the-solar-system-and-its-motions.md) · [008 — Earth's interior, rocks and tectonic hazards](008-earth-s-interior-rocks-and-tectonic-hazards.md) · [013 — Ocean properties and circulation](013-ocean-properties-and-circulation.md) · [014 — Freshwater, drainage and groundwater](014-freshwater-drainage-and-groundwater.md) · [015 — India's location and physical regions](015-india-s-location-and-physical-regions.md) · [016 — Indian rivers, lakes and water geography](016-indian-rivers-lakes-and-water-geography.md) · [017 — Indian soils, vegetation and regional links](017-indian-soils-vegetation-and-regional-links.md)
 
@@ -289,7 +289,9 @@ The chapter's stated learning outcome, worked through five short descriptions. I
 
 ---
 
-## 13. Common confusions
+<a id="13-common-confusions"></a>
+
+## Common confusions
 
 | Easily confused | The difference |
 |---|---|
@@ -316,6 +318,22 @@ A short list of standing Indian examples, each explained by a mechanism taught a
 - **The Peninsular Block's residual hills**, such as the Veliconda and Mahendragiri ranges — resistant rock left standing after prolonged denudation reduced the surrounding shield, an old-age landscape signature (Section 7.1); see [Chapter 015](015-india-s-location-and-physical-regions.md) for India's physical regions as a whole.
 
 ---
+
+## Revision and next steps
+
+- Distinguish breakdown in place, downslope movement and transport by an agent.
+- For a landform, name the agent and explain the formation sequence rather than matching its name alone.
+
+Next: [010 — Atmospheric structure and heat balance](010-atmospheric-structure-and-heat-balance.md).
+
+## Update watch
+
+Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
+
+| Item | Why it may change | Revisit trigger |
+|---|---|---|
+| Dated erosion and landslide cases | A field study describes a location and observation period; later mapping can add evidence or revise an estimate. | When using a case as a current condition, check the study or responsible survey cited in Sources. |
+| Named wetland and site descriptions | Designation, mapped boundaries and reported condition can change without changing the formation mechanism. | Check the relevant official site record after a designation or boundary revision; keep historical evidence dated. |
 
 ## Sources
 

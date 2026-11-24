@@ -2,8 +2,11 @@
 ## Part 2 of 3 — Citizenship and official languages
 
 **Paper:** Prelims General Studies I. **Authored:** 24 November 2026.
+**Learning outcome:** Separate citizenship from residence and scheduled-language status from official use.
+**Scope:** Constitutional and statutory citizenship, acquisition/loss and OCI; the official-language framework.
+**Curriculum entry:** [Chapter 023](Prelims-General-Studies-I-Curriculum.md#chapter-023).
 
-**Chapter and curriculum:** [Chapter overview](023-constitutional-structure-citizenship-and-change.md) · [curriculum entry](Prelims-General-Studies-I-Curriculum.md#chapter-023).
+**Navigation:** [Chapter overview](023-constitutional-structure-citizenship-and-change.md) · [curriculum entry](Prelims-General-Studies-I-Curriculum.md#chapter-023).
 
 **Prerequisites:** Chapter 022 and [Part 1](023-constitutional-structure-citizenship-and-change-part-1.md), particularly the distinction between a constitutional article and an ordinary Act. After this part, proceed to [Part 3](023-constitutional-structure-citizenship-and-change-part-3.md).
 
@@ -131,9 +134,25 @@ These provisions show why language policy is not solely a choice of administrati
 
 **[2024 Q9](Prelims-General-Studies-I-PYQS/2024-Prelims-General-Studies-I.md)** asks which languages were added by the **71st Amendment, 1992**. Konkani, Manipuri and Nepali were the three, making option **(a)** correct. Maithili is also in the Eighth Schedule today, but it was added by the **92nd Amendment, 2003**, together with Bodo, Dogri and Santhali. Today's membership cannot establish which historical amendment inserted a name. The [Eighth Schedule's official footnotes][constitution] resolve the distinction.
 
+## Revision and next steps
+
+- Separate constitutional citizenship at commencement from statutory acquisition and loss.
+- Distinguish residence, citizenship and OCI, and scheduled-language status from official use.
+
 Continue to [Part 3 — Amendment and constitutional limits](023-constitutional-structure-citizenship-and-change-part-3.md).
 
-## Sources and update boundaries
+## Update watch
+
+Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
+
+| Item | Why it may change | Revisit trigger |
+|---|---|---|
+| Citizenship/OCI eligibility and procedures | Statutory rules, notifications and controlling decisions can change the applicable conditions or process. | Check the Act, MHA/OCI rules and orders for an actual current question; a dated implementation example is not a current application checklist. |
+| Official-language provisions and classifications | Constitutional amendments or applicable language legislation can change a legal statement. | Check the official constitutional text and Department of Official Language sources after a relevant change. |
+
+<a id="sources-and-update-boundaries"></a>
+
+## Sources
 
 All external sources accessed **24 November 2026**:
 

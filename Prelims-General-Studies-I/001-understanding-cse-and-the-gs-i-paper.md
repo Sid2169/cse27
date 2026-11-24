@@ -515,7 +515,9 @@ Current affairs starts in Chapter 002 and continues throughout. It is not a sepa
 
 ---
 
-## 9. Common beginner mistakes
+<a id="9-common-beginner-mistakes"></a>
+
+## Common confusions
 
 | Mistake | Correction |
 |---|---|
@@ -532,7 +534,9 @@ Current affairs starts in Chapter 002 and continues throughout. It is not a sepa
 
 ---
 
-## 10. Readiness check
+<a id="10-readiness-check"></a>
+
+## Revision and next steps
 
 You are ready to move to Chapter 002 when you can:
 
@@ -546,6 +550,16 @@ You are ready to move to Chapter 002 when you can:
 If you cannot do one of these, reread the relevant section. This chapter is a map, not a memory test.
 
 ---
+
+Next: [002 — Learning, notes and a first newspaper routine](002-learning-notes-and-a-first-newspaper-routine.md).
+
+## Update watch
+
+Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
+
+| Item | Why it may change | Revisit trigger |
+|---|---|---|
+| Examination scheme and scoring rules | The chapter uses the cited examination notice; a later notice may change eligibility, attendance, paper or marking rules. | Read the new UPSC CSE notice and corrections before applying its rules to a later examination or full-paper attempt. |
 
 ## Sources
 

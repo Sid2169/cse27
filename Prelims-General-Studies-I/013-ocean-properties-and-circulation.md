@@ -395,7 +395,9 @@ The key correction for the PYQ ([2017 Q81][pyq2017]): Statement 1 is incorrect b
 
 ---
 
-## 14. Common confusions
+<a id="14-common-confusions"></a>
+
+## Common confusions
 
 | Confusion | Clarification |
 |---|---|
@@ -410,7 +412,20 @@ The key correction for the PYQ ([2017 Q81][pyq2017]): Statement 1 is incorrect b
 
 ---
 
-## 15. Sources
+## Revision and next steps
+
+- Use temperature, salinity and density to explain a circulation or mixing pattern.
+- Distinguish a wave, a tide, a current and coastal upwelling, including the coastline and wind orientation.
+
+Next: [014 — Freshwater, drainage and groundwater](014-freshwater-drainage-and-groundwater.md).
+
+## Update watch
+
+The circulation, wave, tide and upwelling mechanisms are stable; no routine factual update is needed for those explanations. The maps teach general patterns, not present-day ocean conditions. Before using any measurement or climate example as current, check its observation period and the corresponding reference in [Sources](#sources). Revisit a definition or estimate when its cited authority issues a correction or revised assessment.
+
+<a id="15-sources"></a>
+
+## Sources
 
 - **NOAA National Ocean Service.** [Elementary tidal theory—the equilibrium tide][noaa-tides]. Accessed 23 November 2026.
 

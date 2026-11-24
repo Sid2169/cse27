@@ -428,7 +428,9 @@ The textbook teaches the concept; the newspaper shows the concept in a current e
 
 ---
 
-## 10. Common mistakes
+<a id="10-common-mistakes"></a>
+
+## Common confusions
 
 | Mistake | Correction |
 |---|---|
@@ -477,7 +479,9 @@ The answers are models, not the only acceptable wording. The purpose is to pract
 
 ---
 
-## 12. Readiness check
+<a id="12-readiness-check"></a>
+
+## Revision and next steps
 
 You are ready to move to Chapter 003 when you can:
 
@@ -492,6 +496,16 @@ You are ready to move to Chapter 003 when you can:
 If you cannot do one of these, repeat the relevant section with a different paragraph. The method improves with practice, not with memorising the instructions.
 
 ---
+
+Next: [003 — Maps and historical time](003-maps-and-historical-time.md).
+
+## Update watch
+
+Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
+
+| Item | Why it may change | Revisit trigger |
+|---|---|---|
+| News examples and factual updates | The reading and revision methods are reusable; the facts in a dated news example may develop. | Before reusing an example as current news, check its original source and observation date. |
 
 ## Sources
 

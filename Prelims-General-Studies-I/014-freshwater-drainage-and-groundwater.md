@@ -283,7 +283,9 @@ Groundwater depletion is accelerating this stress because groundwater sustains d
 
 ---
 
-## 13. Common confusions
+<a id="13-common-confusions"></a>
+
+## Common confusions
 
 | Confusion | Clarification |
 |---|---|
@@ -298,7 +300,25 @@ Groundwater depletion is accelerating this stress because groundwater sustains d
 
 ---
 
-## 14. Sources
+## Revision and next steps
+
+- Trace water through a catchment and distinguish a river basin from a groundwater system.
+- Explain pressure and water-table conditions before identifying an artesian or flowing well.
+
+Next: [015 — India's location and physical regions](015-india-s-location-and-physical-regions.md).
+
+## Update watch
+
+Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
+
+| Item | Why it may change | Revisit trigger |
+|---|---|---|
+| Groundwater assessment figures | Extraction, recharge and stress estimates depend on the assessment year and method. | When a new official groundwater assessment appears, compare its period and method before updating the figures. |
+| Wetland designations and water-body condition | A designation or assessment can change while the hydrological concepts remain stable. | Check the responsible official site or assessment record before quoting current status; preserve the dates of historical observations. |
+
+<a id="14-sources"></a>
+
+## Sources
 
 - **U.S. Geological Survey, Water Science School.** [Watersheds and Drainage Basins][usgs-watershed]. Accessed 23 November 2026.
 

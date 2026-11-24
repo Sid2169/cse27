@@ -2,8 +2,11 @@
 ## Part 1 of 3 — Reading the Constitution and understanding territory
 
 **Paper:** Prelims General Studies I. **Authored:** 24 November 2026.
+**Learning outcome:** Locate a provision and distinguish State consultation from State consent.
+**Scope:** Parts, articles, clauses and schedules; the Union, State territory and Articles 1–4.
+**Curriculum entry:** [Chapter 023](Prelims-General-Studies-I-Curriculum.md#chapter-023).
 
-**Chapter and curriculum:** [Chapter 023 overview](023-constitutional-structure-citizenship-and-change.md) · [curriculum entry](Prelims-General-Studies-I-Curriculum.md#chapter-023).
+**Navigation:** [Chapter 023 overview](023-constitutional-structure-citizenship-and-change.md) · [curriculum entry](Prelims-General-Studies-I-Curriculum.md#chapter-023).
 
 **Prerequisite:** [Chapter 022](022-political-foundations-and-constitution-making.md), especially constitutional authority and limits. This part teaches document structure and territory; citizenship and language follow in [Part 2](023-constitutional-structure-citizenship-and-change-part-2.md), and amendment in [Part 3](023-constitutional-structure-citizenship-and-change-part-3.md).
 
@@ -120,7 +123,17 @@ These are explanations of existing questions, not a new test. Use the local file
 - **[2014 Q25](Prelims-General-Studies-I-PYQS/2014-Prelims-General-Studies-I.md): anti-defection.** The Tenth Schedule is option **(d)**. The Second concerns specified offices, the Fifth Scheduled Areas/Tribes, and the Eighth languages. Distinguishing those subjects is enough; detailed disqualification procedure is not required for this question.
 - **[2024 Q51](Prelims-General-Studies-I-PYQS/2024-Prelims-General-Studies-I.md): location of provisions.** All three statements are correct: municipalities in Part IXA, emergencies in Part XVIII and amendment in Part XX, giving option **(d)**. The question asks where provisions are located, not whether every power listed for municipalities operates without a State law.
 
-**Before continuing:** Use the contents to find Article 3, distinguish a proviso from an Explanation, and explain why the First, Fourth and Seventh Schedules serve different functions. Then proceed to [Part 2 — Citizenship and official languages](023-constitutional-structure-citizenship-and-change-part-2.md).
+## Revision and next steps
+
+Use the contents to find Article 3, distinguish a proviso from an Explanation, and explain why the First, Fourth and Seventh Schedules serve different functions. Then proceed to [Part 2 — Citizenship and official languages](023-constitutional-structure-citizenship-and-change-part-2.md).
+
+## Update watch
+
+Use the corresponding references in [Sources](#sources). Keep historical observations attached to their original periods.
+
+| Item | Why it may change | Revisit trigger |
+|---|---|---|
+| Constitutional structure and territorial law | An amendment or territorial law may change a provision, schedule or administrative description. | Check the official constitutional text and relevant law before applying a changed rule; historical examples keep their dates. |
 
 ## Sources
 
