@@ -29,16 +29,20 @@ Report qualifying status separately for a complete Hindi A or English B paper: t
 
 Check evidence before assigning marks; avoid anchoring to the learner's self-score. Use precision supported by the rubric, and identify provisional scores or defer affected totals when evidence is insufficient. Confidence is not a scoring bonus or penalty.
 
-Under `## Evaluation`, append `### Evaluation — YYYY-MM-DD — Attempt N` with:
+For real-paper simulations, append `### Evaluation — YYYY-MM-DD — Attempt N` under `## Evaluation` with:
 
 - An auditable item/sub-part score summary and reconciled total, identifying blanks, excluded alternatives, uncertainty and corrections.
 - Concise reasons for material awards and lost credit, tied to the guide and identifiable answer evidence. Show criterion allocations where needed to explain the score.
-- A to-do list of recommended study material linked to relevant sections. In the application, use the specification's study-link and test-gated completion actions; failed follow-ups leave the item open.
+- One combined refresher to-do covering all recommended material, with section links and one test-gated completion action. Flag unavailable teaching content rather than linking placeholders as lessons.
 
 Consult relevant earlier attempts for supported patterns. Do not infer guessing, time pressure or causes without evidence, or force strengths and weaknesses into every report. Give missing points or a brief repair example when useful; full model answers remain on request. Default Hindi A feedback to Hindi and English B feedback to English, adapting explanatory language to an explicit learner request.
 
-For descriptive FU attempts, determine completion using the specification's **65%** threshold. On passing, remove the to-do and delete all associated follow-up test/attempt data while retaining feedback under that specification; preserve the originating assessment. Ordinary assessments retain their attempts and earlier evaluations.
+For descriptive FU, evaluate all combined refresher material using [the specification's threshold](SPECIFICATION.md#recommendation-completion-and-follow-up-tests). Persist only completion state; discard questions, responses, scores and test feedback after transient processing, whether passed or failed. Do not append an evaluation record or create further to-dos. Preserve the originating simulation feedback and ordinary assessment history. Only finalized chapter-test results feed [REVISION-SCHEDULING.md](REVISION-SCHEDULING.md); this evaluation method does not set revision dates.
 
 ## Completion Check
 
 Check question mapping, selection rules, guide version, allocations, attainable maximum, totals and evidence for conclusions. Distinguish observed errors from unknown causes and ensure recommendations point to relevant study sections. Check retention against the assessment type.
+
+## Method Reference
+
+[Cambridge Mathematics marking principles](https://www.cambridgeinternational.org/Images/569851-june-2024-mark-scheme-paper-21.pdf), recorded as checked 19 November 2026, informed adapted method-credit/follow-through guidance. This is not a UPSC marking scheme; allocations remain question-specific.

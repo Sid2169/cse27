@@ -1,35 +1,29 @@
-# Prelims Test Feedback Instructions
+# Prelims Test Feedback
 
-Evaluate the identified attempt using its test, answer key and learner responses. Apply the shared evidence and recording rules in [AGENTS.md](AGENTS.md). The test contract and marking baseline are in [PRELIMS-TEST-GENERATION.md](PRELIMS-TEST-GENERATION.md).
+Evaluate GS-I/CSAT attempts against their pre-attempt key, saved for simulations and transient for FU. [PRELIMS-TEST-GENERATION.md](PRELIMS-TEST-GENERATION.md) owns patterns/marking; [AGENTS.md](AGENTS.md) owns evidence and correction safeguards. Route checkpoints to [CHAPTER-CHECKPOINT.md](CHAPTER-CHECKPOINT.md).
 
 ## Validate and Score
 
-Accept marked checkboxes or clearly mapped answers supplied separately. No mark is a blank response. Multiple selected options are a wrong response under the test's marking rule, not a reason to shrink the denominator. If a submission is ambiguous rather than a confirmed multiple response, clarify it; do not guess an option or present a provisional score as final. If no attempt is supplied, ask for it.
+Accept on-screen selections, marked checkboxes or clearly mapped answers. A confirmed blank is unattempted; multiple selections count as wrong. Clarify missing/unreadable submissions or ambiguous mapping rather than guessing or shrinking the denominator.
 
-Use the marking recorded in the test; flag any discrepancy from its stated exam baseline. For a uniform per-question mark `m`:
+Apply the test's declared rule. With uniform item mark `m` and the standard one-third penalty:
 
-- `C` = correct; `W` = wrong single responses; `M` = multiple responses; `B` = blanks.
-- Attempted = `C + W + M`; scored questions = `C + W + M + B`.
-- Raw marks = `m × C`; penalty = `m × (W + M) / 3`.
-- Net score = raw marks − penalty; maximum = `m × scored questions`.
-- Net percentage = `100 × net / maximum`; attempted accuracy = `100 × C / attempted` when attempted is nonzero.
+- `C`, `W`, `M`, `B` = correct, wrong single, multiple and blank counts; `N = C + W + M + B`.
+- Raw marks = `m × C`; penalty = `m × (W + M) / 3`; net = raw − penalty; maximum = `m × N`.
+- Net percentage = `100 × net / maximum`; attempted accuracy = `100 × C / (C + W + M)`.
 
-Report the counts, penalty and net score against the maximum with enough working to audit them. Keep fractional penalties exact until the displayed result; percentages with a zero denominator are not applicable.
+Keep penalties exact until display; zero-denominator percentages are unavailable. Historical exceptions use the source paper's rule, not an assumed modern formula. For FU, determine completion from correct answers divided by all valid questions, including blanks, under [the specification](SPECIFICATION.md#recommendation-completion-and-follow-up-tests); attempted accuracy and net percentage cannot substitute.
 
-If a question or key is defective, identify and substantiate the defect. Use a versioned correction where the item remains valid. If it cannot be scored fairly, exclude it from both scoring and diagnosis for all affected attempts, and state its number, reason, original question count and adjusted maximum. Retain any previously recorded result alongside the corrected result.
+For a defective key/item, substantiate the problem and apply a versioned correction. Exclude an unscorable item from scoring and diagnosis consistently across affected attempts, explaining its number and adjusted maximum while retaining earlier results. Defer FU completion if unresolved defects, too few valid questions or inadequate coverage prevent meeting the specification.
 
-## Diagnosis and Follow-up
+## Feedback
 
-Use wrong answers, blanks and repeated successes as evidence. Consult the linked chapter to identify specific gaps and useful revision sections. Explain a wrong choice when doing so adds to the existing key; do not reproduce the whole key unnecessarily.
+Report counts, penalty and net score with auditable arithmetic. Explain material errors and consult relevant earlier attempts for supported patterns. Distinguish observed performance from possible causes: blanks do not prove ignorance, and negative marks do not establish guessing. Breakdowns and timing analysis require sufficient evidence.
 
-Distinguish observed performance from possible causes. A chosen distractor alone may not establish whether the learner lacked knowledge or misread the question. Use tentative language or leave the cause unclassified. Blanks are not proof of ignorance, and negative marks alone do not establish indiscriminate guessing.
+For each real-paper simulation feedback record, combine all evidence-supported refresher recommendations into one to-do, with section links and one test-gated completion action. Flag missing teaching material rather than presenting placeholders as lessons. FU feedback is transient and creates no further to-dos. Explain errors without reproducing the whole key or inventing remedial work. For UPYQ, make replacement provenance available with feedback.
 
-Topic, format, demand-level or current-fact breakdowns are useful only when the sample supports them. Do not force a strength or weakness from a single item or invent one to fill a heading. Analyse timing only when reported.
+Only finalized chapter-test results feed [REVISION-SCHEDULING.md](REVISION-SCHEDULING.md); this method does not set intervals. For FU, persist only the combined to-do completion state; discard all test/evaluation data after transient use, passed or failed. Preserve the originating simulation and its feedback.
 
-Recommend the highest-impact next actions, tied to the evidence and relevant chapter sections. Retrieval, worked reasoning, fresh application or a later retest may help; choose follow-up scope and timing to suit the attempt rather than imposing a fixed schedule.
+## Record and Check
 
-## Output and Verification
-
-Write in English. Under the test's `## Feedback`, append `### Feedback — YYYY-MM-DD — Attempt N`, with an auditable score summary, useful findings and next actions. Use tables or question-wise notes where they improve clarity; no other section layout is mandatory.
-
-Check answer mapping, counts, arithmetic, denominator adjustments and the evidence behind conclusions. Preserve the submitted responses separately from the diagnosis.
+For simulations, append `### Feedback — YYYY-MM-DD — Attempt N` under `## Feedback`, in English by default. Include score, useful findings and recommendations. Check mapping, counts, arithmetic, corrections, section links and retention for the mode before finalizing.

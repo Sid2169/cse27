@@ -1,61 +1,35 @@
-# Prelims Test Generation Instructions
+# Prelims Test Generation
 
-Generate on-demand Prelims tests: chapter-part tests for GS-I or CSAT, and full-length GS-I mocks. Apply the shared assessment rules in [AGENTS.md](AGENTS.md); feedback uses [PRELIMS-TEST-FEEDBACK.md](PRELIMS-TEST-FEEDBACK.md).
+Generate GS-I or CSAT tests on request. Use [shared generation procedures](TEST-GENERATION-COMMON.md) for CH, CUM, FULL, PYQ, UPYQ and FU; [AGENTS.md](AGENTS.md) for safeguards; [PRELIMS-TEST-FEEDBACK.md](PRELIMS-TEST-FEEDBACK.md) for evaluation. MCQ chapter checkpoints have their own method.
 
-## Chapter-Part Scope and Duration
+## Pattern and Marking
 
-One test covers one chapter part, or the whole chapter if unsplit. Choose a duration of **30–60 minutes** and a question count appropriate to the taught scope, reading load and calculation or diagram demands. These are chapter tests, not full-length mocks. If the content cannot sustain a worthwhile test within that duration, explain the readiness problem rather than pad it.
+CH/CUM sizes and durations scale to taught coverage. FULL follows the selected paper's verified pattern; the preparation baselines are:
 
-Record the sections assessed. For further tests on the same part, consult earlier coverage to avoid accidental repetition; a broad part can be sampled through multiple requested tests.
+| Paper | Questions | Marks | Duration | Correct | Wrong/multiple | Blank |
+|---|---:|---:|---|---:|---:|---:|
+| GS-I | 100 | 200 | 2 hours | +2 | −2/3 | 0 |
+| CSAT | 80 | 200 | 2 hours | +2.5 | −5/6 | 0 |
 
-## Full-Length GS-I Scope and Design
+Use these per-item marks for generated CH/CUM/FULL tests. For historical papers, preserve that year's instructions and marking, including any exceptions. FU completion uses accuracy over all questions under the specification, not the net-score percentage or attempted accuracy; declare its scoring before presentation.
 
-Generate a full-length GS-I mock only on request. It is a standalone paper: one sitting, **2 hours**, **100 four-option MCQs**, **200 marks**; it does not include CSAT. Authored chapters are not a readiness gate because this mode follows the official paper, not a chapter sequence. Label it `diagnostic` when taken before full coverage; never present a cutoff prediction.
+Pattern sources and limitations are recorded in the [GS-I curriculum](Prelims-General-Studies-I/Prelims-General-Studies-I-Curriculum.md#paper-metadata) and [CSAT curriculum](Prelims-CSAT/Prelims-CSAT-Curriculum.md#1-understand-the-paper-and-begin). They reference the 2026 notification and local PYQs. Recheck the official notification/booklet if the pattern changes; do not describe an editorial update as fresh source verification.
 
-Full-length mocks should simulate the actual UPSC Prelims GS-I examination at standard UPSC difficulty. Calibrate breadth, factual depth, conceptual reasoning, plausible distractors and reading load against the local PYQs, including recent papers with their stated caveats. Include a realistic spread of accessible, moderate and demanding items; a beginner audience or diagnostic label is not a reason to simplify the paper. Record any learner-requested departure from this standard for that test only. Difficulty is an editorial calibration, not an empirically equated score or a prediction of a future paper.
+## Question Design
 
-Before drafting, record a 100-question blueprint. Use the [official syllabus and pattern](Prelims-General-Studies-I/Prelims-General-Studies-I-Curriculum.md#paper-metadata) as the boundary, the [2013–2026 PYQs](Prelims-General-Studies-I/Prelims-General-Studies-I-PYQS/) for recurring formats and breadth, and the [curriculum evidence](Prelims-General-Studies-I/Prelims-General-Studies-I-Curriculum.md#evidence-used-to-set-emphasis) for registered StudyIQ/VisionIAS analyses and conventional references. Treat publisher subject counts as one-year evidence, not fixed weightage; do not add overlapping current-affairs and subject percentages. Represent all seven syllabus areas, interleave them across the paper, and vary the blueprint between mocks.
+Write in English by default, using four options `(a)`–`(d)` and one defensible answer. Preserve source wording and instructions in historical modes. Use plausible distractors, clear wording and varied demands suited to the topic; avoid unintended cues and fixed format quotas.
 
-Set and date a current-affairs cutoff; default to the 12 months before generation unless the learner requests a different window for that test, and state that this is a practice convention. Tie current events to syllabus concepts. Write new items in PYQ style rather than copying questions. Use maps, tables, chronology and statement-based formats where the topic warrants; supply unfamiliar data needed for reasoning. Keep options plausible and comparable in length, with one defensible answer. Avoid time-sensitive facts without a stated reference date.
+- **GS-I:** calibrate syllabus breadth, factual depth, reasoning and reading load against PYQs with their caveats. FULL blueprints cover all seven syllabus areas without fixed predicted weightage. Interleave subjects and vary contexts between tests. Date current-affairs cutoffs and sources; the default 12-month window before generation is a practice convention, adjustable on request.
+- **CSAT:** balance comprehension, reasoning, numeracy and data interpretation against the syllabus/PYQs without fixed topic quotas. Supply complete passages, shared directions, diagrams and data. Comprehension must be answerable from its passage; independently verify calculations, assumptions and all plausible cases.
 
-Number questions 1–100 continuously without subject headings. Put the pre-attempt key in a labelled `<details>` block as a table of question number, answer, topic/syllabus area and a one-line rationale; cite a dated source for time-sensitive items. Keep explanations out of the question section.
+Full papers should approximate UPSC demand, including a realistic difficulty spread. A diagnostic label is not a reason to simplify them. Difficulty calibration is editorial, not score equating or a cutoff prediction.
 
-## Question Standard
+## Key and Recording
 
-- Write in English. Use four-option MCQs labelled `(a)`–`(d)`, with exactly one defensible correct option.
-- Select formats and demand levels appropriate to the topic and UPSC style; no fixed mix of retrieval, application or formats is required.
-- Make distractors plausible and wording clear. Sound elimination is legitimate; avoid unintended answer cues or implausible distractors that bypass the intended knowledge or skill.
-- Novel scenarios, passages, maps and data may test taught knowledge or skills. Supply unfamiliar information required for reasoning; do not require untaught background facts. CSAT comprehension should be answerable from the supplied passage.
-- For any time-sensitive question, state the relevant date or reference period so its answer remains interpretable.
+Before presentation, independently solve every item and prepare its correct option, explanation and topic; add relevant section links for chapter/cumulative/follow-up tests and sources for consequential facts. Keep explanations out of the question section. Key visibility follows AGENTS.md and the application's access requirements.
 
-## Marking
+Use `GS1` or `CSAT` prefixes: `<prefix>-CH-<chapter-slug>-T01` for chapters and `<prefix>-<mode>-T01` otherwise, incrementing to the next unused ID. Keep existing IDs and historical attempts unchanged. Store new repository tests in the paper's `<paper-name>-TESTS/` folder, retaining `Prelims-General-Studies-I/full-test/` for GS-I FULL tests.
 
-| Paper | Correct answer | Wrong or multiple responses | Blank |
-|---|---:|---:|---:|
-| GS-I | +2 | −2/3 | 0 |
-| CSAT | +2.5 | −2.5/3 | 0 |
+Record paper, mode, coverage/blueprint, question count, duration, maximum marks, marking, generation/source dates, any cutoff/diagnostic label and status. Include source/target years for PYQ variants. Use `## Instructions`, `## Questions`, a labelled collapsible key and `## Feedback`; number questions continuously and use checkbox options. Application attempts use the specification's timed-session/autosave rules; repository files cannot enforce a timer. These recording rules apply to real-paper simulations. FU uses the parent simulation feedback during transient processing; create no permanent test ID, file or attempt record.
 
-The GS-I row applies to chapter-part and full-length tests; the CSAT row applies only to chapter-part tests. The penalty is one-third of the question's marks. These follow the documented Prelims baseline; use the official notice linked from the [GS-I curriculum](Prelims-General-Studies-I/Prelims-General-Studies-I-Curriculum.md#paper-metadata) and recheck if UPSC changes the rule.
-
-## IDs and File Contract
-
-| Mode | ID format | Folder |
-|---|---|---|
-| GS-I chapter-part | `GS1-<chapter-slug>-p<part>-t<nn>` | `Prelims-General-Studies-I/Prelims-General-Studies-I-TESTS/` |
-| GS-I full paper | `GS1-full-t<nn>` | `Prelims-General-Studies-I/full-test/` |
-| CSAT chapter-part | `CSAT-<chapter-slug>-p<part>-t<nn>` | `Prelims-CSAT/Prelims-CSAT-TESTS/` |
-
-Use a stable lowercase hyphenated chapter slug, `p1` for an unsplit chapter, and the next unused test number for that mode. The filename is `<test-id>.md`.
-
-For chapter-part tests, include metadata for ID, paper, linked chapter/part, coverage, duration, question count, maximum marks, marking rule, generation date and attempt status. For full-length tests, include ID, paper, mode, blueprint, current-affairs cutoff, any `diagnostic` label, duration, question count, maximum marks, marking rule, generation date and attempt status. Then provide:
-
-- `## Instructions`: one sitting, no aids or key consultation, exactly one `[x]` checkbox per question, blanks unattempted.
-- `## Questions`: numbered questions with checkbox options, such as `- [ ] (a) ...`.
-- A labelled `<details>` block containing the answer key and explanations. Each entry identifies the answer and topic, plus the relevant chapter section for chapter-part tests, and explains the reasoning. Demand/format tags are optional when useful for later diagnosis.
-- `## Feedback`: initially note that feedback has not been requested.
-
-## Completion Check
-
-Independently solve each item and check ambiguity, distractors, scope and explanation accuracy. Check the duration/load, count and marks arithmetic, ID uniqueness and file location. Ensure answers are not exposed in the question section.
-
-For a full-length mock, also verify 100 questions, 200 marks and 2 hours; continuous numbering; all seven syllabus areas in the blueprint; the dated current-affairs cutoff; source support for time-sensitive keys; and absence of verbatim PYQs.
+Check scope, freshness where required, question/key validity, sources, count/marks arithmetic, workload, ID uniqueness and links. Use the paper-specific FULL count rather than assuming every paper has 100 questions.

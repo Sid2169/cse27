@@ -34,7 +34,7 @@ Each paper folder contains:
 - `<paper-name>-Curriculum.md` — a comprehensive, phased curriculum, generated from the researched exam pattern, the syllabus, and PYQs; doubles as the index
 - `<paper-name>-PYQS/<year>-<paper-name>.md` — year-wise PYQ notes (2013–2026), one file per exam year; for two-paper subjects, both papers appear in separate Paper I and Paper II sections
 - `<chapter>.md` or `<chapter>-part-N.md` — chapter content; split parts only when a curriculum chapter is too large, with every part linked from the curriculum
-- `Prelims-<paper>-TESTS/<test-id>.md` — on-demand Prelims chapter-part tests; feedback is appended in the same file
+- `Prelims-<paper>-TESTS/<test-id>.md` — on-demand Prelims tests; feedback is appended in the same file
 - [Prelims GS-I full-test](Prelims-General-Studies-I/full-test/) — full-length GS-I mocks; feedback is appended in the same test file
 - `Mains-<paper>-TESTS/<test-id>.md` — on-demand Mains tests for GS I–IV, Essay, Hindi A, English B and Mathematics I–II; evaluation is appended in the same file
 
@@ -44,6 +44,10 @@ Chapter generation method: [CHAPTER-GENERATION.md](CHAPTER-GENERATION.md)
 
 Chapter checkpoint generation and evaluation: [CHAPTER-CHECKPOINT.md](CHAPTER-CHECKPOINT.md)
 
+Chapter-test revision scheduling: [REVISION-SCHEDULING.md](REVISION-SCHEDULING.md)
+
+Shared test generation procedures: [TEST-GENERATION-COMMON.md](TEST-GENERATION-COMMON.md)
+
 Prelims test generation method: [PRELIMS-TEST-GENERATION.md](PRELIMS-TEST-GENERATION.md)
 
 Prelims test feedback method: [PRELIMS-TEST-FEEDBACK.md](PRELIMS-TEST-FEEDBACK.md)
@@ -52,7 +56,7 @@ Mains test generation method: [MAINS-TEST-GENERATION.md](MAINS-TEST-GENERATION.m
 
 Mains answer evaluation method: [MAINS-ANSWER-EVALUATION.md](MAINS-ANSWER-EVALUATION.md)
 
-Remaining assessment planning: [PLANNED-FEATURES.md](PLANNED-FEATURES.md)
+Implementation, planning and decisions: [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md)
 
 ## Practice Resources
 
@@ -92,4 +96,4 @@ The [Mains English Paper B curriculum](Mains-English/Mains-English-Curriculum.md
 
 The [Mains Hindi Paper A curriculum](Mains-Indian-Language/Mains-Indian-Language-Curriculum.md), prepared on 24 November 2026, covers the five official skill areas through 28 planned chapters numbered 001–028 across seven phases. Written in Hindi, it develops language foundations, usage and vocabulary, comprehension, précis, short essays and translation in both directions, followed by integrated practice and remediation. All 28 chapter files are marked planning placeholders. The plan records prerequisites, chapter boundaries, the observed 2025 paper blueprint and local PYQ extraction limitations. Teaching content remains pending; assessment methods are covered by the shared Mains generation and evaluation files. All ten paper-folder curricula are now populated.
 
-As of 19 November 2026, one practice test is available: [GS-I pilot full-length diagnostic mock — GS1-full-t01](Prelims-General-Studies-I/full-test/GS1-full-t01.md), with 100 questions, 200 marks and a 2-hour duration. Its requested current-affairs window is 19 May–18 November 2026. Chapter-part tests require authored teaching content; full-length GS-I mocks follow the official syllabus independently of chapter completion. Tests and feedback are created only on request.
+As of 19 November 2026, one practice test is available: [GS-I pilot full-length diagnostic mock — GS1-full-t01](Prelims-General-Studies-I/full-test/GS1-full-t01.md), with 100 questions, 200 marks and a 2-hour duration. Its requested current-affairs window is 19 May–18 November 2026. New chapter tests cover all parts and require authored teaching content; full-scope tests follow the official syllabus independently of chapter completion. Existing tests retain their original scope and records. Tests and feedback are created only on request.

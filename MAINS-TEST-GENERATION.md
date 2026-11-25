@@ -4,21 +4,11 @@ Generate on-demand descriptive tests for **GS I–IV, Essay, Hindi Paper A, Engl
 
 ## Scope and Modes
 
-| Mode | Coverage and design |
-|---|---|
-| `CH` | One whole chapter, including all parts. Test its substantive taught content; choose a worthwhile size without padding. |
-| `CUM` | Only checkpoint-qualified chapters. Record the exact coverage and scale question count, marks and suggested duration to it. |
-| `FULL` | Entire selected paper under its verified examination pattern. Exclude questions previously presented to the learner and close rewrites; concepts and skills may recur. Label early attempts diagnostic. |
-| `PYQ` / `UPYQ` | Original or optional updated historical paper under the specification's PYQ rules. Preserve original choice rules; validate replacement guides separately. |
-| `FU` | One feedback recommendation. Use the specification's follow-up size, paper-appropriate question types, completion threshold and deletion rules. |
-
-For CH/CUM, include only taught knowledge and skills; provide unfamiliar context needed to apply them. Placeholders do not establish readiness. Explain inadequate scope rather than silently changing mode. FULL may use the syllabus and verified PYQs before chapters are authored.
-
-Record a concise coverage blueprint and any current-affairs cutoff. Calibrate demand and reading/writing load against relevant PYQs, respecting corpus caveats. A beginner audience does not justify simplifying full-paper difficulty. Descriptive durations are suggested; learners manage timing and may submit text, documents or images when ready.
+Use [TEST-GENERATION-COMMON.md](TEST-GENERATION-COMMON.md) for mode selection, readiness, unseen checks, PYQ preparation and recommendation follow-ups. Record a concise blueprint and any current-affairs cutoff. Calibrate demand against relevant PYQs and their caveats; a diagnostic label does not justify simplifying FULL tests. Descriptive durations are suggested; submission and timing follow the specification.
 
 ## Paper Patterns and Question Design
 
-Full-paper baselines are three hours, 250 marks for GS, Essay and each Mathematics paper; 300 marks for each qualifying language paper. Use the selected paper's verified instructions for sections, internal choice, compulsory questions, item marks and word limits. CH/CUM/FU are scaled practice, not miniature papers forced into a full-paper structure. There is no objective-paper negative marking.
+Full-paper baselines are three hours, 250 marks for GS, Essay and each Mathematics paper; 300 marks for each qualifying language paper. Use the selected paper's verified instructions for sections, internal choice, compulsory questions, item marks and word limits. CH/CUM/FU are scaled practice, not miniature papers forced into a full-paper structure. Do not apply Prelims negative marking.
 
 | Paper | Design requirements |
 |---|---|
@@ -54,11 +44,11 @@ Keep keys/guides unavailable during application attempts. Repository tests use t
 | English B | `ENG-B` | `Mains-English/` |
 | Mathematics I / II | `MATH1` / `MATH2` | `Mains-Mathematics/` |
 
-Use `<prefix>-CH-<chapter-slug>-T01` for chapter tests and `<prefix>-<mode>-T01` otherwise, incrementing to the next unused number. Record historical/target years for PYQ variants and the recommendation identifier for FU. Existing test IDs remain valid.
+Use `<prefix>-CH-<chapter-slug>-T01` for chapter tests and `<prefix>-<mode>-T01` otherwise, incrementing to the next unused number. Record historical/target years for PYQ variants. FU uses its originating simulation feedback only during transient processing; it has no permanent test ID or file. Existing test IDs remain valid.
 
 Store repository tests as `<test-id>.md` in `<paper-folder>/<paper-folder-name>-TESTS/`. Include ID, paper, mode, coverage links, blueprint, suggested duration, offered/required answer counts, maximum attainable marks, choice rules, applicable length guidance, answer language, sources/access dates, generation date and status.
 
-Use `## Instructions`, `## Questions`, `## Evaluator guide` and `## Evaluation`. Explain permitted choices and unaided practice without guide consultation; do not require answers to unselected alternatives. The evaluation section initially records that evaluation has not been requested. Application follow-ups use the specification's retention exception rather than permanent test-file preservation.
+Use `## Instructions`, `## Questions`, `## Evaluator guide` and `## Evaluation`. Explain permitted choices and unaided practice without guide consultation; do not require answers to unselected alternatives. The evaluation section initially records that evaluation has not been requested. These recording rules apply to real-paper simulations; FU questions, guides and evaluation are never saved. This generator does not calculate completion, evaluate learner responses or set revision dates.
 
 ## Sources and Verification
 

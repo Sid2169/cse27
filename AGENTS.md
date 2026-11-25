@@ -21,6 +21,7 @@ Folders follow `Prelims-<paper>` or `Mains-<paper>`. Within each paper folder:
 - `<paper-name>-Curriculum.md` is the study plan and authoritative chapter-file index.
 - `<paper-name>-PYQS/<year>-<paper-name>.md` holds the year-wise PYQ corpus, currently organised for 2013–2026. Missing years or extraction gaps must remain explicit. When a subject has two question papers, keep both in that one file under separate `## Paper I` and `## Paper II` sections.
 - Chapter filenames match the curriculum. Split chapters use `<chapter>-part-N.md`, with each part linked from the index.
+- Preserve established chapter names and filenames; splits may add linked part files without renaming existing files.
 - Test folders and IDs are defined by the generation methods below.
 
 Use relative Markdown links for repository files. Keep the curriculum index in sync with chapter additions or splits and README navigation in sync with structural changes. Clearly distinguish planning placeholders from authored material.
@@ -29,18 +30,20 @@ Work from syllabus → curriculum → chapters. The curriculum sets planned cove
 
 ## Task Methods
 
-Load the method relevant to the requested task; shared rules stay in this file.
+Load the method relevant to the task. This file owns shared safeguards; SPECIFICATION.md owns product requirements. TEST-GENERATION-COMMON.md owns cross-paper generation procedures; paper generators own question design and patterns, evaluation methods own scoring/feedback, CHAPTER-CHECKPOINT.md owns qualification, and REVISION-SCHEDULING.md owns chapter-test dates. Link these owners rather than duplicating their rules.
 
 | Task | Method |
 |---|---|
 | Curriculum | [CURRICULUM-GENERATION.md](CURRICULUM-GENERATION.md) |
 | Chapter | [CHAPTER-GENERATION.md](CHAPTER-GENERATION.md) |
+| Shared test generation procedures | [TEST-GENERATION-COMMON.md](TEST-GENERATION-COMMON.md) |
 | Chapter checkpoint generation and evaluation — all papers | [CHAPTER-CHECKPOINT.md](CHAPTER-CHECKPOINT.md) |
-| Prelims chapter-part and GS-I full-length tests | [PRELIMS-TEST-GENERATION.md](PRELIMS-TEST-GENERATION.md) |
+| Chapter-test revision scheduling | [REVISION-SCHEDULING.md](REVISION-SCHEDULING.md) |
+| Prelims tests — GS-I and CSAT | [PRELIMS-TEST-GENERATION.md](PRELIMS-TEST-GENERATION.md) |
 | Prelims feedback | [PRELIMS-TEST-FEEDBACK.md](PRELIMS-TEST-FEEDBACK.md) |
 | Mains tests — GS, Essay, Hindi, English, Mathematics | [MAINS-TEST-GENERATION.md](MAINS-TEST-GENERATION.md) |
 | Mains evaluation — GS, Essay, Hindi, English, Mathematics | [MAINS-ANSWER-EVALUATION.md](MAINS-ANSWER-EVALUATION.md) |
-| Remaining assessment planning | [PLANNED-FEATURES.md](PLANNED-FEATURES.md) |
+| Implementation, planning and decisions | [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md) |
 
 ## Shared Assessment Rules
 
@@ -48,8 +51,8 @@ Load the method relevant to the requested task; shared rules stay in this file.
 - A chapter or part is ready for assessment only when substantive teaching content exists and can support the requested test. A placeholder file does not qualify.
 - Use PYQs to calibrate style and demand, without reproducing them verbatim except in requested original/updated PYQ modes under [SPECIFICATION.md](SPECIFICATION.md). Respect the mode's knowledge boundary while testing transfer through new contexts; supply unfamiliar contextual information required for reasoning.
 - Prepare answer keys or evaluator guides before the learner attempts the test. Put them in a labelled collapsible block, with instructions not to open it during the attempt; this is a presentation aid, not access control.
-- Preserve questions, learner answers, keys/guides and previous feedback, except for completed application follow-ups under [SPECIFICATION.md](SPECIFICATION.md#recommendation-completion-and-follow-up-tests). Make any necessary correction explicit and versioned, preserve the original, and apply the corrected basis consistently to affected attempts. Do not retrofit a rubric to favour or penalise an answer.
-- Keep feedback with the test: append dated, numbered attempts under `## Feedback` for Prelims or `## Evaluation` for Mains. Label revisions and retain earlier records. Use a separate file only when requested; completed application follow-ups follow the specification's feedback-only retention rule.
+- Preserve questions, learner answers, keys/guides and previous feedback, except for transient feedback to-do tests under [SPECIFICATION.md](SPECIFICATION.md#recommendation-completion-and-follow-up-tests). Make any necessary correction explicit and versioned, preserve the original, and apply the corrected basis consistently to affected attempts. Do not retrofit a rubric to favour or penalise an answer.
+- Keep feedback with the test: append dated, numbered attempts under `## Feedback` for Prelims or `## Evaluation` for Mains. Label revisions and retain earlier records. Use a separate file only when requested; feedback to-do tests are transient and persist only completion state under the specification.
 - Base diagnosis on observable evidence. Do not invent strengths, weaknesses, guessing or time pressure. Adapt feedback length and follow-up to the attempt; no fixed remediation count or retest schedule is required.
 - For descriptive answers, support typed responses and readable scans or photographs. Do not guess unreadable text. Give targeted improvement advice; full model answers are provided only on request and must not become the sole acceptable answer.
 - Assessment is practice, not official UPSC marking or a basis for predicting rank or percentile.

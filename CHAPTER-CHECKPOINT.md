@@ -20,13 +20,13 @@ Report correct, wrong and blank counts, counting confirmed multiple selections a
 
 Handle defective questions or keys through the shared correction rules. Exclude an unscorable item from both numerator and denominator, explain the adjustment and retain earlier results. If the remaining set no longer supports meaningful chapter coverage, defer completion and offer a fresh checkpoint; do not pass the learner on an inadequate remainder.
 
-Keep feedback concise: give the score and pass status, explain errors, and include a to-do list of evidence-supported study recommendations linked to relevant sections. Do not invent weaknesses or remedial work. Application items use the specification's study-link and test-gated completion actions. Passing a recommendation follow-up does not substitute for passing the chapter checkpoint.
+Keep feedback concise: give the score and pass status, explain errors and link useful revision sections. Do not invent weaknesses or remedial work. Checkpoints do not create feedback to-do tests; passing such a test cannot substitute for a checkpoint pass.
 
 ## Completion and Retries
 
-Only a valid checkpoint pass marks the whole indexed chapter complete; parts never count separately. A failure leaves an unqualified chapter incomplete and allows a fresh retry. Repeated passes count that chapter only once. Calculate paper completion from checkpoint-qualified chapters over all indexed chapters, including placeholders, as specified; an empty index is unavailable.
+A first valid pass notifies [REVISION-SCHEDULING.md](REVISION-SCHEDULING.md) to create its initial chapter-test task; this method does not calculate dates. Only a valid checkpoint pass marks the whole indexed chapter complete; parts never count separately. A failure leaves an unqualified chapter incomplete and allows a fresh retry. Repeated passes count that chapter only once. Calculate paper completion from checkpoint-qualified chapters over all indexed chapters, including placeholders, as specified; an empty index is unavailable.
 
-Preserve checkpoint questions, keys, responses, scores and feedback, including failed attempts and corrections. The deletion rule for completed recommendation follow-ups does not apply to checkpoints. Keep earlier passes and later practice attempts distinct; do not silently overwrite chapter qualification or its supporting record.
+Preserve checkpoint questions, keys, responses, scores and feedback, including failed attempts and corrections. The non-persistence rule for feedback to-do tests does not apply to checkpoints. Keep earlier passes and later practice attempts distinct; do not silently overwrite chapter qualification or its supporting record.
 
 ## Recording and Verification
 
