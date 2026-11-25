@@ -47,6 +47,8 @@ All assessments are paper-specific and requested on demand.
 
 ## Checkpoints and progress
 
+Generation and evaluation use [CHAPTER-CHECKPOINT.md](CHAPTER-CHECKPOINT.md).
+
 - Each chapter ends with a separate, short, **untimed MCQ checkpoint**, including chapters for descriptive papers.
 - Questions carry equal marks: wrong and blank answers earn zero, with no negative marking. Pass at **80% or above** of available marks.
 - Allow retries, generating fresh questions through AI each time. Exclude repeats and close rewrites while retaining meaningful chapter coverage.

@@ -42,6 +42,8 @@ Curriculum generation method: [CURRICULUM-GENERATION.md](CURRICULUM-GENERATION.m
 
 Chapter generation method: [CHAPTER-GENERATION.md](CHAPTER-GENERATION.md)
 
+Chapter checkpoint generation and evaluation: [CHAPTER-CHECKPOINT.md](CHAPTER-CHECKPOINT.md)
+
 Prelims test generation method: [PRELIMS-TEST-GENERATION.md](PRELIMS-TEST-GENERATION.md)
 
 Prelims test feedback method: [PRELIMS-TEST-FEEDBACK.md](PRELIMS-TEST-FEEDBACK.md)
