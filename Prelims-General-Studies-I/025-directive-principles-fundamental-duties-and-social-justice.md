@@ -260,7 +260,7 @@ Without looking back, explain why a directive can be constitutionally important 
 
 Use the existing PYQ discussion to check whether your explanation handles every relevant statement or alternative. These are unscored retrieval prompts, not a formal assessment.
 
-Continue to [026 — President and Vice-President](026-president-and-vice-president.md), currently a planning placeholder. That chapter shifts from constitutional rights and objectives to the Union executive's offices and powers. Return to [Chapter 024](024-fundamental-rights-and-constitutional-remedies.md) if you cannot yet distinguish a constitutional right, statutory entitlement and writ remedy.
+Continue to [026 — President and Vice-President](026-president-and-vice-president.md), now authored in two complete parts. That chapter shifts from constitutional rights and objectives to the Union executive's offices and powers. Return to [Chapter 024](024-fundamental-rights-and-constitutional-remedies.md) if you cannot yet distinguish a constitutional right, statutory entitlement and writ remedy.
 
 ## 13. Update watch
 

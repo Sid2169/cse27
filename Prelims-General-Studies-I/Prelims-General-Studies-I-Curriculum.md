@@ -655,6 +655,8 @@ The chapter headings below are the authoritative file index. Each numbered entry
 
 #### 026. [President and Vice-President](026-president-and-vice-president.md)
 
+**Authored 25 November 2026, in two complete parts:** [Part 1 — Elections, tenure, succession and the Vice-President's role](026-president-and-vice-president-part-1.md); [Part 2 — Presidential powers, ministerial advice and constitutional limits](026-president-and-vice-president-part-2.md). Together they form one indexed chapter, with worked calculations, existing PYQ reasoning, summaries, static/current UPSC notes and Update watches.
+
 - **Scope:** Election, qualifications, tenure, removal, powers, pardons, ordinances and the Vice-President's legislative role.
 - **Outcome:** Distinguish an office's formal powers from the conditions governing their exercise.
 - **Define when teaching:** Electoral college; impeachment; ordinance; pardon.
