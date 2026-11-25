@@ -1,6 +1,6 @@
 # UPSC CSE Preparation Platform — Specification
 
-Updated: 26 November 2026. Product requirements. Procedures are defined in the linked methods; delivery status and decisions are in [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md).
+Updated: 26 November 2026. Product requirements. Procedures are defined in the linked methods; delivery status is in [STATUS.md](STATUS.md), and planning/decisions in [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md).
 
 ## Objective and scope
 

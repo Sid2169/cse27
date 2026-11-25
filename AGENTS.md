@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Shared instructions for this UPSC CSE 2027 preparation repository. Paper scope and current content status are listed in [README.md](README.md).
+Shared instructions for this UPSC CSE 2027 preparation repository. Paper scope/navigation are in [README.md](README.md); current repository status is in [STATUS.md](STATUS.md).
 
 ## Audience and Quality
 
@@ -24,7 +24,7 @@ Folders follow `Prelims-<paper>` or `Mains-<paper>`. Within each paper folder:
 - Preserve established chapter names and filenames; splits may add linked part files without renaming existing files.
 - Test folders and IDs are defined by the generation methods below.
 
-Use relative Markdown links for repository files. Keep the curriculum index in sync with chapter additions or splits and README navigation in sync with structural changes. Clearly distinguish planning placeholders from authored material.
+Use relative Markdown links for repository files. Keep the curriculum index in sync with chapter additions or splits and README navigation in sync with structural changes. Update STATUS.md from evidence when content, methods, assessments or application progress changes; keep aggregate status out of README.md and IMPLEMENTATION-PLAN.md. Distinguish documented methods, implemented features and open decisions. Clearly distinguish planning placeholders from authored material.
 
 Work from syllabus → curriculum → chapters. The curriculum sets planned coverage and a recommended learning sequence, not an inflexible teaching script. If a boundary or dependency is unsuitable, flag the issue and align any authorised revision with the index; the official syllabus takes precedence.
 
@@ -43,6 +43,7 @@ Load the method relevant to the task. This file owns shared safeguards; SPECIFIC
 | Prelims feedback | [PRELIMS-TEST-FEEDBACK.md](PRELIMS-TEST-FEEDBACK.md) |
 | Mains tests — GS, Essay, Hindi, English, Mathematics | [MAINS-TEST-GENERATION.md](MAINS-TEST-GENERATION.md) |
 | Mains evaluation — GS, Essay, Hindi, English, Mathematics | [MAINS-ANSWER-EVALUATION.md](MAINS-ANSWER-EVALUATION.md) |
+| Repository status | [STATUS.md](STATUS.md) |
 | Implementation, planning and decisions | [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md) |
 
 ## Shared Assessment Rules

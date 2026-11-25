@@ -2132,7 +2132,7 @@ Initial research/access date: **11 November 2026**. Added NASA, WIPO and IP Indi
 - **Added topic references:** [NASA stars][nasa-stars], [NASA black holes][nasa-blackholes], [NASA solar storms][nasa-weather], [WIPO IP overview][wipo-ip] and [IP India GI introduction][ipindia-gi]; use for the explicit topic homes above.
 - **Local evidence:** every year from [2013][pyq2013] through [2026][pyq2026], indexed above, retaining missing-question and extraction warnings.
 
-Revisit this curriculum when the 2027 notice changes a rule, a chapter is split, a new chapter is authored, or the separately maintained PYQ corpus changes. Replace planning placeholders with teaching one chapter at a time; keep every part linked here and the [repository README](../README.md) status accurate.
+Revisit this curriculum when the 2027 notice changes a rule, a chapter is split, a new chapter is authored, or the separately maintained PYQ corpus changes. Replace planning placeholders with teaching one chapter at a time; keep every part linked here and the [repository status](../STATUS.md) accurate.
 
 [notice]: https://www.upsc.gov.in/sites/default/files/Notif-CSP-2026-Engl-060226Rev.pdf
 [studyiq]: https://www.studyiq.com/articles/upsc-prelims-2025-exam-analysis/
