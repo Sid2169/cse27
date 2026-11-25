@@ -38,7 +38,7 @@ The corpus itself is preserved. These are task-local flags, not a full corpus au
 
 ## Diagnostic routing and progression
 
-Diagnostics here are a **planned routing method**, not an administered test. No weakness or exemption has yet been assigned. When substantive bridge material exists and you request a diagnostic, it should sample explanation, execution and transfer, with its guide prepared before your attempt under the [shared assessment rules](../AGENTS.md#shared-assessment-rules). The GS I–IV test format is not a Mathematics test specification.
+Diagnostics here are a **planned routing method**, not an administered test. No weakness or exemption has yet been assigned. When substantive bridge material exists and you request a diagnostic, it should sample explanation, execution and transfer, with its guide prepared before your attempt under the [shared assessment rules](../AGENTS.md#shared-assessment-rules). Use the Mathematics-specific requirements in the shared [Mains generation](../MAINS-TEST-GENERATION.md) and [evaluation](../MAINS-ANSWER-EVALUATION.md) methods; GS paper formats do not apply.
 
 | Foundation area | Evidence needed to shorten it | Route if evidence is incomplete |
 |---|---|---|

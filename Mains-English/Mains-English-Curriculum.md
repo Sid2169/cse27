@@ -487,7 +487,7 @@ Progress to a full sitting after representative tasks in all four areas can be c
 
 ## Assessment status and completion checks
 
-The curriculum and 25 chapter files are planning material. Teaching chapters, generated tests and marked attempts have yet to be authored. Proposed English generation and evaluation methods remain in [PLANNED-FEATURES.md](../PLANNED-FEATURES.md). New assessments require a separately specified paper contract and pre-attempt practice marking criteria. Practice evaluation should report qualifying status alongside the awarded marks and explain the basis for partial credit.
+The curriculum and 25 chapter files are planning material. Teaching chapters, generated tests and marked attempts have yet to be authored. English assessments use the shared [Mains generation](../MAINS-TEST-GENERATION.md) and [evaluation](../MAINS-ANSWER-EVALUATION.md) methods with language-specific criteria. New assessments require a separately specified paper contract and pre-attempt practice marking criteria. Practice evaluation should report qualifying status alongside the awarded marks and explain the basis for partial credit.
 
 The chapter sequence covers all four official areas. Orientation and maintenance are deliberately short support units. Voice and reporting are distinct grammatical operations, while 009 integrates meaning-preserving changes and 012 integrates correction. Comprehension and précis share a reading foundation but own separate outputs. Later authoring should adjust boundaries if a unit proves overloaded, updating both index views, dependencies, filenames and the coverage table together.
 

@@ -1,61 +1,69 @@
 # Mains Test Generation Instructions
 
-Generate on-demand descriptive tests for **Mains GS I–IV**. Apply the shared assessment rules in [AGENTS.md](AGENTS.md). Evaluation uses [MAINS-ANSWER-EVALUATION.md](MAINS-ANSWER-EVALUATION.md); Essay, language and optional papers require separate assessment methods.
+Generate on-demand descriptive tests for **GS I–IV, Essay, Hindi Paper A, English Paper B and Mathematics Papers I–II**. Apply [AGENTS.md](AGENTS.md), the relevant paper's syllabus/curriculum and [MAINS-ANSWER-EVALUATION.md](MAINS-ANSWER-EVALUATION.md). Application modes and retention follow [SPECIFICATION.md](SPECIFICATION.md); MCQ chapter checkpoints are separate.
 
-## Modes and Patterns
+## Scope and Modes
 
-This table is authoritative for these practice modes. The full-paper baseline comes from [UPSC previous question papers](https://www.upsc.gov.in/examinations/previous-question-papers), accessed 13 November 2026; check a new official paper if its pattern changes. Chapter-test sizes are repository practice choices, not official patterns.
+| Mode | Coverage and design |
+|---|---|
+| `CH` | One whole chapter, including all parts. Test its substantive taught content; choose a worthwhile size without padding. |
+| `CUM` | Only checkpoint-qualified chapters. Record the exact coverage and scale question count, marks and suggested duration to it. |
+| `FULL` | Entire selected paper under its verified examination pattern. Exclude questions previously presented to the learner and close rewrites; concepts and skills may recur. Label early attempts diagnostic. |
+| `PYQ` / `UPYQ` | Original or optional updated historical paper under the specification's PYQ rules. Preserve original choice rules; validate replacement guides separately. |
+| `FU` | One feedback recommendation. Use the specification's follow-up size, paper-appropriate question types, completion threshold and deletion rules. |
 
-| Mode | Scope | Duration | GS I–III | GS IV |
-|---|---|---|---|---|
-| `CH` | One chapter, all parts | **2 hours** | Default: 12 questions, 150 marks, 6 × 10 + 6 × 15. Fallback: 10 questions, 125 marks, 5 × 10 + 5 × 15. | Default: 12 answer items, 150 marks, 9 theory × 10 + 3 cases × 20. Fallback: 10 answer items, 120 marks, 8 theory × 10 + 2 cases × 20. |
-| `CUM` | Learner-confirmed completed chapters/parts | **3 hours** | 20 questions, 250 marks, 10 × 10 + 10 × 15 | 12 numbered questions, 19 answer items, 250 marks: 13 theory × 10 + 6 cases × 20 |
-| `FULL` | Entire GS paper | **3 hours** | Same full-paper pattern as `CUM` | Same full-paper pattern as `CUM` |
+For CH/CUM, include only taught knowledge and skills; provide unfamiliar context needed to apply them. Placeholders do not establish readiness. Explain inadequate scope rather than silently changing mode. FULL may use the syllabus and verified PYQs before chapters are authored.
 
-All questions and sub-parts are compulsory. GS I–III word limits are 150 for 10 marks and 250 for 15 marks. GS IV uses 150 words for a 10-mark theory item and 250 for a 20-mark case study. There is no negative marking.
+Record a concise coverage blueprint and any current-affairs cutoff. Calibrate demand and reading/writing load against relevant PYQs, respecting corpus caveats. A beginner audience does not justify simplifying full-paper difficulty. Descriptive durations are suggested; learners manage timing and may submit text, documents or images when ready.
 
-### Readiness and Coverage
+## Paper Patterns and Question Design
 
-- **CH:** represent every part and the chapter's major learning demands. Use the fallback only if the default would require padding or repetition. If even the fallback is unsupported, explain the readiness problem; do not shorten the chosen duration or import untaught material.
-- **CUM:** obtain an exact completed-content list; file existence is not completion. Sample across that coverage, including earlier material and useful integration. If it cannot sustain the specified pattern, explain why and suggest a chapter test without silently changing modes.
-- **FULL:** build a balanced blueprint from the whole syllabus and defensible PYQ evidence, rather than fixed predicted weightage. If taken before full coverage, label it diagnostic. Date any current-affairs cutoff.
+Full-paper baselines are three hours, 250 marks for GS, Essay and each Mathematics paper; 300 marks for each qualifying language paper. Use the selected paper's verified instructions for sections, internal choice, compulsory questions, item marks and word limits. CH/CUM/FU are scaled practice, not miniature papers forced into a full-paper structure. There is no objective-paper negative marking.
 
-Record a concise coverage blueprint. Consult previous tests to vary themes and contexts where useful. No single paper needs a question for every syllabus microtopic, but the blueprint must represent the mode's scope.
+| Paper | Design requirements |
+|---|---|
+| GS I–III | Full papers: 20 compulsory questions, 10 × 10 marks and 10 × 15 marks, with 150/250-word limits respectively. Use clear directives and varied factual, explanatory, analytical and evaluative demands as appropriate. |
+| GS IV | Full papers: Section A Q1–Q6 with 13 theory sub-parts × 10 marks; Section B Q7–Q12 with six cases × 20 marks. Verify current item-specific word limits. Cases should test substantive ethical or administrative reasoning, without requiring one repeated decision template. |
+| Essay | Use varied topics supporting interpretation and sustained argument; follow verified full-paper topic choices and length guidance. CH/CUM may assess taught skills through interpretation, planning, paragraphs, revision or complete essays as appropriate. Do not turn prompts into expanded GS questions or impose a fixed topic taxonomy. |
+| Hindi A | Use matriculation-level comprehension, précis, usage/vocabulary, short composition and translation in both directions. Write instructions in Hindi in Devanagari, with English where translation requires it. Follow Hindi's own verified section allocations. |
+| English B | Use matriculation-level comprehension, précis, usage/vocabulary and short composition under its own verified blueprint. Do not import Hindi's translation component. Questions and responses are in English. |
+| Mathematics I–II | Identify the selected paper and respect its syllabus boundary, including where chapters serve both papers. Use concepts, proofs, derivations, calculations and applications as appropriate. Follow that paper's verified compulsory-question and selection rules; do not make every offered question compulsory. Check hypotheses, domains, data, notation and solvability, and independently work reference solutions. |
 
-## Question Design
-
-Use clear directives, realistic demands and marks/word limits on every answer item. Ask questions that can be answered well within those limits. Select factual, explanatory, analytical or evaluative demands according to the topic instead of forcing every question into one style.
-
-For GS IV, use substantive ethical or administrative scenarios. Their sub-parts should test the relevant dilemmas and reasoning, not require an identical stakeholders–options–decision–safeguards template in every case. Ask for a decision and justification when those are the intended skills; allow defensible alternative responses.
-
-For **CUM/FULL GS IV only**, use Section A Q1–Q6 containing 13 theory sub-parts, and Section B Q7–Q12 containing the six cases. Chapter tests use numbering suited to their own counts. This full-paper layout does not override the CH pattern.
+Supply all necessary passages, figures and data. For generated questions, state item marks and relevant length or response instructions. Use English by default outside Hindi A, recording any requested answer language. Preserve original wording and language instructions in PYQ mode.
 
 ## Pre-attempt Evaluator Guide
 
-For each answer item, provide:
+Prepare a guide for every offered question, including alternatives, before the attempt. Include the demand, supported reference content, question-specific criteria and allocations totalling its marks, and what earns partial credit. These are practice rubrics, not official UPSC marking schemes.
 
-- The demand and essential answer dimensions, with sufficient factual/source support to evaluate them.
-- **Question-specific criteria and mark allocations**, totalling the item's marks, with a short description of what earns credit or partial credit. Select criteria for this question; there are no fixed global dimension weights.
-- Acceptable approaches or alternatives and any consequential errors to watch for.
+Keep the guide concise but sufficient for reliable evaluation:
 
-For a case study, allocate marks to its requested sub-parts so they sum to the case total; any criteria within them must fit those allocations. Avoid overlapping criteria or awarding the same merit twice. External examples, formal introductions/conclusions, lists of options or particular headings earn marks only when relevant to the actual demand. Do not impose generic score caps or one predetermined ethical choice.
+- **GS:** identify relevant dimensions and defensible approaches. Allocate case-study marks to requested sub-parts without overlapping credit.
+- **Essay:** allow defensible interpretations; allocate marks to relevant qualities such as argument, coherence, illustration and expression, without mandatory quotations, headings or a fixed outline.
+- **Languages:** provide passage-grounded answers, précis essentials, acceptable usage variants and translation references where applicable. Judge fidelity, compression and language by the actual task; a sample translation or précis is not the only acceptable answer.
+- **Mathematics:** provide checked solutions and allocations for valid setup, method, reasoning and results as appropriate. Allow alternative methods and justified follow-through after local errors; do not invent a universal marks-per-step rule.
 
-The guide defines an answer space, not an exhaustive checklist or a model answer. Keep it as short as reliable evaluation permits. It must contain the allocations before the learner attempts the paper; scoring follows the evaluation method.
+Keep keys/guides unavailable during application attempts. Repository tests use the labelled collapsible block required by AGENTS.md. Never construct a scoring rubric after seeing the learner's answer.
 
-## IDs and File Contract
+## IDs and Recording
 
-Use `GS1`, `GS2`, `GS3` or `GS4` for the paper prefix:
+| Paper | Prefix | Paper folder |
+|---|---|---|
+| GS I–IV | `GS1`–`GS4` | `Mains-General-Studies-<I|II|III|IV>/` |
+| Essay | `ESSAY` | `Mains-Essay/` |
+| Hindi A | `HINDI-A` | `Mains-Indian-Language/` |
+| English B | `ENG-B` | `Mains-English/` |
+| Mathematics I / II | `MATH1` / `MATH2` | `Mains-Mathematics/` |
 
-- `GS1-CH-<chapter-slug>-T01`
-- `GS1-CUM-T01`
-- `GS1-FULL-T01`
+Use `<prefix>-CH-<chapter-slug>-T01` for chapter tests and `<prefix>-<mode>-T01` otherwise, incrementing to the next unused number. Record historical/target years for PYQ variants and the recommendation identifier for FU. Existing test IDs remain valid.
 
-Increment to the next unused number. Store `<test-id>.md` in the corresponding `Mains-General-Studies-<I|II|III|IV>/Mains-General-Studies-<I|II|III|IV>-TESTS/` folder.
+Store repository tests as `<test-id>.md` in `<paper-folder>/<paper-folder-name>-TESTS/`. Include ID, paper, mode, coverage links, blueprint, suggested duration, offered/required answer counts, maximum attainable marks, choice rules, applicable length guidance, answer language, sources/access dates, generation date and status.
 
-Include ID, paper, mode, linked chapters/parts, blueprint, duration, answer-item count, maximum marks, word limits, answer language, generation date and status. Write questions in English by default; record a different requested language.
+Use `## Instructions`, `## Questions`, `## Evaluator guide` and `## Evaluation`. Explain permitted choices and unaided practice without guide consultation; do not require answers to unselected alternatives. The evaluation section initially records that evaluation has not been requested. Application follow-ups use the specification's retention exception rather than permanent test-file preservation.
 
-Use `## Instructions`, `## Questions`, `## Evaluator guide` and `## Evaluation`. Instructions specify one sitting without aids or guide consultation and answering all items within their word limits. Put the guide inside its labelled collapsible block. The evaluation section initially records that no evaluation has been requested. The rest of the layout can suit the paper.
+## Sources and Verification
 
-## Completion Check
+Rule baseline: [UPSC CSE 2026 notification, Appendix I](https://upsc.gov.in/uploads/2026/05/Civil-Services-Preliminary-Examination-2026-Notice-E.pdf), checked 26 November 2026. The [official paper listing](https://upsc.gov.in/exam-documents/question-papers/) and each paper's curriculum provide pattern references and retrieval caveats. [Official Mathematics I, 2026](https://upsc.gov.in/uploads/2026/09/QP-CSM-26-010926-Optional-MATHEMATICS-PAPER_I-1.pdf), checked 26 November 2026, confirms eight offered questions, five required, Q1/Q5 compulsory and at least one optional selection from each section. Verify Mathematics II's own instructions before generation.
 
-Check readiness, scope, question clarity and diversity, and correctness of guide content. Verify the requested mode against the table, including item counts, marks, numbering, duration and word limits. Check every question's allocation sum, non-overlapping criteria, ID uniqueness and file location.
+Recheck when a new notification or paper changes the baseline. Before FULL or historical-pattern generation, record the actual pattern source/year; if it cannot be verified, explain the limitation rather than invent section allocations. Language corpus placeholders are not usable PYQs.
+
+Check scope/readiness, factual support, independent solutions, ambiguity, guide allocations, choice rules, attainable totals, workload, numbering, unseen-question exclusions where applicable, ID uniqueness and local links. Do not generate a test merely to verify these instructions.

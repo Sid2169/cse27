@@ -559,7 +559,7 @@ Feedback should identify where the response leaves the subject, skips reasoning,
 
 This curriculum and its 30 chapter files constitute planning material. Teaching chapters, new tests, evaluator guides, attempted answers and scored feedback have yet to be authored. The practice outcomes describe intended later exercises.
 
-Essay assessment generation and evaluation methods remain proposed in [PLANNED-FEATURES.md](../PLANNED-FEATURES.md). Generating a new assessment requires the relevant request and an explicit pre-attempt practice scoring contract. Existing GS I–IV evaluation methods do not supply an Essay rubric.
+Essay assessments use the shared [Mains generation](../MAINS-TEST-GENERATION.md) and [evaluation](../MAINS-ANSWER-EVALUATION.md) methods with Essay-specific criteria. Generating a new assessment requires the relevant request and a pre-attempt practice scoring contract.
 
 ## Curriculum review
 

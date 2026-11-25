@@ -1,43 +1,44 @@
 # Mains Answer Evaluation Instructions
 
-Evaluate identified Mains GS I–IV answers against their pre-attempt evaluator guides. Apply shared assessment, correction and recording rules in [AGENTS.md](AGENTS.md); paper patterns and guide requirements are owned by [MAINS-TEST-GENERATION.md](MAINS-TEST-GENERATION.md).
+Evaluate **GS I–IV, Essay, Hindi Paper A, English Paper B and Mathematics I–II** against their pre-attempt guides. Apply [AGENTS.md](AGENTS.md); patterns and guide requirements belong to [MAINS-TEST-GENERATION.md](MAINS-TEST-GENERATION.md). Application feedback and follow-up retention follow [SPECIFICATION.md](SPECIFICATION.md).
 
-## Inputs and Validation
+## Validate the Attempt
 
-Read the test questions, mode, scope, marks, word limits, versioned guides and learner responses. Match answers to questions/sub-parts; clarify ambiguous mapping. Record the answer language and any reported timing. Estimate word counts only when feasible and useful, labelling estimates; otherwise state that length was not measured.
+Read the paper, mode, coverage, marks, choice rules, applicable word limits, guide version and responses. Accept text, documents and readable images; clarify unreadable work or ambiguous question mapping. Record relevant reported timing and label any length estimates.
 
-A genuinely blank answer earns zero. An unreadable or missing submission is not evidence of a blank answer: identify the uncertainty and request what is needed for reliable scoring. Evaluate readable portions where possible without presenting an unresolved total as final.
+Apply the declared selection rules before scoring. Unchosen alternatives are not blanks; genuinely blank required answers earn zero. For excess or invalid selections, follow the paper's stated rules rather than choosing the highest-scoring combination. Identify unresolved interpretation without presenting a final total.
 
-If no pre-attempt mark allocation exists, do not invent one after seeing the answers. Explain the limitation and provide qualitative feedback if useful; scored evaluation requires a valid pre-attempt basis. Use the shared correction process for a defective existing guide rather than quietly changing the standard.
+Do not create missing allocations after seeing answers. Without a valid pre-attempt basis, explain the limitation and offer qualitative feedback; correct defective guides through the shared versioned-correction process.
 
-## Scoring Standard
+## Score the Work
 
-Use **each question's own criteria and allocations**. There are no universal weights, mandatory answer structures or automatic score caps.
+Use each item's criteria and allocations. Credit relevant, accurate work and defensible approaches absent from the reference guide. Award partial credit without double counting merit or repeatedly penalising one error. Do not supply reasoning the learner did not write.
 
-- Award credit for accurate, relevant work that fulfils the directive, including defensible approaches not enumerated in the guide.
-- Give partial credit according to the guide's standard and the extent of achievement. A missing requested element loses its allocated credit; do not deduct again under overlapping labels.
-- Judge reasoning, evidence, expression and organisation to the extent they serve this question. Do not require an external example, formal introduction/conclusion, quotation or options matrix merely because it is conventional coaching advice.
-- Assess ethical case studies against their specific sub-parts. Score each case as one item, showing sub-part allocations and awards that sum to its total. Do not universally demand a decision, multiple options or safeguards when the question does not ask for them or require them for a sound response.
-- A factual error may undermine dependent reasoning; explain that effect without mechanically applying several penalties to the same defect. Do not supply missing arguments or evidence on the learner's behalf.
-- Word-limit problems matter when they affect fulfilment, clarity or prioritisation under the guide. Do not turn a small overrun into an arbitrary deduction. Timing is separate management evidence, not a reason to change content marks.
+| Paper | Evaluation focus |
+|---|---|
+| GS I–IV | Fulfilment of the directive through relevant knowledge, evidence and reasoning. Assess cases by their requested sub-parts; do not require a universal stakeholders/options/decision template. |
+| Essay | Relevance to a defensible interpretation, development of argument, coherence, illustration and clear expression. Judge the connected essay rather than counting predefined points; quotations and a prescribed structure are not prerequisites. |
+| Hindi A / English B | Passage-grounded comprehension; faithful, concise précis; accurate usage; relevant composition. For Hindi translation, assess meaning, register and grammar in the target language, accepting faithful alternatives. Diagnose language errors actually present, without imposing a full error taxonomy. |
+| Mathematics I–II | Correct setup, assumptions, method, proof or derivation, calculation and conclusion as required. Credit valid alternative methods and sound intermediate work. Distinguish conceptual mistakes from arithmetic slips; award justified follow-through under the guide without treating invalid reasoning as correct. |
 
-Interpret expectations within the test's declared scope. Do not require untaught cross-chapter links in CH, or penalise any answer for failing to mention material irrelevant to its question. Avoid comparing scores across modes as equivalent measures.
+Judge expression, organisation and length only as they affect the task under its guide. Do not impose arbitrary caps, mandatory examples or mechanical deductions for small word-limit departures. Timing informs feedback, not content marks. Keep CH/CUM expectations within taught coverage and avoid treating scores across modes as equivalent.
 
-## Evaluation and Feedback
+Report qualifying status separately for a complete Hindi A or English B paper: the 2026 baseline is **75/300 (25%)**, from the notification cited in the generation method. Do not apply this to partial tests or confuse it with the application's descriptive follow-up threshold. Where the complete-paper score is unresolved, qualifying status is unresolved too.
 
-Read for evidence before assigning marks. Apply the declared criteria, then check that the item score is supported by the answer and that allocations and totals add up. Review material uncertainty; there is no required second independent score or disagreement threshold. Avoid anchoring to a learner's self-score.
+## Feedback and Recording
 
-Report awarded marks at a precision supported by the allocations and evidence. Explain material uncertainty and, where a reliable point estimate is not possible, use a clearly labelled provisional range or defer the affected score. Confidence describes evidential limits, not a bonus or penalty. A descriptive band is optional and must not become a second scoring system.
+Check evidence before assigning marks; avoid anchoring to the learner's self-score. Use precision supported by the rubric, and identify provisional scores or defer affected totals when evidence is insufficient. Confidence is not a scoring bonus or penalty.
 
-Append `### Evaluation — YYYY-MM-DD — Attempt N` under the test's `## Evaluation`, including:
+Under `## Evaluation`, append `### Evaluation — YYYY-MM-DD — Attempt N` with:
 
-- The mode, answer language and available timing/length information relevant to the assessment.
-- A score summary listing every answer item, its maximum and award, with a reconciled total. Identify blanks, provisional items and any versioned correction.
-- Question-wise reasons for awards and lost credit, linked to the criteria and observable answer evidence. Show allocated/awarded criterion marks so scoring is auditable; for case studies, preserve the sub-part breakdown.
-- The most useful improvement actions. Add overall patterns, rewrite focuses or a follow-up plan when the attempt supports them.
+- An auditable item/sub-part score summary and reconciled total, identifying blanks, excluded alternatives, uncertainty and corrections.
+- Concise reasons for material awards and lost credit, tied to the guide and identifiable answer evidence. Show criterion allocations where needed to explain the score.
+- A to-do list of recommended study material linked to relevant sections. In the application, use the specification's study-link and test-gated completion actions; failed follow-ups leave the item open.
 
-Use a short quotation or precise reference for substantive observations. Do not force strengths, weaknesses, error taxonomies, outlines or retests into every evaluation. Give missing points or a compact outline where useful without converting the feedback into a full model answer.
+Consult relevant earlier attempts for supported patterns. Do not infer guessing, time pressure or causes without evidence, or force strengths and weaknesses into every report. Give missing points or a brief repair example when useful; full model answers remain on request. Default Hindi A feedback to Hindi and English B feedback to English, adapting explanatory language to an explicit learner request.
+
+For descriptive FU attempts, determine completion using the specification's **65%** threshold. On passing, remove the to-do and delete all associated follow-up test/attempt data while retaining feedback under that specification; preserve the originating assessment. Ordinary assessments retain their attempts and earlier evaluations.
 
 ## Completion Check
 
-Check question mapping, guide version, criterion and sub-part arithmetic, item maxima, total, and evidence for conclusions. Distinguish measured management data from estimates and unknowns. Preserve the original attempt and any earlier evaluation.
+Check question mapping, selection rules, guide version, allocations, attainable maximum, totals and evidence for conclusions. Distinguish observed errors from unknown causes and ensure recommendations point to relevant study sections. Check retention against the assessment type.
