@@ -33,7 +33,7 @@ For real-paper simulations, append `### Evaluation — YYYY-MM-DD — Attempt N`
 
 - An auditable item/sub-part score summary and reconciled total, identifying blanks, excluded alternatives, uncertainty and corrections.
 - Concise reasons for material awards and lost credit, tied to the guide and identifiable answer evidence. Show criterion allocations where needed to explain the score.
-- One combined refresher to-do covering all recommended material, with section links and one test-gated completion action. Flag unavailable teaching content rather than linking placeholders as lessons.
+- One combined refresher to-do covering all recommended material, with section links and one test-gated completion action. Identify unavailable teaching content rather than linking placeholders as lessons. Full marks may lead to retention recommendations without invented gaps.
 
 Consult relevant earlier attempts for supported patterns. Do not infer guessing, time pressure or causes without evidence, or force strengths and weaknesses into every report. Give missing points or a brief repair example when useful; full model answers remain on request. Default Hindi A feedback to Hindi and English B feedback to English, adapting explanatory language to an explicit learner request.
 

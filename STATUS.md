@@ -10,7 +10,7 @@ Consolidated 26 November 2026. Existing observation dates and source caveats are
 | Shared test generation | Authored: [TEST-GENERATION-COMMON.md](TEST-GENERATION-COMMON.md) |
 | Prelims generation / feedback | Authored for GS-I and CSAT: [generation](PRELIMS-TEST-GENERATION.md), [feedback](PRELIMS-TEST-FEEDBACK.md) |
 | Mains generation / evaluation | Authored for GS I–IV, Essay, Hindi A, English B and Mathematics I–II: [generation](MAINS-TEST-GENERATION.md), [evaluation](MAINS-ANSWER-EVALUATION.md) |
-| Chapter checkpoints | Authored: [CHAPTER-CHECKPOINT.md](CHAPTER-CHECKPOINT.md) |
+| Chapter checkpoints | Authored, including revision-based requalification: [CHAPTER-CHECKPOINT.md](CHAPTER-CHECKPOINT.md) |
 | Chapter-test scheduling | Authored: [REVISION-SCHEDULING.md](REVISION-SCHEDULING.md), adapted from spaced-rep's documented policy |
 | Study content | See [Study content and PYQs](#study-content-and-pyqs) below and the paper curricula. |
 | Web application | Not implemented in this repository. Method documents and practice artifacts are not application features. |

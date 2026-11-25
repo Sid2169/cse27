@@ -7,7 +7,7 @@ Use with the paper-specific Prelims or Mains generator. [SPECIFICATION.md](SPECI
 | Mode | Procedure |
 |---|---|
 | `CH` | Read the indexed chapter and all parts; sample its important taught ideas and skills. Choose a worthwhile size without padding. |
-| `CUM` | Read the learner's checkpoint-qualified chapter list. Scale questions, marks and duration to that coverage; record the chapters actually assessed. |
+| `CUM` | Read the learner's currently checkpoint-qualified chapter revisions. Scale questions, marks and duration to that coverage; record the chapters actually assessed. |
 | `FULL` | Use the whole syllabus and verified paper pattern. Check unseen status below; label early attempts diagnostic. |
 | `PYQ` / `UPYQ` | Prepare the selected historical paper using the procedure below. |
 | `FU` | Read all refresher recommendations in one real-paper simulation's feedback. Generate one transient test covering them together, using the specification's count and paper-appropriate formats; prepare a key/guide. |

@@ -8,7 +8,7 @@ Learning-practice reference: [IES, Organizing Instruction and Study to Improve S
 
 ## Scope and Inputs
 
-Maintain one separate schedule per learner, paper and whole indexed chapter. Only finalized chapter-test results update its recurring schedule. Cumulative, full-scope, original/updated PYQ, checkpoint and recommendation follow-up tests are not scheduled by this method; their results do not adjust chapter-test intervals. The first checkpoint pass only triggers the initial chapter-test task described below.
+Maintain one separate schedule per learner, paper and whole indexed chapter. Only finalized chapter-test results for the current qualified chapter revision update its recurring schedule. Cumulative, full-scope, original/updated PYQ, checkpoint and recommendation follow-up tests are not scheduled by this method; their results do not adjust chapter-test intervals. The first checkpoint pass only triggers the initial chapter-test task described below.
 
 Use the latest finalized score for that schedule, its actual completion date in the learner's saved timezone, material type, difficulty, priority and effective target date. The target is a learner-selected override, otherwise the applicable Prelims/Mains exam date if known, otherwise unset. Do not invent examination dates. Defaults are generic material, unspecified difficulty and unsure priority; keep settings explicit and editable.
 
@@ -55,7 +55,7 @@ For example, 82% on conceptual material, medium difficulty, high priority and a 
 
 ## First Tasks and Completion
 
-- A chapter's first checkpoint pass makes its first chapter-revision test due the next local day, capped at the day before a future target. If the target is tomorrow, the initial task may be due today. Do not schedule an initial task against a target today; expired or unset targets use the neutral next-day rule. Do not create a duplicate when a chapter already has a revision schedule.
+- A chapter revision's first checkpoint pass makes its first chapter-revision test due the next local day, capped at the day before a future target. If the target is tomorrow, the initial task may be due today. Do not schedule an initial task against a target today; expired or unset targets use the neutral next-day rule. Do not create a duplicate pending task for the same qualified revision.
 - Unlike spaced-rep's initial-task rule, no prepared question set is required: cse27 schedules the chapter test first and generates contents only when requested.
 - Finalizing a scheduled chapter test completes its task and creates at most one next pending task using the algorithm. An additional on-demand chapter test for the same paper and chapter updates automatic pending scheduling from its actual completion date; preserve a manually chosen due date. Make finalization and task creation idempotent.
 - Chapter checkpoints establish qualification, not recurring revision performance. Feedback to-do tests use their separate transient workflow; never use their scores for scheduling or reopen completed to-dos through this scheduler.
@@ -64,10 +64,12 @@ For example, 82% on conceptual material, medium difficulty, high priority and a 
 
 Use local calendar dates for due/overdue comparisons and day addition; store event timestamps separately in UTC. Due today is not overdue. Preserve an overdue task's original date rather than moving it each morning. Its next interval starts from actual completion, not the missed due date.
 
-Rescheduling closes the old task as rescheduled and creates a linked replacement. Recompute automatic pending tasks when their target/settings or latest finalized grade is corrected, retaining the previous date and reason; do not silently move manual tasks. If recomputation yields a past date, leave it visibly overdue. Flag manual tasks on/after a revised target for learner review. Cancelling a schedule closes its pending task without erasing ordinary assessment history.
+Rescheduling closes the old task as rescheduled and creates a linked replacement. Recompute automatic pending tasks when their target/settings change, retaining the previous date and reason; do not silently move manual tasks. If recomputation yields a past date, leave it visibly overdue. Show the learner any manual due date on/after a revised target. Cancelling a schedule closes its pending task without erasing ordinary assessment history.
 
-Record the paper, chapter, due date, automatic/manual source, status, latest eligible assessment, settings and policy version used. Display overdue, due-today, upcoming and unscheduled states separately. Scheduling does not change chapter completion; chapter-test results remain excluded from full-scope performance graphs.
+On substantive chapter revision, cancel old-revision pending tasks and suspend scheduling until the new revision passes its checkpoint. Preserve historical schedules/results, but do not use their scores for the new revision. Requalification starts the initial-task rule again.
+
+Record the paper, chapter revision, due date, automatic/manual source, status, latest eligible assessment, settings and policy version used. Display overdue, due-today, upcoming and unscheduled states separately. Scheduling does not change chapter completion; chapter-test results remain excluded from full-scope performance graphs.
 
 ## Verification
 
-Check that only chapter tests affect recurring scheduling, then exact score-band boundaries, negative/unknown scores, rounding and clamps, the worked example, local-date arithmetic, targets tomorrow/today/expired/unset, overdue completion, corrections, manual-date preservation and duplicate-finalization protection. Apply the source policy without silently adding history-dependent interval growth. No application implementation or live schedules are created by this method document.
+Check that only chapter tests affect recurring scheduling, then exact score-band boundaries, negative/unknown scores, rounding and clamps, the worked example, local-date arithmetic, targets tomorrow/today/expired/unset, overdue completion, chapter-revision invalidation/requalification, manual-date preservation and duplicate-finalization protection. Apply the source policy without silently adding history-dependent interval growth. No application implementation or live schedules are created by this method document.

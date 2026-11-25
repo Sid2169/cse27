@@ -57,6 +57,6 @@ Before finalising:
 - Verify consequential claims against the cited sources, including qualifications and exceptions; omit or qualify unsupported specifics. Check that simplifications preserve the underlying mechanism.
 - Match PYQ explanations to the actual stem and every relevant option or matching row. Do not invent reasoning to fit an answer key; flag unresolved discrepancies using the corpus caveats.
 - Check calculations, units, directions and consistency across prose, tables and visuals. Ensure promised skills are actually taught with enough reasoning or examples for a beginner, and check scope, prerequisites and local links.
-- Check opening information, heading hierarchy and numbering, closing-section order, summary and paper-specific notes, specific Update watch, preserved source dates and navigation. For consistency edits, retain substantive teaching content and assessment records.
+- Check opening information, heading hierarchy and numbering, closing-section order, summary and paper-specific notes, specific Update watch, preserved source dates and navigation. For consistency edits, retain substantive teaching content and assessment records. Identify substantive teaching changes as a new chapter revision and apply [checkpoint invalidation](CHAPTER-CHECKPOINT.md#completion-and-retries); cosmetic edits do not invalidate qualification.
 
 Keep the prose focused and avoid repetition that adds no teaching value.

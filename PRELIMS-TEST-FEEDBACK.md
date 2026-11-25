@@ -14,13 +14,13 @@ Apply the test's declared rule. With uniform item mark `m` and the standard one-
 
 Keep penalties exact until display; zero-denominator percentages are unavailable. Historical exceptions use the source paper's rule, not an assumed modern formula. For FU, determine completion from correct answers divided by all valid questions, including blanks, under [the specification](SPECIFICATION.md#recommendation-completion-and-follow-up-tests); attempted accuracy and net percentage cannot substitute.
 
-For a defective key/item, substantiate the problem and apply a versioned correction. Exclude an unscorable item from scoring and diagnosis consistently across affected attempts, explaining its number and adjusted maximum while retaining earlier results. Defer FU completion if unresolved defects, too few valid questions or inadequate coverage prevent meeting the specification.
+Resolve defective keys/items before finalizing simulation feedback. Preserve the original and record any correction; exclude unscorable items from scoring and diagnosis, explaining the adjusted maximum. Do not rewrite finalized feedback or regenerate its recommendations. Defer FU completion if unresolved defects, too few valid questions or inadequate coverage prevent meeting the specification.
 
 ## Feedback
 
 Report counts, penalty and net score with auditable arithmetic. Explain material errors and consult relevant earlier attempts for supported patterns. Distinguish observed performance from possible causes: blanks do not prove ignorance, and negative marks do not establish guessing. Breakdowns and timing analysis require sufficient evidence.
 
-For each real-paper simulation feedback record, combine all evidence-supported refresher recommendations into one to-do, with section links and one test-gated completion action. Flag missing teaching material rather than presenting placeholders as lessons. FU feedback is transient and creates no further to-dos. Explain errors without reproducing the whole key or inventing remedial work. For UPYQ, make replacement provenance available with feedback.
+For each real-paper simulation feedback record, combine all evidence-supported refresher recommendations into one to-do, with section links and one test-gated completion action. Identify missing teaching material rather than presenting placeholders as lessons. Recommend relevant retention practice even with full marks, without inventing study gaps. FU feedback is transient and creates no further to-dos. Explain errors without reproducing the whole key or inventing remedial work. For UPYQ, make replacement provenance available with feedback.
 
 Only finalized chapter-test results feed [REVISION-SCHEDULING.md](REVISION-SCHEDULING.md); this method does not set intervals. For FU, persist only the combined to-do completion state; discard all test/evaluation data after transient use, passed or failed. Preserve the originating simulation and its feedback.
 
