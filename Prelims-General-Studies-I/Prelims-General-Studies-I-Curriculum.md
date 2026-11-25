@@ -665,6 +665,8 @@ The chapter headings below are the authoritative file index. Each numbered entry
 
 #### 027. [Prime Minister, ministers and administration](027-prime-minister-ministers-and-administration.md)
 
+**Authored 25 November 2026, complete in one file:** appointment and membership, Council/Cabinet distinctions, collective and individual responsibility, confidence procedure, ministerial size/disqualification rules, PMO/Cabinet Secretariat and Union business arrangements; includes worked examples, PYQ reasoning, summary, static/current UPSC notes and Update watch.
+
 - **Scope:** Prime Minister, Council of Ministers, Cabinet, aid/advice, collective/individual responsibility and organisation of Union administration.
 - **Outcome:** Trace executive responsibility between ministers, Parliament and the President.
 - **Define when teaching:** Cabinet; aid and advice; collective responsibility; ministry.

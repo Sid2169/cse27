@@ -30,7 +30,7 @@ Article 78 allows the President to obtain information from the Prime Minister an
 
 ### 1.2 A majority question is not an unrestricted personal choice
 
-Under Article 75, the President appoints the Prime Minister and appoints other ministers on the Prime Minister's advice. When no party has an obvious majority, identifying a person capable of securing Lok Sabha confidence requires judgment. The objective remains a government accountable to that House, rather than appointment of whichever person the President privately prefers. Detailed confidence, ministry and caretaker-government issues belong to [Chapter 027](027-prime-minister-ministers-and-administration.md), currently a planning placeholder.
+Under Article 75, the President appoints the Prime Minister and appoints other ministers on the Prime Minister's advice. When no party has an obvious majority, identifying a person capable of securing Lok Sabha confidence requires judgment. The objective remains a government accountable to that House, rather than appointment of whichever person the President privately prefers. The ministry, confidence and transitional-government framework is developed in [Chapter 027](027-prime-minister-ministers-and-administration.md), now authored.
 
 **Worked distinction:** “The President appoints ministers” is a statement about formal authority. “The President may freely select all ministers despite the Prime Minister's advice” is not the rule in Article 75. Always retain the condition attached to the power.
 
@@ -226,7 +226,7 @@ Sources were accessed **25 November 2026**. The historical judgments and illustr
 
 For any proposed presidential action, state its article, required circumstances, advice framework and limit. Explain why an ordinary bill, a Money Bill and a Constitution Amendment Bill cannot be placed in one undifferentiated veto table. Reconstruct the two-House ordinance clock and the clemency categories, then distinguish executive-order review from personal presidential protection.
 
-Continue to [027 — Prime Minister, ministers and administration](027-prime-minister-ministers-and-administration.md), currently a planning placeholder. It develops the ministry, confidence and responsibility mechanisms used here. Detailed legislative procedure follows in [029](029-houses-membership-and-parliamentary-procedure.md), as indexed in the curriculum. Use these as unscored retrieval prompts, not a formal test.
+Continue to [027 — Prime Minister, ministers and administration](027-prime-minister-ministers-and-administration.md), now authored. It develops the ministry, confidence and responsibility mechanisms used here. Detailed legislative procedure follows in [029](029-houses-membership-and-parliamentary-procedure.md), as indexed in the curriculum. Use these as unscored retrieval prompts, not a formal test.
 
 ## 13. Update watch
 

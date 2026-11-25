@@ -35,7 +35,7 @@ Presidential authority operates within responsible parliamentary government. An 
 
 ## 3. Revision and next steps
 
-Use each part's closing retrieval prompts, then compare an office's election rules with its removal procedure and a presidential power with the advice/condition attached to it. Continue to [027 — Prime Minister, ministers and administration](027-prime-minister-ministers-and-administration.md), currently a planning placeholder.
+Use each part's closing retrieval prompts, then compare an office's election rules with its removal procedure and a presidential power with the advice/condition attached to it. Continue to [027 — Prime Minister, ministers and administration](027-prime-minister-ministers-and-administration.md), now authored.
 
 ## 4. Update watch
 
