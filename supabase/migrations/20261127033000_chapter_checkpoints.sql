@@ -126,3 +126,56 @@ end;
 $$;
 revoke all on function public.finalize_chapter_checkpoint(uuid,uuid,text,jsonb,integer,integer,integer,integer,boolean,date) from public, anon, authenticated;
 grant execute on function public.finalize_chapter_checkpoint(uuid,uuid,text,jsonb,integer,integer,integer,integer,boolean,date) to service_role;
+
+create table public.checkpoint_generation_jobs (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references auth.users(id) on delete cascade,
+  paper_code text not null,
+  chapter_path text not null,
+  revision text not null,
+  model text not null,
+  status text not null default 'queued' check (status in ('queued','waiting','ready','failed')),
+  checkpoint_id uuid unique references public.chapter_checkpoints(id),
+  created_at timestamptz not null default now(),
+  check ((status = 'ready') = (checkpoint_id is not null))
+);
+create unique index checkpoint_one_active_job
+  on public.checkpoint_generation_jobs(user_id,paper_code,chapter_path)
+  where status in ('queued','waiting');
+alter table public.checkpoint_generation_jobs enable row level security;
+revoke all on public.checkpoint_generation_jobs from public, anon, authenticated;
+grant select, insert, update on public.checkpoint_generation_jobs to service_role;
+
+create function public.complete_checkpoint_generation(
+  p_job uuid, p_commit text, p_questions jsonb, p_answers jsonb
+)
+returns uuid language plpgsql security invoker set search_path = '' as $$
+declare
+  job public.checkpoint_generation_jobs%rowtype;
+  attempt_id uuid;
+begin
+  select * into strict job from public.checkpoint_generation_jobs where id = p_job for update;
+  if job.status = 'ready' then return job.checkpoint_id; end if;
+  if job.status = 'failed' then raise exception 'Checkpoint generation closed'; end if;
+  attempt_id := public.record_chapter_checkpoint(job.user_id,job.paper_code,job.chapter_path,
+    job.revision,p_commit,job.model,p_questions,p_answers);
+  update public.checkpoint_generation_jobs set status = 'ready', checkpoint_id = attempt_id where id = p_job;
+  return attempt_id;
+end;
+$$;
+revoke all on function public.complete_checkpoint_generation(uuid,text,jsonb,jsonb) from public, anon, authenticated;
+grant execute on function public.complete_checkpoint_generation(uuid,text,jsonb,jsonb) to service_role;
+
+create function public.export_checkpoint_records(p_user uuid)
+returns jsonb language sql stable security invoker set search_path = '' as $$
+  with own as (select * from public.chapter_checkpoints where user_id = p_user)
+  select jsonb_build_object(
+    'attempts', coalesce((select jsonb_agg(to_jsonb(a) - 'user_id') from own a),'[]'::jsonb),
+    'keys', coalesce((select jsonb_agg(to_jsonb(k)) from public.chapter_checkpoint_keys k join own a on a.id = k.checkpoint_id),'[]'::jsonb),
+    'results', coalesce((select jsonb_agg(to_jsonb(r)) from public.chapter_checkpoint_results r join own a on a.id = r.checkpoint_id),'[]'::jsonb),
+    'qualifications', coalesce((select jsonb_agg(to_jsonb(q) - 'user_id') from public.chapter_checkpoint_qualifications q where user_id = p_user),'[]'::jsonb),
+    'tasks', coalesce((select jsonb_agg(to_jsonb(t) - 'user_id') from public.checkpoint_revision_tasks t where user_id = p_user),'[]'::jsonb)
+  );
+$$;
+revoke all on function public.export_checkpoint_records(uuid) from public, anon, authenticated;
+grant execute on function public.export_checkpoint_records(uuid) to service_role;

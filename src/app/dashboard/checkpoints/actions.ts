@@ -2,19 +2,16 @@
 
 import { redirect } from "next/navigation";
 import { requireOwner } from "@/server/supabase";
-import { catalogue } from "@/modules/content/catalogue";
 import { evaluateCheckpoint } from "@/modules/assessment/checkpoint";
 import {
   checkpointDb,
   checkpointId,
   currentCheckpoint,
-  type PublicQuestion,
 } from "@/server/assessment/checkpoint-service";
-import { generateCheckpoint } from "@/server/assessment/checkpoint-generation";
 import {
-  geminiGenerator,
-  GenerationUnavailable,
-} from "@/server/assessment/gemini";
+  inngest,
+  checkpointRequested,
+} from "@/server/assessment/checkpoint-worker";
 
 const root = "/dashboard/checkpoints";
 function startStatus(paper: string, chapter: string, status: string): never {
@@ -30,46 +27,42 @@ export async function startCheckpoint(form: FormData) {
   const model = process.env.GEMINI_GENERATION_MODEL;
   if (!db || !model) startStatus(paper, chapter, "unavailable");
   if (!current) startStatus(paper, chapter, "not-ready");
-  const { data, error, count } = await db
-    .from("chapter_checkpoints")
-    .select("questions", { count: "exact" })
-    .eq("user_id", user.id)
-    .eq("paper_code", paper)
-    .eq("chapter_path", chapter);
-  if (error || count !== data?.length) startStatus(paper, chapter, "failed");
-  const history = data.flatMap((row) =>
-    (row.questions as PublicQuestion[]).map((q) => q.stem),
-  );
-  let generated;
-  try {
-    generated = await generateCheckpoint(
-      geminiGenerator(model),
-      current.scope,
-      paper === "Mains-Indian-Language" ? "Hindi" : "English",
-      history,
-    );
-  } catch (error) {
-    startStatus(
-      paper,
-      chapter,
-      error instanceof GenerationUnavailable && error.reason === "quota"
-        ? "quota"
-        : "failed",
-    );
+  if (
+    !process.env.GEMINI_API_KEY ||
+    !process.env.INNGEST_EVENT_KEY ||
+    !process.env.INNGEST_SIGNING_KEY
+  )
+    startStatus(paper, chapter, "unavailable");
+  const jobs = db.from("checkpoint_generation_jobs");
+  const queued = await jobs
+    .insert({
+      user_id: user.id,
+      paper_code: paper,
+      chapter_path: chapter,
+      revision: current.revision,
+      model,
+    })
+    .select("id")
+    .single();
+  let id = queued.data?.id;
+  if (queued.error?.code === "23505") {
+    const existing = await db
+      .from("checkpoint_generation_jobs")
+      .select("id")
+      .eq("user_id", user.id)
+      .eq("paper_code", paper)
+      .eq("chapter_path", chapter)
+      .in("status", ["queued", "waiting"])
+      .maybeSingle();
+    id = existing.data?.id;
   }
-  const saved = await db.rpc("record_chapter_checkpoint", {
-    p_user_id: user.id,
-    p_paper_code: paper,
-    p_chapter_path: chapter,
-    p_revision: current.revision,
-    p_source_commit: catalogue.commit,
-    p_model: model,
-    p_questions: generated.questions,
-    p_answers: generated.key,
-  });
-  if (saved.error || typeof saved.data !== "string")
-    startStatus(paper, chapter, "failed");
-  redirect(root + "/" + saved.data);
+  if (!id) startStatus(paper, chapter, "failed");
+  try {
+    await inngest.send({ name: checkpointRequested, id, data: { jobId: id } });
+  } catch {
+    redirect(root + "/jobs/" + id + "?dispatch=retry");
+  }
+  redirect(root + "/jobs/" + id);
 }
 
 export async function submitCheckpoint(form: FormData) {
