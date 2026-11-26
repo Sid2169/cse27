@@ -925,3 +925,110 @@ h3 {
   stroke: var(--accent);
   stroke-width: 8;
 }
+
+.study-dashboard {
+  display: grid;
+  gap: 1.5rem;
+}
+.study-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.study-heading h1 {
+  margin: 0 0 0.5rem;
+}
+.study-dashboard p {
+  color: var(--muted);
+}
+.study-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.study-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.study-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: 1rem;
+}
+.study-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  padding: 1.25rem;
+  min-width: 0;
+}
+.study-card > svg {
+  color: var(--accent);
+  margin-bottom: 0.65rem;
+}
+.study-card h2,
+.study-dashboard > section > h2 {
+  font-size: 1.25rem;
+  font-weight: 650;
+  margin-bottom: 0.4rem;
+}
+.study-card h3 {
+  font-weight: 650;
+}
+.study-card > .button {
+  margin-top: 1rem;
+}
+.study-reading {
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+}
+.study-reading h3 {
+  font-size: 1.45rem;
+  margin: 0.7rem 0 0.3rem;
+}
+.study-list {
+  margin-top: 0.75rem;
+}
+.study-list li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+  border-top: 1px solid var(--line);
+  padding: 0.65rem 0;
+}
+.study-list a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.study-list li > :last-child {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.study-papers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.study-paper:hover,
+.study-paper:focus-visible {
+  border-color: var(--accent);
+}
+.study-paper > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+  margin-top: 0.55rem;
+}
+.study-paper progress {
+  width: 100%;
+  accent-color: var(--accent);
+  height: 0.45rem;
+}
