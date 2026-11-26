@@ -1,5 +1,18 @@
-import { spawn } from 'node:child_process';
-const args=process.argv.slice(2).flatMap(x=>x==='--strictPort'?[]:x==='--host'?['--hostname']:[x]);
-const child=spawn(process.execPath,['node_modules/next/dist/bin/next','dev',...(args.length?args:['--hostname','0.0.0.0'])],{stdio:'inherit'});
-for(const signal of ['SIGINT','SIGTERM'])process.on(signal,()=>child.kill(signal));
-child.on('exit',code=>process.exit(code??0));
+import { spawn } from "node:child_process";
+const args = process.argv
+  .slice(2)
+  .flatMap((x) =>
+    x === "--strictPort" ? [] : x === "--host" ? ["--hostname"] : [x],
+  );
+const child = spawn(
+  process.execPath,
+  [
+    "node_modules/next/dist/bin/next",
+    "dev",
+    ...(args.length ? args : ["--hostname", "0.0.0.0"]),
+  ],
+  { stdio: "inherit" },
+);
+for (const signal of ["SIGINT", "SIGTERM"])
+  process.on(signal, () => child.kill(signal));
+child.on("exit", (code) => process.exit(code ?? 0));

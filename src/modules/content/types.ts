@@ -1,5 +1,32 @@
-export type Section = { id: string; title: string; level: number; text: string };
-export type Document = { path: string; title: string; markdown: string; ready: boolean; kind: 'chapter'|'curriculum'|'syllabus'; chapter: string|null; revision: string; sections: Section[] };
-export type Paper = { id: string; title: string; stage: 'Prelims'|'Mains'; curriculum: string; syllabus: string; chapters: string[] };
-export type Catalogue = { commit: string; papers: Paper[]; documents: Document[] };
-export function documentUrl(path: string) { return '/learn/' + path.replace(/\.md$/, ''); }
+export type Section = {
+  id: string;
+  title: string;
+  level: number;
+  text: string;
+};
+export type Document = {
+  path: string;
+  title: string;
+  markdown: string;
+  ready: boolean;
+  kind: "chapter" | "curriculum" | "syllabus";
+  chapter: string | null;
+  revision: string;
+  sections: Section[];
+};
+export type Paper = {
+  id: string;
+  title: string;
+  stage: "Prelims" | "Mains";
+  curriculum: string;
+  syllabus: string;
+  chapters: string[];
+};
+export type Catalogue = {
+  commit: string;
+  papers: Paper[];
+  documents: Document[];
+};
+export function documentUrl(path: string) {
+  return "/learn/" + path.replace(/\.md$/, "");
+}

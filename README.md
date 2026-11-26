@@ -84,4 +84,12 @@ See [STATUS.md](STATUS.md) for content, assessment-method and application status
 
 Requires Node.js 24 and npm. Run `npm ci`, `npm run content:build`, and `npm run dev`. Run `npm run check` and `npm run build` before opening a feature PR. The build derives the public learning catalogue from curriculum chapter links; historical tests, keys, PYQs and method documents are excluded. Runtime configuration will be documented in `.env.example` as private features are added.
 
-Release features through separate branches and PRs; merge with a merge commit, without squash. The first release is a public reader; private learning tools and assessments remain pending.
+Release features through separate branches and PRs; merge with a merge commit, without squash. The public reader is deployed at [cse27.vercel.app](https://cse27.vercel.app/). Owner authentication is the next release; private reading persistence and assessments remain pending.
+
+### Owner authentication setup
+
+Production configuration uses `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, server-only `OWNER_EMAIL`, and `APP_URL`. Leave production credentials out of preview/development environments. Authentication fails closed when configuration is absent; public learning routes stay available.
+
+In Supabase Auth URL Configuration, set Site URL to `https://cse27.vercel.app` and allow `https://cse27.vercel.app/auth/callback` and `https://cse27.vercel.app/auth/callback?next=/auth/recovery`. Email confirmation and recovery need a working email provider. For Google login, configure a Google Web OAuth client with the Supabase project's `/auth/v1/callback` redirect and enable it in Supabase Auth Providers.
+
+The verified owner must create/confirm the account or sign in with Google. Provider configuration and a real owner login must be verified before private study-data features are enabled. Application routes enforce the owner allowlist; provider-level sign-up restrictions remain a separate Supabase configuration step. Do not put the owner's identity or credentials into Git.
