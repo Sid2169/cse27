@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import {
   highlightColors,
@@ -53,6 +53,10 @@ export function ReaderAnnotations({
   headings: { id: string; title: string }[];
 }) {
   const router = useRouter();
+  const readGeneration = useRef(0);
+  const [pendingHighlight, setPendingHighlight] = useState<Annotation | null>(
+    null,
+  );
   const [rows, setRows] = useState<Annotation[] | null>(null);
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
@@ -69,6 +73,7 @@ export function ReaderAnnotations({
 
   const loadRows = useCallback(
     async (interactive = true, signal?: AbortSignal) => {
+      const generation = readGeneration.current;
       const response = await fetch(
         "/api/reader/annotations?" + new URLSearchParams({ path }),
         { cache: "no-store", signal },
@@ -78,7 +83,9 @@ export function ReaderAnnotations({
         return;
       }
       if (!response.ok) throw new Error("Could not load annotations.");
-      setRows(await response.json());
+      const savedRows = await response.json();
+      if (!signal?.aborted && generation === readGeneration.current)
+        setRows(savedRows);
     },
     [path, router],
   );
@@ -96,12 +103,15 @@ export function ReaderAnnotations({
 
   useEffect(() => {
     const root = document.getElementById("reader-content");
-    if (!root || !rows) return;
+    if (!root) return;
     const matched: string[] = [];
     const ranges = new Map<HighlightColor, Range[]>(
       highlightColors.map((entry) => [entry, []]),
     );
-    for (const row of rows) {
+    const visibleRows = pendingHighlight
+      ? [pendingHighlight, ...(rows ?? [])]
+      : (rows ?? []);
+    for (const row of visibleRows) {
       const a = row.anchor;
       if (a.path !== path) continue;
       if (row.kind === "note") {
@@ -136,7 +146,7 @@ export function ReaderAnnotations({
         for (const entry of highlightColors)
           CSS.highlights.delete("cse27-" + entry);
     };
-  }, [path, blob, headings, rows]);
+  }, [path, blob, headings, rows, pendingHighlight]);
 
   useEffect(() => {
     function captureSelection() {
@@ -197,7 +207,26 @@ export function ReaderAnnotations({
     };
   }, [path]);
 
-  async function mutate(input: Record<string, unknown>) {
+  async function mutate(
+    input: Record<string, unknown>,
+    optimisticRange?: TextAnchor,
+  ) {
+    if (optimisticRange && isHighlightColor(input.color)) {
+      setPendingHighlight({
+        id: "pending-highlight",
+        kind: "highlight",
+        anchor: {
+          version: 1,
+          path,
+          heading: "",
+          blob,
+          ...optimisticRange,
+          color: input.color,
+        },
+        body: "",
+        version: 0,
+      });
+    }
     setBusy(true);
     setMessage("");
     try {
@@ -222,14 +251,21 @@ export function ReaderAnnotations({
         return;
       }
       if (input.operation === "save") {
+        const saved: Annotation = await response.json();
+        readGeneration.current++;
+        setRows((previous) => [
+          saved,
+          ...(previous ?? []).filter((row) => row.id !== saved.id),
+        ]);
         setBody("");
         setQuote(null);
       }
-      await loadRows();
+      if (input.operation !== "save" || !rows) await loadRows();
       setMessage("Changes saved.");
     } catch {
       setMessage("Could not save changes.");
     } finally {
+      setPendingHighlight(null);
       setBusy(false);
     }
   }
@@ -276,15 +312,18 @@ export function ReaderAnnotations({
                 aria-label={"Highlight " + entry}
                 disabled={busy}
                 onClick={() => {
-                  void mutate({
-                    operation: "save",
-                    path,
-                    blob,
-                    heading: "",
-                    range: selection.anchor,
-                    body: "",
-                    color: entry,
-                  });
+                  void mutate(
+                    {
+                      operation: "save",
+                      path,
+                      blob,
+                      heading: "",
+                      range: selection.anchor,
+                      body: "",
+                      color: entry,
+                    },
+                    selection.anchor,
+                  );
                   window.getSelection()?.removeAllRanges();
                   setSelection(null);
                 }}
