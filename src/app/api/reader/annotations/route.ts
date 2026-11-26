@@ -48,8 +48,21 @@ export async function POST(request: Request) {
       input.version >= 2147483647
     )
       return result(null, 400);
+    const changes: { body: string; anchor?: object } = { body };
+    if (input.operation === "edit" && input.color !== undefined) {
+      if (!isHighlightColor(input.color)) return result(null, 400);
+      const { data: saved, error } = await table
+        .select("anchor")
+        .eq("id", input.id)
+        .eq("version", input.version)
+        .eq("kind", "highlight")
+        .maybeSingle();
+      if (error) return result(null, 503);
+      if (!saved) return result(null, 409);
+      changes.anchor = { ...saved.anchor, color: input.color };
+    }
     const change =
-      input.operation === "delete" ? table.delete() : table.update({ body });
+      input.operation === "delete" ? table.delete() : table.update(changes);
     const { data, error } = await change
       .eq("id", input.id)
       .eq("version", input.version)

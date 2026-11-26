@@ -105,6 +105,7 @@ export function ReaderAnnotations({
     const root = document.getElementById("reader-content");
     if (!root) return;
     const matched: string[] = [];
+    const editable = new Map<string, Range>();
     const ranges = new Map<HighlightColor, Range[]>(
       highlightColors.map((entry) => [entry, []]),
     );
@@ -130,18 +131,44 @@ export function ReaderAnnotations({
           offset === null ? null : rangeAt(root, offset, a.quote.length);
         if (range) {
           matched.push(row.id);
+          if (row.version > 0) editable.set(row.id, range);
           ranges
             .get(isHighlightColor(a.color) ? a.color : "yellow")!
             .push(range);
         }
       }
     }
+    function openHighlight(event: MouseEvent) {
+      if (
+        !window.getSelection()?.isCollapsed ||
+        (event.target instanceof Element && event.target.closest("a,button"))
+      )
+        return;
+      for (const [id, range] of editable) {
+        if (
+          !Array.from(range.getClientRects()).some(
+            (rect) =>
+              event.clientX >= rect.left &&
+              event.clientX <= rect.right &&
+              event.clientY >= rect.top &&
+              event.clientY <= rect.bottom,
+          )
+        )
+          continue;
+        const editor = document.getElementById("annotation-" + id);
+        editor?.scrollIntoView({ block: "center" });
+        editor?.querySelector("textarea")?.focus({ preventScroll: true });
+        break;
+      }
+    }
+    root.addEventListener("click", openHighlight);
     const frame = requestAnimationFrame(() => setResolved(matched));
     if (typeof Highlight !== "undefined" && CSS.highlights)
       for (const [entry, matches] of ranges)
         CSS.highlights.set("cse27-" + entry, new Highlight(...matches));
     return () => {
       cancelAnimationFrame(frame);
+      root.removeEventListener("click", openHighlight);
       if (typeof Highlight !== "undefined" && CSS.highlights)
         for (const entry of highlightColors)
           CSS.highlights.delete("cse27-" + entry);
@@ -433,6 +460,7 @@ export function ReaderAnnotations({
       {rows?.map((row) => (
         <form
           className="stack-form"
+          id={"annotation-" + row.id}
           key={row.id + ":" + row.version}
           onSubmit={(event) => {
             event.preventDefault();
@@ -443,6 +471,7 @@ export function ReaderAnnotations({
               operation: action?.value ?? "edit",
               id: row.id,
               body: form.get("body"),
+              color: form.get("color") ?? undefined,
               version: row.version,
             });
           }}
@@ -459,6 +488,18 @@ export function ReaderAnnotations({
             )
           )}
           {row.anchor.quote && <blockquote>{row.anchor.quote}</blockquote>}
+          {row.kind === "highlight" && (
+            <label>
+              Highlight color
+              <select name="color" defaultValue={row.anchor.color ?? "yellow"}>
+                {highlightColors.map((entry) => (
+                  <option key={entry} value={entry}>
+                    {entry}
+                  </option>
+                ))}
+              </select>
+            </label>
+          )}
           <label>
             {row.kind === "note" ? "Note" : "Highlight note"}
             <textarea
@@ -473,7 +514,7 @@ export function ReaderAnnotations({
               Save changes
             </button>
             <button className="button" value="delete" disabled={busy}>
-              Delete
+              {row.kind === "highlight" ? "Remove highlight" : "Delete note"}
             </button>
           </div>
         </form>
