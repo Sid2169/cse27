@@ -1034,23 +1034,23 @@ h3 {
 }
 
 :root {
-  --bg: #f7f5ff;
+  --bg: #f2f7f3;
   --surface: #ffffff;
-  --text: #231c3c;
-  --muted: #625976;
-  --line: #dfd8ef;
-  --accent: #5b37be;
-  --tint: #ede7ff;
+  --text: #15251e;
+  --muted: #496056;
+  --line: #d2e1d7;
+  --accent: #236446;
+  --tint: #e1efe6;
   --study-gold: #a34e20;
 }
 .dark {
-  --bg: #171122;
-  --surface: #241a36;
-  --text: #f6efff;
-  --muted: #c9bbda;
-  --line: #493861;
-  --accent: #c2a7ff;
-  --tint: #32234d;
+  --bg: #0b1410;
+  --surface: #14251d;
+  --text: #f0f8f3;
+  --muted: #b6cbbf;
+  --line: #344d40;
+  --accent: #92d5ad;
+  --tint: #203b2d;
   --study-gold: #ffc5a0;
 }
 body {
@@ -1097,9 +1097,9 @@ h1,
 }
 .study-hero {
   color: #fff8ef;
-  background-color: #241a44;
+  background-color: #091510;
   background-image:
-    linear-gradient(90deg, #241a44 3%, #241a44f2 23%, #241a4470 70%),
+    linear-gradient(90deg, #091510 3%, #10291ef2 23%, #0a18107a 70%),
     url("/study-architecture.webp");
   background-size: cover;
   background-position: center;
@@ -1110,7 +1110,7 @@ h1,
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  box-shadow: 0 1rem 2.8rem #2a1c542b;
+  box-shadow: 0 1rem 2.8rem #102e202b;
 }
 .study-hero h1 {
   font-size: clamp(2.3rem, 5.5vw, 4.8rem);
@@ -1145,7 +1145,7 @@ h1,
 .paper-card,
 .phase-card,
 .study-card {
-  box-shadow: 0 0.25rem 1.1rem #3222520a;
+  box-shadow: 0 0.25rem 1.1rem #162e220a;
 }
 .phase-card,
 .study-paper {
@@ -1153,9 +1153,9 @@ h1,
 }
 .study-reading {
   background:
-    linear-gradient(100deg, #241a44 8%, #241a44ee 48%, #241a44aa),
+    linear-gradient(100deg, #091510 8%, #123023ee 48%, #0a1911aa),
     url("/study-architecture.webp") center / cover;
-  border-color: #514075;
+  border-color: #365846;
   color: #fff8ef;
 }
 .study-reading p,
@@ -1214,7 +1214,7 @@ h1,
   background: var(--surface);
   color: var(--text);
   border: 1px solid var(--line);
-  box-shadow: 0 0.45rem 1.4rem #22183b26;
+  box-shadow: 0 0.45rem 1.4rem #11291c26;
   border-radius: 0.65rem;
   padding: 0.55rem 0.9rem;
 }
@@ -1250,4 +1250,8 @@ h1,
   .loading-spinner {
     animation: none;
   }
+}
+
+.dark .sidebar {
+  background: linear-gradient(165deg, #172e22, #0a1310);
 }
