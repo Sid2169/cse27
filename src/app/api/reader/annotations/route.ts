@@ -92,20 +92,23 @@ export async function POST(request: Request) {
   if (input.color !== undefined && (!range || !isHighlightColor(input.color)))
     return result(null, 400);
   if (!range && !body) return result(null, 400);
-  const { error } = await table.insert({
-    chapter_path: chapterPath(document.path),
-    source_commit: catalogue.commit,
-    anchor: range
-      ? {
-          ...anchor,
-          quote: range.quote,
-          prefix: range.prefix,
-          suffix: range.suffix,
-          color: input.color ?? "yellow",
-        }
-      : anchor,
-    kind: range ? "highlight" : "note",
-    body,
-  });
-  return result(null, error ? 503 : 201);
+  const { data, error } = await table
+    .insert({
+      chapter_path: chapterPath(document.path),
+      source_commit: catalogue.commit,
+      anchor: range
+        ? {
+            ...anchor,
+            quote: range.quote,
+            prefix: range.prefix,
+            suffix: range.suffix,
+            color: input.color ?? "yellow",
+          }
+        : anchor,
+      kind: range ? "highlight" : "note",
+      body,
+    })
+    .select("id,kind,anchor,body,version")
+    .single();
+  return error ? result(null, 503) : result(data, 201);
 }
