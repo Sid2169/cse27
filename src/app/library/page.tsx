@@ -82,6 +82,29 @@ export default async function Library({
           <button className="button primary">Save bookmark</button>
         </form>
       )}
+      {enabled && (
+        <details className="auth-details">
+          <summary>Download encrypted backup</summary>
+          <form
+            method="post"
+            action="/api/reader/bookmarks/export"
+            className="stack-form"
+          >
+            <label>
+              Backup passphrase
+              <input
+                name="passphrase"
+                type="password"
+                minLength={16}
+                maxLength={256}
+                required
+                autoComplete="new-password"
+              />
+            </label>
+            <button className="button">Download bookmarks</button>
+          </form>
+        </details>
+      )}
       {data?.length === 0 && <p>No saved bookmarks.</p>}
       {data?.map((row) => {
         const anchor = row.anchor as BookmarkAnchor;
