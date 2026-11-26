@@ -34,6 +34,13 @@ Updated 27 November 2026. Records accepted UI/UX and architecture choices, imple
 | Releases | Usable stages: reading/auth → checkpoints → simulations/evaluation → revisions/analytics. |
 | Cost | Free services only; no billing activation, paid fallback, automatic upgrade or paid model substitution. Stop or wait when free capacity is exhausted. |
 
+### Implementation clarifications — 27 November 2026
+
+- Owner access is restricted to the verified owner identity configured privately in server environment variables.
+- The learner explicitly accepts Google's free-service processing/retention terms. Transient non-retention applies to application-controlled storage, logs, jobs, browser persistence and backups; it does not promise provider-level non-retention.
+- Begin with encrypted manual backup exports downloaded to the owner's device. Restore checks remain required before enabling real retained learner data.
+- Deliver each feature on its own branch, open a PR, validate, and merge with a merge commit (no squash). Deploy and verify usable stages.
+
 ## 2. Document and Code Boundaries
 
 - [Reading requirements](SPECIFICATION.md#reading-tools) own bookmarks, highlights, notes and preferences; [private reading data](DATABASE-DESIGN.md#private-reading-data) owns their schema. Keep delivery evidence in STATUS.md and implementation details here.
@@ -61,7 +68,7 @@ UI components call application services; domain calculations do not depend on Re
 
 | Issue | Required resolution |
 |---|---|
-| Transient to-do tests versus Gemini free service | Verify provider-wide retention, not merely application logging. Google's unpaid-service terms permit processing inputs/outputs for product improvement and human review. Application deletion cannot establish zero provider retention. Block this feature until a free compliant processing route is demonstrated or the learner explicitly clarifies the retention boundary. Never silently relax the requirement. |
+| Transient to-do tests versus Gemini free service | Verify provider-wide retention, not merely application logging. Google's unpaid-service terms permit processing inputs/outputs for product improvement and human review. Application deletion cannot establish zero provider retention. The learner clarified on 27 November 2026 that non-retention applies to application-controlled systems and explicitly accepts Google processing/retention. Verify and disclose provider terms before enabling the feature. |
 | Stateless transient processing | Prototype authenticated encryption of a short-lived test envelope held only in browser memory. Bind it to learner, frozen evaluation and expiry. Keep keys/rubrics unreadable to the browser; server verification alone may change completion. Prove cross-instance operation and bounded payloads without a durable session store. This is proposed, not an established capability. |
 | Offline timer | Prototype server timestamps, ordered heartbeats, connection-loss detection and reconnect reconciliation. A server cannot detect physical disconnection instantaneously; measure and document the detection bound. Never trust client-supplied remaining time. |
 | Private authentication | Enforce an owner allowlist on sign-up/sign-in and every private route/job. Google OAuth requires client credentials and redirects. Verify email/password confirmation and recovery for the owner; Supabase's default mail service is restricted and unsuitable for general production delivery. |

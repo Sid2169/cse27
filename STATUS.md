@@ -17,7 +17,7 @@ Application planning/schema updated 27 November 2026; study-content observations
 | Study content | See [Study content and PYQs](#study-content-and-pyqs) below and the paper curricula. |
 | Web application | Not implemented in this repository. Method documents and practice artifacts are not application features. |
 | Database schema | [Drafted](DATABASE-DESIGN.md), including private annotations, bookmarks, reading positions/preferences (27 November 2026); Git learning material remains separate from site-created records. No migrations applied or database validation performed. |
-| Implementation dependencies | Gemini/free-service retention versus transient tests, Google OAuth/runtime configuration and free off-site backup destination remain unresolved; see [feasibility](IMPLEMENTATION-PLAN.md#3-resolve-feasibility-before-dependent-features) and [deployment](IMPLEMENTATION-PLAN.md#11-deployment-configuration-and-recovery). |
+| Implementation dependencies | Owner identity, application-only transient retention boundary and manual encrypted backup destination accepted 27 November 2026. Google OAuth/runtime configuration, backup implementation and restore verification remain pending; see [feasibility](IMPLEMENTATION-PLAN.md#3-resolve-feasibility-before-dependent-features) and [deployment](IMPLEMENTATION-PLAN.md#11-deployment-configuration-and-recovery). |
 
 Method availability does not establish teaching readiness or verify a future paper's pattern.
 

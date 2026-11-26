@@ -100,6 +100,8 @@ Insufficient readiness or coverage must be explained without silently changing m
 - No to-do-test questions, keys/guides, responses, uploads, scores, test feedback, attempt history or derived question-history data persist, whether passed or failed.
 - The originating simulation, feedback and recommendations remain available. Completing its refresher changes neither chapter qualification, paper completion nor revision scheduling. To-do tests create no further to-dos.
 
+Provider boundary clarified 27 November 2026: transient non-retention covers application-controlled systems. The learner accepts Google free-service processing and retention; provider-level non-retention is not promised.
+
 ## Persistence
 
 Retain private reading data/preferences, ordinary assessment records, chapter-revision qualifications, progress, frozen simulation feedback/recommendations, scheduled chapter tests and combined to-do completion states. Earlier ordinary records remain available. To-do-test data must not enter durable storage, assessment-content logs, backups or restored data. Backups must support recovery of retained records and uploads.
