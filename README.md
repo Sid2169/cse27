@@ -79,3 +79,9 @@ Database schema draft: [DATABASE-DESIGN.md](DATABASE-DESIGN.md)
 ## Status
 
 See [STATUS.md](STATUS.md) for content, assessment-method and application status.
+
+## Web application development
+
+Requires Node.js 24 and npm. Run `npm ci`, `npm run content:build`, and `npm run dev`. Run `npm run check` and `npm run build` before opening a feature PR. The build derives the public learning catalogue from curriculum chapter links; historical tests, keys, PYQs and method documents are excluded. Runtime configuration will be documented in `.env.example` as private features are added.
+
+Release features through separate branches and PRs; merge with a merge commit, without squash. The first release is a public reader; private learning tools and assessments remain pending.
