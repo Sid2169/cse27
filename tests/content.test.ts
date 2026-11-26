@@ -99,3 +99,24 @@ test("references to a planned prerequisite do not hide an authored chapter", () 
     true,
   );
 });
+
+test("each phase contains its ordered whole chapters without overlap", () => {
+  for (const paper of c.papers) {
+    assert.ok(
+      paper.phases.every(
+        (phase) => phase.title && phase.description && phase.chapters.length,
+      ),
+    );
+    assert.deepEqual(
+      paper.phases.flatMap((phase) => phase.chapters),
+      paper.chapters,
+    );
+  }
+  const gs = c.papers.find(
+    (paper) => paper.id === "Prelims-General-Studies-I",
+  )!;
+  assert.equal(gs.phases[2].chapters.length, 22);
+  assert.match(gs.phases[2].chapters[0], /\/022-/);
+  const hindi = c.papers.find((paper) => paper.id === "Mains-Indian-Language")!;
+  assert.match(hindi.phases[0].title, /आरम्भ/);
+});

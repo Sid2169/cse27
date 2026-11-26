@@ -7,6 +7,9 @@ import { ReaderControls } from "@/components/reader-controls";
 export function generateStaticParams() {
   return [
     ...catalogue.papers.map((p) => ({ slug: [p.id] })),
+    ...catalogue.papers.flatMap((paper) =>
+      paper.phases.map((phase) => ({ slug: [paper.id, "phase", phase.id] })),
+    ),
     ...catalogue.documents.map((d) => ({
       slug: d.path.replace(/\.md$/, "").split("/"),
     })),
@@ -19,8 +22,13 @@ export async function generateMetadata({
   params: Promise<{ slug: string[] }>;
 }) {
   const { slug } = await params;
+  const phase =
+    slug[1] === "phase"
+      ? getPaper(slug[0])?.phases.find((entry) => entry.id === slug[2])
+      : undefined;
   return {
     title:
+      phase?.title ??
       getDocument(slug.join("/") + ".md")?.title ??
       getPaper(slug[0])?.title ??
       "Learning material",
@@ -38,13 +46,25 @@ export default async function Learn({
     return (
       <div className="page">
         <p className="eyebrow">{paper.stage.toUpperCase()} · CURRICULUM</p>
-        <h1 className="compact-title">
-          {paper.title.replace(paper.stage + " ", "")}
-        </h1>
-        <p className="lead">
-          Follow the curriculum sequence. Chapters marked “Planned” contain an
-          outline; teaching material is still pending.
-        </p>
+        <div className="paper-heading">
+          <div>
+            <h1 className="compact-title">
+              {paper.title.replace(paper.stage + " ", "")}
+            </h1>
+            <p className="lead">Choose a phase to browse its chapters.</p>
+          </div>
+          <div className="paper-completion">
+            <div
+              className="progress-ring"
+              role="progressbar"
+              aria-label="Overall paper completion"
+              aria-valuenow={0}
+            >
+              <strong aria-hidden="true">0%</strong>
+            </div>
+            <span>Overall completion</span>
+          </div>
+        </div>
         <div className="button-row">
           <Link className="button primary" href={documentUrl(paper.curriculum)}>
             Read curriculum
@@ -53,13 +73,76 @@ export default async function Learn({
             Official syllabus
           </Link>
         </div>
+        <p className="footnote">
+          Completion counts chapters passed by checkpoint. Checkpoints are not
+          available yet.
+        </p>
+        <div className="phase-grid">
+          {paper.phases.map((phase) => (
+            <Link
+              key={phase.id}
+              className="phase-card"
+              href={`/learn/${paper.id}/phase/${phase.id}`}
+            >
+              <p className="eyebrow">
+                {paper.id === "Mains-Indian-Language" ? "चरण" : "Phase"}{" "}
+                {phase.id.toUpperCase()}
+              </p>
+              <h2
+                lang={paper.id === "Mains-Indian-Language" ? "hi" : undefined}
+              >
+                {phase.title}
+              </h2>
+              <p
+                className="phase-description"
+                lang={paper.id === "Mains-Indian-Language" ? "hi" : undefined}
+              >
+                {phase.description}
+              </p>
+              <div className="phase-progress">
+                <div>
+                  <span>{phase.chapters.length} chapters</span>
+                  <strong>0%</strong>
+                </div>
+                <progress
+                  aria-label={phase.title + " completion"}
+                  value={0}
+                  max={100}
+                />
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  if (slug.length === 3 && slug[1] === "phase") {
+    const phase = paper.phases.find((entry) => entry.id === slug[2]);
+    if (!phase) notFound();
+    const hindi = paper.id === "Mains-Indian-Language";
+    return (
+      <div className="page">
+        <div className="breadcrumbs">
+          <Link href={`/learn/${paper.id}`}>{paper.title}</Link>
+        </div>
+        <p className="eyebrow">
+          {hindi ? "चरण" : "Phase"} {phase.id.toUpperCase()}
+        </p>
+        <h1 className="compact-title" lang={hindi ? "hi" : undefined}>
+          {phase.title}
+        </h1>
+        <p className="lead" lang={hindi ? "hi" : undefined}>
+          {phase.description}
+        </p>
         <div className="chapter-list">
-          {paper.chapters.map((path) => {
+          {phase.chapters.map((path) => {
             const d = getDocument(path)!;
             return (
               <Link key={path} href={documentUrl(path)}>
                 <span className="chapter-number">{d.chapter}</span>
-                <span>{d.title.replace(/^\d+[.\s—–-]*/, "")}</span>
+                <span lang={hindi ? "hi" : undefined}>
+                  {d.title.replace(/^\d+[.\s—–-]*/, "")}
+                </span>
                 <span className={"pill " + (d.ready ? "ready" : "")}>
                   {d.ready ? "Read" : "Planned"}
                 </span>

@@ -14,12 +14,19 @@ export type Document = {
   revision: string;
   sections: Section[];
 };
+export type Phase = {
+  id: string;
+  title: string;
+  description: string;
+  chapters: string[];
+};
 export type Paper = {
   id: string;
   title: string;
   stage: "Prelims" | "Mains";
   curriculum: string;
   syllabus: string;
+  phases: Phase[];
   chapters: string[];
 };
 export type Catalogue = {
