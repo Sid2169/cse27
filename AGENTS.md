@@ -62,7 +62,7 @@ Load the method relevant to the task. This file owns shared safeguards; SPECIFIC
 
 ## Verification
 
-There is no build or test suite. Check the work affected by the task:
+For application changes, run `npm run check` (content catalogue, TypeScript, ESLint and tests) and `npm run build`. Keep GitHub Actions passing before merging feature PRs. Check the work affected by the task:
 
 - For syllabus edits, compare the text with its official source.
 - For curriculum/chapter edits, check coverage, relevant prerequisites, source support, index entries and local links. For planned links, use clearly labelled placeholders where needed.
