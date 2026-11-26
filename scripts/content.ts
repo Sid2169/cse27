@@ -7,6 +7,7 @@ import type {
   Catalogue,
   Document,
   Section,
+  Phase,
 } from "../src/modules/content/types";
 export function isReady(markdown: string) {
   return !markdown
@@ -41,6 +42,76 @@ export function sections(markdown: string): Section[] {
         text: "",
       });
     } else if (result.length) result[result.length - 1].text += " " + line;
+  }
+  return result;
+}
+function curriculumPhases(
+  curriculum: Document,
+  chapters: string[],
+  documents: Document[],
+): Phase[] {
+  const folder = curriculum.path.split("/")[0];
+  const allowed = new Set(chapters);
+  const phases = new Map<string, Phase>();
+  const descriptions = new Map<string, string>();
+  let current: Phase | undefined;
+
+  for (const line of curriculum.markdown.split("\n")) {
+    const summary = line.match(
+      /^\|\s*(?:(?:Phase|चरण) )?([A-Z0-9]+)\s+[—–-]\s+[^|]+\|[^|]*\|([^|]+)\|/,
+    );
+    if (summary) descriptions.set(summary[1].toLowerCase(), summary[2].trim());
+
+    const heading = line.match(
+      /^### (?:Phase|चरण) ([A-Z0-9]+)\s+[—–-]\s+(.+)$/,
+    );
+    if (heading) {
+      const id = heading[1].toLowerCase();
+      current = { id, title: heading[2], description: "", chapters: [] };
+      if (phases.has(id)) current = undefined;
+      else phases.set(id, current);
+      continue;
+    }
+    if (/^#{1,3} /.test(line)) current = undefined;
+    if (!current || !/^(?:#### |\|\s*\[|- \[)/.test(line)) continue;
+    const link = line.match(/\]\((\d{3}-[^)#]+\.md)\)/);
+    if (!link) continue;
+    const path = folder + "/" + link[1];
+    if (allowed.has(path) && !current.chapters.includes(path))
+      current.chapters.push(path);
+  }
+
+  const result = [...phases.values()];
+  if (
+    result.some((phase) => !phase.chapters.length) ||
+    result.flatMap((phase) => phase.chapters).join("\n") !== chapters.join("\n")
+  ) {
+    throw new Error(
+      "Phase chapters do not match the curriculum index: " +
+        curriculum.path +
+        " (" +
+        result.map((phase) => phase.chapters.length).join(", ") +
+        ")",
+    );
+  }
+  for (const phase of result) {
+    const topics =
+      phase.chapters.length <= 3
+        ? phase.chapters
+        : [
+            phase.chapters[0],
+            phase.chapters[Math.floor(phase.chapters.length / 2)],
+            phase.chapters.at(-1)!,
+          ];
+    phase.description =
+      descriptions.get(phase.id) ??
+      topics
+        .map((path) =>
+          documents
+            .find((doc) => doc.path === path)!
+            .title.replace(/^\d+[.\s—–-]*/, ""),
+        )
+        .join(" · ");
   }
   return result;
 }
@@ -110,6 +181,7 @@ export function buildCatalogue(root = process.cwd()): Catalogue {
       stage: folder.startsWith("Prelims") ? "Prelims" : "Mains",
       curriculum: curriculum.path,
       syllabus: syllabus.path,
+      phases: curriculumPhases(curriculum, chapters, documents),
       chapters,
     });
   }
