@@ -1406,3 +1406,131 @@ h1,
 .annotation-library li {
   overflow-wrap: anywhere;
 }
+
+.chapter-toolbar {
+  position: sticky;
+  top: 76px;
+  z-index: 12;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding: 0.55rem;
+  margin: 0.8rem 0 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: var(--surface);
+}
+.chapter-toolbar > .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 44px;
+}
+.chapter-toolbar-panel {
+  position: absolute;
+  inset: calc(100% + 0.35rem) auto auto 0;
+  width: min(30rem, 100%);
+  max-height: min(55dvh, 26rem);
+  overflow: auto;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: var(--surface);
+  box-shadow: 0 0.5rem 1.2rem #0003;
+}
+#chapter-contents-panel a {
+  display: block;
+  padding: 0.55rem;
+}
+#chapter-more-panel .reader-controls {
+  margin-bottom: 0.75rem;
+}
+#chapter-more-panel > .button {
+  margin-right: 0.4rem;
+}
+.chapter-mobile-label {
+  display: none;
+}
+.chapter-toolbar-status {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  right: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.6rem;
+}
+.chapter-page .reader-layout :is(h1, h2, h3, h4) {
+  scroll-margin-top: 155px;
+}
+.chapter-page .toc {
+  top: 155px;
+}
+@media (max-width: 800px) {
+  .chapter-page {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
+  .chapter-toolbar {
+    position: fixed;
+    inset: auto 0 0;
+    margin: 0;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    padding: 0.35rem 0.25rem calc(0.35rem + env(safe-area-inset-bottom));
+    border-radius: 0.75rem 0.75rem 0 0;
+  }
+  .chapter-toolbar > .button {
+    flex: 1;
+    padding: 0.2rem;
+    flex-direction: column;
+    gap: 0.1rem;
+    font-size: 0.75rem;
+  }
+  .chapter-toolbar-panel {
+    inset: auto 0 calc(100% + 0.35rem);
+    margin: auto;
+  }
+  .chapter-toolbar-status {
+    top: auto;
+    bottom: calc(100% + 0.35rem);
+  }
+  .chapter-desktop-label,
+  .chapter-page .toc {
+    display: none;
+  }
+  .chapter-mobile-label {
+    display: inline;
+  }
+  .chapter-page .reader-layout :is(h1, h2, h3, h4) {
+    scroll-margin-top: 85px;
+  }
+  body:has(.inline-annotation-editor, .selection-annotations) .chapter-toolbar {
+    visibility: hidden;
+  }
+}
+@media print {
+  .chapter-toolbar {
+    display: none;
+  }
+}
+
+.chapter-desktop-size {
+  display: flex;
+  align-items: center;
+}
+.chapter-mobile-size {
+  display: none;
+}
+@media (max-width: 800px) {
+  .chapter-desktop-size {
+    display: none;
+  }
+  .chapter-mobile-size {
+    display: block;
+  }
+  .chapter-mobile-size button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}

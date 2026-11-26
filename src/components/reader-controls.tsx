@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-export function ReaderControls() {
+export function ReaderControls({ showPrint = true }: { showPrint?: boolean }) {
   const [size, setSize] = useState(19);
   useEffect(() => {
     const sync = (event: Event) =>
@@ -18,18 +18,16 @@ export function ReaderControls() {
       window.removeEventListener("reader-text-size", sync);
     };
   }, []);
+  function changeSize(next: number) {
+    document.documentElement.style.setProperty("--reader-size", next + "px");
+    window.dispatchEvent(new CustomEvent("reader-text-size", { detail: next }));
+  }
   return (
     <div className="reader-controls" aria-label="Reader text size">
       <button
         aria-label="Decrease text size"
         disabled={size <= 16}
-        onClick={() => {
-          setSize(size - 1);
-          document.documentElement.style.setProperty(
-            "--reader-size",
-            `${size - 1}px`,
-          );
-        }}
+        onClick={() => changeSize(size - 1)}
       >
         A−
       </button>
@@ -37,17 +35,11 @@ export function ReaderControls() {
       <button
         aria-label="Increase text size"
         disabled={size >= 28}
-        onClick={() => {
-          setSize(size + 1);
-          document.documentElement.style.setProperty(
-            "--reader-size",
-            `${size + 1}px`,
-          );
-        }}
+        onClick={() => changeSize(size + 1)}
       >
         A+
       </button>
-      <button onClick={() => window.print()}>Print</button>
+      {showPrint && <button onClick={() => window.print()}>Print</button>}
     </div>
   );
 }

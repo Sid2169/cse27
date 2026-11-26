@@ -1,3 +1,4 @@
+import { ChapterToolbar } from "@/components/chapter-toolbar";
 import {
   PaperProgress,
   OverallProgress,
@@ -152,19 +153,24 @@ export default async function Learn({
   if (!d) notFound();
   const i = paper.chapters.indexOf(d.path);
   return (
-    <div className="reader-page">
+    <div
+      className={
+        d.kind === "chapter" ? "reader-page chapter-page" : "reader-page"
+      }
+    >
       <div className="breadcrumbs">
         <Link href={"/learn/" + paper.id}>{paper.title}</Link>
         <span>/</span>
         <span>{d.kind === "chapter" ? "Chapter " + d.chapter : d.kind}</span>
       </div>
-      <div className="reader-top">
-        <span className="eyebrow">
-          {d.kind.toUpperCase()} {d.chapter ?? ""}
-        </span>
-        <ReaderControls />
-        {d.kind === "chapter" &&
-          process.env.READER_ANNOTATIONS_ENABLED === "true" && (
+      {d.kind === "chapter" ? (
+        <ChapterToolbar
+          path={d.path}
+          headings={d.sections.filter((section) => section.level <= 4)}
+          canSave={process.env.READER_POSITIONS_ENABLED === "true"}
+          hasNotes={process.env.READER_ANNOTATIONS_ENABLED === "true"}
+        >
+          {process.env.READER_ANNOTATIONS_ENABLED === "true" && (
             <ReaderAnnotations
               key={d.path}
               path={d.path}
@@ -172,30 +178,12 @@ export default async function Learn({
               headings={d.sections.map(({ id, title }) => ({ id, title }))}
             />
           )}
-
-        {d.kind === "chapter" &&
-          process.env.READER_ANNOTATIONS_ENABLED === "true" && (
-            <Link
-              className="button"
-              href={{
-                pathname: "/library/annotations",
-                query: { chapter: d.path },
-              }}
-            >
-              Notes and highlights
-            </Link>
-          )}
-        {d.kind === "chapter" && (
-          <Link
-            className="button"
-            href={{ pathname: "/library", query: { path: d.path } }}
-          >
-            {process.env.READER_POSITIONS_ENABLED === "true"
-              ? "Save location"
-              : "Bookmark"}
-          </Link>
-        )}
-      </div>
+        </ChapterToolbar>
+      ) : (
+        <div className="reader-top">
+          <ReaderControls />
+        </div>
+      )}
       {d.kind === "chapter" && !d.ready && (
         <p className="notice">
           Planned chapter. This outline is not authored teaching material.
