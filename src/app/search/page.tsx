@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/navigation-link";
 import { catalogue } from "@/modules/content/catalogue";
 import { documentUrl } from "@/modules/content/types";
 export const metadata = { title: "Search learning material" };

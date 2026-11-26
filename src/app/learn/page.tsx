@@ -1,5 +1,12 @@
-import Link from "next/link";
-import { BookOpen, Layers, Search } from "lucide-react";
+import Link from "@/components/navigation-link";
+import {
+  BookOpen,
+  Layers,
+  Search,
+  Compass,
+  Globe2,
+  Landmark,
+} from "lucide-react";
 import { catalogue, getDocument } from "@/modules/content/catalogue";
 import { documentUrl } from "@/modules/content/types";
 export default function Home() {
@@ -9,16 +16,16 @@ export default function Home() {
   const ready = chapters.filter((d) => d.ready);
   return (
     <div className="page">
-      <p className="eyebrow">YOUR STUDY LIBRARY</p>
-      <h1>
-        A little more clarity.
-        <br />
-        <span>One chapter at a time.</span>
-      </h1>
-      <p className="lead">
-        Your curricula, chapters and source material for CSE 2027, in one
-        focused place.
-      </p>
+      <header className="study-hero">
+        <p className="eyebrow">UPSC CIVIL SERVICES · 2027</p>
+        <h1>Your study library</h1>
+        <p>
+          Browse the syllabus, follow the curriculum, or pick a chapter to read.
+        </p>
+        <Link className="button" href="/search">
+          <Search size={17} aria-hidden="true" /> Find a concept
+        </Link>
+      </header>
       <div className="stats">
         <div>
           <BookOpen />
@@ -45,18 +52,23 @@ export default function Home() {
           {ready
             .filter((d) => d.path.includes("Prelims-General-Studies-I"))
             .slice(0, 3)
-            .map((d) => (
-              <Link
-                className="reading-card"
-                key={d.path}
-                href={documentUrl(d.path)}
-              >
-                <span className="eyebrow">PRELIMS · GENERAL STUDIES I</span>
-                <BookOpen size={23} />
-                <h3>{d.title.replace(/^\d+[.\s]*/, "")}</h3>
-                <span className="card-link">Read chapter</span>
-              </Link>
-            ))}
+            .map((d, index) => {
+              const Icon = [Landmark, Compass, Globe2][index];
+              return (
+                <Link
+                  className="reading-card"
+                  key={d.path}
+                  href={documentUrl(d.path)}
+                >
+                  <span className="eyebrow">PRELIMS · GENERAL STUDIES I</span>
+                  <span className="study-icon">
+                    <Icon size={23} aria-hidden="true" />
+                  </span>
+                  <h3>{d.title.replace(/^\d+[.\s]*/, "")}</h3>
+                  <span className="card-link">Read chapter</span>
+                </Link>
+              );
+            })}
         </div>
       </section>
       {(["Prelims", "Mains"] as const).map((stage) => (
