@@ -18,7 +18,7 @@ export default async function Dashboard() {
         results have been recorded.
       </p>
       <div className="button-row">
-        <Link className="button primary" href="/">
+        <Link className="button primary" href="/learn">
           Browse learning material
         </Link>
         <Link className="button" href="/library">

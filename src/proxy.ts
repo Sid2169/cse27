@@ -34,17 +34,25 @@ export async function proxy(request: NextRequest) {
   const isProtected = /^\/(dashboard|library|settings|api\/reader)(\/|$)/.test(
     request.nextUrl.pathname,
   );
-  if (isProtected && !isOwner(user, process.env.OWNER_EMAIL)) {
-    const target = new URL("/login", request.url);
-    const denied = NextResponse.redirect(target);
-    for (const c of response.cookies.getAll()) denied.cookies.set(c);
-    denied.headers.set("Cache-Control", "private, no-store");
-    return denied;
+  const owner = isOwner(user, process.env.OWNER_EMAIL);
+  const destination =
+    isProtected && !owner
+      ? "/login"
+      : request.nextUrl.pathname === "/" && owner
+        ? "/dashboard"
+        : null;
+  if (destination) {
+    const redirect = NextResponse.redirect(new URL(destination, request.url));
+    for (const cookie of response.cookies.getAll())
+      redirect.cookies.set(cookie);
+    redirect.headers.set("Cache-Control", "private, no-store");
+    return redirect;
   }
   return response;
 }
 export const config = {
   matcher: [
+    "/",
     "/login",
     "/auth/:path*",
     "/dashboard/:path*",
