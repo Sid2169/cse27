@@ -4,7 +4,7 @@ import {
   PhaseProgress,
 } from "@/components/checkpoint-progress";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import Link from "@/components/navigation-link";
 import { catalogue, getDocument, getPaper } from "@/modules/content/catalogue";
 import { documentUrl } from "@/modules/content/types";
 import { Markdown } from "@/components/markdown";

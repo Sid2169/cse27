@@ -1,8 +1,17 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { BookOpen, Search } from "lucide-react";
+import Link from "@/components/navigation-link";
+import {
+  BookOpen,
+  Search,
+  LayoutDashboard,
+  LibraryBig,
+  GraduationCap,
+  Landmark,
+} from "lucide-react";
 import { Theme, ThemeToggle } from "@/components/theme";
 import { catalogue } from "@/modules/content/catalogue";
+import "@fontsource-variable/dm-sans";
+import "@fontsource-variable/fraunces";
 import "./globals.css";
 import "katex/dist/katex.min.css";
 export const metadata: Metadata = {
@@ -34,7 +43,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <kbd>/</kbd>
               </Link>
               <Link className="search-link" href="/dashboard">
-                My workspace
+                <LayoutDashboard size={17} aria-hidden="true" /> My workspace
               </Link>
               <ThemeToggle />
             </div>
@@ -43,11 +52,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <aside className="sidebar">
               <p className="eyebrow">STUDY WORKSPACE</p>
               <Link className="nav-home" href="/">
-                Overview
+                <LibraryBig size={18} aria-hidden="true" /> Overview
               </Link>
               {(["Prelims", "Mains"] as const).map((stage) => (
                 <details key={stage} open>
-                  <summary>{stage}</summary>
+                  <summary>
+                    {stage === "Prelims" ? (
+                      <Landmark size={16} aria-hidden="true" />
+                    ) : (
+                      <GraduationCap size={16} aria-hidden="true" />
+                    )}
+                    {stage}
+                  </summary>
                   <nav aria-label={stage + " papers"}>
                     {catalogue.papers
                       .filter((p) => p.stage === stage)
@@ -59,11 +75,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </nav>
                 </details>
               ))}
-              <div className="sidebar-footer">
-                Public study library
-                <br />
-                <span>Private tools are being built.</span>
-              </div>
+              <div className="sidebar-footer">Public study library</div>
             </aside>
             <main id="main">{children}</main>
           </div>
