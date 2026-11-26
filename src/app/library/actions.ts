@@ -68,7 +68,7 @@ export async function changeBookmark(form: FormData) {
   redirect("/library?status=saved");
 }
 
-export async function saveReadingPosition(form: FormData) {
+async function storeReadingPosition(form: FormData, quick: boolean) {
   const { db, user } = await requireOwner();
   const path = String(form.get("path") ?? "");
   const heading = String(form.get("heading") ?? "");
@@ -78,17 +78,27 @@ export async function saveReadingPosition(form: FormData) {
     document?.kind !== "chapter" ||
     (heading && !document.sections.some((section) => section.id === heading))
   )
-    redirect("/library?status=invalid");
+    return "invalid";
 
-  const expected = Number(form.get("positionVersion"));
+  const chapterPath = path.replace(/-part-\d+\.md$/, ".md");
+  const table = db.from("reading_positions");
+  let expected = Number(form.get("positionVersion"));
+  if (quick) {
+    const existing = await table
+      .select("version")
+      .eq("user_id", user.id)
+      .eq("chapter_path", chapterPath)
+      .maybeSingle();
+    if (existing.error) return "failed";
+    expected = existing.data?.version ?? 0;
+  }
   if (
     !Number.isSafeInteger(expected) ||
     expected < 0 ||
     expected >= 2147483647
   ) {
-    redirect("/library?status=invalid");
+    return "invalid";
   }
-  const chapterPath = path.replace(/-part-\d+\.md$/, ".md");
   const anchor: BookmarkAnchor = {
     version: 1,
     path,
@@ -96,7 +106,6 @@ export async function saveReadingPosition(form: FormData) {
     blob: document.revision,
   };
   const fields = { anchor, source_commit: catalogue.commit };
-  const table = db.from("reading_positions");
   const mutation =
     expected === 0
       ? table.insert({ chapter_path: chapterPath, ...fields })
@@ -106,11 +115,21 @@ export async function saveReadingPosition(form: FormData) {
           .eq("chapter_path", chapterPath)
           .eq("version", expected);
   const { data, error } = await mutation.select("version");
-  const status =
-    error?.code === "23505" || (!error && !data?.length)
-      ? "position-conflict"
-      : error
-        ? "failed"
-        : "position-saved";
-  redirect("/library?" + new URLSearchParams({ path, status }));
+  return error?.code === "23505" || (!error && !data?.length)
+    ? "position-conflict"
+    : error
+      ? "failed"
+      : "position-saved";
+}
+
+export async function saveReadingPosition(form: FormData) {
+  const status = await storeReadingPosition(form, false);
+  redirect(
+    "/library?" +
+      new URLSearchParams({ path: String(form.get("path") ?? ""), status }),
+  );
+}
+
+export async function saveCurrentSection(form: FormData) {
+  return storeReadingPosition(form, true);
 }
