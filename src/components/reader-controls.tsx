@@ -1,7 +1,23 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export function ReaderControls() {
   const [size, setSize] = useState(19);
+  useEffect(() => {
+    const sync = (event: Event) =>
+      setSize((event as CustomEvent<number>).detail);
+    const stored = parseInt(
+      document.documentElement.style.getPropertyValue("--reader-size"),
+      10,
+    );
+    const frame = requestAnimationFrame(() => {
+      if (stored >= 16 && stored <= 28) setSize(stored);
+    });
+    window.addEventListener("reader-text-size", sync);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("reader-text-size", sync);
+    };
+  }, []);
   return (
     <div className="reader-controls" aria-label="Reader text size">
       <button
