@@ -3,6 +3,7 @@ import Link from "next/link";
 import { catalogue, getDocument, getPaper } from "@/modules/content/catalogue";
 import { documentUrl } from "@/modules/content/types";
 import { Markdown } from "@/components/markdown";
+import { ReaderAnnotations } from "@/components/reader-annotations";
 import { ReaderControls } from "@/components/reader-controls";
 export function generateStaticParams() {
   return [
@@ -168,6 +169,12 @@ export default async function Learn({
           {d.kind.toUpperCase()} {d.chapter ?? ""}
         </span>
         <ReaderControls />
+        {d.kind === "chapter" &&
+          process.env.READER_ANNOTATIONS_ENABLED === "true" && (
+            <a className="button" href="#annotations">
+              Notes and highlights
+            </a>
+          )}
         {d.kind === "chapter" && (
           <Link
             className="button"
@@ -186,6 +193,7 @@ export default async function Learn({
       )}
       <div className="reader-layout">
         <article
+          id="reader-content"
           className="prose"
           lang={paper.id === "Mains-Indian-Language" ? "hi" : "en"}
         >
@@ -206,6 +214,15 @@ export default async function Learn({
           </details>
         </aside>
       </div>
+      {d.kind === "chapter" &&
+        process.env.READER_ANNOTATIONS_ENABLED === "true" && (
+          <ReaderAnnotations
+            key={d.path}
+            path={d.path}
+            blob={d.revision}
+            headings={d.sections.map(({ id, title }) => ({ id, title }))}
+          />
+        )}
       {i >= 0 && (
         <nav className="chapter-pagination" aria-label="Chapter navigation">
           {i > 0 ? (

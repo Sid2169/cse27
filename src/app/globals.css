@@ -898,3 +898,18 @@ h3 {
   margin-top: 0.5rem;
   accent-color: var(--accent);
 }
+
+::highlight(cse27-annotations) {
+  background-color: #ffd879;
+  color: #222;
+}
+
+.stack-form textarea {
+  min-width: 0;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+  background: var(--surface);
+  color: var(--text);
+  padding: 0.65rem;
+}
