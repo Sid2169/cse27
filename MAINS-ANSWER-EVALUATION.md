@@ -29,7 +29,7 @@ Report qualifying status separately for a complete Hindi A or English B paper: t
 
 Check evidence before assigning marks; avoid anchoring to the learner's self-score. Use precision supported by the rubric, and identify provisional scores or defer affected totals when evidence is insufficient. Confidence is not a scoring bonus or penalty.
 
-For real-paper simulations, append `### Evaluation — YYYY-MM-DD — Attempt N` under `## Evaluation` with:
+For real-paper simulations, save one evaluation against the application attempt with:
 
 - An auditable item/sub-part score summary and reconciled total, identifying blanks, excluded alternatives, uncertainty and corrections.
 - Concise reasons for material awards and lost credit, tied to the guide and identifiable answer evidence. Show criterion allocations where needed to explain the score.

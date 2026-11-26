@@ -26,4 +26,4 @@ Only finalized chapter-test results feed [REVISION-SCHEDULING.md](REVISION-SCHED
 
 ## Record and Check
 
-For simulations, append `### Feedback — YYYY-MM-DD — Attempt N` under `## Feedback`, in English by default. Include score, useful findings and recommendations. Check mapping, counts, arithmetic, corrections, section links and retention for the mode before finalizing.
+For simulations, save feedback against the application attempt, in English by default. Include score, useful findings and recommendations. Check mapping, counts, arithmetic, corrections, section links and retention for the mode before finalizing.

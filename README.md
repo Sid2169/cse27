@@ -34,9 +34,11 @@ Each paper folder contains:
 - `<paper-name>-Curriculum.md` — a comprehensive, phased curriculum, generated from the researched exam pattern, the syllabus, and PYQs; doubles as the index
 - `<paper-name>-PYQS/<year>-<paper-name>.md` — year-wise PYQ notes (2013–2026), one file per exam year; for two-paper subjects, both papers appear in separate Paper I and Paper II sections
 - `<chapter>.md` or `<chapter>-part-N.md` — chapter content; split parts only when a curriculum chapter is too large, with every part linked from the curriculum
-- `Prelims-<paper>-TESTS/<test-id>.md` — on-demand Prelims tests; feedback is appended in the same file
-- [Prelims GS-I full-test](Prelims-General-Studies-I/full-test/) — full-length GS-I mocks; feedback is appended in the same test file
-- `Mains-<paper>-TESTS/<test-id>.md` — on-demand Mains tests for GS I–IV, Essay, Hindi A, English B and Mathematics I–II; evaluation is appended in the same file
+- `Prelims-<paper>-TESTS/<test-id>.md` — historical repository practice tests and feedback
+- [Prelims GS-I full-test](Prelims-General-Studies-I/full-test/) — historical full-length GS-I practice artifacts
+- `Mains-<paper>-TESTS/<test-id>.md` — legacy repository assessment-file convention
+
+Website assessments, feedback, learner progress and revision tasks are created dynamically in application storage; learning material alone is sourced from Git Markdown.
 
 Curriculum generation method: [CURRICULUM-GENERATION.md](CURRICULUM-GENERATION.md)
 
@@ -57,6 +59,8 @@ Mains test generation method: [MAINS-TEST-GENERATION.md](MAINS-TEST-GENERATION.m
 Mains answer evaluation method: [MAINS-ANSWER-EVALUATION.md](MAINS-ANSWER-EVALUATION.md)
 
 Implementation, planning and decisions: [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md)
+
+Database schema draft: [DATABASE-DESIGN.md](DATABASE-DESIGN.md)
 
 ## Practice Resources
 

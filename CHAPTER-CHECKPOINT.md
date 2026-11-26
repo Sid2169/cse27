@@ -8,7 +8,7 @@ Generate and evaluate short, untimed MCQ checkpoints for chapters in every paper
 - Choose a short question set that samples the chapter's important ideas and skills without padding. Use the taught material as the knowledge boundary; supply unfamiliar context needed for application. Do not apply full-paper patterns or the separate recommendation follow-up's question-count range.
 - Write clear single-answer MCQs with plausible distractors. Use recall, interpretation, reasoning or application as appropriate; avoid answer cues and obscure details that displace meaningful coverage. Use Hindi in Devanagari for Hindi A, with English where needed for translation; otherwise default to English.
 - For each retry, generate fresh questions, excluding repeats and close rewrites of that learner's previous checkpoint questions. Concepts may recur. If fresh, meaningful coverage cannot be sustained, explain the limitation rather than reusing questions or importing untaught material.
-- Before presenting the checkpoint, independently solve each question and prepare its correct option, brief explanation and relevant chapter-section link. Verify ambiguity, factual support and calculations. Keys stay unavailable during application attempts; repository versions use a labelled collapsible block warning against opening it before submission.
+- Before presenting the checkpoint, independently solve each question and prepare its correct option, brief explanation and relevant chapter-section link. Verify ambiguity, factual support and calculations. Keys remain server-private and unavailable during attempts.
 
 All questions carry **one mark**. Correct answers earn one; wrong, multiple-selected and blank answers earn zero. There is no negative marking. State the **80%** pass threshold before the attempt. Submission is learner-controlled, without a timer.
 
@@ -30,6 +30,6 @@ Preserve checkpoint questions, keys, responses, scores and feedback, including f
 
 ## Recording and Verification
 
-Record the paper folder, canonical chapter revision (including all parts) and section links, checkpoint ID, generation date, question count, marking rule, status and pre-attempt key. Use `<paper-folder-name>-CP-<chapter-slug>-T01`, incrementing for each freshly generated checkpoint. Repository files go in `<paper-folder>/<paper-folder-name>-CHECKPOINTS/<checkpoint-id>.md`; use `## Questions`, a labelled key block and the paper-appropriate `## Feedback` or `## Evaluation` section with dated attempts. The application presents the separate checkpoint at the chapter's end.
+Record the paper folder, canonical chapter revision (including all parts) and section links, checkpoint ID, generation date, question count, marking rule, status and pre-attempt key. Use `<paper-folder-name>-CP-<chapter-slug>-T01`, incrementing for each freshly generated checkpoint. Store checkpoint/attempt records in application storage, not Git files. Present the separate checkpoint at the chapter's end, with keys unavailable during the attempt.
 
 Before generation is complete, check readiness, whole-chapter coverage, fresh-question history, key correctness, links and ID uniqueness. Before evaluation is final, check response mapping, counts, denominator, exact threshold and chapter-completion updates. These scoring and progress rules are product decisions, not UPSC marking rules.

@@ -13,7 +13,8 @@ A beginner-oriented web platform for **study → test → feedback → revision 
 ## Access and navigation
 
 - Anonymous visitors can read published material. Individual learner accounts provide private progress and assessments. Organisation, team and staff features are excluded.
-- Git Markdown is the authoritative study-content source. Navigation follows curriculum order through paper folders, chapters and parts; page headings form an on-page contents menu.
+- Only learning material uses Git Markdown as its authoritative data source. Navigation follows curriculum order through paper folders, chapters and parts; page headings form an on-page contents menu.
+- Site actions create assessments, attempts, feedback, progress and revision tasks dynamically. Retained records live in application storage, never generated Git Markdown files; feedback to-do tests remain transient.
 - Planning placeholders are visibly labelled and cannot support chapter tests or checkpoints.
 - The dashboard shows each paper's completion percentage, scheduled chapter tests, latest cumulative result and latest full-scope/PYQ result.
 - Learners can request tests by paper/mode from the dashboard or open chapter practice from its page.

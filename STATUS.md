@@ -14,6 +14,7 @@ Consolidated 26 November 2026. Existing observation dates and source caveats are
 | Chapter-test scheduling | Authored: [REVISION-SCHEDULING.md](REVISION-SCHEDULING.md), adapted from spaced-rep's documented policy |
 | Study content | See [Study content and PYQs](#study-content-and-pyqs) below and the paper curricula. |
 | Web application | Not implemented in this repository. Method documents and practice artifacts are not application features. |
+| Database schema | [Drafted](DATABASE-DESIGN.md), with Git learning material separated from site-created records; no migrations applied or database validation performed. |
 
 Method availability does not establish teaching readiness or verify a future paper's pattern.
 

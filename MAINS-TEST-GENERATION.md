@@ -32,7 +32,7 @@ Keep the guide concise but sufficient for reliable evaluation:
 - **Languages:** provide passage-grounded answers, précis essentials, acceptable usage variants and translation references where applicable. Judge fidelity, compression and language by the actual task; a sample translation or précis is not the only acceptable answer.
 - **Mathematics:** provide checked solutions and allocations for valid setup, method, reasoning and results as appropriate. Allow alternative methods and justified follow-through after local errors; do not invent a universal marks-per-step rule.
 
-Keep keys/guides unavailable during application attempts. Repository tests use the labelled collapsible block required by AGENTS.md. Never construct a scoring rubric after seeing the learner's answer.
+Keep keys/guides server-private and unavailable during attempts. Never construct a scoring rubric after seeing the learner's answer.
 
 ## IDs and Recording
 
@@ -46,9 +46,9 @@ Keep keys/guides unavailable during application attempts. Repository tests use t
 
 Use `<prefix>-CH-<chapter-slug>-T01` for chapter tests and `<prefix>-<mode>-T01` otherwise, incrementing to the next unused number. Record historical/target years for PYQ variants. FU uses its originating simulation feedback only during transient processing; it has no permanent test ID or file. Existing test IDs remain valid.
 
-Store repository tests as `<test-id>.md` in `<paper-folder>/<paper-folder-name>-TESTS/`. Include ID, paper, mode, chapter revisions where applicable, coverage links, blueprint, suggested duration, offered/required answer counts, maximum attainable marks, choice rules, applicable length guidance, answer language, sources/access dates, generation date and status.
+Store site assessments in application storage, not repository files. Include ID, paper, mode, chapter revisions where applicable, coverage links, blueprint, suggested duration, offered/required answer counts, maximum attainable marks, choice rules, applicable length guidance, answer language, sources/access dates, generation date and status.
 
-Use `## Instructions`, `## Questions`, `## Evaluator guide` and `## Evaluation`. Explain permitted choices and unaided practice without guide consultation; do not require answers to unselected alternatives. The evaluation section initially records that evaluation has not been requested. These recording rules apply to real-paper simulations; FU questions, guides and evaluation are never saved. This generator does not calculate completion, evaluate learner responses or set revision dates.
+Present instructions/questions and keep evaluator guides server-private until submission. Explain permitted choices and unaided practice without guide consultation; do not require answers to unselected alternatives. Track evaluation status on the site. These recording rules apply to real-paper simulations; FU questions, guides and evaluation are never saved. This generator does not calculate completion, evaluate learner responses or set revision dates.
 
 ## Sources and Verification
 

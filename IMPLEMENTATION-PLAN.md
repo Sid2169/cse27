@@ -21,7 +21,7 @@ The agreed requirements are authoritative in the specification. Decision locatio
 | Application architecture | Runtime/services, database and storage layout, background processing and deployment |
 | Data operations | Backup/restoration approach, retention enforcement and transient processing without persisting to-do-test data |
 
-Database and storage design were deferred until functional requirements were settled; no design has been selected. Technical choices must implement the agreed requirements, not redefine them.
+Learning material comes from Git; site-created assessment/learner records use application storage. The [database schema draft](DATABASE-DESIGN.md) proposes PostgreSQL, selective JSONB and private object storage; it has not been finalized or applied. Provider/runtime choices remain open. Technical choices must implement the agreed requirements, not redefine them.
 
 ## Proposed Implementation Order
 
