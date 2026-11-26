@@ -1,3 +1,5 @@
+import { posix } from "node:path";
+import assets from "../../.generated/chapter-assets.json";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
@@ -34,11 +36,38 @@ export function Markdown({ source, path }: { source: string; path: string }) {
             </span>
           );
         },
-        img: ({ alt }) => (
-          <span className="notice">
-            Figure: {alt || "See the linked source for this figure."}
-          </span>
-        ),
+        img: ({ alt, src }) => {
+          let asset: string | undefined;
+          if (typeof src === "string") {
+            try {
+              const resolved = posix.join(
+                posix.dirname(path),
+                decodeURIComponent(src),
+              );
+              if (assets.includes(resolved))
+                asset =
+                  "/chapter-assets/" +
+                  resolved.split("/").map(encodeURIComponent).join("/");
+            } catch {
+              // Malformed image references keep the text alternative.
+            }
+          }
+          return asset ? (
+            // Chapter diagrams have varying dimensions and are shipped as static assets.
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              className="chapter-image"
+              src={asset}
+              alt={alt ?? ""}
+              loading="lazy"
+              decoding="async"
+            />
+          ) : (
+            <span className="notice">
+              Figure: {alt || "See the linked source for this figure."}
+            </span>
+          );
+        },
       }}
     >
       {source}

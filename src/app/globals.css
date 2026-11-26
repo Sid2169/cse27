@@ -1312,3 +1312,12 @@ h1,
     height: 2.15rem;
   }
 }
+
+.chapter-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem auto;
+  background: #fff;
+  border-radius: 0.5rem;
+}
