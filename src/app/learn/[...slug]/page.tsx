@@ -173,7 +173,9 @@ export default async function Learn({
             className="button"
             href={{ pathname: "/library", query: { path: d.path } }}
           >
-            Bookmark
+            {process.env.READER_POSITIONS_ENABLED === "true"
+              ? "Save location"
+              : "Bookmark"}
           </Link>
         )}
       </div>

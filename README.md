@@ -96,9 +96,9 @@ The verified owner must create/confirm the account or sign in with Google. Provi
 
 ### Bookmark recovery
 
-In **Bookmarks → Download encrypted backup**, enter a passphrase of at least 16 characters and keep it separately from the downloaded file. This export covers bookmarks only. It fails if Supabase cannot return the full snapshot.
+In **Bookmarks → Download encrypted backup**, enter a passphrase of at least 16 characters and keep it separately from the downloaded file. This export includes bookmarks and saved reading positions when enabled. It fails if Supabase cannot return the full snapshot.
 
-To restore, apply the bookmark migration to a recovery database and provision its verified owner in `reader_private.owners`. Use the recovery owner's UUID in the command below. Supply a PostgreSQL connection through your local PostgreSQL client configuration and keep the passphrase out of shell history.
+To restore, apply the private reader migrations to a recovery database and provision its verified owner in `reader_private.owners`. Use the recovery owner's UUID in the command below. Supply a PostgreSQL connection through your local PostgreSQL client configuration and keep the passphrase out of shell history.
 
 ```bash
 set -o pipefail

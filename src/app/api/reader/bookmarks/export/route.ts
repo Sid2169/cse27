@@ -36,8 +36,30 @@ export async function POST(request: Request) {
       status: 503,
     });
   }
+  const positions =
+    process.env.READER_POSITIONS_ENABLED === "true"
+      ? await db
+          .from("reading_positions")
+          .select("chapter_path,source_commit,anchor,version,updated_at", {
+            count: "exact",
+          })
+          .order("chapter_path")
+      : null;
+  if (
+    positions &&
+    (positions.error || positions.count !== positions.data?.length)
+  ) {
+    return new Response("The complete backup could not be generated.", {
+      status: 503,
+    });
+  }
   const backup = encryptBookmarks(
-    { format: 1, exportedAt: new Date().toISOString(), bookmarks: data },
+    {
+      format: 1,
+      exportedAt: new Date().toISOString(),
+      bookmarks: data,
+      positions: positions?.data ?? undefined,
+    },
     passphrase,
   );
   return new Response(new Uint8Array(backup), {

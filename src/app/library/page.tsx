@@ -5,7 +5,7 @@ import {
   bookmarkLocation,
   type BookmarkAnchor,
 } from "@/modules/reader/bookmarks";
-import { changeBookmark, saveBookmark } from "./actions";
+import { changeBookmark, saveBookmark, saveReadingPosition } from "./actions";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -15,6 +15,9 @@ export const metadata = {
 
 const messages: Record<string, string> = {
   saved: "Changes saved.",
+  "position-saved": "Reading position saved.",
+  "position-conflict":
+    "Reading position changed in another session. Review the latest location and try again.",
   invalid: "The chapter, heading, or label is invalid.",
   failed: "The change could not be saved. Try again.",
   conflict:
@@ -30,6 +33,21 @@ export default async function Library({
   const { path, heading, status } = await searchParams;
   const enabled = process.env.READER_BOOKMARKS_ENABLED === "true";
   const selected = path ? getDocument(path) : undefined;
+  const positionsEnabled = process.env.READER_POSITIONS_ENABLED === "true";
+  const position =
+    positionsEnabled && selected?.kind === "chapter"
+      ? await db
+          .from("reading_positions")
+          .select("anchor,version")
+          .eq("chapter_path", selected.path.replace(/-part-\d+\.md$/, ".md"))
+          .maybeSingle()
+      : null;
+  const savedAnchor = position?.data?.anchor as BookmarkAnchor | undefined;
+  const savedHeading =
+    savedAnchor?.path === selected?.path &&
+    savedAnchor?.blob === selected?.revision
+      ? savedAnchor?.heading
+      : undefined;
   const { data, error } = enabled
     ? await db
         .from("bookmarks")
@@ -56,13 +74,20 @@ export default async function Library({
       {enabled && selected?.kind === "chapter" && (
         <form action={saveBookmark} className="stack-form">
           <h2>{selected.title}</h2>
+          <input
+            name="positionVersion"
+            type="hidden"
+            value={position?.data?.version ?? 0}
+          />
           <input name="path" type="hidden" value={selected.path} />
           <label>
             Location
             <select
               name="heading"
               defaultValue={
-                selected.sections.some((s) => s.id === heading) ? heading : ""
+                selected.sections.some((s) => s.id === heading)
+                  ? heading
+                  : (savedHeading ?? "")
               }
             >
               <option value="">Start of chapter or part</option>
@@ -79,12 +104,22 @@ export default async function Library({
             Label (optional)
             <input name="label" maxLength={160} />
           </label>
-          <button className="button primary">Save bookmark</button>
+          <div className="button-row">
+            <button className="button primary">Save bookmark</button>
+            {positionsEnabled && !position?.error && (
+              <button className="button" formAction={saveReadingPosition}>
+                Save reading position
+              </button>
+            )}
+          </div>
+          {position?.error && (
+            <p role="alert">Reading position could not be loaded.</p>
+          )}
         </form>
       )}
       {enabled && (
         <details className="auth-details">
-          <summary>Download encrypted backup</summary>
+          <summary>Download encrypted reading backup</summary>
           <form
             method="post"
             action="/api/reader/bookmarks/export"
@@ -101,7 +136,7 @@ export default async function Library({
                 autoComplete="new-password"
               />
             </label>
-            <button className="button">Download bookmarks</button>
+            <button className="button">Download reading backup</button>
           </form>
         </details>
       )}
