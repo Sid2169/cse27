@@ -1,6 +1,6 @@
 # UPSC CSE Preparation Platform — Specification
 
-Updated: 26 November 2026. Product requirements. Procedures are defined in the linked methods; delivery status is in [STATUS.md](STATUS.md), and planning/decisions in [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md).
+Updated: 27 November 2026. Product requirements. Procedures are defined in the linked methods; delivery status is in [STATUS.md](STATUS.md), and planning/decisions in [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md).
 
 ## Objective and scope
 
@@ -14,10 +14,17 @@ A beginner-oriented web platform for **study → test → feedback → revision 
 
 - Anonymous visitors can read published material. Individual learner accounts provide private progress and assessments. Organisation, team and staff features are excluded.
 - Only learning material uses Git Markdown as its authoritative data source. Navigation follows curriculum order through paper folders, chapters and parts; page headings form an on-page contents menu.
-- Site actions create assessments, attempts, feedback, progress and revision tasks dynamically. Retained records live in application storage, never generated Git Markdown files; feedback to-do tests remain transient.
+- Site actions create assessments, attempts, feedback, progress, revision tasks and private reading data dynamically. Retained records live in application storage, never generated Git Markdown files; feedback to-do tests remain transient.
 - Planning placeholders are visibly labelled and cannot support chapter tests or checkpoints.
 - The dashboard shows each paper's completion percentage, scheduled chapter tests, latest cumulative result and latest full-scope/PYQ result.
 - Learners can request tests by paper/mode from the dashboard or open chapter practice from its page.
+
+## Reading tools
+
+- Provide learning-material search, direct heading links, a collapsible table of contents, adjustable text size and light/dark themes with system preference as the initial default.
+- Signed-in learners can save and resume reading positions and create, edit or delete private bookmarks, highlights and notes. Notes may stand alone or accompany highlights; shared chapters show the same annotations across associated papers.
+- Preserve annotations when material changes. Restore their location only when the match is unambiguous; otherwise show the original passage/note with an unresolved-location indication rather than attaching it elsewhere silently.
+- Reading activity and annotations do not qualify chapters, change paper completion or affect revision schedules. Learning material remains Git-based; personal reading data is created and stored through site actions.
 
 ## Test modes
 
@@ -95,7 +102,7 @@ Insufficient readiness or coverage must be explained without silently changing m
 
 ## Persistence
 
-Retain ordinary assessment records, chapter-revision qualifications, progress, frozen simulation feedback/recommendations, scheduled chapter tests and combined to-do completion states. Earlier ordinary records remain available. To-do-test data must not enter durable storage, assessment-content logs, backups or restored data. Backups must support recovery of retained records and uploads.
+Retain private reading data/preferences, ordinary assessment records, chapter-revision qualifications, progress, frozen simulation feedback/recommendations, scheduled chapter tests and combined to-do completion states. Earlier ordinary records remain available. To-do-test data must not enter durable storage, assessment-content logs, backups or restored data. Backups must support recovery of retained records and uploads.
 
 ## Requirement References
 

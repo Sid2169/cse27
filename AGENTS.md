@@ -22,7 +22,7 @@ Folders follow `Prelims-<paper>` or `Mains-<paper>`. Within each paper folder:
 - `<paper-name>-PYQS/<year>-<paper-name>.md` holds the year-wise PYQ corpus, currently organised for 2013–2026. Missing years or extraction gaps must remain explicit. When a subject has two question papers, keep both in that one file under separate `## Paper I` and `## Paper II` sections.
 - Chapter filenames match the curriculum. Split chapters use `<chapter>-part-N.md`, with each part linked from the index.
 - Preserve established chapter names and filenames; splits may add linked part files without renaming existing files.
-- Existing repository test files are historical practice artifacts. Website assessments, attempts and feedback are created dynamically in application storage; do not write them to Git. Method identifiers describe assessment records, not Markdown output paths.
+- Existing repository test files are historical practice artifacts. Website assessments, attempts, feedback and private reading data are created dynamically in application storage; do not write them to Git. Method identifiers describe assessment records, not Markdown output paths.
 
 Use relative Markdown links for repository files. Keep the curriculum index in sync with chapter additions or splits and README navigation in sync with structural changes. Update STATUS.md from evidence when content, methods, assessments or application progress changes; keep aggregate status out of README.md and IMPLEMENTATION-PLAN.md. Distinguish documented methods, implemented features and open decisions. Clearly distinguish planning placeholders from authored material.
 
@@ -30,7 +30,7 @@ Work from syllabus → curriculum → chapters. The curriculum sets planned cove
 
 ## Task Methods
 
-Load the method relevant to the task. This file owns shared safeguards; SPECIFICATION.md owns product requirements. TEST-GENERATION-COMMON.md owns cross-paper generation procedures; paper generators own question design and patterns, evaluation methods own scoring/feedback, CHAPTER-CHECKPOINT.md owns qualification, and REVISION-SCHEDULING.md owns chapter-test dates. Link these owners rather than duplicating their rules.
+Load the method relevant to the task. This file owns shared safeguards; SPECIFICATION.md owns product requirements, including private reading tools. DATABASE-DESIGN.md owns data structures and anchor contracts; IMPLEMENTATION-PLAN.md owns architecture and delivery sequence. TEST-GENERATION-COMMON.md owns cross-paper generation procedures; paper generators own question design and patterns, evaluation methods own scoring/feedback, CHAPTER-CHECKPOINT.md owns qualification, and REVISION-SCHEDULING.md owns chapter-test dates. Link these owners rather than duplicating their rules.
 
 | Task | Method |
 |---|---|
@@ -43,6 +43,8 @@ Load the method relevant to the task. This file owns shared safeguards; SPECIFIC
 | Prelims feedback | [PRELIMS-TEST-FEEDBACK.md](PRELIMS-TEST-FEEDBACK.md) |
 | Mains tests — GS, Essay, Hindi, English, Mathematics | [MAINS-TEST-GENERATION.md](MAINS-TEST-GENERATION.md) |
 | Mains evaluation — GS, Essay, Hindi, English, Mathematics | [MAINS-ANSWER-EVALUATION.md](MAINS-ANSWER-EVALUATION.md) |
+| Application requirements and private reading tools | [SPECIFICATION.md](SPECIFICATION.md) |
+| Data model and reading anchors | [DATABASE-DESIGN.md](DATABASE-DESIGN.md) |
 | Repository status | [STATUS.md](STATUS.md) |
 | Implementation, planning and decisions | [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md) |
 

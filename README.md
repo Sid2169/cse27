@@ -38,7 +38,9 @@ Each paper folder contains:
 - [Prelims GS-I full-test](Prelims-General-Studies-I/full-test/) — historical full-length GS-I practice artifacts
 - `Mains-<paper>-TESTS/<test-id>.md` — legacy repository assessment-file convention
 
-Website assessments, feedback, learner progress and revision tasks are created dynamically in application storage; learning material alone is sourced from Git Markdown.
+Website assessments, feedback, learner progress, revision tasks and private reading data are created dynamically in application storage; learning material alone is sourced from Git Markdown. [Reading tools](SPECIFICATION.md#reading-tools) include private notes, highlights, bookmarks and saved reading position.
+
+Application requirements: [SPECIFICATION.md](SPECIFICATION.md)
 
 Curriculum generation method: [CURRICULUM-GENERATION.md](CURRICULUM-GENERATION.md)
 

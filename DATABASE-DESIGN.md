@@ -1,12 +1,13 @@
 # Database Schema — Draft
 
-26 November 2026. Proposed PostgreSQL model for [SPECIFICATION.md](SPECIFICATION.md), not an applied migration or a finalized architecture decision. Use relational columns for identity, ownership, relationships, states, scores and dates; JSONB for variable assessment content. Files live in private object storage.
+Updated 27 November 2026. Proposed PostgreSQL model for [SPECIFICATION.md](SPECIFICATION.md); stack decisions are in [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md). Not an applied migration. Use relational columns for identity, ownership, relationships, states, scores and dates; JSONB for variable assessment content and reading anchors. Files live in private object storage.
 
 ## Data Boundary
 
 | Data | Origin and storage |
 |---|---|
 | Learning material | Git Markdown; shared catalogue tables contain derived metadata/references only |
+| Notes, highlights, bookmarks, reading position and preferences | Created through the site; private PostgreSQL records, separate from Git learning material |
 | Tests, attempts, feedback, progress and revision tasks | Created dynamically through site actions; retained in PostgreSQL |
 | Ordinary answer submissions containing files | Uploaded through the site; private object storage with database references |
 | Feedback to-do tests | Generated/evaluated transiently; only the existing to-do completion boolean persists |
@@ -41,6 +42,23 @@ The content-sync process derives this index from Git, not from learner activity.
 | `revision_tasks` | `id`, `user_id`, `paper_id`, `chapter_revision_id`, `scheduled_for`, `source` (automatic/manual), `status`, `previous_task_id`, `completed_attempt_id`, `policy_version`, `settings_snapshot JSONB`, `closed_at` |
 
 Completion is derived from qualifications matching each chapter's current revision; do not maintain another completion boolean or stored paper percentage. Retain historical qualifications. Substantive changes remove current eligibility and cancel old pending tasks transactionally. Requalification follows [REVISION-SCHEDULING.md](REVISION-SCHEDULING.md).
+
+## Private Reading Data
+
+| Table | Main columns |
+|---|---|
+| `reading_preferences` | `user_id` primary/foreign key, `theme` (system/light/dark), `text_scale`, `version`, `updated_at` |
+| `reading_positions` | `user_id`, `chapter_id`, `chapter_revision_id`, `source_commit`, `anchor JSONB`, `version`, `updated_at`; primary key user/chapter |
+| `bookmarks` | `id`, `user_id`, `chapter_id`, `chapter_revision_id`, `source_commit`, `anchor JSONB`, `label` (nullable), `resolved_anchor JSONB` (nullable), `resolution_status`, `version`, `created_at`, `updated_at` |
+| `annotations` | `id`, `user_id`, `chapter_id`, `chapter_revision_id`, `source_commit`, `kind` (highlight/note), `anchor JSONB` (nullable), `body` (nullable), `colour` (nullable), `resolved_anchor JSONB` (nullable), `resolution_status`, `version`, `created_at`, `updated_at` |
+
+An annotation is a highlight with an optional attached note, or a standalone note attached to a chapter, heading or passage. Notes require nonempty text; highlights require a text-range anchor. Store note bodies as plain text, rendered safely. Records belong to the chapter, so shared Mathematics content shows the same annotations from either paper. Reading activity never establishes qualification or changes scheduling.
+
+Use a versioned anchor contract: repository-relative part/file path, heading identifier, source-blob hash and, for ranges, selected text with prefix/suffix context and optional position hints. Reading positions use a heading/range rather than viewport-specific pixel offsets. Validate that the revision belongs to the chapter and the source commit/file belongs to its content history. Record the commit separately because cosmetic edits can move text without creating a qualification revision.
+
+`anchor`, `chapter_revision_id` and `source_commit` identify the saved source. Automatic re-anchoring never overwrites them. `resolved_anchor` records an unambiguous match in newer content, including its commit/revision; `resolution_status` is current, relocated or unresolved. A chapter-level note needs no passage match. Missing/ambiguous passages remain visible as unresolved, with the original quote/note intact; do not silently attach them elsewhere or delete them on content updates. The owner may explicitly edit, relink or delete records. Position restoration likewise falls back visibly if its anchor cannot be resolved.
+
+Enforce owner-only CRUD through RLS and server authorization, valid theme/scale values, anchor schema validation and kind-specific body/range constraints. Reader `version` is a positive server-incremented counter; updates/deletes require the expected version, including re-anchoring updates, to prevent stale writes overwriting newer changes. Retain/back up these records with other learner data; never use them for transient to-do-test content.
 
 ## Retained Assessments
 
@@ -79,8 +97,8 @@ Generate/evaluate against the frozen parent recommendations using temporary proc
 
 ## Initial Indexes
 
-Index user-owned foreign keys; `questions(assessment_id, position)`; `attempts(user_id, status)`; `assessments(user_id, paper_id, mode, created_at)`; qualification lookup by user/paper/revision; and pending tasks by user/due date. Use a partial unique index for one pending chapter task and a unique user/idempotency-key pair for ordinary jobs. Add JSONB indexes only for actual query needs.
+Index user-owned foreign keys; bookmarks/annotations by user/chapter and user/update time; `questions(assessment_id, position)`; `attempts(user_id, status)`; `assessments(user_id, paper_id, mode, created_at)`; qualification lookup by user/paper/revision; and pending tasks by user/due date. Use a partial unique index for one pending chapter task and a unique user/idempotency-key pair for ordinary jobs. Add JSONB indexes only for actual query needs.
 
-Before migrations, finalize enum/JSON schemas, provider integration and ownership/state-transition enforcement. Validate with cross-user attachment, hidden-key, immutable-feedback, internal-choice, negative-score, revision-invalidation, concurrent-finalization and transient-data tests.
+Before migrations, finalize enum/JSON schemas, provider integration and ownership/state-transition enforcement. Validate cross-user attachment, private-reader CRUD, annotation anchoring after substantive/cosmetic edits, stale reader saves, hidden keys, immutable feedback, internal choice, negative scores, revision invalidation, concurrent finalization and transient-data exclusion.
 
 References checked 26 November 2026: PostgreSQL [JSON types](https://www.postgresql.org/docs/current/datatype-json.html), [constraints](https://www.postgresql.org/docs/current/ddl-constraints.html) and [row security](https://www.postgresql.org/docs/current/ddl-rowsecurity.html). This draft has not been applied or database-tested.
