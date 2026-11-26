@@ -85,8 +85,13 @@ export function ReaderAnnotations({
 
   useEffect(() => {
     const controller = new AbortController();
-    void loadRows(false, controller.signal).catch(() => {});
-    return () => controller.abort();
+    const frame = requestAnimationFrame(() => {
+      void loadRows(false, controller.signal).catch(() => {});
+    });
+    return () => {
+      cancelAnimationFrame(frame);
+      controller.abort();
+    };
   }, [loadRows]);
 
   useEffect(() => {
