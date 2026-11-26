@@ -60,6 +60,20 @@ export function bookmarkRestoreSql(payload, ownerId) {
   const encoded = Buffer.from(JSON.stringify(payload.bookmarks)).toString(
     "base64",
   );
+  if (payload.positions !== undefined && !Array.isArray(payload.positions)) {
+    throw new Error("Invalid reading positions in backup.");
+  }
+  const positions = payload.positions?.length
+    ? Buffer.from(JSON.stringify(payload.positions)).toString("base64")
+    : null;
+  const restorePositions = positions
+    ? `
+insert into public.reading_positions (user_id,chapter_path,source_commit,anchor,version,updated_at)
+select '${ownerId}',chapter_path,source_commit,anchor,version,updated_at
+from jsonb_to_recordset(convert_from(decode('${positions}','base64'),'UTF8')::jsonb)
+as backup(chapter_path text,source_commit text,anchor jsonb,version integer,updated_at timestamptz);
+`
+    : "";
   return `begin;
 do $$ begin
   if not exists (select 1 from reader_private.owners where user_id = '${ownerId}') then
@@ -70,5 +84,5 @@ insert into public.bookmarks (id,user_id,chapter_path,source_commit,anchor,label
 select id,'${ownerId}',chapter_path,source_commit,anchor,label,version,created_at,updated_at
 from jsonb_to_recordset(convert_from(decode('${encoded}','base64'),'UTF8')::jsonb)
 as backup(id uuid,chapter_path text,source_commit text,anchor jsonb,label text,version integer,created_at timestamptz,updated_at timestamptz);
-commit;\n`;
+${restorePositions}commit;\n`;
 }

@@ -67,3 +67,50 @@ export async function changeBookmark(form: FormData) {
   if (!data?.length) redirect("/library?status=conflict");
   redirect("/library?status=saved");
 }
+
+export async function saveReadingPosition(form: FormData) {
+  const { db, user } = await requireOwner();
+  const path = String(form.get("path") ?? "");
+  const heading = String(form.get("heading") ?? "");
+  const document = getDocument(path);
+  if (
+    process.env.READER_POSITIONS_ENABLED !== "true" ||
+    document?.kind !== "chapter" ||
+    (heading && !document.sections.some((section) => section.id === heading))
+  )
+    redirect("/library?status=invalid");
+
+  const expected = Number(form.get("positionVersion"));
+  if (
+    !Number.isSafeInteger(expected) ||
+    expected < 0 ||
+    expected >= 2147483647
+  ) {
+    redirect("/library?status=invalid");
+  }
+  const chapterPath = path.replace(/-part-\d+\.md$/, ".md");
+  const anchor: BookmarkAnchor = {
+    version: 1,
+    path,
+    heading,
+    blob: document.revision,
+  };
+  const fields = { anchor, source_commit: catalogue.commit };
+  const table = db.from("reading_positions");
+  const mutation =
+    expected === 0
+      ? table.insert({ chapter_path: chapterPath, ...fields })
+      : table
+          .update(fields)
+          .eq("user_id", user.id)
+          .eq("chapter_path", chapterPath)
+          .eq("version", expected);
+  const { data, error } = await mutation.select("version");
+  const status =
+    error?.code === "23505" || (!error && !data?.length)
+      ? "position-conflict"
+      : error
+        ? "failed"
+        : "position-saved";
+  redirect("/library?" + new URLSearchParams({ path, status }));
+}
