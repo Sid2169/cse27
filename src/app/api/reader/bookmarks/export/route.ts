@@ -71,6 +71,16 @@ export async function POST(request: Request) {
       status: 503,
     });
   }
+  const preferences =
+    process.env.READER_PREFERENCES_ENABLED === "true"
+      ? await db
+          .from("reading_preferences")
+          .select("theme,text_size,version,updated_at")
+      : null;
+  if (preferences?.error)
+    return new Response("The complete backup could not be generated.", {
+      status: 503,
+    });
   const backup = encryptBookmarks(
     {
       format: 1,
@@ -78,6 +88,7 @@ export async function POST(request: Request) {
       bookmarks: data,
       positions: positions?.data ?? undefined,
       annotations: annotations?.data ?? undefined,
+      preferences: preferences?.data ?? undefined,
     },
     passphrase,
   );
