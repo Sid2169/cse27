@@ -2,6 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { requireOwner } from "@/server/supabase";
+import { initialRevisionDate } from "@/modules/revisions/schedule";
 import { evaluateCheckpoint } from "@/modules/assessment/checkpoint";
 import {
   checkpointDb,
@@ -111,9 +112,7 @@ export async function submitCheckpoint(form: FormData) {
   } catch {
     date = new Date().toISOString().slice(0, 10);
   }
-  const tomorrow = new Date(Date.parse(date + "T00:00:00Z") + 86_400_000)
-    .toISOString()
-    .slice(0, 10);
+  const tomorrow = initialRevisionDate(date);
   const { error } = await db.rpc("finalize_chapter_checkpoint", {
     p_user: user.id,
     p_id: id,
