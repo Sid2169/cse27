@@ -1,7 +1,13 @@
-import { readFileSync, readdirSync, writeFileSync, mkdirSync } from "node:fs";
+import {
+  readFileSync,
+  readdirSync,
+  writeFileSync,
+  mkdirSync,
+  copyFileSync,
+} from "node:fs";
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 import GithubSlugger from "github-slugger";
 import type {
   Catalogue,
@@ -201,6 +207,30 @@ export function buildCatalogue(root = process.cwd()): Catalogue {
 if (process.argv[1]?.endsWith("/scripts/content.ts")) {
   const c = buildCatalogue();
   mkdirSync(".generated", { recursive: true });
+  const assets: string[] = [];
+  for (const paper of c.papers) {
+    const directory = join(paper.id, "assets");
+    try {
+      for (const entry of readdirSync(directory, {
+        recursive: true,
+        withFileTypes: true,
+      })) {
+        if (
+          !entry.isFile() ||
+          !/\.(?:svg|png|jpe?g|webp|avif|gif)$/i.test(entry.name)
+        )
+          continue;
+        const source = join(entry.parentPath, entry.name);
+        const destination = join("public", "chapter-assets", source);
+        mkdirSync(dirname(destination), { recursive: true });
+        copyFileSync(source, destination);
+        assets.push(source);
+      }
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+    }
+  }
+  writeFileSync(".generated/chapter-assets.json", JSON.stringify(assets));
   writeFileSync(".generated/content.json", JSON.stringify(c));
   console.log(
     `Indexed ${c.papers.length} paper folders, ${c.documents.length} documents, ${c.documents.filter((d) => d.ready).length} authored chapter/part files.`,
