@@ -1255,3 +1255,60 @@ h1,
 .dark .sidebar {
   background: linear-gradient(165deg, #131e17, #0b100d);
 }
+
+.selection-annotations {
+  position: fixed;
+  transform: translateX(-50%);
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 0.35rem 1.35rem #0004;
+}
+.highlight-swatch {
+  width: 1.85rem;
+  height: 1.85rem;
+  border: 1px solid #0005;
+  border-radius: 50%;
+}
+.highlight-swatch[aria-pressed="true"] {
+  outline: 2px solid var(--accent);
+}
+.highlight-swatch[data-color="yellow"],
+::highlight(cse27-yellow) {
+  background-color: #ffdc70;
+}
+.highlight-swatch[data-color="green"],
+::highlight(cse27-green) {
+  background-color: #a6e2ac;
+}
+.highlight-swatch[data-color="blue"],
+::highlight(cse27-blue) {
+  background-color: #a6d7ff;
+}
+.highlight-swatch[data-color="pink"],
+::highlight(cse27-pink) {
+  background-color: #ffc0db;
+}
+::highlight(cse27-yellow),
+::highlight(cse27-green),
+::highlight(cse27-blue),
+::highlight(cse27-pink) {
+  color: #16201a;
+}
+@media (pointer: coarse) {
+  .selection-annotations {
+    top: auto !important;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    left: 50% !important;
+  }
+  .highlight-swatch {
+    width: 2.15rem;
+    height: 2.15rem;
+  }
+}

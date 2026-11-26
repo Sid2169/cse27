@@ -1,3 +1,4 @@
+import { isHighlightColor } from "@/modules/reader/highlight-colors";
 import { catalogue, getDocument } from "@/modules/content/catalogue";
 import { requireOwner } from "@/server/supabase";
 
@@ -88,6 +89,8 @@ export async function POST(request: Request) {
       range.suffix.length > 160)
   )
     return result(null, 400);
+  if (input.color !== undefined && (!range || !isHighlightColor(input.color)))
+    return result(null, 400);
   if (!range && !body) return result(null, 400);
   const { error } = await table.insert({
     chapter_path: chapterPath(document.path),
@@ -98,6 +101,7 @@ export async function POST(request: Request) {
           quote: range.quote,
           prefix: range.prefix,
           suffix: range.suffix,
+          color: input.color ?? "yellow",
         }
       : anchor,
     kind: range ? "highlight" : "note",

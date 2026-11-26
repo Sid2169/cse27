@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+import {
+  highlightColors,
+  isHighlightColor,
+  type HighlightColor,
+} from "@/modules/reader/highlight-colors";
 import { useRouter } from "next/navigation";
 import {
   resolveTextAnchor,
@@ -12,7 +18,7 @@ import type { BookmarkAnchor } from "@/modules/reader/bookmarks";
 type Annotation = {
   id: string;
   kind: "note" | "highlight";
-  anchor: BookmarkAnchor & Partial<TextAnchor>;
+  anchor: BookmarkAnchor & Partial<TextAnchor> & { color?: HighlightColor };
   body: string;
   version: number;
 };
@@ -51,28 +57,45 @@ export function ReaderAnnotations({
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
   const [quote, setQuote] = useState<TextAnchor | null>(null);
+  const [selection, setSelection] = useState<{
+    anchor: TextAnchor;
+    x: number;
+    y: number;
+  } | null>(null);
+  const [color, setColor] = useState<HighlightColor>("yellow");
   const [body, setBody] = useState("");
   const [heading, setHeading] = useState("");
   const [resolved, setResolved] = useState<string[]>([]);
 
-  async function loadRows() {
-    const response = await fetch(
-      "/api/reader/annotations?" + new URLSearchParams({ path }),
-      { cache: "no-store" },
-    );
-    if (response.redirected) {
-      router.push("/login");
-      return;
-    }
-    if (!response.ok) throw new Error("Could not load annotations.");
-    setRows(await response.json());
-  }
+  const loadRows = useCallback(
+    async (interactive = true, signal?: AbortSignal) => {
+      const response = await fetch(
+        "/api/reader/annotations?" + new URLSearchParams({ path }),
+        { cache: "no-store", signal },
+      );
+      if (response.redirected) {
+        if (interactive) router.push("/login");
+        return;
+      }
+      if (!response.ok) throw new Error("Could not load annotations.");
+      setRows(await response.json());
+    },
+    [path, router],
+  );
+
+  useEffect(() => {
+    const controller = new AbortController();
+    void loadRows(false, controller.signal).catch(() => {});
+    return () => controller.abort();
+  }, [loadRows]);
 
   useEffect(() => {
     const root = document.getElementById("reader-content");
     if (!root || !rows) return;
     const matched: string[] = [];
-    const ranges: Range[] = [];
+    const ranges = new Map<HighlightColor, Range[]>(
+      highlightColors.map((entry) => [entry, []]),
+    );
     for (const row of rows) {
       const a = row.anchor;
       if (a.path !== path) continue;
@@ -92,51 +115,82 @@ export function ReaderAnnotations({
           offset === null ? null : rangeAt(root, offset, a.quote.length);
         if (range) {
           matched.push(row.id);
-          ranges.push(range);
+          ranges
+            .get(isHighlightColor(a.color) ? a.color : "yellow")!
+            .push(range);
         }
       }
     }
     const frame = requestAnimationFrame(() => setResolved(matched));
     if (typeof Highlight !== "undefined" && CSS.highlights)
-      CSS.highlights.set("cse27-annotations", new Highlight(...ranges));
+      for (const [entry, matches] of ranges)
+        CSS.highlights.set("cse27-" + entry, new Highlight(...matches));
     return () => {
       cancelAnimationFrame(frame);
       if (typeof Highlight !== "undefined" && CSS.highlights)
-        CSS.highlights.delete("cse27-annotations");
+        for (const entry of highlightColors)
+          CSS.highlights.delete("cse27-" + entry);
     };
   }, [path, blob, headings, rows]);
 
-  function captureSelection() {
-    const root = document.getElementById("reader-content");
-    const selection = window.getSelection();
-    if (!root || !selection?.rangeCount || selection.isCollapsed) return;
-    const selected = selection.getRangeAt(0);
-    if (
-      !root.contains(selected.startContainer) ||
-      !root.contains(selected.endContainer)
-    )
-      return;
-    const before = document.createRange();
-    before.selectNodeContents(root);
-    before.setEnd(selected.startContainer, selected.startOffset);
-    const offset = before.toString().length;
-    const text = root.textContent ?? "";
-    const excerpt = selected.toString();
-    if (
-      !excerpt.trim() ||
-      excerpt.length > 2000 ||
-      text.slice(offset, offset + excerpt.length) !== excerpt
-    ) {
-      setMessage("Select up to 2,000 characters in the chapter.");
-      return;
+  useEffect(() => {
+    function captureSelection() {
+      const root = document.getElementById("reader-content");
+      const selection = window.getSelection();
+      if (!root || !selection?.rangeCount || selection.isCollapsed) {
+        setSelection(null);
+        return;
+      }
+      const selected = selection.getRangeAt(0);
+      if (
+        !root.contains(selected.startContainer) ||
+        !root.contains(selected.endContainer)
+      ) {
+        setSelection(null);
+        return;
+      }
+      const before = document.createRange();
+      before.selectNodeContents(root);
+      before.setEnd(selected.startContainer, selected.startOffset);
+      const offset = before.toString().length;
+      const text = root.textContent ?? "";
+      const excerpt = selected.toString();
+      if (
+        !excerpt.trim() ||
+        excerpt.length > 2000 ||
+        text.slice(offset, offset + excerpt.length) !== excerpt
+      ) {
+        setSelection(null);
+        return;
+      }
+      const rect = selected.getBoundingClientRect();
+      setSelection({
+        anchor: {
+          quote: excerpt,
+          prefix: text.slice(Math.max(0, offset - 80), offset),
+          suffix: text.slice(
+            offset + excerpt.length,
+            offset + excerpt.length + 80,
+          ),
+        },
+        x: rect.left + rect.width / 2,
+        y: rect.top,
+      });
     }
-    setQuote({
-      quote: excerpt,
-      prefix: text.slice(Math.max(0, offset - 80), offset),
-      suffix: text.slice(offset + excerpt.length, offset + excerpt.length + 80),
-    });
-    setMessage("");
-  }
+    function dismiss(event: KeyboardEvent) {
+      if (event.key === "Escape") setSelection(null);
+    }
+    document.addEventListener("selectionchange", captureSelection);
+    document.addEventListener("keydown", dismiss);
+    window.addEventListener("resize", captureSelection);
+    window.addEventListener("scroll", captureSelection, true);
+    return () => {
+      document.removeEventListener("selectionchange", captureSelection);
+      document.removeEventListener("keydown", dismiss);
+      window.removeEventListener("resize", captureSelection);
+      window.removeEventListener("scroll", captureSelection, true);
+    };
+  }, [path]);
 
   async function mutate(input: Record<string, unknown>) {
     setBusy(true);
@@ -192,14 +246,64 @@ export function ReaderAnnotations({
         >
           Open notes and highlights
         </button>
-        <button
-          className="button"
-          onPointerDown={(event) => event.preventDefault()}
-          onClick={captureSelection}
-        >
-          Use selected text
-        </button>
       </div>
+      {selection &&
+        createPortal(
+          <div
+            className="selection-annotations"
+            role="group"
+            aria-label="Annotate selected text"
+            style={{
+              left: Math.max(
+                145,
+                Math.min(window.innerWidth - 145, selection.x),
+              ),
+              top: Math.max(72, selection.y - 56),
+            }}
+            onPointerDown={(event) => event.preventDefault()}
+          >
+            {highlightColors.map((entry) => (
+              <button
+                key={entry}
+                type="button"
+                className="highlight-swatch"
+                data-color={entry}
+                aria-label={"Highlight " + entry}
+                disabled={busy}
+                onClick={() => {
+                  void mutate({
+                    operation: "save",
+                    path,
+                    blob,
+                    heading: "",
+                    range: selection.anchor,
+                    body: "",
+                    color: entry,
+                  });
+                  window.getSelection()?.removeAllRanges();
+                  setSelection(null);
+                }}
+              />
+            ))}
+            <button
+              type="button"
+              className="button"
+              onClick={() => {
+                setQuote(selection.anchor);
+                setColor("yellow");
+                setBody("");
+                window.getSelection()?.removeAllRanges();
+                setSelection(null);
+                requestAnimationFrame(() =>
+                  document.getElementById("selected-text-note")?.focus(),
+                );
+              }}
+            >
+              Add note
+            </button>
+          </div>,
+          document.body,
+        )}
       {message && <p role="status">{message}</p>}
       {(rows || quote) && (
         <form
@@ -212,13 +316,33 @@ export function ReaderAnnotations({
               blob,
               heading: quote ? "" : heading,
               range: quote,
+              color: quote ? color : undefined,
               body,
             });
           }}
         >
-          <h2>{quote ? "Save highlight" : "Add a note"}</h2>
+          <h2>{quote ? "Note on selected text" : "Add a note"}</h2>
           {quote ? (
-            <blockquote>{quote.quote}</blockquote>
+            <>
+              <blockquote>{quote.quote}</blockquote>
+              <div
+                className="button-row"
+                role="group"
+                aria-label="Highlight color"
+              >
+                {highlightColors.map((entry) => (
+                  <button
+                    key={entry}
+                    type="button"
+                    className="highlight-swatch"
+                    data-color={entry}
+                    aria-label={entry}
+                    aria-pressed={color === entry}
+                    onClick={() => setColor(entry)}
+                  />
+                ))}
+              </div>
+            </>
           ) : (
             <label>
               Location
@@ -238,16 +362,17 @@ export function ReaderAnnotations({
           <label>
             Note
             <textarea
+              id={quote ? "selected-text-note" : undefined}
               value={body}
               onChange={(event) => setBody(event.target.value)}
               maxLength={8000}
-              required={!quote}
+              required
               rows={3}
             />
           </label>
           <div className="button-row">
             <button className="button primary" disabled={busy}>
-              {quote ? "Save highlight" : "Save note"}
+              Save note
             </button>
             {quote && (
               <button
