@@ -1,3 +1,4 @@
+import { checkpointDb } from "@/server/assessment/checkpoint-service";
 import { requireOwner } from "@/server/supabase";
 import { encryptBookmarks } from "../../../../../../scripts/bookmark-backup.mjs";
 
@@ -10,7 +11,7 @@ export async function POST(request: Request) {
   if (!origin || request.headers.get("origin") !== origin) {
     return new Response("Invalid request origin.", { status: 403 });
   }
-  const { db } = await requireOwner();
+  const { db, user } = await requireOwner();
   if (process.env.READER_BOOKMARKS_ENABLED !== "true") {
     return new Response("Bookmark storage is unavailable.", { status: 503 });
   }
@@ -81,6 +82,18 @@ export async function POST(request: Request) {
     return new Response("The complete backup could not be generated.", {
       status: 503,
     });
+  const assessmentDb = checkpointDb();
+  const checkpoints = await assessmentDb?.rpc("export_checkpoint_records", {
+    p_user: user.id,
+  });
+  if (
+    process.env.CHECKPOINTS_ENABLED === "true" &&
+    (!checkpoints?.data || checkpoints.error)
+  ) {
+    return new Response("The complete backup could not be generated.", {
+      status: 503,
+    });
+  }
   const backup = encryptBookmarks(
     {
       format: 1,
@@ -89,6 +102,7 @@ export async function POST(request: Request) {
       positions: positions?.data ?? undefined,
       annotations: annotations?.data ?? undefined,
       preferences: preferences?.data ?? undefined,
+      checkpoints: checkpoints?.data ?? undefined,
     },
     passphrase,
   );

@@ -913,3 +913,15 @@ h3 {
   color: var(--text);
   padding: 0.65rem;
 }
+
+.progress-ring {
+  position: relative;
+}
+.progress-ring svg {
+  position: absolute;
+  width: calc(100% + 0.9rem);
+  transform: rotate(-90deg);
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 8;
+}

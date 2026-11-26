@@ -108,6 +108,31 @@ from jsonb_to_recordset(convert_from(decode('${preferences}','base64'),'UTF8')::
 as backup(theme text,text_size smallint,version integer,updated_at timestamptz);
 `
     : "";
+  const checkpointTables = [
+    ["attempts", "chapter_checkpoints", true],
+    ["keys", "chapter_checkpoint_keys", false],
+    ["results", "chapter_checkpoint_results", false],
+    ["qualifications", "chapter_checkpoint_qualifications", true],
+    ["tasks", "checkpoint_revision_tasks", true],
+  ];
+  const restoreCheckpoints =
+    payload.checkpoints === undefined
+      ? ""
+      : checkpointTables
+          .map(([name, table, owns]) => {
+            const rows = payload.checkpoints?.[name];
+            if (!Array.isArray(rows))
+              throw new Error("Invalid checkpoints in backup.");
+            if (!rows.length) return "";
+            const data = Buffer.from(
+              JSON.stringify(
+                owns ? rows.map((row) => ({ ...row, user_id: ownerId })) : rows,
+              ),
+            ).toString("base64");
+            return `insert into public.${table} select * from jsonb_populate_recordset(null::public.${table},
+      convert_from(decode('${data}','base64'),'UTF8')::jsonb);\n`;
+          })
+          .join("");
   return `begin;
 do $$ begin
   if not exists (select 1 from reader_private.owners where user_id = '${ownerId}') then
@@ -118,5 +143,5 @@ insert into public.bookmarks (id,user_id,chapter_path,source_commit,anchor,label
 select id,'${ownerId}',chapter_path,source_commit,anchor,label,version,created_at,updated_at
 from jsonb_to_recordset(convert_from(decode('${encoded}','base64'),'UTF8')::jsonb)
 as backup(id uuid,chapter_path text,source_commit text,anchor jsonb,label text,version integer,created_at timestamptz,updated_at timestamptz);
-${restorePositions}${restoreAnnotations}${restorePreferences}commit;\n`;
+${restorePositions}${restoreAnnotations}${restorePreferences}${restoreCheckpoints}commit;\n`;
 }
