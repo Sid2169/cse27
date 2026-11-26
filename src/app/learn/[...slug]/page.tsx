@@ -85,6 +85,14 @@ export default async function Learn({
           {d.kind.toUpperCase()} {d.chapter ?? ""}
         </span>
         <ReaderControls />
+        {d.kind === "chapter" && (
+          <Link
+            className="button"
+            href={{ pathname: "/library", query: { path: d.path } }}
+          >
+            Bookmark
+          </Link>
+        )}
       </div>
       {d.kind === "chapter" && !d.ready && (
         <p className="notice">

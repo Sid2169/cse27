@@ -93,3 +93,18 @@ Production configuration uses `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_
 In Supabase Auth URL Configuration, set Site URL to `https://cse27.vercel.app` and allow `https://cse27.vercel.app/auth/callback` and `https://cse27.vercel.app/auth/callback?next=/auth/recovery`. Email confirmation and recovery need a working email provider. For Google login, configure a Google Web OAuth client with the Supabase project's `/auth/v1/callback` redirect and enable it in Supabase Auth Providers.
 
 The verified owner must create/confirm the account or sign in with Google. Provider configuration and a real owner login must be verified before private study-data features are enabled. Application routes enforce the owner allowlist; provider-level sign-up restrictions remain a separate Supabase configuration step. Do not put the owner's identity or credentials into Git.
+
+### Bookmark recovery
+
+In **Bookmarks → Download encrypted backup**, enter a passphrase of at least 16 characters and keep it separately from the downloaded file. This export covers bookmarks only. It fails if Supabase cannot return the full snapshot.
+
+To restore, apply the bookmark migration to a recovery database and provision its verified owner in `reader_private.owners`. Use the recovery owner's UUID in the command below. Supply a PostgreSQL connection through your local PostgreSQL client configuration and keep the passphrase out of shell history.
+
+```bash
+set -o pipefail
+read -rs -p 'Backup passphrase: ' bookmark_passphrase
+printf '%s' "$bookmark_passphrase" | node scripts/restore-bookmarks.mjs cse27-bookmarks.enc RECOVERY_OWNER_UUID | psql -X -v ON_ERROR_STOP=1
+unset bookmark_passphrase
+```
+
+Use an empty recovery database for the rehearsal. The restore runs in a transaction and aborts on duplicate bookmark IDs. Verify the owner can open the original bookmark locations after restore.
