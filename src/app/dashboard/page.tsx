@@ -21,6 +21,9 @@ export default async function Dashboard() {
         <Link className="button primary" href="/">
           Browse learning material
         </Link>
+        <Link className="button" href="/library">
+          Bookmarks
+        </Link>
         <form action={signOut}>
           <button className="button">Sign out</button>
         </form>

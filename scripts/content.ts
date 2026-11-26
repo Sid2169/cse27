@@ -119,7 +119,11 @@ export function buildCatalogue(root = process.cwd()): Catalogue {
       cwd: root,
       encoding: "utf8",
     }).trim();
-  } catch {}
+  } catch {
+    const deploymentCommit = process.env.VERCEL_GIT_COMMIT_SHA;
+    if (deploymentCommit && /^[a-f0-9]{40}$/.test(deploymentCommit))
+      commit = deploymentCommit;
+  }
   return { commit, papers, documents };
 }
 if (process.argv[1]?.endsWith("/scripts/content.ts")) {
