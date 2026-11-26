@@ -66,6 +66,26 @@ export function ReaderAnnotations({
     x: number;
     y: number;
   } | null>(null);
+  const [inline, setInline] = useState<{
+    row?: Annotation;
+    anchor: TextAnchor | Partial<TextAnchor>;
+    x: number;
+    y: number;
+  } | null>(null);
+  const [inlineColor, setInlineColor] = useState<HighlightColor>("yellow");
+  const editorRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!inline) return;
+    editorRef.current
+      ?.querySelector("textarea")
+      ?.focus({ preventScroll: true });
+    function escape(event: KeyboardEvent) {
+      if (event.key === "Escape") setInline(null);
+    }
+    document.addEventListener("keydown", escape);
+    return () => document.removeEventListener("keydown", escape);
+  }, [inline]);
+
   const [color, setColor] = useState<HighlightColor>("yellow");
   const [body, setBody] = useState("");
   const [heading, setHeading] = useState("");
@@ -155,9 +175,19 @@ export function ReaderAnnotations({
           )
         )
           continue;
-        const editor = document.getElementById("annotation-" + id);
-        editor?.scrollIntoView({ block: "center" });
-        editor?.querySelector("textarea")?.focus({ preventScroll: true });
+        const row = rows?.find((item) => item.id === id);
+        if (row) {
+          setMessage("");
+          setInlineColor(
+            isHighlightColor(row.anchor.color) ? row.anchor.color : "yellow",
+          );
+          setInline({
+            row,
+            anchor: row.anchor,
+            x: event.clientX,
+            y: event.clientY,
+          });
+        }
         break;
       }
     }
@@ -237,6 +267,7 @@ export function ReaderAnnotations({
   async function mutate(
     input: Record<string, unknown>,
     optimisticRange?: TextAnchor,
+    closeEditor = false,
   ) {
     if (optimisticRange && isHighlightColor(input.color)) {
       setPendingHighlight({
@@ -274,7 +305,7 @@ export function ReaderAnnotations({
         return;
       }
       if (!response.ok) {
-        setMessage("Could not save. A standalone note needs text.");
+        setMessage("Could not save the annotation. Try again.");
         return;
       }
       if (input.operation === "save") {
@@ -288,6 +319,7 @@ export function ReaderAnnotations({
         setQuote(null);
       }
       if (input.operation !== "save" || !rows) await loadRows();
+      if (closeEditor) setInline(null);
       setMessage("Changes saved.");
     } catch {
       setMessage("Could not save changes.");
@@ -360,18 +392,131 @@ export function ReaderAnnotations({
               type="button"
               className="button"
               onClick={() => {
-                setQuote(selection.anchor);
-                setColor("yellow");
-                setBody("");
+                setMessage("");
+                setInlineColor("yellow");
+                setInline({ ...selection });
                 window.getSelection()?.removeAllRanges();
                 setSelection(null);
-                requestAnimationFrame(() =>
-                  document.getElementById("selected-text-note")?.focus(),
-                );
               }}
             >
               Add note
             </button>
+          </div>,
+          document.body,
+        )}
+      {inline &&
+        createPortal(
+          <div
+            className="inline-annotation-editor"
+            ref={editorRef}
+            role="dialog"
+            aria-label={
+              inline.row ? "Edit highlight" : "Add note to selected text"
+            }
+            style={{
+              left:
+                "clamp(min(11rem, 50vw), " +
+                inline.x +
+                "px, max(calc(100vw - 11rem), 50vw))",
+              top: Math.max(
+                76,
+                Math.min(inline.y + 12, window.innerHeight - 370),
+              ),
+            }}
+          >
+            <form
+              className="stack-form"
+              key={inline.row?.id ?? "new"}
+              onSubmit={(event) => {
+                event.preventDefault();
+                const body = String(
+                  new FormData(event.currentTarget).get("body") ?? "",
+                );
+                const operation =
+                  (event.nativeEvent as SubmitEvent).submitter?.getAttribute(
+                    "value",
+                  ) ?? "edit";
+                const latest =
+                  inline.row &&
+                  rows?.find((item) => item.id === inline.row?.id);
+                if (inline.row && latest?.version !== inline.row.version) {
+                  setMessage(
+                    "This highlight changed. Close the editor and open it again.",
+                  );
+                  return;
+                }
+                void mutate(
+                  inline.row
+                    ? {
+                        operation,
+                        id: inline.row.id,
+                        version: inline.row.version,
+                        body,
+                        color: inlineColor,
+                      }
+                    : {
+                        operation: "save",
+                        path,
+                        blob,
+                        heading: "",
+                        range: inline.anchor,
+                        body,
+                        color: inlineColor,
+                      },
+                  undefined,
+                  true,
+                );
+              }}
+            >
+              <strong>{inline.row ? "Edit highlight" : "Add note"}</strong>
+              <blockquote>{inline.anchor.quote}</blockquote>
+              <div
+                className="button-row"
+                role="group"
+                aria-label="Highlight color"
+              >
+                {highlightColors.map((entry) => (
+                  <button
+                    type="button"
+                    key={entry}
+                    className="highlight-swatch"
+                    data-color={entry}
+                    aria-label={entry}
+                    aria-pressed={inlineColor === entry}
+                    onClick={() => setInlineColor(entry)}
+                  />
+                ))}
+              </div>
+              <label>
+                Note
+                <textarea
+                  name="body"
+                  defaultValue={inline.row?.body ?? ""}
+                  maxLength={8000}
+                  rows={3}
+                  required={!inline.row}
+                />
+              </label>
+              {message && <p role="status">{message}</p>}
+              <div className="button-row">
+                <button className="button primary" disabled={busy}>
+                  {busy ? "Saving…" : "Save"}
+                </button>
+                <button
+                  className="button"
+                  type="button"
+                  disabled={busy}
+                  onClick={() => setInline(null)}
+                >
+                  Cancel
+                </button>
+                {inline.row && (
+                  <button className="button" value="delete" disabled={busy}>
+                    Remove
+                  </button>
+                )}
+              </div>
+            </form>
           </div>,
           document.body,
         )}
