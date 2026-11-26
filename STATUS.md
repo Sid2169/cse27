@@ -15,7 +15,7 @@ Application planning/schema updated 27 November 2026; study-content observations
 | Chapter checkpoints | Authored, including revision-based requalification: [CHAPTER-CHECKPOINT.md](CHAPTER-CHECKPOINT.md) |
 | Chapter-test scheduling | Authored: [REVISION-SCHEDULING.md](REVISION-SCHEDULING.md), adapted from spaced-rep's documented policy |
 | Study content | See [Study content and PYQs](#study-content-and-pyqs) below and the paper curricula. |
-| Web application | Not implemented in this repository. Method documents and practice artifacts are not application features. |
+| Web application | Public reader implemented 27 November 2026: curriculum-indexed catalogue, paper/chapter navigation, planned-content labels, sanitised Markdown, math, heading links, contents, text size, themes and section search. Local typecheck/lint, 7 content tests and production build pass. Browser overview and search checked. Deployment verification pending. Authentication, reader persistence and assessments remain unimplemented. |
 | Database schema | [Drafted](DATABASE-DESIGN.md), including private annotations, bookmarks, reading positions/preferences (27 November 2026); Git learning material remains separate from site-created records. No migrations applied or database validation performed. |
 | Implementation dependencies | Owner identity, application-only transient retention boundary and manual encrypted backup destination accepted 27 November 2026. Google OAuth/runtime configuration, backup implementation and restore verification remain pending; see [feasibility](IMPLEMENTATION-PLAN.md#3-resolve-feasibility-before-dependent-features) and [deployment](IMPLEMENTATION-PLAN.md#11-deployment-configuration-and-recovery). |
 
