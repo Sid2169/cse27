@@ -57,6 +57,11 @@ export function ReaderAnnotations({
   const [pendingHighlight, setPendingHighlight] = useState<Annotation | null>(
     null,
   );
+  const [pendingEdit, setPendingEdit] = useState<{
+    id: string;
+    row?: Annotation;
+  } | null>(null);
+  const writeInFlight = useRef(false);
   const [rows, setRows] = useState<Annotation[] | null>(null);
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
@@ -129,9 +134,14 @@ export function ReaderAnnotations({
     const ranges = new Map<HighlightColor, Range[]>(
       highlightColors.map((entry) => [entry, []]),
     );
-    const visibleRows = pendingHighlight
-      ? [pendingHighlight, ...(rows ?? [])]
-      : (rows ?? []);
+    const visibleRows = (rows ?? []).flatMap((row) =>
+      pendingEdit?.id === row.id
+        ? pendingEdit.row
+          ? [pendingEdit.row]
+          : []
+        : [row],
+    );
+    if (pendingHighlight) visibleRows.unshift(pendingHighlight);
     for (const row of visibleRows) {
       const a = row.anchor;
       if (a.path !== path) continue;
@@ -203,7 +213,7 @@ export function ReaderAnnotations({
         for (const entry of highlightColors)
           CSS.highlights.delete("cse27-" + entry);
     };
-  }, [path, blob, headings, rows, pendingHighlight]);
+  }, [path, blob, headings, rows, pendingHighlight, pendingEdit]);
 
   useEffect(() => {
     function captureSelection() {
@@ -269,6 +279,34 @@ export function ReaderAnnotations({
     optimisticRange?: TextAnchor,
     closeEditor = false,
   ) {
+    if (writeInFlight.current) return;
+    writeInFlight.current = true;
+    if (closeEditor) {
+      setInline(null);
+      const existing = rows?.find((row) => row.id === input.id);
+      if (existing && input.operation === "delete")
+        setPendingEdit({ id: existing.id });
+      if (
+        existing &&
+        input.operation === "edit" &&
+        typeof input.body === "string"
+      ) {
+        setPendingEdit({
+          id: existing.id,
+          row: {
+            ...existing,
+            version: 0,
+            body: input.body.trim(),
+            anchor: {
+              ...existing.anchor,
+              color: isHighlightColor(input.color)
+                ? input.color
+                : existing.anchor.color,
+            },
+          },
+        });
+      }
+    }
     if (optimisticRange && isHighlightColor(input.color)) {
       setPendingHighlight({
         id: "pending-highlight",
@@ -308,23 +346,28 @@ export function ReaderAnnotations({
         setMessage("Could not save the annotation. Try again.");
         return;
       }
+      const saved: Annotation = await response.json();
+      readGeneration.current++;
+      setRows((previous) => {
+        const entries = previous ?? [];
+        if (input.operation === "delete")
+          return entries.filter((row) => row.id !== input.id);
+        if (input.operation === "edit")
+          return entries.map((row) => (row.id === saved.id ? saved : row));
+        return [saved, ...entries.filter((row) => row.id !== saved.id)];
+      });
       if (input.operation === "save") {
-        const saved: Annotation = await response.json();
-        readGeneration.current++;
-        setRows((previous) => [
-          saved,
-          ...(previous ?? []).filter((row) => row.id !== saved.id),
-        ]);
         setBody("");
         setQuote(null);
+        if (!rows) void loadRows().catch(() => {});
       }
-      if (input.operation !== "save" || !rows) await loadRows();
-      if (closeEditor) setInline(null);
-      setMessage("Changes saved.");
+      if (!closeEditor) setMessage("Changes saved.");
     } catch {
       setMessage("Could not save changes.");
     } finally {
       setPendingHighlight(null);
+      setPendingEdit(null);
+      writeInFlight.current = false;
       setBusy(false);
     }
   }
@@ -463,7 +506,7 @@ export function ReaderAnnotations({
                         body,
                         color: inlineColor,
                       },
-                  undefined,
+                  inline.row ? undefined : (inline.anchor as TextAnchor),
                   true,
                 );
               }}
@@ -520,7 +563,21 @@ export function ReaderAnnotations({
           </div>,
           document.body,
         )}
-      {message && <p role="status">{message}</p>}
+      {message &&
+        !inline &&
+        createPortal(
+          <p className="annotation-status" role="status">
+            {message}
+            <button
+              type="button"
+              aria-label="Dismiss message"
+              onClick={() => setMessage("")}
+            >
+              ×
+            </button>
+          </p>,
+          document.body,
+        )}
       {(rows || quote) && (
         <form
           className="stack-form"

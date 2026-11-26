@@ -66,9 +66,9 @@ export async function POST(request: Request) {
     const { data, error } = await change
       .eq("id", input.id)
       .eq("version", input.version)
-      .select("id");
+      .select("id,kind,anchor,body,version");
     if (error) return result(null, error.code === "23514" ? 400 : 503);
-    return result(null, data?.length ? 200 : 409);
+    return data?.length ? result(data[0]) : result(null, 409);
   }
   if (
     input.operation !== "save" ||
