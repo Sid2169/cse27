@@ -96,6 +96,11 @@ export default async function Dashboard() {
           <Link className="button" href="/library">
             <Bookmark size={16} /> Bookmarks
           </Link>
+          {process.env.READER_ANNOTATIONS_ENABLED === "true" && (
+            <Link className="button" href="/library/annotations">
+              Notes and highlights
+            </Link>
+          )}
           {process.env.READER_PREFERENCES_ENABLED === "true" && (
             <Link className="button" href="/settings">
               <Settings size={16} /> Settings

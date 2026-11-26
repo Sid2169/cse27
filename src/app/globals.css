@@ -1373,3 +1373,36 @@ h1,
 .annotation-status button {
   margin-left: 0.75rem;
 }
+
+.annotation-library {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+.annotation-card-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+.annotation-card-heading a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.annotation-card-heading .highlight-swatch {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex: none;
+}
+.annotation-library blockquote {
+  border-left: 3px solid var(--line);
+  padding-left: 0.75rem;
+  margin-top: 0.65rem;
+}
+.annotation-library p {
+  margin-top: 0.65rem;
+  white-space: pre-wrap;
+}
+.annotation-library li {
+  overflow-wrap: anywhere;
+}

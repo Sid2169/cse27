@@ -165,9 +165,25 @@ export default async function Learn({
         <ReaderControls />
         {d.kind === "chapter" &&
           process.env.READER_ANNOTATIONS_ENABLED === "true" && (
-            <a className="button" href="#annotations">
+            <ReaderAnnotations
+              key={d.path}
+              path={d.path}
+              blob={d.revision}
+              headings={d.sections.map(({ id, title }) => ({ id, title }))}
+            />
+          )}
+
+        {d.kind === "chapter" &&
+          process.env.READER_ANNOTATIONS_ENABLED === "true" && (
+            <Link
+              className="button"
+              href={{
+                pathname: "/library/annotations",
+                query: { chapter: d.path },
+              }}
+            >
               Notes and highlights
-            </a>
+            </Link>
           )}
         {d.kind === "chapter" && (
           <Link
@@ -208,15 +224,6 @@ export default async function Learn({
           </details>
         </aside>
       </div>
-      {d.kind === "chapter" &&
-        process.env.READER_ANNOTATIONS_ENABLED === "true" && (
-          <ReaderAnnotations
-            key={d.path}
-            path={d.path}
-            blob={d.revision}
-            headings={d.sections.map(({ id, title }) => ({ id, title }))}
-          />
-        )}
       {i >= 0 && d.ready && process.env.CHECKPOINTS_ENABLED === "true" && (
         <Link
           className="button primary"

@@ -12,7 +12,6 @@ import {
   resolveTextAnchor,
   type TextAnchor,
 } from "@/modules/reader/annotation-anchor";
-import { documentUrl } from "@/modules/content/types";
 import type { BookmarkAnchor } from "@/modules/reader/bookmarks";
 
 type Annotation = {
@@ -65,7 +64,6 @@ export function ReaderAnnotations({
   const [rows, setRows] = useState<Annotation[] | null>(null);
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
-  const [quote, setQuote] = useState<TextAnchor | null>(null);
   const [selection, setSelection] = useState<{
     anchor: TextAnchor;
     x: number;
@@ -90,11 +88,6 @@ export function ReaderAnnotations({
     document.addEventListener("keydown", escape);
     return () => document.removeEventListener("keydown", escape);
   }, [inline]);
-
-  const [color, setColor] = useState<HighlightColor>("yellow");
-  const [body, setBody] = useState("");
-  const [heading, setHeading] = useState("");
-  const [resolved, setResolved] = useState<string[]>([]);
 
   const loadRows = useCallback(
     async (interactive = true, signal?: AbortSignal) => {
@@ -129,7 +122,6 @@ export function ReaderAnnotations({
   useEffect(() => {
     const root = document.getElementById("reader-content");
     if (!root) return;
-    const matched: string[] = [];
     const editable = new Map<string, Range>();
     const ranges = new Map<HighlightColor, Range[]>(
       highlightColors.map((entry) => [entry, []]),
@@ -145,13 +137,12 @@ export function ReaderAnnotations({
     for (const row of visibleRows) {
       const a = row.anchor;
       if (a.path !== path) continue;
-      if (row.kind === "note") {
-        if (
-          !a.heading ||
-          (a.blob === blob && headings.some((h) => h.id === a.heading))
-        )
-          matched.push(row.id);
-      } else if (a.quote && a.prefix !== undefined && a.suffix !== undefined) {
+      if (
+        row.kind === "highlight" &&
+        a.quote &&
+        a.prefix !== undefined &&
+        a.suffix !== undefined
+      ) {
         const offset = resolveTextAnchor(root.textContent ?? "", {
           quote: a.quote,
           prefix: a.prefix,
@@ -160,7 +151,6 @@ export function ReaderAnnotations({
         const range =
           offset === null ? null : rangeAt(root, offset, a.quote.length);
         if (range) {
-          matched.push(row.id);
           if (row.version > 0) editable.set(row.id, range);
           ranges
             .get(isHighlightColor(a.color) ? a.color : "yellow")!
@@ -202,18 +192,16 @@ export function ReaderAnnotations({
       }
     }
     root.addEventListener("click", openHighlight);
-    const frame = requestAnimationFrame(() => setResolved(matched));
     if (typeof Highlight !== "undefined" && CSS.highlights)
       for (const [entry, matches] of ranges)
         CSS.highlights.set("cse27-" + entry, new Highlight(...matches));
     return () => {
-      cancelAnimationFrame(frame);
       root.removeEventListener("click", openHighlight);
       if (typeof Highlight !== "undefined" && CSS.highlights)
         for (const entry of highlightColors)
           CSS.highlights.delete("cse27-" + entry);
     };
-  }, [path, blob, headings, rows, pendingHighlight, pendingEdit]);
+  }, [path, rows, pendingHighlight, pendingEdit]);
 
   useEffect(() => {
     function captureSelection() {
@@ -357,8 +345,6 @@ export function ReaderAnnotations({
         return [saved, ...entries.filter((row) => row.id !== saved.id)];
       });
       if (input.operation === "save") {
-        setBody("");
-        setQuote(null);
         if (!rows) void loadRows().catch(() => {});
       }
       if (!closeEditor) setMessage("Changes saved.");
@@ -373,23 +359,22 @@ export function ReaderAnnotations({
   }
 
   return (
-    <section
-      className="section"
-      id="annotations"
-      aria-label="Private annotations"
-    >
-      <div className="button-row">
-        <button
-          className="button"
-          onClick={() =>
-            void loadRows().catch(() =>
-              setMessage("Could not load annotations."),
-            )
-          }
-        >
-          Open notes and highlights
-        </button>
-      </div>
+    <>
+      <button
+        className="button"
+        type="button"
+        onClick={(event) => {
+          const bounds = event.currentTarget.getBoundingClientRect();
+          setMessage("");
+          setInline({
+            anchor: {},
+            x: bounds.left + bounds.width / 2,
+            y: bounds.bottom,
+          });
+        }}
+      >
+        Add chapter note
+      </button>
       {selection &&
         createPortal(
           <div
@@ -472,9 +457,8 @@ export function ReaderAnnotations({
               key={inline.row?.id ?? "new"}
               onSubmit={(event) => {
                 event.preventDefault();
-                const body = String(
-                  new FormData(event.currentTarget).get("body") ?? "",
-                );
+                const form = new FormData(event.currentTarget);
+                const body = String(form.get("body") ?? "");
                 const operation =
                   (event.nativeEvent as SubmitEvent).submitter?.getAttribute(
                     "value",
@@ -501,35 +485,54 @@ export function ReaderAnnotations({
                         operation: "save",
                         path,
                         blob,
-                        heading: "",
-                        range: inline.anchor,
+                        heading: String(form.get("heading") ?? ""),
+                        range: inline.anchor.quote ? inline.anchor : null,
                         body,
-                        color: inlineColor,
+                        color: inline.anchor.quote ? inlineColor : undefined,
                       },
-                  inline.row ? undefined : (inline.anchor as TextAnchor),
+                  inline.row || !inline.anchor.quote
+                    ? undefined
+                    : (inline.anchor as TextAnchor),
                   true,
                 );
               }}
             >
               <strong>{inline.row ? "Edit highlight" : "Add note"}</strong>
-              <blockquote>{inline.anchor.quote}</blockquote>
-              <div
-                className="button-row"
-                role="group"
-                aria-label="Highlight color"
-              >
-                {highlightColors.map((entry) => (
-                  <button
-                    type="button"
-                    key={entry}
-                    className="highlight-swatch"
-                    data-color={entry}
-                    aria-label={entry}
-                    aria-pressed={inlineColor === entry}
-                    onClick={() => setInlineColor(entry)}
-                  />
-                ))}
-              </div>
+              {inline.anchor.quote && (
+                <blockquote>{inline.anchor.quote}</blockquote>
+              )}
+              {inline.anchor.quote && (
+                <div
+                  className="button-row"
+                  role="group"
+                  aria-label="Highlight color"
+                >
+                  {highlightColors.map((entry) => (
+                    <button
+                      type="button"
+                      key={entry}
+                      className="highlight-swatch"
+                      data-color={entry}
+                      aria-label={entry}
+                      aria-pressed={inlineColor === entry}
+                      onClick={() => setInlineColor(entry)}
+                    />
+                  ))}
+                </div>
+              )}
+              {!inline.anchor.quote && (
+                <label>
+                  Location
+                  <select name="heading">
+                    <option value="">Chapter or part</option>
+                    {headings.map((heading) => (
+                      <option key={heading.id} value={heading.id}>
+                        {heading.title}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              )}
               <label>
                 Note
                 <textarea
@@ -578,149 +581,6 @@ export function ReaderAnnotations({
           </p>,
           document.body,
         )}
-      {(rows || quote) && (
-        <form
-          className="stack-form"
-          onSubmit={(event) => {
-            event.preventDefault();
-            void mutate({
-              operation: "save",
-              path,
-              blob,
-              heading: quote ? "" : heading,
-              range: quote,
-              color: quote ? color : undefined,
-              body,
-            });
-          }}
-        >
-          <h2>{quote ? "Note on selected text" : "Add a note"}</h2>
-          {quote ? (
-            <>
-              <blockquote>{quote.quote}</blockquote>
-              <div
-                className="button-row"
-                role="group"
-                aria-label="Highlight color"
-              >
-                {highlightColors.map((entry) => (
-                  <button
-                    key={entry}
-                    type="button"
-                    className="highlight-swatch"
-                    data-color={entry}
-                    aria-label={entry}
-                    aria-pressed={color === entry}
-                    onClick={() => setColor(entry)}
-                  />
-                ))}
-              </div>
-            </>
-          ) : (
-            <label>
-              Location
-              <select
-                value={heading}
-                onChange={(event) => setHeading(event.target.value)}
-              >
-                <option value="">Chapter or part</option>
-                {headings.map((entry) => (
-                  <option key={entry.id} value={entry.id}>
-                    {entry.title}
-                  </option>
-                ))}
-              </select>
-            </label>
-          )}
-          <label>
-            Note
-            <textarea
-              id={quote ? "selected-text-note" : undefined}
-              value={body}
-              onChange={(event) => setBody(event.target.value)}
-              maxLength={8000}
-              required
-              rows={3}
-            />
-          </label>
-          <div className="button-row">
-            <button className="button primary" disabled={busy}>
-              Save note
-            </button>
-            {quote && (
-              <button
-                type="button"
-                className="button"
-                onClick={() => setQuote(null)}
-              >
-                Clear selection
-              </button>
-            )}
-          </div>
-        </form>
-      )}
-      {rows?.map((row) => (
-        <form
-          className="stack-form"
-          id={"annotation-" + row.id}
-          key={row.id + ":" + row.version}
-          onSubmit={(event) => {
-            event.preventDefault();
-            const form = new FormData(event.currentTarget);
-            const action = (event.nativeEvent as SubmitEvent)
-              .submitter as HTMLButtonElement | null;
-            void mutate({
-              operation: action?.value ?? "edit",
-              id: row.id,
-              body: form.get("body"),
-              color: form.get("color") ?? undefined,
-              version: row.version,
-            });
-          }}
-        >
-          {row.anchor.path !== path ? (
-            <a href={documentUrl(row.anchor.path)}>
-              Open the part where this was saved
-            </a>
-          ) : (
-            !resolved.includes(row.id) && (
-              <p className="notice">
-                Saved location is unresolved in this version.
-              </p>
-            )
-          )}
-          {row.anchor.quote && <blockquote>{row.anchor.quote}</blockquote>}
-          {row.kind === "highlight" && (
-            <label>
-              Highlight color
-              <select name="color" defaultValue={row.anchor.color ?? "yellow"}>
-                {highlightColors.map((entry) => (
-                  <option key={entry} value={entry}>
-                    {entry}
-                  </option>
-                ))}
-              </select>
-            </label>
-          )}
-          <label>
-            {row.kind === "note" ? "Note" : "Highlight note"}
-            <textarea
-              name="body"
-              defaultValue={row.body}
-              maxLength={8000}
-              rows={3}
-            />
-          </label>
-          <div className="button-row">
-            <button className="button" value="edit" disabled={busy}>
-              Save changes
-            </button>
-            <button className="button" value="delete" disabled={busy}>
-              {row.kind === "highlight" ? "Remove highlight" : "Delete note"}
-            </button>
-          </div>
-        </form>
-      ))}
-    </section>
+    </>
   );
 }
