@@ -14,7 +14,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <Theme>
+        <Theme
+          syncPreferences={process.env.READER_PREFERENCES_ENABLED === "true"}
+        >
           <a className="skip-link" href="#main">
             Skip to content
           </a>

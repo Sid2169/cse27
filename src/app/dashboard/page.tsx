@@ -68,6 +68,16 @@ export default async function Dashboard() {
         <Link className="button" href="/library">
           Bookmarks
         </Link>
+        {process.env.READER_PREFERENCES_ENABLED === "true" && (
+          <Link className="button" href="/settings">
+            Reader settings
+          </Link>
+        )}
+        {process.env.CHECKPOINTS_ENABLED === "true" && (
+          <Link className="button" href="/dashboard/checkpoints">
+            Checkpoints
+          </Link>
+        )}
         <form action={signOut}>
           <button className="button">Sign out</button>
         </form>

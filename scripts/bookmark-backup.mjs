@@ -74,6 +74,40 @@ from jsonb_to_recordset(convert_from(decode('${positions}','base64'),'UTF8')::js
 as backup(chapter_path text,source_commit text,anchor jsonb,version integer,updated_at timestamptz);
 `
     : "";
+  if (
+    payload.annotations !== undefined &&
+    !Array.isArray(payload.annotations)
+  ) {
+    throw new Error("Invalid annotations in backup.");
+  }
+  const annotations = payload.annotations?.length
+    ? Buffer.from(JSON.stringify(payload.annotations)).toString("base64")
+    : null;
+  const restoreAnnotations = annotations
+    ? `
+insert into public.annotations (id,user_id,chapter_path,source_commit,anchor,kind,body,version,created_at,updated_at)
+select id,'${ownerId}',chapter_path,source_commit,anchor,kind,body,version,created_at,updated_at
+from jsonb_to_recordset(convert_from(decode('${annotations}','base64'),'UTF8')::jsonb)
+as backup(id uuid,chapter_path text,source_commit text,anchor jsonb,kind text,body text,version integer,created_at timestamptz,updated_at timestamptz);
+`
+    : "";
+  if (
+    payload.preferences !== undefined &&
+    !Array.isArray(payload.preferences)
+  ) {
+    throw new Error("Invalid reading preferences in backup.");
+  }
+  const preferences = payload.preferences?.length
+    ? Buffer.from(JSON.stringify(payload.preferences)).toString("base64")
+    : null;
+  const restorePreferences = preferences
+    ? `
+insert into public.reading_preferences (user_id,theme,text_size,version,updated_at)
+select '${ownerId}',theme,text_size,version,updated_at
+from jsonb_to_recordset(convert_from(decode('${preferences}','base64'),'UTF8')::jsonb)
+as backup(theme text,text_size smallint,version integer,updated_at timestamptz);
+`
+    : "";
   return `begin;
 do $$ begin
   if not exists (select 1 from reader_private.owners where user_id = '${ownerId}') then
@@ -84,5 +118,5 @@ insert into public.bookmarks (id,user_id,chapter_path,source_commit,anchor,label
 select id,'${ownerId}',chapter_path,source_commit,anchor,label,version,created_at,updated_at
 from jsonb_to_recordset(convert_from(decode('${encoded}','base64'),'UTF8')::jsonb)
 as backup(id uuid,chapter_path text,source_commit text,anchor jsonb,label text,version integer,created_at timestamptz,updated_at timestamptz);
-${restorePositions}commit;\n`;
+${restorePositions}${restoreAnnotations}${restorePreferences}commit;\n`;
 }

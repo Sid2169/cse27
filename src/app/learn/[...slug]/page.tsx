@@ -1,8 +1,14 @@
+import {
+  PaperProgress,
+  OverallProgress,
+  PhaseProgress,
+} from "@/components/checkpoint-progress";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { catalogue, getDocument, getPaper } from "@/modules/content/catalogue";
 import { documentUrl } from "@/modules/content/types";
 import { Markdown } from "@/components/markdown";
+import { ReaderAnnotations } from "@/components/reader-annotations";
 import { ReaderControls } from "@/components/reader-controls";
 export function generateStaticParams() {
   return [
@@ -44,76 +50,65 @@ export default async function Learn({
   if (!paper) notFound();
   if (slug.length === 1) {
     return (
-      <div className="page">
-        <p className="eyebrow">{paper.stage.toUpperCase()} · CURRICULUM</p>
-        <div className="paper-heading">
-          <div>
-            <h1 className="compact-title">
-              {paper.title.replace(paper.stage + " ", "")}
-            </h1>
-            <p className="lead">Choose a phase to browse its chapters.</p>
-          </div>
-          <div className="paper-completion">
-            <div
-              className="progress-ring"
-              role="progressbar"
-              aria-label="Overall paper completion"
-              aria-valuenow={0}
-            >
-              <strong aria-hidden="true">0%</strong>
+      <PaperProgress
+        paper={paper.id}
+        enabled={process.env.CHECKPOINTS_ENABLED === "true"}
+      >
+        <div className="page">
+          <p className="eyebrow">{paper.stage.toUpperCase()} · CURRICULUM</p>
+          <div className="paper-heading">
+            <div>
+              <h1 className="compact-title">
+                {paper.title.replace(paper.stage + " ", "")}
+              </h1>
+              <p className="lead">Choose a phase to browse its chapters.</p>
             </div>
-            <span>Overall completion</span>
+            <OverallProgress chapters={paper.chapters} />
+          </div>
+          <div className="button-row">
+            <Link
+              className="button primary"
+              href={documentUrl(paper.curriculum)}
+            >
+              Read curriculum
+            </Link>
+            <Link className="button" href={documentUrl(paper.syllabus)}>
+              Official syllabus
+            </Link>
+          </div>
+          <p className="footnote">
+            Completion counts chapters passed by checkpoint.
+            {process.env.CHECKPOINTS_ENABLED !== "true" &&
+              " Checkpoints are not available yet."}
+          </p>
+          <div className="phase-grid">
+            {paper.phases.map((phase) => (
+              <Link
+                key={phase.id}
+                className="phase-card"
+                href={`/learn/${paper.id}/phase/${phase.id}`}
+              >
+                <p className="eyebrow">
+                  {paper.id === "Mains-Indian-Language" ? "चरण" : "Phase"}{" "}
+                  {phase.id.toUpperCase()}
+                </p>
+                <h2
+                  lang={paper.id === "Mains-Indian-Language" ? "hi" : undefined}
+                >
+                  {phase.title}
+                </h2>
+                <p
+                  className="phase-description"
+                  lang={paper.id === "Mains-Indian-Language" ? "hi" : undefined}
+                >
+                  {phase.description}
+                </p>
+                <PhaseProgress chapters={phase.chapters} title={phase.title} />
+              </Link>
+            ))}
           </div>
         </div>
-        <div className="button-row">
-          <Link className="button primary" href={documentUrl(paper.curriculum)}>
-            Read curriculum
-          </Link>
-          <Link className="button" href={documentUrl(paper.syllabus)}>
-            Official syllabus
-          </Link>
-        </div>
-        <p className="footnote">
-          Completion counts chapters passed by checkpoint. Checkpoints are not
-          available yet.
-        </p>
-        <div className="phase-grid">
-          {paper.phases.map((phase) => (
-            <Link
-              key={phase.id}
-              className="phase-card"
-              href={`/learn/${paper.id}/phase/${phase.id}`}
-            >
-              <p className="eyebrow">
-                {paper.id === "Mains-Indian-Language" ? "चरण" : "Phase"}{" "}
-                {phase.id.toUpperCase()}
-              </p>
-              <h2
-                lang={paper.id === "Mains-Indian-Language" ? "hi" : undefined}
-              >
-                {phase.title}
-              </h2>
-              <p
-                className="phase-description"
-                lang={paper.id === "Mains-Indian-Language" ? "hi" : undefined}
-              >
-                {phase.description}
-              </p>
-              <div className="phase-progress">
-                <div>
-                  <span>{phase.chapters.length} chapters</span>
-                  <strong>0%</strong>
-                </div>
-                <progress
-                  aria-label={phase.title + " completion"}
-                  value={0}
-                  max={100}
-                />
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
+      </PaperProgress>
     );
   }
   if (slug.length === 3 && slug[1] === "phase") {
@@ -168,6 +163,12 @@ export default async function Learn({
           {d.kind.toUpperCase()} {d.chapter ?? ""}
         </span>
         <ReaderControls />
+        {d.kind === "chapter" &&
+          process.env.READER_ANNOTATIONS_ENABLED === "true" && (
+            <a className="button" href="#annotations">
+              Notes and highlights
+            </a>
+          )}
         {d.kind === "chapter" && (
           <Link
             className="button"
@@ -186,6 +187,7 @@ export default async function Learn({
       )}
       <div className="reader-layout">
         <article
+          id="reader-content"
           className="prose"
           lang={paper.id === "Mains-Indian-Language" ? "hi" : "en"}
         >
@@ -206,6 +208,26 @@ export default async function Learn({
           </details>
         </aside>
       </div>
+      {d.kind === "chapter" &&
+        process.env.READER_ANNOTATIONS_ENABLED === "true" && (
+          <ReaderAnnotations
+            key={d.path}
+            path={d.path}
+            blob={d.revision}
+            headings={d.sections.map(({ id, title }) => ({ id, title }))}
+          />
+        )}
+      {i >= 0 && d.ready && process.env.CHECKPOINTS_ENABLED === "true" && (
+        <Link
+          className="button primary"
+          href={{
+            pathname: "/dashboard/checkpoints",
+            query: { paper: paper.id, chapter: d.path },
+          }}
+        >
+          Chapter checkpoint
+        </Link>
+      )}
       {i >= 0 && (
         <nav className="chapter-pagination" aria-label="Chapter navigation">
           {i > 0 ? (

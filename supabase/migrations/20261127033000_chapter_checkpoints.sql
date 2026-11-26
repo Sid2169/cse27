@@ -80,3 +80,49 @@ end;
 $$;
 revoke all on function public.record_chapter_checkpoint(uuid,text,text,text,text,text,jsonb,jsonb) from public, anon, authenticated;
 grant execute on function public.record_chapter_checkpoint(uuid,text,text,text,text,text,jsonb,jsonb) to service_role;
+
+create table public.checkpoint_revision_tasks (
+  user_id uuid not null references auth.users(id) on delete cascade,
+  paper_code text not null,
+  chapter_path text not null,
+  revision text not null,
+  due_on date not null,
+  primary key (user_id, paper_code, chapter_path, revision),
+  foreign key (user_id, paper_code, chapter_path, revision)
+    references public.chapter_checkpoint_qualifications (user_id, paper_code, chapter_path, revision)
+);
+alter table public.checkpoint_revision_tasks enable row level security;
+revoke all on public.checkpoint_revision_tasks from public, anon, authenticated;
+grant select, insert on public.checkpoint_revision_tasks to service_role;
+
+create function public.finalize_chapter_checkpoint(
+  p_user uuid, p_id uuid, p_current_revision text, p_responses jsonb,
+  p_correct integer, p_wrong integer, p_blank integer, p_excluded integer,
+  p_passed boolean, p_initial_due date
+)
+returns void language plpgsql security invoker set search_path = '' as $$
+declare
+  checkpoint public.chapter_checkpoints%rowtype;
+begin
+  select * into strict checkpoint from public.chapter_checkpoints where id = p_id and user_id = p_user;
+  if p_correct + p_wrong + p_blank + p_excluded <> jsonb_array_length(checkpoint.questions)
+     or jsonb_array_length(p_responses) <> jsonb_array_length(checkpoint.questions) then
+    raise exception 'Checkpoint result does not match question count';
+  end if;
+  insert into public.chapter_checkpoint_results
+    (checkpoint_id,responses,correct,wrong,blank,excluded,qualified)
+    values (p_id,p_responses,p_correct,p_wrong,p_blank,p_excluded,p_passed)
+    on conflict do nothing;
+  if found and p_passed and checkpoint.revision = p_current_revision then
+    insert into public.chapter_checkpoint_qualifications (user_id,paper_code,chapter_path,revision,checkpoint_id)
+      values (p_user,checkpoint.paper_code,checkpoint.chapter_path,checkpoint.revision,p_id)
+      on conflict do nothing;
+    if found then
+      insert into public.checkpoint_revision_tasks (user_id,paper_code,chapter_path,revision,due_on)
+        values (p_user,checkpoint.paper_code,checkpoint.chapter_path,checkpoint.revision,p_initial_due);
+    end if;
+  end if;
+end;
+$$;
+revoke all on function public.finalize_chapter_checkpoint(uuid,uuid,text,jsonb,integer,integer,integer,integer,boolean,date) from public, anon, authenticated;
+grant execute on function public.finalize_chapter_checkpoint(uuid,uuid,text,jsonb,integer,integer,integer,integer,boolean,date) to service_role;
