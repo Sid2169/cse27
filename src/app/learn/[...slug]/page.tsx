@@ -12,6 +12,10 @@ import { Markdown } from "@/components/markdown";
 import { ReaderAnnotations } from "@/components/reader-annotations";
 import { ReaderControls } from "@/components/reader-controls";
 import { currentCheckpoint } from "@/server/assessment/checkpoint-service";
+import {
+  simulationEnabled,
+  simulationScope,
+} from "@/server/assessment/simulation-service";
 export function generateStaticParams() {
   return [
     ...catalogue.papers.map((p) => ({ slug: [p.id] })),
@@ -160,6 +164,12 @@ export default async function Learn({
     currentCheckpoint(paper.id, chapter)
       ? { paper: paper.id, chapter }
       : null;
+  const examSimulation =
+    d.kind === "chapter" &&
+    simulationEnabled &&
+    simulationScope(paper.id, chapter)
+      ? { paper: paper.id, chapter }
+      : null;
   return (
     <div
       className={
@@ -178,6 +188,7 @@ export default async function Learn({
           canSave={process.env.READER_POSITIONS_ENABLED === "true"}
           hasNotes={process.env.READER_ANNOTATIONS_ENABLED === "true"}
           completionTest={completionTest}
+          examSimulation={examSimulation}
         >
           {process.env.READER_ANNOTATIONS_ENABLED === "true" && (
             <ReaderAnnotations
