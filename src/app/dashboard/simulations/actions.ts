@@ -6,10 +6,7 @@ import { catalogue } from "@/modules/content/catalogue";
 import { simulationRoot } from "@/modules/assessment/chapter-simulation";
 import { requireOwner } from "@/server/supabase";
 import { checkpointId } from "@/server/assessment/checkpoint-service";
-import {
-  csatHistoricalSource,
-  historicalScope,
-} from "@/server/assessment/historical-csat";
+import { historicalScope } from "@/server/assessment/historical-papers";
 import { dispatchSimulation } from "@/server/assessment/simulation-events";
 import {
   cumulativeScope,
@@ -101,7 +98,7 @@ export async function requestSimulation(form: FormData) {
       mode === "full"
         ? fullScope(paper, variant)?.sourceDetails
         : mode === "pyq"
-          ? csatHistoricalSource
+          ? historicalScope(paper, year)?.source
           : null,
     coverage: scope && "coverage" in scope ? scope.coverage : [],
     user_id: user.id,
@@ -159,7 +156,7 @@ export async function retrySimulation(form: FormData) {
   const simulations = db.from("chapter_simulations");
   const { data: existing } = await simulations
     .select(
-      "status,job_token,paper_code,paper_variant,chapter_path,revision,mode,coverage",
+      "status,job_token,paper_code,paper_variant,chapter_path,revision,mode,coverage,source_details",
     )
     .eq("id", id)
     .eq("user_id", user.id)
@@ -175,8 +172,10 @@ export async function retrySimulation(form: FormData) {
   if (
     preparation &&
     (existing.mode === "pyq"
-      ? historicalScope(existing.paper_code, "2024")?.revision !==
-        existing.revision
+      ? historicalScope(
+          existing.paper_code,
+          String(existing.source_details?.year ?? ""),
+        )?.revision !== existing.revision
       : existing.mode === "full"
         ? fullScope(existing.paper_code, existing.paper_variant)?.revision !==
           existing.revision

@@ -50,7 +50,7 @@ No outstanding method requirement has been identified in the current specificati
 
 - Revision preferences configure saved timezone, default material, difficulty and priority, and stage-specific targets. The revision view groups overdue, due-today, upcoming and unscheduled tasks. Manual dates, cancellations and recent task history are available in the revision view.
 
-- The official past-paper selector displays repository transcription caveats and opens verified original booklets or UPSC’s listings. 2024 CSAT Series A pairs the unabridged original booklet with a timed answer sheet and the published UPSC key. Other in-app historical attempts and updated PYQs remain pending.
+- The official past-paper selector displays repository transcription caveats and opens verified original booklets or UPSC’s listings. 2024 CSAT Series A pairs the unabridged original booklet with a timed answer sheet and the published UPSC key. 2024 Prelims GS-I Series A also has a timed, scored answer sheet. The three official dropped items remain in the booklet and are excluded from scoring. Other in-app historical attempts and updated PYQs remain pending.
 
 - Encrypted backup and restore include ordinary simulations, answer files, frozen feedback, revision data and the refresher completion flag. Transient test content is outside the backup.
 

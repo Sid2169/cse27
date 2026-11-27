@@ -259,6 +259,14 @@ if (process.argv[1]?.endsWith("/scripts/content.ts")) {
   csatStems["24"] =
     "Fill four missing letters in the pattern A_BCD_BBCDABC_DABC_D.";
   writeFileSync(".generated/csat-2024-stems.json", JSON.stringify(csatStems));
+  const gs2024 = readFileSync(
+    "Prelims-General-Studies-I/Prelims-General-Studies-I-PYQS/2024-Prelims-General-Studies-I.md",
+    "utf8",
+  );
+  const gsStems = [...gs2024.matchAll(/^\d{1,3}\. ([^\n]+)$/gm)].map(
+    ([, stem]) => stem,
+  );
+  writeFileSync(".generated/gs1-2024-stems.json", JSON.stringify(gsStems));
   writeFileSync(".generated/past-papers.json", JSON.stringify(pastPapers));
   writeFileSync(".generated/chapter-assets.json", JSON.stringify(assets));
   writeFileSync(".generated/content.json", JSON.stringify(c));

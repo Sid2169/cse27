@@ -25,7 +25,7 @@ import {
 import { checkpointId } from "./checkpoint-service";
 import { generateObjectiveQuestions } from "./checkpoint-generation";
 import { geminiGenerator, GenerationUnavailable } from "./gemini";
-import { historicalScope } from "./historical-csat";
+import { gsHistoricalStems, historicalScope } from "./historical-papers";
 import { inngest } from "./inngest";
 import {
   generateWrittenSimulation,
@@ -179,18 +179,37 @@ async function buildBlueprint(
 
 async function unseenHistory(db: Database, owner: string, paper: string) {
   const history: string[] = [];
+  let includedGsBooklet = false;
   for (const table of ["chapter_simulations", "chapter_checkpoints"]) {
     for (let offset = 0; ; offset += 200) {
       let query = db
         .from(table)
-        .select("questions")
+        .select(
+          table === "chapter_simulations"
+            ? "questions,mode,source_details"
+            : "questions",
+        )
         .eq("user_id", owner)
         .eq("paper_code", paper);
       if (table === "chapter_simulations")
         query = query.not("started_at", "is", null);
       const result = await query.order("id").range(offset, offset + 199);
       if (result.error) throw new Error("Could not load previous assessments");
-      for (const row of result.data) {
+      for (const raw of result.data) {
+        const row = raw as unknown as {
+          questions: { stem: string }[];
+          mode?: string;
+          source_details?: { year: number };
+        };
+        if (
+          paper === "Prelims-General-Studies-I" &&
+          row.mode === "pyq" &&
+          row.source_details?.year === 2024
+        ) {
+          if (!includedGsBooklet) history.push(...gsHistoricalStems);
+          includedGsBooklet = true;
+          continue;
+        }
         if (!Array.isArray(row.questions)) continue;
         for (const item of row.questions)
           if (typeof item.stem === "string") history.push(item.stem);
@@ -452,7 +471,7 @@ export const prepareSimulation = inngest.createFunction(
         .eq("job_token", token)
         .in("status", ["queued", "generating"])
         .select(
-          "id,user_id,mode,coverage,paper_code,paper_variant,chapter_path,revision,kind,generation_model",
+          "id,user_id,mode,coverage,paper_code,paper_variant,chapter_path,revision,kind,generation_model,source_details",
         )
         .maybeSingle();
       if (error) throw new Error("Could not claim simulation preparation");
@@ -461,7 +480,10 @@ export const prepareSimulation = inngest.createFunction(
     if (!data) return;
     if (data.mode === "pyq") {
       return step.run("publish-historical-paper", async () => {
-        const source = historicalScope(data.paper_code, "2024");
+        const source = historicalScope(
+          data.paper_code,
+          String(data.source_details?.year ?? ""),
+        );
         if (!source || source.revision !== data.revision)
           throw new NonRetriableError("The historical booklet or key changed");
         const { error } = await db.rpc("publish_chapter_simulation", {
@@ -470,7 +492,7 @@ export const prepareSimulation = inngest.createFunction(
           p_questions: source.questions,
           p_guide: source.guide,
           p_duration: 7200,
-          p_max_units: 1200,
+          p_max_units: source.maximum,
         });
         if (error) throw new Error("Could not publish the historical paper");
       });
@@ -683,7 +705,8 @@ function recommendations(
     if (items[index].excluded) return [];
     const needsPractice =
       "options" in question
-        ? simulation.answers[index] !== key[index].correctOption
+        ? key[index].correctOption !== null &&
+          simulation.answers[index] !== key[index].correctOption
         : items[index].awarded < question.marks;
     return needsPractice
       ? [
