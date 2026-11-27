@@ -133,7 +133,7 @@ export async function POST(request: Request, { params }: Context) {
         return json({ error: "conflict" }, 409);
       if (
         typeof input.question !== "string" ||
-        !/^(0|[1-9]\d?)$/.test(input.question) ||
+        !/^(0|[1-9]\d{0,3})$/.test(input.question) ||
         !simulation.questions?.[Number(input.question)]
       )
         return json({ error: "invalid-input" }, 400);
@@ -209,7 +209,7 @@ export async function GET(request: Request, { params }: Context) {
     !db ||
     !checkpointId.test(id) ||
     !question ||
-    !/^(0|[1-9]\d?)$/.test(question)
+    !/^(0|[1-9]\d{0,3})$/.test(question)
   )
     return json({ error: "not-found" }, 404);
   const { data } = await db

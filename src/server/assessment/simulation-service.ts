@@ -1,9 +1,11 @@
 import "server-only";
+import { createHash } from "node:crypto";
 import { createClient } from "@supabase/supabase-js";
 import { getPaper } from "@/modules/content/catalogue";
 import {
   mathematicsVariants,
   type AnswerFile,
+  type CoverageChapter,
   type Extraction,
   type SimulationAnswers,
   type SimulationQuestion,
@@ -46,9 +48,60 @@ export function simulationScope(paper: string, path: string) {
   };
 }
 
+export async function cumulativeScope(
+  db: NonNullable<ReturnType<typeof simulationDb>>,
+  userId: string,
+  paperCode: string,
+  variant: string,
+) {
+  const paper = getPaper(paperCode);
+  if (
+    !paper ||
+    (paperCode === "Mains-Mathematics"
+      ? !["I", "II"].includes(variant)
+      : variant !== "")
+  )
+    return null;
+  const { data, count, error } = await db
+    .from("chapter_checkpoint_qualifications")
+    .select("chapter_path,revision", { count: "exact" })
+    .eq("user_id", userId)
+    .eq("paper_code", paperCode);
+  if (error || count !== data?.length)
+    throw new Error("Could not load qualified chapters");
+  const qualified = new Map<string, Set<string>>();
+  for (const row of data) {
+    const revisions = qualified.get(row.chapter_path) ?? new Set<string>();
+    revisions.add(row.revision);
+    qualified.set(row.chapter_path, revisions);
+  }
+  const coverage = paper.chapters.flatMap((path): CoverageChapter[] => {
+    if (!qualified.has(path)) return [];
+    const current = simulationScope(paperCode, path);
+    return current &&
+      current.variants.includes(variant) &&
+      qualified.get(path)?.has(current.revision)
+      ? [{ path, revision: current.revision }]
+      : [];
+  });
+  if (!coverage.length) return null;
+  return {
+    coverage,
+    variants: [variant],
+    revision: createHash("sha256")
+      .update(JSON.stringify(coverage))
+      .digest("hex"),
+    kind:
+      paper.stage === "Prelims"
+        ? ("objective" as const)
+        : ("descriptive" as const),
+  };
+}
+
 export type SimulationView = SimulationSummary & {
   kind: "objective" | "descriptive";
   questions: SimulationQuestion[] | null;
+  coverage: CoverageChapter[];
   duration_seconds: number | null;
   remaining_ms: number | null;
   answers: SimulationAnswers;
@@ -61,4 +114,4 @@ export type SimulationView = SimulationSummary & {
 };
 
 export const simulationViewFields =
-  "id,paper_code,paper_variant,chapter_path,kind,status,questions,duration_seconds,remaining_ms,answers,attachments,extracted,clarification,max_units,unit_scale,version,created_at";
+  "id,mode,coverage,paper_code,paper_variant,chapter_path,kind,status,questions,duration_seconds,remaining_ms,answers,attachments,extracted,clarification,max_units,unit_scale,version,created_at";
