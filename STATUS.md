@@ -38,7 +38,7 @@ No outstanding method requirement has been identified in the current specificati
 ## Chapter exam simulations — 27 November 2026
 
 - Ready chapters and their parts open the same whole-chapter exam simulation from the reader toolbar. Chapter practice includes timed Prelims MCQs and written Mains questions, retained answer files and transcription review, frozen feedback, and chapter-specific history.
-- Qualified current-revision attempts update revision due dates with the default scheduling settings. Refresher recommendations are retained with the result. Schedule preference controls and export/restore of simulation records and uploads are separate pending stages.
+- Qualified current-revision attempts update revision due dates with the default scheduling settings. Refresher recommendations are retained with the result. Schedule preference controls are separate pending stages.
 
 - Finalized Mains chapter simulations can show their stored reference solutions on request from feedback. Active attempts have no access to model answers.
 
@@ -48,9 +48,11 @@ No outstanding method requirement has been identified in the current specificati
 
 - The full-scope CSAT diagnostic uses the 2026 pattern (80 questions, 200 marks, two hours), verifies batches, and compares drafts with previously presented paper questions. Full-scope CSAT alone appears in the dashboard’s full-paper performance display. Full GS-I and Mains patterns remain pending.
 
-- Revision preferences configure saved timezone, default material, difficulty and priority, and stage-specific targets. The revision view groups overdue, due-today, upcoming and unscheduled tasks. Manual dates, cancellations and recent task history are available in the revision view. Export/restore of simulation records remains pending.
+- Revision preferences configure saved timezone, default material, difficulty and priority, and stage-specific targets. The revision view groups overdue, due-today, upcoming and unscheduled tasks. Manual dates, cancellations and recent task history are available in the revision view.
 
 - The official past-paper selector displays repository transcription caveats and opens verified original booklets or UPSC’s listings. In-app unabridged and updated PYQ attempts remain pending.
+
+- Encrypted backup and restore include ordinary simulations, answer files, frozen feedback, revision data and the refresher completion flag. Transient test content is outside the backup.
 
 ## Study content and PYQs
 

@@ -1,8 +1,17 @@
 import { checkpointDb } from "@/server/assessment/checkpoint-service";
+import {
+  retainedAnswerBucket,
+  type AnswerFile,
+} from "@/modules/assessment/chapter-simulation";
+import {
+  simulationDb,
+  simulationEnabled,
+} from "@/server/assessment/simulation-service";
 import { requireOwner } from "@/server/supabase";
 import { encryptBookmarks } from "../../../../../../scripts/bookmark-backup.mjs";
 
 export const runtime = "nodejs";
+export const maxDuration = 120;
 
 export async function POST(request: Request) {
   const origin = process.env.APP_URL
@@ -94,6 +103,49 @@ export async function POST(request: Request) {
       status: 503,
     });
   }
+  const simulationsDb = simulationDb();
+  const simulations = await simulationsDb?.rpc("export_simulation_records", {
+    p_user: user.id,
+  });
+  if (simulationEnabled && (!simulations?.data || simulations.error)) {
+    return new Response("The full simulation backup could not be generated.", {
+      status: 503,
+    });
+  }
+  const files: Record<string, { type: string; content: string }> = {};
+  if (simulations?.data && simulationsDb) {
+    const bucket = simulationsDb.storage.from(retainedAnswerBucket);
+    const attempts = simulations.data.simulations as {
+      id: string;
+      attachments: Record<string, AnswerFile>;
+    }[];
+    for (const attempt of attempts) {
+      const attachments = Object.values(attempt.attachments);
+      for (let index = 0; index < attachments.length; index += 4) {
+        const batch = await Promise.all(
+          attachments.slice(index, index + 4).map(async (file) => {
+            if (!file.path.startsWith(user.id + "/" + attempt.id + "/"))
+              return null;
+            const { data, error } = await bucket.download(file.path);
+            if (error || !data) return null;
+            return {
+              path: file.path,
+              type: file.type,
+              content: Buffer.from(await data.arrayBuffer()).toString("base64"),
+            };
+          }),
+        );
+        for (const file of batch) {
+          if (!file)
+            return new Response(
+              "An answer upload could not be backed up. Retry the export.",
+              { status: 503 },
+            );
+          files[file.path] = { type: file.type, content: file.content };
+        }
+      }
+    }
+  }
   const backup = encryptBookmarks(
     {
       format: 1,
@@ -103,10 +155,24 @@ export async function POST(request: Request) {
       annotations: annotations?.data ?? undefined,
       preferences: preferences?.data ?? undefined,
       checkpoints: checkpoints?.data ?? undefined,
+      simulations: simulations?.data ?? undefined,
+      simulationFiles: simulations?.data ? files : undefined,
     },
     passphrase,
   );
-  return new Response(new Uint8Array(backup), {
+  let offset = 0;
+  const body = new ReadableStream<Uint8Array>({
+    pull(controller) {
+      if (offset >= backup.length) {
+        controller.close();
+        return;
+      }
+      const chunk = backup.subarray(offset, offset + 65536);
+      offset += chunk.length;
+      controller.enqueue(chunk);
+    },
+  });
+  return new Response(body, {
     headers: {
       "Cache-Control": "private, no-store",
       "Content-Type": "application/octet-stream",
