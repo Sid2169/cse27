@@ -305,37 +305,43 @@ export default async function Dashboard() {
         )}
       </section>
 
-      {fullHistory.length > 0 && (
-        <section className="section study-card">
-          <h2>Full-scope CSAT results</h2>
-          <ol className="study-list">
-            {fullHistory.map((result) => {
-              const percent = (100 * result.score_units) / result.max_units;
-              const label =
-                new Intl.NumberFormat("en-IN", {
-                  maximumFractionDigits: 1,
-                }).format(percent) + "%";
-              return (
-                <li key={result.id} style={{ display: "block" }}>
-                  <Link href={simulationRoot + "/" + result.id}>
-                    <time dateTime={result.finalized_at}>
-                      {result.finalized_at.slice(0, 10)}
-                    </time>{" "}
-                    · {label}
-                  </Link>
-                  <meter
-                    style={{ width: "100%" }}
-                    min={-100 / 3}
-                    max={100}
-                    value={percent}
-                    aria-label={"Full-scope CSAT score " + label}
-                  />
-                </li>
-              );
-            })}
-          </ol>
-        </section>
-      )}
+      {catalogue.papers.map((paper) => {
+        const results = fullHistory.filter(
+          (result) => result.paper_code === paper.id,
+        );
+        if (!results.length) return null;
+        return (
+          <section key={paper.id} className="section study-card">
+            <h2>Full-scope {paper.title} results</h2>
+            <ol className="study-list">
+              {results.map((result) => {
+                const percent = (100 * result.score_units) / result.max_units;
+                const label =
+                  new Intl.NumberFormat("en-IN", {
+                    maximumFractionDigits: 1,
+                  }).format(percent) + "%";
+                return (
+                  <li key={result.id} style={{ display: "block" }}>
+                    <Link href={simulationRoot + "/" + result.id}>
+                      <time dateTime={result.finalized_at}>
+                        {result.finalized_at.slice(0, 10)}
+                      </time>{" "}
+                      · {label}
+                    </Link>
+                    <meter
+                      style={{ width: "100%" }}
+                      min={-100 / 3}
+                      max={100}
+                      value={percent}
+                      aria-label={"Full-scope score " + label}
+                    />
+                  </li>
+                );
+              })}
+            </ol>
+          </section>
+        );
+      })}
 
       <section aria-labelledby="study-paper-progress">
         <h2 id="study-paper-progress">Paper progress</h2>

@@ -46,13 +46,15 @@ No outstanding method requirement has been identified in the current specificati
 
 - Cumulative exams use a snapshot of currently qualified chapter revisions, with paper-specific marking and no change to chapter revision dates. The dashboard shows the latest cumulative percentage per paper variant.
 
-- The full-scope CSAT diagnostic uses the 2026 pattern (80 questions, 200 marks, two hours), verifies batches, and compares drafts with previously presented paper questions. Full-scope CSAT alone appears in the dashboard’s full-paper performance display. Full GS-I and Mains patterns remain pending.
+- The full-scope CSAT diagnostic uses the 2026 pattern (80 questions, 200 marks, two hours), verifies batches, and compares drafts with previously presented paper questions. Full-scope CSAT alone appears in the dashboard’s full-paper performance display. Full Mains patterns remain pending.
 
 - Revision preferences configure saved timezone, default material, difficulty and priority, and stage-specific targets. The revision view groups overdue, due-today, upcoming and unscheduled tasks. Manual dates, cancellations and recent task history are available in the revision view.
 
 - The official past-paper selector displays repository transcription caveats and opens verified original booklets or UPSC’s listings. In-app unabridged and updated PYQ attempts remain pending.
 
 - Encrypted backup and restore include ordinary simulations, answer files, frozen feedback, revision data and the refresher completion flag. Transient test content is outside the backup.
+
+- The full-scope GS-I diagnostic uses 100 questions, 200 marks and two hours. It covers the seven syllabus areas and records a dated official source pack for changing facts. The source pack must be maintained as coverage moves forward.
 
 ## Study content and PYQs
 

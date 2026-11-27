@@ -117,7 +117,7 @@ export default async function ChapterSimulation({
         {result
           ? "Exam feedback"
           : full
-            ? "Full-scope CSAT exam"
+            ? "Full-scope Prelims exam"
             : cumulative
               ? "Cumulative exam simulation"
               : "Chapter exam simulation"}
@@ -131,9 +131,30 @@ export default async function ChapterSimulation({
       </p>
       {full && (
         <p className="notice">
-          Diagnostic practice generated from the full CSAT syllabus. The
+          Diagnostic practice generated from the full paper syllabus. The
           question pattern follows the 2026 baseline.
         </p>
+      )}
+      {simulation.source_details && (
+        <p>
+          Current-affairs source cutoff{" "}
+          <time dateTime={simulation.source_details.cutoff}>
+            {simulation.source_details.cutoff}
+          </time>
+        </p>
+      )}
+      {result && simulation.source_details && (
+        <details className="section">
+          <summary>Current-affairs sources</summary>
+          <ul>
+            {simulation.source_details.sources.map((source) => (
+              <li key={source.url}>
+                <a href={source.url}>{source.title}</a> ·{" "}
+                <time dateTime={source.date}>{source.date}</time>
+              </li>
+            ))}
+          </ul>
+        </details>
       )}
       {cumulative && (
         <details className="section">

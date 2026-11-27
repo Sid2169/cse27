@@ -139,12 +139,14 @@ export async function generateObjectiveQuestions(
     purpose,
     questionDesign,
     everySection = false,
+    reviewScope = "using only the chapter",
   }: {
     draftCount: number;
     minimumCount: number;
     purpose: string;
     questionDesign: string;
     everySection?: boolean;
+    reviewScope?: string;
   },
 ) {
   const sections = scope.flatMap(({ path, sections }) =>
@@ -184,7 +186,7 @@ Prior stems: ${previous}`,
     throw new CheckpointDraftError("insufficient-candidates");
 
   const review = await generate(
-    `Independently solve every question in order using only the chapter. Set supported to true only if exactly one option is correct and the cited section is relevant. Use zero-based correctOption, or -1 if there is no unique supported answer. Set fresh to false for repeats and close rewrites of prior stems.
+    `Independently solve every question in order ${reviewScope}. Set supported to true only if exactly one option is correct and the cited section is relevant. Use zero-based correctOption, or -1 if there is no unique supported answer. Set fresh to false for repeats and close rewrites of prior stems.
 Chapter: ${content}
 Prior stems: ${previous}
 Questions: ${JSON.stringify(candidates.map(({ stem, options, sourcePath, sourceHeading }) => ({ stem, options, sourcePath, sourceHeading })))}`,

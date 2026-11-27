@@ -11,6 +11,7 @@ import {
   type SimulationQuestion,
   type SimulationSummary,
 } from "@/modules/assessment/chapter-simulation";
+import { gsCurrentAffairs } from "@/modules/assessment/gs-current-affairs";
 import { currentCheckpoint } from "./checkpoint-service";
 
 export const simulationEnabled =
@@ -49,7 +50,8 @@ export function simulationScope(paper: string, path: string) {
 }
 
 export function fullScope(paper: string) {
-  if (paper !== "Prelims-CSAT") return null;
+  const csat = paper === "Prelims-CSAT";
+  if (!csat && paper !== "Prelims-General-Studies-I") return null;
   const definition = getPaper(paper);
   const syllabus = definition && getDocument(definition.syllabus);
   if (!syllabus) return null;
@@ -57,13 +59,25 @@ export function fullScope(paper: string) {
     .split("\n")
     .filter((line) => line.startsWith("- "))
     .map((line) => line.slice(2));
-  if (topics.length !== 6) return null;
+  if (topics.length !== (csat ? 6 : 7)) return null;
+  const sourceDetails = csat ? null : gsCurrentAffairs;
   return {
     syllabus,
     topics,
+    csat,
+    batches: csat ? 8 : 10,
+    sourceDetails,
     variants: [""],
     revision: createHash("sha256")
-      .update("CSAT full 2026:" + syllabus.revision)
+      .update(
+        csat
+          ? "CSAT full 2026:" + syllabus.revision
+          : JSON.stringify([
+              "GS I full 2026",
+              syllabus.revision,
+              sourceDetails,
+            ]),
+      )
       .digest("hex"),
     kind: "objective" as const,
   };
@@ -123,6 +137,7 @@ export type SimulationView = SimulationSummary & {
   kind: "objective" | "descriptive";
   questions: SimulationQuestion[] | null;
   coverage: CoverageChapter[];
+  source_details: typeof gsCurrentAffairs | null;
   duration_seconds: number | null;
   remaining_ms: number | null;
   answers: SimulationAnswers;
@@ -135,4 +150,4 @@ export type SimulationView = SimulationSummary & {
 };
 
 export const simulationViewFields =
-  "id,mode,coverage,paper_code,paper_variant,chapter_path,kind,status,questions,duration_seconds,remaining_ms,answers,attachments,extracted,clarification,max_units,unit_scale,version,created_at";
+  "id,mode,coverage,source_details,paper_code,paper_variant,chapter_path,kind,status,questions,duration_seconds,remaining_ms,answers,attachments,extracted,clarification,max_units,unit_scale,version,created_at";
