@@ -78,6 +78,20 @@ test("Prelims marks and one-third penalties are exact in sixths", () => {
   assert.equal(scoreObjective("Prelims-CSAT", key, { "0": 3 }).score, -5);
 });
 
+test("official dropped questions carry no penalty and stay outside attempt totals", () => {
+  const result = scoreObjective(
+    "Prelims-General-Studies-I",
+    [key[0], { correctOption: null, explanation: "Dropped" }, key[2]],
+    { "0": 0, "1": 1 },
+  );
+  assert.equal(result.score, 12);
+  assert.equal(result.feedback.correct, 1);
+  assert.equal(result.feedback.wrong, 0);
+  assert.equal(result.feedback.blank, 1);
+  assert.equal(result.feedback.dropped, 1);
+  assert.equal(result.feedback.items[1].excluded, true);
+});
+
 test("submissions validate options and written answers against the prepared paper", () => {
   const question = {
     stem: "Prompt",

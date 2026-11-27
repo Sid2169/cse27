@@ -129,7 +129,7 @@ export default async function ChapterSimulation({
         {result
           ? "Exam feedback"
           : historical
-            ? "2024 official CSAT exam"
+            ? historical.year + " official past-paper exam"
             : full
               ? "Full-scope exam"
               : cumulative
@@ -165,6 +165,12 @@ export default async function ChapterSimulation({
             Use the original booklet to read the questions. Enter A–D on the
             answer sheet below after starting the timer.
           </p>
+          {!!historical.dropped?.length && (
+            <p>
+              The published key excludes {historical.dropped.length} questions.
+              The practice score is reported against the remaining marks.
+            </p>
+          )}
           {result && (
             <a href={historical.answerKey}>
               View the published UPSC answer key (PDF mirror)
@@ -348,6 +354,9 @@ export default async function ChapterSimulation({
                 <p>
                   {result.feedback.correct} correct · {result.feedback.wrong}{" "}
                   incorrect · {result.feedback.blank} blank
+                  {result.feedback.dropped
+                    ? " · " + result.feedback.dropped + " dropped"
+                    : ""}
                 </p>
                 <p>
                   Deduction for incorrect answers{" "}
@@ -398,7 +407,11 @@ export default async function ChapterSimulation({
                   <li key={index} className="study-card">
                     <h3>
                       {("label" in q && q.label) || "Question " + (index + 1)} ·{" "}
-                      {item.excluded ? "Not selected" : marks(item.awarded, 1)}
+                      {item.excluded
+                        ? objective
+                          ? "Dropped"
+                          : "Not selected"
+                        : marks(item.awarded, 1)}
                       {!objective &&
                         !item.excluded &&
                         " / " + (q as { marks: number }).marks}

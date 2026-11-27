@@ -23,7 +23,10 @@ export type WrittenQuestion = SectionReference & {
   wordLimit: number;
 };
 export type SimulationQuestion = ObjectiveQuestion | WrittenQuestion;
-export type ObjectiveKey = { correctOption: number; explanation: string };
+export type ObjectiveKey = {
+  correctOption: number | null;
+  explanation: string;
+};
 export type Criterion = { description: string; marks: number };
 export type MarkingGuide = { criteria: Criterion[]; reference: string };
 export type MarkedAnswer = {
@@ -57,6 +60,7 @@ export type SimulationResult = {
     wrong?: number;
     blank?: number;
     penaltyUnits?: number;
+    dropped?: number;
   };
   recommendations: (SectionReference & { reason: string })[];
   next_due: string | null;
@@ -87,8 +91,13 @@ export function scoreObjective(
   let correct = 0;
   let wrong = 0;
   let blank = 0;
+  let dropped = 0;
   const items = key.map((item, index) => {
     const answer = answers[index];
+    if (item.correctOption === null) {
+      dropped++;
+      return { awarded: 0, excluded: true, feedback: item.explanation };
+    }
     if (answer == null) {
       blank++;
       return { awarded: 0, feedback: "Unanswered. " + item.explanation };
@@ -106,6 +115,7 @@ export function scoreObjective(
       correct,
       wrong,
       blank,
+      ...(dropped ? { dropped } : {}),
       penaltyUnits: wrong * wrongUnits,
       items,
     },

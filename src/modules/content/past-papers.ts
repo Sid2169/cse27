@@ -11,6 +11,8 @@ const verified2026: Record<string, string> = {
 };
 
 export function officialBooklet(paper: string, year: number) {
+  if (year === 2024 && paper === "Prelims-General-Studies-I")
+    return "https://www.upsc.gov.in/uploads/2026/07/general-studies-paper-i-4-1.pdf";
   if (year === 2024 && paper === "Prelims-CSAT")
     return "https://www.upsc.gov.in/uploads/2026/07/general-studies-paper-ii-4-1.pdf";
   return year === 2026 ? (verified2026[paper] ?? null) : null;

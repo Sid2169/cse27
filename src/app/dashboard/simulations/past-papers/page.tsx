@@ -1,3 +1,4 @@
+import { historicalScope } from "@/server/assessment/historical-papers";
 import { randomUUID } from "node:crypto";
 import Link from "@/components/navigation-link";
 import { catalogue, getPaper } from "@/modules/content/catalogue";
@@ -41,7 +42,8 @@ export default async function PastPapers({
     selected && selectedYear
       ? officialBooklet(selected.id, selectedYear)
       : null;
-  const canAttempt = selected?.id === "Prelims-CSAT" && selectedYear === 2024;
+  const attempt =
+    selected && historicalScope(selected.id, String(selectedYear));
   return (
     <div className="page simulation-page">
       <div className="breadcrumbs">
@@ -116,11 +118,11 @@ export default async function PastPapers({
               UPSC archives
             </a>
           </div>
-          {canAttempt ? (
+          {attempt ? (
             <form action={requestSimulation}>
               <input type="hidden" name="mode" value="pyq" />
-              <input type="hidden" name="year" value="2024" />
-              <input type="hidden" name="paper" value="Prelims-CSAT" />
+              <input type="hidden" name="year" value={selectedYear} />
+              <input type="hidden" name="paper" value={selected.id} />
               <input type="hidden" name="request" value={randomUUID()} />
               <TestActionButton
                 label="Prepare timed Series A answer sheet"
