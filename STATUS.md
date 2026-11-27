@@ -44,6 +44,8 @@ No outstanding method requirement has been identified in the current specificati
 
 - The combined refresher checklist supports on-demand tests. Questions, guides and answers remain transient in the application. A passing result updates only the checklist completion flag.
 
+- Cumulative exams use a snapshot of currently qualified chapter revisions, with paper-specific marking and no change to chapter revision dates. The dashboard shows the latest cumulative percentage per paper variant.
+
 ## Study content and PYQs
 
 Root [syllabus.md](syllabus.md) contains the complete official syllabus, and all per-paper syllabus files are populated verbatim. The Mathematics optional syllabus is copied verbatim from the official notification because root [syllabus.md](syllabus.md) does not reproduce detailed optional syllabi.

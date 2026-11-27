@@ -34,7 +34,11 @@ export type AnswerFile = { path: string; type: string; name: string };
 export type Extraction = { transcript: string; needsClarification: boolean };
 export type SimulationAnswers = Record<string, number | string | null>;
 
+export type CoverageChapter = { path: string; revision: string };
+export type SimulationMode = "chapter" | "cumulative";
+
 export type SimulationSummary = {
+  mode: SimulationMode;
   id: string;
   paper_code: string;
   paper_variant: string;
@@ -113,7 +117,7 @@ export function validateSimulationAnswers(
   if (!input || typeof input !== "object" || Array.isArray(input)) return null;
   const answers: SimulationAnswers = {};
   for (const [key, value] of Object.entries(input)) {
-    if (!/^(0|[1-9]\d?)$/.test(key)) return null;
+    if (!/^(0|[1-9]\d{0,3})$/.test(key)) return null;
     const question = questions[Number(key)];
     if (!question) return null;
     if ("options" in question) {

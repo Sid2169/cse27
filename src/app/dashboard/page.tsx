@@ -38,6 +38,10 @@ export default async function Dashboard() {
   const { db, user } = await requireOwner();
   const assessment = checkpointDb();
   const checkpoints = assessment?.from("chapter_checkpoints");
+  const latestCumulativeQuery = simulationDb()?.rpc(
+    "latest_cumulative_results",
+    { p_user: user.id },
+  );
   const [recent, qualifications, tasks, jobs, attempts, examTasks] =
     await Promise.all([
       process.env.READER_POSITIONS_ENABLED === "true"
@@ -127,6 +131,7 @@ export default async function Dashboard() {
         .sort((a, b) => a.due_on.localeCompare(b.due_on))
     : [];
 
+  const { data: latestCumulative } = (await latestCumulativeQuery) ?? {};
   return (
     <div className="page study-dashboard">
       <header className="study-heading">
@@ -302,6 +307,24 @@ export default async function Dashboard() {
                 ) : (
                   <p>Progress unavailable</p>
                 )}
+                {(
+                  (latestCumulative ?? []) as {
+                    paper_code: string;
+                    paper_variant: string;
+                    score_units: number;
+                    max_units: number;
+                  }[]
+                )
+                  .filter((result) => result.paper_code === paper.id)
+                  .map((result) => (
+                    <small key={result.paper_variant}>
+                      Latest cumulative {result.paper_variant} ·{" "}
+                      {new Intl.NumberFormat("en-IN", {
+                        maximumFractionDigits: 1,
+                      }).format((100 * result.score_units) / result.max_units)}
+                      %
+                    </small>
+                  ))}
               </Link>
             );
           })}

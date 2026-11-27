@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 import Link from "@/components/navigation-link";
-import { getDocument } from "@/modules/content/catalogue";
+import { catalogue, getDocument, getPaper } from "@/modules/content/catalogue";
 import { documentUrl } from "@/modules/content/types";
 import {
   simulationRoot,
@@ -9,6 +9,7 @@ import {
 } from "@/modules/assessment/chapter-simulation";
 import { requireOwner } from "@/server/supabase";
 import {
+  cumulativeScope,
   simulationDb,
   simulationScope,
 } from "@/server/assessment/simulation-service";
@@ -27,6 +28,8 @@ const errors: Record<string, string> = {
   changed: "The chapter changed. Request a test for its current revision.",
   unavailable: "Exam simulation generation is unavailable.",
   request: "The request could not be saved. Try again.",
+  qualification:
+    "Pass a completion test for a current chapter of this paper before requesting a cumulative exam.",
 };
 
 export default async function Simulations({
@@ -41,12 +44,30 @@ export default async function Simulations({
     typeof paper === "string" && typeof chapter === "string"
       ? simulationScope(paper, chapter)
       : null;
+  const selected =
+    !chapter && typeof paper === "string" ? getPaper(paper) : null;
+  const variants = selected?.id === "Mains-Mathematics" ? ["I", "II"] : [""];
+  const cumulative =
+    selected && db
+      ? await Promise.all(
+          variants.map(async (variant) => ({
+            variant,
+            scope: await cumulativeScope(
+              db,
+              user.id,
+              selected.id,
+              variant,
+            ).catch(() => undefined),
+          })),
+        )
+      : [];
   let history = db
     ?.from("chapter_simulations")
-    .select("id,paper_code,paper_variant,chapter_path,status,created_at")
+    .select("id,mode,paper_code,paper_variant,chapter_path,status,created_at")
     .eq("user_id", user.id);
   if (scope && history)
     history = history.eq("paper_code", paper!).eq("chapter_path", chapter!);
+  if (selected && history) history = history.eq("paper_code", selected.id);
   const [recent, open] = await Promise.all([
     history?.order("created_at", { ascending: false }).limit(40),
     scope && db
@@ -67,7 +88,7 @@ export default async function Simulations({
         {scope && <Link href={documentUrl(scope.scope[0].path)}>Chapter</Link>}
       </div>
       <h1 className="compact-title">
-        {scope ? "Chapter exam simulation" : "Chapter exam simulations"}
+        {scope ? "Chapter exam simulation" : "Exam simulations"}
       </h1>
       {error && errors[error] && (
         <p className="notice" role="alert">
@@ -76,6 +97,62 @@ export default async function Simulations({
       )}
       {chapter && !scope && error !== "scope" && <p>{errors.scope}</p>}
       {!db && <p>Exam simulations are unavailable.</p>}
+      {!chapter && db && (
+        <section className="section study-card">
+          <h2>Cumulative exam</h2>
+          <p>
+            Practice only the chapters whose current completion tests you’ve
+            passed.
+          </p>
+          <form action={simulationRoot} className="simulation-actions">
+            <label htmlFor="simulation-paper">Paper</label>
+            <select
+              id="simulation-paper"
+              name="paper"
+              defaultValue={selected?.id}
+              required
+            >
+              <option value="">Select a paper</option>
+              {catalogue.papers.map((p) => (
+                <option key={p.id} value={p.id}>
+                  {p.stage} · {p.title}
+                </option>
+              ))}
+            </select>
+            <button className="button" type="submit">
+              Show coverage
+            </button>
+          </form>
+          {selected &&
+            cumulative.map(({ variant, scope: eligible }) => (
+              <div key={variant}>
+                {variant && <h3>Mathematics {variant}</h3>}
+                {eligible ? (
+                  <form action={requestSimulation}>
+                    <input type="hidden" name="mode" value="cumulative" />
+                    <input type="hidden" name="paper" value={selected.id} />
+                    <input type="hidden" name="variant" value={variant} />
+                    <input type="hidden" name="request" value={randomUUID()} />
+                    <p>
+                      {eligible.coverage.length} qualified{" "}
+                      {eligible.coverage.length === 1 ? "chapter" : "chapters"}
+                    </p>
+                    <TestActionButton
+                      label="Prepare cumulative exam"
+                      pendingLabel="Requesting exam…"
+                    />
+                  </form>
+                ) : (
+                  <p>
+                    {eligible === null
+                      ? "No chapters qualify yet."
+                      : "Could not load qualified chapters."}
+                  </p>
+                )}
+              </div>
+            ))}
+        </section>
+      )}
       {scope && db && (
         <section className="section study-card">
           <h2>{scope.scope[0].title}</h2>
@@ -137,7 +214,11 @@ export default async function Simulations({
           {(recent?.data as SimulationSummary[] | null)?.map((item) => (
             <li key={item.id}>
               <Link href={simulationRoot + "/" + item.id}>
-                {getDocument(item.chapter_path)?.title ?? item.chapter_path}
+                {item.mode === "cumulative"
+                  ? (getPaper(item.paper_code)?.title ?? item.paper_code) +
+                    " · Cumulative"
+                  : (getDocument(item.chapter_path)?.title ??
+                    item.chapter_path)}
                 {item.paper_variant && " · Mathematics " + item.paper_variant}
               </Link>
               <span>

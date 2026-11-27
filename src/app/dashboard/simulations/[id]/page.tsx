@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "@/components/navigation-link";
 import { Markdown } from "@/components/markdown";
-import { getDocument } from "@/modules/content/catalogue";
+import { getDocument, getPaper } from "@/modules/content/catalogue";
 import { documentUrl } from "@/modules/content/types";
 import {
   simulationLink,
@@ -59,6 +59,7 @@ export default async function ChapterSimulation({
     paper_code: paper,
     unit_scale: scale,
   } = simulation;
+  const cumulative = simulation.mode === "cumulative";
   const objective = simulation.kind === "objective";
   const hindi = paper === "Mains-Indian-Language";
   const questions = simulation.questions ?? [];
@@ -106,17 +107,39 @@ export default async function ChapterSimulation({
   return (
     <div className="page simulation-page">
       <div className="breadcrumbs">
-        <Link href={documentUrl(chapter)}>Chapter</Link>
+        {!cumulative && <Link href={documentUrl(chapter)}>Chapter</Link>}
         <Link href={simulationLink(paper, chapter)}>Exam history</Link>
       </div>
       <h1 className="compact-title">
-        {result ? "Exam feedback" : "Chapter exam simulation"}
+        {result
+          ? "Exam feedback"
+          : cumulative
+            ? "Cumulative exam simulation"
+            : "Chapter exam simulation"}
       </h1>
       <p className="lead">
-        {getDocument(chapter)?.title ?? chapter}
+        {cumulative
+          ? (getPaper(paper)?.title ?? paper)
+          : (getDocument(chapter)?.title ?? chapter)}
         {simulation.paper_variant &&
           " · Mathematics " + simulation.paper_variant}
       </p>
+      {cumulative && (
+        <details className="section">
+          <summary>
+            Coverage · {simulation.coverage.length} qualified chapters
+          </summary>
+          <ul>
+            {simulation.coverage.map(({ path }) => (
+              <li key={path}>
+                <Link href={documentUrl(path)}>
+                  {getDocument(path)?.title ?? path}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
       {requestError === "retry" && (
         <p className="notice" role="alert">
           The request could not be sent. Retry below.
@@ -166,9 +189,10 @@ export default async function ChapterSimulation({
             {questions.length} questions ·{" "}
             {marks(simulation.max_units ?? 0, scale)} marks ·{" "}
             {objective && simulation.duration_seconds
-              ? new Date(simulation.duration_seconds * 1000)
-                  .toISOString()
-                  .slice(14, 19) + " time limit"
+              ? Math.floor(simulation.duration_seconds / 60) +
+                ":" +
+                String(simulation.duration_seconds % 60).padStart(2, "0") +
+                " time limit"
               : Math.ceil((simulation.duration_seconds ?? 0) / 60) +
                 " minutes suggested"}
           </p>

@@ -6,6 +6,7 @@ import {
   retainedAnswerBucket,
   scoreObjective,
   type AnswerFile,
+  type CoverageChapter,
   type Extraction,
   type MarkedAnswer,
   type MarkingGuide,
@@ -85,6 +86,86 @@ function providerFailure(error: unknown, phase: string, id: string): never {
   throw error;
 }
 
+async function buildBlueprint(
+  id: string,
+  data: {
+    paper_code: string;
+    paper_variant: string;
+    kind: string;
+    generation_model: string;
+  },
+  scope: NonNullable<ReturnType<typeof simulationScope>>,
+  cumulative: boolean,
+) {
+  const csat = data.paper_code === "Prelims-CSAT";
+  let blueprint;
+  try {
+    const generate = geminiGenerator(data.generation_model);
+    if (data.kind === "objective") {
+      const size = Math.min(
+        12,
+        Math.max(
+          7,
+          6 + scope.scope.length,
+          Math.ceil(
+            scope.scope.reduce(
+              (length, doc) => length + doc.markdown.length,
+              0,
+            ) / 7000,
+          ),
+        ),
+      );
+      const generated = await generateObjectiveQuestions(
+        generate,
+        scope.scope,
+        [],
+        {
+          draftCount: size,
+          minimumCount: Math.max(5, size - 3),
+          purpose: cumulative
+            ? "a chapter section of a timed cumulative UPSC Prelims simulation in English"
+            : "a timed UPSC Prelims chapter simulation in English",
+          questionDesign: csat
+            ? "Use suitable CSAT comprehension, reasoning or numeracy problems. Include the full passage, inputs or data needed for every question. Test the taught skills through new, independently solvable problems."
+            : "Use UPSC GS-I style interpretation, application and statement-based questions as appropriate. Supply all needed context for new scenarios. Test reasoning on taught material and avoid trivial recall or copied past-paper questions.",
+        },
+      );
+      blueprint = {
+        questions: generated.questions,
+        guide: generated.key,
+        duration: generated.questions.length * (csat ? 90 : 72),
+        maximum: generated.questions.length * (csat ? 15 : 12),
+      };
+    } else {
+      const generated = await generateWrittenSimulation(
+        generate,
+        scope.scope,
+        data.paper_code,
+        scope.paperTitle,
+        data.paper_variant,
+      );
+      const maximum = generated.questions.reduce(
+        (sum, question) => sum + question.marks,
+        0,
+      );
+      const minutes = Math.max(
+        10,
+        Math.ceil(
+          maximum *
+            (data.paper_code === "Mains-Indian-Language" ||
+            data.paper_code === "Mains-English"
+              ? 0.6
+              : 0.72),
+        ),
+      );
+      blueprint = { ...generated, duration: minutes * 60, maximum };
+    }
+  } catch (error) {
+    providerFailure(error, "preparation", id);
+  }
+  return blueprint;
+}
+
 export const prepareSimulation = inngest.createFunction(
   {
     id: "prepare-chapter-simulation",
@@ -99,9 +180,9 @@ export const prepareSimulation = inngest.createFunction(
   async ({ event, step }) => {
     if (!validEvent(event.data)) return;
     const { id, token } = event.data;
-    return step.run("prepare-and-publish", async () => {
-      const db = simulationDb();
-      if (!db) throw new NonRetriableError("Chapter simulations unavailable");
+    const db = simulationDb();
+    if (!db) throw new NonRetriableError("Exam simulations unavailable");
+    const data = await step.run("claim-simulation-preparation", async () => {
       const { data, error } = await db
         .from("chapter_simulations")
         .update({ status: "generating" })
@@ -109,11 +190,75 @@ export const prepareSimulation = inngest.createFunction(
         .eq("job_token", token)
         .in("status", ["queued", "generating"])
         .select(
-          "id,paper_code,paper_variant,chapter_path,revision,kind,generation_model",
+          "id,mode,coverage,paper_code,paper_variant,chapter_path,revision,kind,generation_model",
         )
         .maybeSingle();
       if (error) throw new Error("Could not claim simulation preparation");
-      if (!data) return;
+      return data;
+    });
+    if (!data) return;
+    if (data.mode === "cumulative") {
+      const coverage = data.coverage as CoverageChapter[];
+      for (const [position, chapter] of coverage.entries()) {
+        await step.run("prepare-cumulative-chapter-" + position, async () => {
+          const scope = simulationScope(data.paper_code, chapter.path);
+          if (
+            !scope ||
+            scope.revision !== chapter.revision ||
+            !scope.variants.includes(data.paper_variant)
+          )
+            throw new NonRetriableError(
+              "Teaching material changed before preparation",
+            );
+          const existing = await db
+            .from("cumulative_simulation_batches")
+            .select("position")
+            .eq("simulation_id", id)
+            .eq("position", position)
+            .maybeSingle();
+          if (existing.error)
+            throw new Error("Could not check prepared chapter batch");
+          if (existing.data) return;
+          const blueprint = await buildBlueprint(id, data, scope, true);
+          const saved = await db
+            .from("cumulative_simulation_batches")
+            .upsert({ simulation_id: id, position, blueprint });
+          if (saved.error)
+            throw new Error("Could not save the prepared chapter batch");
+        });
+      }
+      await step.run("publish-cumulative-exam", async () => {
+        const batches = await db
+          .from("cumulative_simulation_batches")
+          .select("blueprint")
+          .eq("simulation_id", id)
+          .order("position");
+        if (batches.error || batches.data?.length !== coverage.length)
+          throw new Error("Some cumulative chapters are missing");
+        const parts = batches.data.map(
+          (row) => row.blueprint as Awaited<ReturnType<typeof buildBlueprint>>,
+        );
+        const published = await db.rpc("publish_chapter_simulation", {
+          p_id: id,
+          p_token: token,
+          p_questions: parts.flatMap((part) => [...part.questions]),
+          p_guide: parts.flatMap((part) => [...part.guide]),
+          p_duration: parts.reduce((sum, part) => sum + part.duration, 0),
+          p_max_units: parts.reduce((sum, part) => sum + part.maximum, 0),
+        });
+        if (published.error)
+          throw new Error("Could not publish the cumulative paper");
+      });
+      return step.run("remove-published-batches", async () => {
+        const removed = await db
+          .from("cumulative_simulation_batches")
+          .delete()
+          .eq("simulation_id", id);
+        if (removed.error)
+          throw new Error("Could not remove published batches");
+      });
+    }
+    return step.run("prepare-and-publish", async () => {
       const scope = simulationScope(data.paper_code, data.chapter_path);
       if (
         !scope ||
@@ -123,70 +268,7 @@ export const prepareSimulation = inngest.createFunction(
         throw new NonRetriableError(
           "Teaching material changed before preparation",
         );
-      const csat = data.paper_code === "Prelims-CSAT";
-      let blueprint;
-      try {
-        const generate = geminiGenerator(data.generation_model);
-        if (data.kind === "objective") {
-          const size = Math.min(
-            12,
-            Math.max(
-              7,
-              6 + scope.scope.length,
-              Math.ceil(
-                scope.scope.reduce(
-                  (length, doc) => length + doc.markdown.length,
-                  0,
-                ) / 7000,
-              ),
-            ),
-          );
-          const generated = await generateObjectiveQuestions(
-            generate,
-            scope.scope,
-            [],
-            {
-              draftCount: size,
-              minimumCount: Math.max(5, size - 3),
-              purpose: "a timed UPSC Prelims chapter simulation in English",
-              questionDesign: csat
-                ? "Use suitable CSAT comprehension, reasoning or numeracy problems. Include the full passage, inputs or data needed for every question. Test the taught skills through new, independently solvable problems."
-                : "Use UPSC GS-I style interpretation, application and statement-based questions as appropriate. Supply all needed context for new scenarios. Test reasoning on taught material and avoid trivial recall or copied past-paper questions.",
-            },
-          );
-          blueprint = {
-            questions: generated.questions,
-            guide: generated.key,
-            duration: generated.questions.length * (csat ? 90 : 72),
-            maximum: generated.questions.length * (csat ? 15 : 12),
-          };
-        } else {
-          const generated = await generateWrittenSimulation(
-            generate,
-            scope.scope,
-            data.paper_code,
-            scope.paperTitle,
-            data.paper_variant,
-          );
-          const maximum = generated.questions.reduce(
-            (sum, question) => sum + question.marks,
-            0,
-          );
-          const minutes = Math.max(
-            10,
-            Math.ceil(
-              maximum *
-                (data.paper_code === "Mains-Indian-Language" ||
-                data.paper_code === "Mains-English"
-                  ? 0.6
-                  : 0.72),
-            ),
-          );
-          blueprint = { ...generated, duration: minutes * 60, maximum };
-        }
-      } catch (error) {
-        providerFailure(error, "preparation", id);
-      }
+      const blueprint = await buildBlueprint(id, data, scope, false);
       const published = await db.rpc("publish_chapter_simulation", {
         p_id: id,
         p_token: token,
@@ -291,7 +373,7 @@ function recommendations(
         entry,
       ]),
     ).values(),
-  ];
+  ].slice(0, 15);
 }
 
 export const markSimulation = inngest.createFunction(
@@ -416,8 +498,10 @@ export const markSimulation = inngest.createFunction(
         p_id: id,
         p_token: token,
         p_current_revision:
-          simulationScope(simulation.paper_code, simulation.chapter_path)
-            ?.revision ?? "",
+          simulation.mode === "chapter"
+            ? (simulationScope(simulation.paper_code, simulation.chapter_path)
+                ?.revision ?? "")
+            : "",
         p_score_units: grading.score,
         p_feedback: grading.feedback,
         p_recommendations: recommendations(

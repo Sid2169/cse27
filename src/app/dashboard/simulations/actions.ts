@@ -8,6 +8,7 @@ import { requireOwner } from "@/server/supabase";
 import { checkpointId } from "@/server/assessment/checkpoint-service";
 import { dispatchSimulation } from "@/server/assessment/simulation-events";
 import {
+  cumulativeScope,
   simulationDb,
   simulationScope,
 } from "@/server/assessment/simulation-service";
@@ -15,16 +16,29 @@ import {
 export async function requestSimulation(form: FormData) {
   const { user } = await requireOwner();
   const paper = String(form.get("paper") ?? "");
-  const chapter = String(form.get("chapter") ?? "");
+  const mode = form.get("mode") === "cumulative" ? "cumulative" : "chapter";
+  const chapter =
+    mode === "cumulative" ? "" : String(form.get("chapter") ?? "");
   const variant = String(form.get("variant") ?? "");
   const request = String(form.get("request") ?? "");
   const index = simulationRoot + "?" + new URLSearchParams({ paper, chapter });
   const db = simulationDb();
-  const scope = simulationScope(paper, chapter);
+  const scope =
+    mode === "cumulative"
+      ? db
+        ? await cumulativeScope(db, user.id, paper, variant).catch(
+            () => undefined,
+          )
+        : undefined
+      : simulationScope(paper, chapter);
+  if (mode === "cumulative" && scope === undefined)
+    redirect(index + "&error=unavailable");
   const generation = process.env.GEMINI_GENERATION_MODEL;
   const evaluation = process.env.GEMINI_EVALUATION_MODEL || generation;
   if (!scope?.variants.includes(variant) || !checkpointId.test(request))
-    redirect(index + "&error=scope");
+    redirect(
+      index + (mode === "cumulative" ? "&error=qualification" : "&error=scope"),
+    );
   if (
     !db ||
     !generation ||
@@ -37,6 +51,8 @@ export async function requestSimulation(form: FormData) {
 
   const simulations = db.from("chapter_simulations");
   const row = {
+    mode,
+    coverage: scope && "coverage" in scope ? scope.coverage : [],
     user_id: user.id,
     request_id: request,
     paper_code: paper,
@@ -91,7 +107,9 @@ export async function retrySimulation(form: FormData) {
   const url = simulationRoot + "/" + id;
   const simulations = db.from("chapter_simulations");
   const { data: existing } = await simulations
-    .select("status,job_token,paper_code,paper_variant,chapter_path,revision")
+    .select(
+      "status,job_token,paper_code,paper_variant,chapter_path,revision,mode,coverage",
+    )
     .eq("id", id)
     .eq("user_id", user.id)
     .maybeSingle();
@@ -105,8 +123,14 @@ export async function retrySimulation(form: FormData) {
     redirect(url);
   if (
     preparation &&
-    simulationScope(existing.paper_code, existing.chapter_path)?.revision !==
-      existing.revision
+    (existing.mode === "cumulative"
+      ? existing.coverage.some(
+          (entry: { path: string; revision: string }) =>
+            simulationScope(existing.paper_code, entry.path)?.revision !==
+            entry.revision,
+        )
+      : simulationScope(existing.paper_code, existing.chapter_path)
+          ?.revision !== existing.revision)
   )
     redirect(
       simulationRoot +
