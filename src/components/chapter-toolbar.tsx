@@ -4,11 +4,13 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
   Bookmark,
   ClipboardCheck,
+  ClipboardList,
   MoreHorizontal,
   NotebookPen,
 } from "lucide-react";
 import Link from "@/components/navigation-link";
 import { ReaderControls } from "./reader-controls";
+import { simulationLink } from "@/modules/assessment/chapter-simulation";
 import { saveCurrentSection } from "@/app/library/actions";
 
 export function ChapterToolbar({
@@ -17,6 +19,7 @@ export function ChapterToolbar({
   canSave,
   hasNotes,
   completionTest,
+  examSimulation,
   children,
 }: {
   path: string;
@@ -24,6 +27,7 @@ export function ChapterToolbar({
   canSave: boolean;
   hasNotes: boolean;
   completionTest: { paper: string; chapter: string } | null;
+  examSimulation: { paper: string; chapter: string } | null;
   children: ReactNode;
 }) {
   const [menu, setMenu] = useState(false);
@@ -139,6 +143,16 @@ export function ChapterToolbar({
         >
           <ClipboardCheck size={16} aria-hidden="true" />
           <span>Completion test</span>
+        </Link>
+      )}
+      {examSimulation && (
+        <Link
+          className="button"
+          href={simulationLink(examSimulation.paper, examSimulation.chapter)}
+          onClick={() => setMenu(false)}
+        >
+          <ClipboardList size={16} aria-hidden="true" />
+          <span>Exam simulation</span>
         </Link>
       )}
       <div className="chapter-desktop-size">

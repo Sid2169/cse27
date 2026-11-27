@@ -19,6 +19,7 @@ export function geminiGenerator(model: string | undefined) {
   return async function generate(
     prompt: string,
     schema: object,
+    files: { mimeType: string; data: string }[] = [],
   ): Promise<unknown> {
     let response: Response;
     try {
@@ -33,7 +34,15 @@ export function geminiGenerator(model: string | undefined) {
             "x-goog-api-key": key!,
           },
           body: JSON.stringify({
-            contents: [{ role: "user", parts: [{ text: prompt }] }],
+            contents: [
+              {
+                role: "user",
+                parts: [
+                  { text: prompt },
+                  ...files.map((file) => ({ inlineData: file })),
+                ],
+              },
+            ],
             generationConfig: {
               responseMimeType: "application/json",
               responseJsonSchema: schema,

@@ -18,6 +18,15 @@ import {
 } from "@/server/assessment/checkpoint-service";
 import { requireOwner } from "@/server/supabase";
 import { signOut } from "@/app/login/actions";
+import {
+  simulationDb,
+  simulationEnabled,
+  simulationScope,
+} from "@/server/assessment/simulation-service";
+import {
+  simulationLink,
+  simulationRoot,
+} from "@/modules/assessment/chapter-simulation";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -29,39 +38,46 @@ export default async function Dashboard() {
   const { db, user } = await requireOwner();
   const assessment = checkpointDb();
   const checkpoints = assessment?.from("chapter_checkpoints");
-  const [recent, qualifications, tasks, jobs, attempts] = await Promise.all([
-    process.env.READER_POSITIONS_ENABLED === "true"
-      ? db
-          .from("reading_positions")
-          .select("anchor")
-          .order("updated_at", { ascending: false })
-          .limit(1)
-          .maybeSingle()
-      : null,
-    assessment
-      ?.from("chapter_checkpoint_qualifications")
-      .select("paper_code,chapter_path,revision", { count: "exact" })
-      .eq("user_id", user.id),
-    assessment
-      ?.from("checkpoint_revision_tasks")
-      .select("paper_code,chapter_path,revision,due_on", { count: "exact" })
-      .eq("user_id", user.id)
-      .order("due_on"),
-    assessment
-      ?.from("checkpoint_generation_jobs")
-      .select("id,chapter_path,status")
-      .eq("user_id", user.id)
-      .in("status", ["queued", "waiting"])
-      .order("created_at", { ascending: false })
-      .limit(5),
-    checkpoints
-      ?.select(
-        "id,chapter_path,chapter_checkpoint_results(correct,wrong,blank,qualified)",
-      )
-      .eq("user_id", user.id)
-      .order("created_at", { ascending: false })
-      .limit(5),
-  ]);
+  const [recent, qualifications, tasks, jobs, attempts, examTasks] =
+    await Promise.all([
+      process.env.READER_POSITIONS_ENABLED === "true"
+        ? db
+            .from("reading_positions")
+            .select("anchor")
+            .order("updated_at", { ascending: false })
+            .limit(1)
+            .maybeSingle()
+        : null,
+      assessment
+        ?.from("chapter_checkpoint_qualifications")
+        .select("paper_code,chapter_path,revision", { count: "exact" })
+        .eq("user_id", user.id),
+      assessment
+        ?.from("checkpoint_revision_tasks")
+        .select("paper_code,chapter_path,revision,due_on", { count: "exact" })
+        .eq("user_id", user.id)
+        .order("due_on"),
+      assessment
+        ?.from("checkpoint_generation_jobs")
+        .select("id,chapter_path,status")
+        .eq("user_id", user.id)
+        .in("status", ["queued", "waiting"])
+        .order("created_at", { ascending: false })
+        .limit(5),
+      checkpoints
+        ?.select(
+          "id,chapter_path,chapter_checkpoint_results(correct,wrong,blank,qualified)",
+        )
+        .eq("user_id", user.id)
+        .order("created_at", { ascending: false })
+        .limit(5),
+      simulationDb()
+        ?.from("chapter_simulation_revision_tasks")
+        .select("paper_code,paper_variant,chapter_path,revision,due_on", {
+          count: "exact",
+        })
+        .eq("user_id", user.id),
+    ]);
   const anchor = recent?.data?.anchor as BookmarkAnchor | undefined;
   const chapter = anchor ? getDocument(anchor.path) : undefined;
   const resume = anchor ? bookmarkLocation(anchor, chapter) : null;
@@ -70,7 +86,11 @@ export default async function Dashboard() {
     !qualifications.error &&
     qualifications.count === qualifications.data?.length;
   const tasksAvailable =
-    !!tasks && !tasks.error && tasks.count === tasks.data?.length;
+    !!tasks &&
+    !tasks.error &&
+    tasks.count === tasks.data?.length &&
+    (!examTasks ||
+      (!examTasks.error && examTasks.count === examTasks.data?.length));
   const isCurrent = (row: {
     paper_code: string;
     chapter_path: string;
@@ -81,7 +101,31 @@ export default async function Dashboard() {
   const qualified = progressAvailable
     ? qualifications.data!.filter(isCurrent)
     : [];
-  const scheduled = tasksAvailable ? tasks.data!.filter(isCurrent) : [];
+  const scheduled = tasksAvailable
+    ? tasks
+        .data!.filter(isCurrent)
+        .flatMap((task) => {
+          const variants = simulationEnabled
+            ? (simulationScope(task.paper_code, task.chapter_path)
+                ?.variants ?? [""])
+            : [""];
+          return variants.map((variant) => {
+            const currentDue = examTasks?.data?.find(
+              (entry) =>
+                entry.paper_code === task.paper_code &&
+                entry.chapter_path === task.chapter_path &&
+                entry.revision === task.revision &&
+                entry.paper_variant === variant,
+            );
+            return {
+              ...task,
+              variant,
+              due_on: currentDue?.due_on ?? task.due_on,
+            };
+          });
+        })
+        .sort((a, b) => a.due_on.localeCompare(b.due_on))
+    : [];
 
   return (
     <div className="page study-dashboard">
@@ -104,6 +148,11 @@ export default async function Dashboard() {
           {process.env.READER_PREFERENCES_ENABLED === "true" && (
             <Link className="button" href="/settings">
               <Settings size={16} /> Settings
+            </Link>
+          )}
+          {simulationEnabled && (
+            <Link href={simulationRoot} className="button">
+              Exam simulations
             </Link>
           )}
           <form action={signOut}>
@@ -153,9 +202,16 @@ export default async function Dashboard() {
           ) : (
             <ul className="study-list">
               {scheduled.slice(0, 5).map((task) => (
-                <li key={task.paper_code + task.chapter_path}>
-                  <Link href={documentUrl(task.chapter_path)}>
+                <li key={task.paper_code + task.chapter_path + task.variant}>
+                  <Link
+                    href={
+                      simulationEnabled
+                        ? simulationLink(task.paper_code, task.chapter_path)
+                        : documentUrl(task.chapter_path)
+                    }
+                  >
                     {getDocument(task.chapter_path)?.title ?? task.chapter_path}
+                    {task.variant && " · Mathematics " + task.variant}
                   </Link>
                   <time dateTime={task.due_on}>{task.due_on}</time>
                 </li>

@@ -1,5 +1,5 @@
 import "server-only";
-import { Inngest, NonRetriableError, RetryAfterError } from "inngest";
+import { NonRetriableError, RetryAfterError } from "inngest";
 import { catalogue } from "@/modules/content/catalogue";
 import {
   checkpointDb,
@@ -13,7 +13,9 @@ import {
 } from "./checkpoint-generation";
 import { geminiGenerator, GenerationUnavailable } from "./gemini";
 
-export const inngest = new Inngest({ id: "cse27" });
+import { inngest } from "./inngest";
+
+export { inngest };
 export const checkpointRequested = "cse27/checkpoint.requested";
 
 export const checkpointWorker = inngest.createFunction(

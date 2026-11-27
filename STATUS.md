@@ -35,6 +35,11 @@ No outstanding method requirement has been identified in the current specificati
 
 - Completion tests now have a chapter-toolbar entry, including on parts of a ready split chapter. The generation pipeline verifies individual candidates and keeps a sufficient set only when it covers the required parts. The chapter test page can reopen pending requests and unsubmitted tests.
 
+## Chapter exam simulations — 27 November 2026
+
+- Ready chapters and their parts open the same whole-chapter exam simulation from the reader toolbar. Chapter practice includes timed Prelims MCQs and written Mains questions, retained answer files and transcription review, frozen feedback, and chapter-specific history.
+- Qualified current-revision attempts update revision due dates with the default scheduling settings. Refresher recommendations are retained with the result. Transient follow-up tests, schedule preference controls and export/restore of simulation records and uploads are separate pending stages.
+
 ## Study content and PYQs
 
 Root [syllabus.md](syllabus.md) contains the complete official syllabus, and all per-paper syllabus files are populated verbatim. The Mathematics optional syllabus is copied verbatim from the official notification because root [syllabus.md](syllabus.md) does not reproduce detailed optional syllabi.

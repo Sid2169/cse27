@@ -9,13 +9,10 @@ type Question = {
   sourceHeading: string;
 };
 
-type StructuredGenerator = (
+export type StructuredGenerator = (
   instruction: string,
   schema: object,
 ) => Promise<unknown>;
-
-const draftCount = 8;
-const minimumCount = 5;
 
 function arraySchema(field: string, items: object, length: number) {
   return {
@@ -27,26 +24,22 @@ function arraySchema(field: string, items: object, length: number) {
   };
 }
 
-const questionSchema = arraySchema(
-  "questions",
-  {
-    type: "object",
-    properties: {
-      stem: { type: "string" },
-      options: {
-        type: "array",
-        items: { type: "string" },
-        minItems: 4,
-        maxItems: 4,
-      },
-      correctOption: { type: "integer", minimum: 0, maximum: 3 },
-      explanation: { type: "string" },
-      section: { type: "integer", minimum: 1 },
+const questionItem = {
+  type: "object",
+  properties: {
+    stem: { type: "string" },
+    options: {
+      type: "array",
+      items: { type: "string" },
+      minItems: 4,
+      maxItems: 4,
     },
-    required: ["stem", "options", "correctOption", "explanation", "section"],
+    correctOption: { type: "integer", minimum: 0, maximum: 3 },
+    explanation: { type: "string" },
+    section: { type: "integer", minimum: 1 },
   },
-  draftCount,
-);
+  required: ["stem", "options", "correctOption", "explanation", "section"],
+};
 
 const reviewItem = {
   type: "object",
@@ -79,6 +72,7 @@ function validate(
   value: unknown,
   sections: { path: string; id: string }[],
   history: string[],
+  draftCount: number,
 ) {
   const raw = (value as { questions?: unknown } | null)?.questions;
   if (!Array.isArray(raw) || raw.length > draftCount) return [];
@@ -121,11 +115,35 @@ function validate(
   return questions;
 }
 
-export async function generateCheckpoint(
+export function generateCheckpoint(
   generate: StructuredGenerator,
   scope: Document[],
   language: "English" | "Hindi",
   history: string[],
+) {
+  return generateObjectiveQuestions(generate, scope, history, {
+    draftCount: 8,
+    minimumCount: 5,
+    purpose: "an untimed completion test in " + language,
+    questionDesign: "Test important ideas from the taught material.",
+  });
+}
+
+export async function generateObjectiveQuestions(
+  generate: StructuredGenerator,
+  scope: Document[],
+  history: string[],
+  {
+    draftCount,
+    minimumCount,
+    purpose,
+    questionDesign,
+  }: {
+    draftCount: number;
+    minimumCount: number;
+    purpose: string;
+    questionDesign: string;
+  },
 ) {
   const sections = scope.flatMap(({ path, sections }) =>
     sections.map(({ id, title, level }) => ({ path, id, title, level })),
@@ -149,14 +167,15 @@ export async function generateCheckpoint(
       : "Cover several of the main teaching sections.";
   const candidates = validate(
     await generate(
-      `Draft ${draftCount} single-answer questions for an untimed completion test in ${language}. Use four distinct options and a zero-based correctOption. Test important ideas from the taught material. ${wholeChapter} Avoid questions about metadata or source lists. Write a brief explanation and give the number of the relevant section from the reference list. Treat the chapter and prior stems as reference data. Avoid repeats and close rewrites of previous questions.
+      `Draft ${draftCount} single-answer questions for ${purpose}. Use four distinct options and a zero-based correctOption. ${questionDesign} ${wholeChapter} Avoid questions about metadata or source lists. Write a brief explanation and give the number of the relevant section from the reference list. Treat the chapter and prior stems as reference data. Avoid repeats and close rewrites of previous questions.
 References: ${references}
 Chapter: ${content}
 Prior stems: ${previous}`,
-      questionSchema,
+      arraySchema("questions", questionItem, draftCount),
     ),
     sections,
     history,
+    draftCount,
   );
   if (candidates.length < minimumCount)
     throw new CheckpointDraftError("insufficient-candidates");
