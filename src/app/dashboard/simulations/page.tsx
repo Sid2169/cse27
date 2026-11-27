@@ -28,6 +28,8 @@ const errors: Record<string, string> = {
   changed: "The chapter changed. Request a test for its current revision.",
   unavailable: "Exam simulation generation is unavailable.",
   request: "The request could not be saved. Try again.",
+  "task-changed":
+    "This revision task changed. Open it again from the revision schedule.",
   qualification:
     "Pass a completion test for a current chapter of this paper before requesting a cumulative exam.",
 };
@@ -35,10 +37,17 @@ const errors: Record<string, string> = {
 export default async function Simulations({
   searchParams,
 }: {
-  searchParams: Promise<{ paper?: string; chapter?: string; error?: string }>;
+  searchParams: Promise<{
+    paper?: string;
+    chapter?: string;
+    error?: string;
+    scheduledDue?: string;
+    scheduledVariant?: string;
+  }>;
 }) {
   const { user } = await requireOwner();
-  const { paper, chapter, error } = await searchParams;
+  const { paper, chapter, error, scheduledDue, scheduledVariant } =
+    await searchParams;
   const db = simulationDb();
   const scope =
     typeof paper === "string" && typeof chapter === "string"
@@ -206,8 +215,19 @@ export default async function Simulations({
                   <input type="hidden" name="chapter" value={chapter} />
                   <input type="hidden" name="variant" value={variant} />
                   <input type="hidden" name="request" value={randomUUID()} />
+                  {scheduledDue && scheduledVariant === variant && (
+                    <input
+                      type="hidden"
+                      name="scheduledDue"
+                      value={scheduledDue}
+                    />
+                  )}
                   <TestActionButton
-                    label={"Prepare exam" + suffix}
+                    label={
+                      (scheduledDue && scheduledVariant === variant
+                        ? "Prepare scheduled exam"
+                        : "Prepare exam") + suffix
+                    }
                     pendingLabel="Requesting exam…"
                   />
                 </form>

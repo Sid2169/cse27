@@ -53,9 +53,40 @@ export async function requestSimulation(form: FormData) {
   )
     redirect(index + "&error=unavailable");
 
+  const due = mode === "chapter" ? String(form.get("scheduledDue") ?? "") : "";
+  if (due) {
+    const task = await db
+      .from("chapter_simulation_revision_tasks")
+      .select("due_on,schedule_state")
+      .eq("user_id", user.id)
+      .eq("paper_code", paper)
+      .eq("paper_variant", variant)
+      .eq("chapter_path", chapter)
+      .eq("revision", scope.revision)
+      .maybeSingle();
+    if (task.error) redirect(index + "&error=request");
+    if (
+      task.data &&
+      (task.data.schedule_state !== "pending" || task.data.due_on !== due)
+    )
+      redirect(index + "&error=task-changed");
+    if (!task.data) {
+      const initial = await db
+        .from("checkpoint_revision_tasks")
+        .select("due_on")
+        .eq("user_id", user.id)
+        .eq("paper_code", paper)
+        .eq("chapter_path", chapter)
+        .eq("revision", scope.revision)
+        .maybeSingle();
+      if (initial.error || initial.data?.due_on !== due)
+        redirect(index + "&error=task-changed");
+    }
+  }
   const simulations = db.from("chapter_simulations");
   const row = {
     mode,
+    scheduled_due: due || null,
     coverage: scope && "coverage" in scope ? scope.coverage : [],
     user_id: user.id,
     request_id: request,

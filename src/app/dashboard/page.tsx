@@ -131,7 +131,7 @@ export default async function Dashboard() {
               ...task,
               variant,
               due_on: currentDue?.due_on ?? task.due_on,
-              scheduled: currentDue?.schedule_state !== "unscheduled",
+              scheduled: !currentDue || currentDue.schedule_state === "pending",
             };
           });
         })
@@ -231,7 +231,18 @@ export default async function Dashboard() {
                   <Link
                     href={
                       simulationEnabled
-                        ? simulationLink(task.paper_code, task.chapter_path)
+                        ? {
+                            ...simulationLink(
+                              task.paper_code,
+                              task.chapter_path,
+                            ),
+                            query: {
+                              paper: task.paper_code,
+                              chapter: task.chapter_path,
+                              scheduledDue: task.due_on,
+                              scheduledVariant: task.variant,
+                            },
+                          }
                         : documentUrl(task.chapter_path)
                     }
                   >

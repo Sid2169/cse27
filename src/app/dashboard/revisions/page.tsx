@@ -6,7 +6,7 @@ import {
   simulationDb,
   simulationScope,
 } from "@/server/assessment/simulation-service";
-import { saveRevisionPreferences } from "./actions";
+import { changeRevisionTask, saveRevisionPreferences } from "./actions";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -14,7 +14,13 @@ export const metadata = {
   robots: { index: false, follow: false },
 };
 
-const groups = ["Overdue", "Due today", "Upcoming", "Unscheduled"] as const;
+const groups = [
+  "Overdue",
+  "Due today",
+  "Upcoming",
+  "Unscheduled",
+  "Canceled",
+] as const;
 type Group = (typeof groups)[number];
 
 export default async function Revisions({
@@ -25,7 +31,7 @@ export default async function Revisions({
   const { user } = await requireOwner();
   const { status } = await searchParams;
   const db = simulationDb();
-  const [initial, subsequent, preferences] = await Promise.all([
+  const [initial, subsequent, preferences, history] = await Promise.all([
     db
       ?.from("checkpoint_revision_tasks")
       .select("paper_code,chapter_path,revision,due_on")
@@ -33,7 +39,7 @@ export default async function Revisions({
     db
       ?.from("chapter_simulation_revision_tasks")
       .select(
-        "paper_code,paper_variant,chapter_path,revision,due_on,schedule_state",
+        "paper_code,paper_variant,chapter_path,revision,due_on,schedule_state,schedule_source",
       )
       .eq("user_id", user.id),
     db
@@ -43,6 +49,14 @@ export default async function Revisions({
       )
       .eq("user_id", user.id)
       .maybeSingle(),
+    db
+      ?.from("chapter_revision_task_history")
+      .select(
+        "id,chapter_path,paper_variant,previous_due,next_due,reason,changed_at",
+      )
+      .eq("user_id", user.id)
+      .order("changed_at", { ascending: false })
+      .limit(40),
   ]);
   const prefs = preferences?.data;
   const today = new Intl.DateTimeFormat("sv-SE", {
@@ -62,14 +76,22 @@ export default async function Revisions({
         );
         const day: string = current?.due_on ?? task.due_on;
         const group: Group =
-          current?.schedule_state === "unscheduled"
-            ? "Unscheduled"
-            : day < today
-              ? "Overdue"
-              : day === today
-                ? "Due today"
-                : "Upcoming";
-        return { ...task, variant, day, group };
+          current?.schedule_state === "canceled"
+            ? "Canceled"
+            : current?.schedule_state === "unscheduled"
+              ? "Unscheduled"
+              : day < today
+                ? "Overdue"
+                : day === today
+                  ? "Due today"
+                  : "Upcoming";
+        return {
+          ...task,
+          variant,
+          day,
+          group,
+          manual: current?.schedule_source === "manual",
+        };
       });
     })
     .sort((a, b) => a.day.localeCompare(b.day));
@@ -81,9 +103,11 @@ export default async function Revisions({
       <h1 className="compact-title">Chapter revisions</h1>
       {status && (
         <p role="status">
-          {status === "saved"
-            ? "Revision preferences saved."
-            : "Preferences could not be saved. Check the timezone and dates."}
+          {status === "task-saved"
+            ? "Revision task updated."
+            : status === "saved"
+              ? "Revision preferences saved."
+              : "Preferences could not be saved. Check the timezone and dates."}
         </p>
       )}
       {!db && <p>Revision scheduling is unavailable.</p>}
@@ -168,18 +192,85 @@ export default async function Revisions({
               <ul className="study-list">
                 {items.map((task) => (
                   <li key={task.paper_code + task.chapter_path + task.variant}>
-                    <Link
-                      href={simulationLink(task.paper_code, task.chapter_path)}
-                    >
+                    <div>
                       {getDocument(task.chapter_path)?.title ??
                         task.chapter_path}
                       {task.variant && " · Mathematics " + task.variant}
-                    </Link>
-                    {group === "Unscheduled" ? (
-                      <span>No further revision fits before the target</span>
-                    ) : (
-                      <time dateTime={task.day}>{task.day}</time>
-                    )}
+                      {["Overdue", "Due today", "Upcoming"].includes(group) && (
+                        <p>
+                          <Link
+                            href={{
+                              ...simulationLink(
+                                task.paper_code,
+                                task.chapter_path,
+                              ),
+                              query: {
+                                paper: task.paper_code,
+                                chapter: task.chapter_path,
+                                scheduledDue: task.day,
+                                scheduledVariant: task.variant,
+                              },
+                            }}
+                          >
+                            Start scheduled exam
+                          </Link>
+                          {" · "}
+                          <time dateTime={task.day}>{task.day}</time>
+                          {task.manual && " · Manual"}
+                        </p>
+                      )}
+                      {group === "Unscheduled" && (
+                        <p>No further revision fits before the target.</p>
+                      )}
+                    </div>
+                    <details>
+                      <summary>Change date</summary>
+                      <form className="stack-form" action={changeRevisionTask}>
+                        <input
+                          type="hidden"
+                          name="paper"
+                          value={task.paper_code}
+                        />
+                        <input
+                          type="hidden"
+                          name="chapter"
+                          value={task.chapter_path}
+                        />
+                        <input
+                          type="hidden"
+                          name="variant"
+                          value={task.variant}
+                        />
+                        <label>
+                          Due date
+                          <input
+                            type="date"
+                            name="date"
+                            defaultValue={task.day}
+                            required
+                          />
+                        </label>
+                        <button
+                          type="submit"
+                          className="button"
+                          name="operation"
+                          value="reschedule"
+                        >
+                          Save date
+                        </button>
+                        {group !== "Canceled" && (
+                          <button
+                            type="submit"
+                            className="button"
+                            name="operation"
+                            value="cancel"
+                            formNoValidate
+                          >
+                            Cancel schedule
+                          </button>
+                        )}
+                      </form>
+                    </details>
                   </li>
                 ))}
               </ul>
@@ -187,6 +278,26 @@ export default async function Revisions({
           )
         );
       })}
+      {!!history?.data?.length && (
+        <details className="section">
+          <summary>Recent schedule changes</summary>
+          <ul className="study-list">
+            {history.data.map((event) => (
+              <li key={event.id}>
+                <span>
+                  {getDocument(event.chapter_path)?.title ?? event.chapter_path}
+                  {event.paper_variant &&
+                    " · Mathematics " + event.paper_variant}
+                </span>
+                <span>
+                  {event.reason} · {event.previous_due ?? "Unscheduled"} →{" "}
+                  {event.next_due ?? "Unscheduled"}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
     </div>
   );
 }
