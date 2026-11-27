@@ -18,6 +18,8 @@ import {
 import { TestActionButton } from "../../checkpoints/test-action-button";
 import { RefreshCheckpointJob } from "../../checkpoints/jobs/[id]/refresh";
 import { Attempt } from "./attempt";
+import { Refresher } from "./refresher";
+import { refresherKey } from "@/server/assessment/refresher-envelope";
 import { retrySimulation } from "../actions";
 
 export const dynamic = "force-dynamic";
@@ -84,6 +86,14 @@ export default async function ChapterSimulation({
           .maybeSingle()
       : null;
   const result = resultQuery?.data as SimulationResult | null | undefined;
+  const refresher =
+    result && refresherKey()
+      ? await db
+          .from("chapter_simulation_refreshers")
+          .select("completed")
+          .eq("simulation_id", id)
+          .maybeSingle()
+      : null;
   const showSolutions = !!result && !objective && solutions === "1";
   const guide = showSolutions
     ? await db
@@ -355,6 +365,13 @@ export default async function ChapterSimulation({
                 </li>
               ))}
             </ul>
+            {refresher?.data && (
+              <Refresher
+                id={id}
+                objective={objective}
+                completed={refresher.data.completed}
+              />
+            )}
           </section>
         </>
       )}

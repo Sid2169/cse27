@@ -38,9 +38,11 @@ No outstanding method requirement has been identified in the current specificati
 ## Chapter exam simulations — 27 November 2026
 
 - Ready chapters and their parts open the same whole-chapter exam simulation from the reader toolbar. Chapter practice includes timed Prelims MCQs and written Mains questions, retained answer files and transcription review, frozen feedback, and chapter-specific history.
-- Qualified current-revision attempts update revision due dates with the default scheduling settings. Refresher recommendations are retained with the result. Transient follow-up tests, schedule preference controls and export/restore of simulation records and uploads are separate pending stages.
+- Qualified current-revision attempts update revision due dates with the default scheduling settings. Refresher recommendations are retained with the result. Schedule preference controls and export/restore of simulation records and uploads are separate pending stages.
 
 - Finalized Mains chapter simulations can show their stored reference solutions on request from feedback. Active attempts have no access to model answers.
+
+- The combined refresher checklist supports on-demand tests. Questions, guides and answers remain transient in the application. A passing result updates only the checklist completion flag.
 
 ## Study content and PYQs
 

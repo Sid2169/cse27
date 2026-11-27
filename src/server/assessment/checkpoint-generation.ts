@@ -138,11 +138,13 @@ export async function generateObjectiveQuestions(
     minimumCount,
     purpose,
     questionDesign,
+    everySection = false,
   }: {
     draftCount: number;
     minimumCount: number;
     purpose: string;
     questionDesign: string;
+    everySection?: boolean;
   },
 ) {
   const sections = scope.flatMap(({ path, sections }) =>
@@ -161,8 +163,9 @@ export async function generateObjectiveQuestions(
     })),
   );
   const previous = JSON.stringify(history);
-  const wholeChapter =
-    scope.length > 1
+  const wholeChapter = everySection
+    ? "Include at least one question for every numbered section."
+    : scope.length > 1
       ? "Include at least two questions citing each teaching part. The first document is the chapter overview."
       : "Cover several of the main teaching sections.";
   const candidates = validate(
@@ -206,8 +209,15 @@ Questions: ${JSON.stringify(candidates.map(({ stem, options, sourcePath, sourceH
   );
   if (
     verified.length < minimumCount ||
-    scope.slice(1).some(({ path }) => !coveredParts.has(path)) ||
-    (scope.length === 1 && sections.length > 1 && coveredSections.size < 2)
+    (everySection
+      ? sections.some(
+          ({ path, id }) =>
+            !verified.some(
+              (q) => q.sourcePath === path && q.sourceHeading === id,
+            ),
+        )
+      : scope.slice(1).some(({ path }) => !coveredParts.has(path)) ||
+        (scope.length === 1 && sections.length > 1 && coveredSections.size < 2))
   ) {
     throw new CheckpointDraftError("insufficient-coverage");
   }
