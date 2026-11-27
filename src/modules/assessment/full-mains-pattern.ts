@@ -18,6 +18,8 @@ type WrittenBatchPattern = {
   words: number;
   design: string;
   topic?: string;
+  section?: "A" | "B";
+  criteriaMarks?: number[];
 };
 
 function qualifyingPattern(hindi: boolean): WrittenBatchPattern[] {
@@ -88,7 +90,27 @@ function qualifyingPattern(hindi: boolean): WrittenBatchPattern[] {
   ];
 }
 
+function mathematicsPattern(): WrittenBatchPattern[] {
+  return Array.from({ length: 8 }, (_, index) => {
+    const section = index < 4 ? "A" : "B";
+    const compulsory = index === 0 || index === 4;
+    const criteriaMarks = compulsory ? [10, 10, 10, 10, 10] : [15, 15, 20];
+    return {
+      labels: ["Section " + section + " · Question " + (index + 1)],
+      marks: 50,
+      words: 0,
+      section,
+      criteriaMarks,
+      design:
+        "Write one question with lettered independent subparts. Label the subparts and print these marks in order: " +
+        criteriaMarks.join(", ") +
+        ". Provide one criterion per subpart in that order. Each criterion must describe the method, intermediate credit and final result. Work the solution for every subpart, including proofs, in the private reference. Use TeX delimited with dollar signs for mathematical notation.",
+    };
+  });
+}
+
 export function mainsGsPattern(paper: string): WrittenBatchPattern[] | null {
+  if (paper === "Mains-Mathematics") return mathematicsPattern();
   if (paper === "Mains-English" || paper === "Mains-Indian-Language")
     return qualifyingPattern(paper === "Mains-Indian-Language");
   if (paper === "Mains-Essay")

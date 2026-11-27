@@ -274,7 +274,9 @@ export default async function ChapterSimulation({
             <p>
               {choice === "essay"
                 ? "Write two essays of about 1,000–1,200 words each. Choose one topic from each section."
-                : "Write one essay of about 600 words and answer all remaining questions. Each translation specifies its required answer language."}
+                : choice === "mathematics"
+                  ? "Answer Questions 1 and 5 and choose three more with at least one from each section. Label each subpart in your answer."
+                  : "Write one essay of about 600 words and answer all remaining questions. Each translation specifies its required answer language."}
             </p>
           ) : (
             <p>

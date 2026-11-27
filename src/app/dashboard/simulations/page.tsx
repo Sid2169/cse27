@@ -169,32 +169,45 @@ export default async function Simulations({
       {!chapter &&
         db &&
         catalogue.papers
-          .filter(
-            (paper) =>
-              (!selected || selected.id === paper.id) && fullScope(paper.id),
+          .filter((paper) => !selected || selected.id === paper.id)
+          .flatMap(({ id, title }) =>
+            (id === "Mains-Mathematics" ? ["I", "II"] : [""]).flatMap(
+              (variant) => {
+                const format = fullScope(id, variant);
+                return format ? [{ code: id, title, variant, format }] : [];
+              },
+            ),
           )
-          .map(({ id: code, title }) => {
+          .map(({ code, title, variant, format }) => {
             const csat = code === "Prelims-CSAT";
             const written = code.startsWith("Mains-");
-            const qualifying = fullScope(code)?.qualifying;
-            const name = written ? "Mains " + title : csat ? "CSAT" : "GS-I";
+            const qualifying = format.qualifying;
+            const name = variant
+              ? "Mathematics Paper " + variant
+              : written
+                ? "Mains " + title
+                : csat
+                  ? "CSAT"
+                  : "GS-I";
             return (
-              <section key={code} className="section study-card">
+              <section key={code + variant} className="section study-card">
                 <h2>Full-scope {name} exam</h2>
                 <p>
                   Diagnostic practice covering the full syllabus.{" "}
                   {written
-                    ? qualifying
-                      ? "One short essay plus compulsory language exercises, 300 marks and three hours."
-                      : code === "Mains-Essay"
-                        ? "Two essays chosen from eight topics, 250 marks and three hours."
-                        : code.endsWith("-IV")
-                          ? "13 theory subparts and six case studies, 250 marks and three hours."
-                          : "20 compulsory questions, 250 marks and three hours."
+                    ? variant
+                      ? "Five of eight multipart questions, 250 marks and three hours."
+                      : qualifying
+                        ? "One short essay plus compulsory language exercises, 300 marks and three hours."
+                        : code === "Mains-Essay"
+                          ? "Two essays chosen from eight topics, 250 marks and three hours."
+                          : code.endsWith("-IV")
+                            ? "13 theory subparts and six case studies, 250 marks and three hours."
+                            : "20 compulsory questions, 250 marks and three hours."
                     : (csat ? "80" : "100") +
                       " questions, 200 marks and two hours."}
                 </p>
-                {fullScope(code)?.sourceDetails && (
+                {format.sourceDetails && (
                   <p>
                     Changing facts are limited to the dated source pack. The
                     exam shows its source cutoff.
@@ -202,6 +215,7 @@ export default async function Simulations({
                 )}
                 <form action={requestSimulation}>
                   <input type="hidden" name="mode" value="full" />
+                  <input type="hidden" name="variant" value={variant} />
                   <input type="hidden" name="paper" value={code} />
                   <input type="hidden" name="request" value={randomUUID()} />
                   <TestActionButton

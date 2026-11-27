@@ -41,6 +41,24 @@ test("qualifying papers count just one essay plus compulsory questions", () => {
   assert.equal(validateChoices([4, 5], "essay", true), null);
 });
 
+test("Mathematics requires three valid choices across both sections", () => {
+  const pattern = mainsGsPattern("Mains-Mathematics")!;
+  assert.equal(pattern.length, 8);
+  for (const question of pattern) {
+    assert.equal(
+      question.criteriaMarks?.reduce((sum, marks) => sum + marks, 0),
+      50,
+    );
+  }
+  assert.deepEqual(validateChoices([1, 3, 6], "mathematics", true), [1, 3, 6]);
+  assert.equal(validateChoices([1, 2, 3], "mathematics", true), null);
+  assert.equal(validateChoices([0, 1, 6], "mathematics", true), null);
+  assert.equal(validateChoices([1, 5], "mathematics", true), null);
+  assert.deepEqual(validateChoices([1, 2], "mathematics", false), [1, 2]);
+  assert.equal(includesQuestion("mathematics", [1, 3, 6], 4), true);
+  assert.equal(includesQuestion("mathematics", [1, 3, 6], 7), false);
+});
+
 const key = Array.from({ length: 3 }, () => ({
   correctOption: 0,
   explanation: "Explanation.",

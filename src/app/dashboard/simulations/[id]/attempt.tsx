@@ -306,12 +306,18 @@ export function Attempt({
   function choose(index: number) {
     if (!choice) return;
     const current = readChoices(entries.current[choiceField]);
-    const next = [
-      ...current.filter(
-        (item) => choiceGroup(choice, item) !== choiceGroup(choice, index),
-      ),
-      index,
-    ];
+    const next =
+      choice === "mathematics"
+        ? current.includes(index)
+          ? current.filter((item) => item !== index)
+          : [...current, index]
+        : [
+            ...current.filter(
+              (item) =>
+                choiceGroup(choice, item) !== choiceGroup(choice, index),
+            ),
+            index,
+          ];
     const nextAnswers = { ...entries.current, [choiceField]: next.join(",") };
     entries.current = nextAnswers;
     dirty.current = true;
@@ -369,7 +375,9 @@ export function Attempt({
         <p>
           {choice === "essay"
             ? "Choose one topic from Section A and one from Section B."
-            : "Choose one essay topic. Answer the remaining questions."}
+            : choice === "mathematics"
+              ? "Answer Questions 1 and 5. Choose three other questions, including at least one from each section."
+              : "Choose one essay topic. Answer the remaining questions."}
         </p>
       )}
       {questions.map((question, index) => (
@@ -389,12 +397,19 @@ export function Attempt({
             !editingReview && (
               <label>
                 <input
-                  type="radio"
+                  type={choice === "mathematics" ? "checkbox" : "radio"}
+                  disabled={
+                    choice === "mathematics" &&
+                    selected.length === 3 &&
+                    !selected.includes(index)
+                  }
                   name={"question-choice-" + choiceGroup(choice, index)}
                   checked={selected.includes(index)}
                   onChange={() => choose(index)}
                 />{" "}
-                Choose this topic
+                {choice === "mathematics"
+                  ? "Choose this question"
+                  : "Choose this topic"}
               </label>
             )}
           {question.options ? (
@@ -505,7 +520,9 @@ export function Attempt({
             ? 2
             : choice === "language"
               ? questions.length - 3
-              : questions.length}{" "}
+              : choice === "mathematics"
+                ? 5
+                : questions.length}{" "}
           answered
         </span>
         {conflict && (

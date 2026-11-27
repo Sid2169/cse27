@@ -314,7 +314,12 @@ type WrittenBatch = { questions: WrittenQuestion[]; guide: MarkingGuide[] };
 async function prepareFullWrittenBatch(
   db: Database,
   id: string,
-  row: { paper_code: string; user_id: string; generation_model: string },
+  row: {
+    paper_code: string;
+    paper_variant: string;
+    user_id: string;
+    generation_model: string;
+  },
   scope: NonNullable<ReturnType<typeof fullScope>>,
   position: number,
 ) {
@@ -338,24 +343,47 @@ async function prepareFullWrittenBatch(
     );
   const format = scope.pattern?.[position];
   if (!format) throw new NonRetriableError("Missing written exam pattern");
+  const mathTopics = scope.mathTopics;
+  const split = row.paper_variant === "I" ? 3 : 4;
+  const sectionTopics =
+    format.section === "A"
+      ? mathTopics?.slice(0, split)
+      : mathTopics?.slice(split);
+  const sectionId = scope.syllabus.sections.find(
+    (section) => section.title === "PAPER " + row.paper_variant,
+  )?.id;
+  if (sectionTopics && !sectionId)
+    throw new NonRetriableError("The Mathematics syllabus heading is missing");
   const topics = format.topic
     ? [format.topic]
     : scope.topics.slice(
         Math.floor((position * scope.topics.length) / scope.batches),
         Math.floor(((position + 1) * scope.topics.length) / scope.batches),
       );
-  const sections = topics.map((title, index) => ({
-    title,
-    id: "area-" + (index + 1),
-    text: title,
-    level: 2,
-  }));
+  const sections = sectionTopics
+    ? [
+        {
+          title: "Paper " + row.paper_variant + " · Section " + format.section,
+          id: sectionId!,
+          text: sectionTopics.join("\n"),
+          level: 2,
+        },
+      ]
+    : topics.map((title, index) => ({
+        title,
+        id: "area-" + (index + 1),
+        text: title,
+        level: 2,
+      }));
   const doc = {
     ...scope.syllabus,
     sections,
     markdown:
       "Assigned areas: " +
       JSON.stringify(sections) +
+      (sectionTopics
+        ? "\nOfficial subject scope:\n" + sectionTopics.join("\n\n")
+        : "") +
       "\nDated evidence: " +
       JSON.stringify(scope.sourceDetails),
   };
@@ -364,12 +392,13 @@ async function prepareFullWrittenBatch(
     [doc],
     row.paper_code,
     scope.syllabus.title,
-    "",
+    row.paper_variant,
     format.labels.length,
     {
       marks: format.marks,
       words: format.words,
       design: format.design,
+      criteriaMarks: format.criteriaMarks,
       history,
     },
   );
@@ -387,6 +416,7 @@ async function prepareFullWrittenBatch(
       ...q,
       label: format.labels[index],
       sourceHeading:
+        sectionId ??
         scope.syllabus.sections.find((section) => section.level === 2)?.id ??
         scope.syllabus.sections[0].id,
     })),
@@ -446,7 +476,7 @@ export const prepareSimulation = inngest.createFunction(
       });
     }
     if (data.mode === "full") {
-      const scope = fullScope(data.paper_code);
+      const scope = fullScope(data.paper_code, data.paper_variant);
       if (!scope || scope.revision !== data.revision)
         throw new NonRetriableError("The full-paper sources changed");
       const stem = scope.written ? "mains-gs" : scope.csat ? "csat" : "gs1";

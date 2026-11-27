@@ -40,7 +40,7 @@ export async function requestSimulation(form: FormData) {
           )
         : undefined
       : mode === "full"
-        ? fullScope(paper)
+        ? fullScope(paper, variant)
         : mode === "pyq"
           ? historicalScope(paper, year)
           : simulationScope(paper, chapter);
@@ -99,7 +99,7 @@ export async function requestSimulation(form: FormData) {
     scheduled_due: due || null,
     source_details:
       mode === "full"
-        ? fullScope(paper)?.sourceDetails
+        ? fullScope(paper, variant)?.sourceDetails
         : mode === "pyq"
           ? csatHistoricalSource
           : null,
@@ -178,7 +178,8 @@ export async function retrySimulation(form: FormData) {
       ? historicalScope(existing.paper_code, "2024")?.revision !==
         existing.revision
       : existing.mode === "full"
-        ? fullScope(existing.paper_code)?.revision !== existing.revision
+        ? fullScope(existing.paper_code, existing.paper_variant)?.revision !==
+          existing.revision
         : existing.mode === "cumulative"
           ? existing.coverage.some(
               (entry: { path: string; revision: string }) =>

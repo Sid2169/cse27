@@ -51,7 +51,10 @@ export function simulationScope(paper: string, path: string) {
   };
 }
 
-export function fullScope(paper: string) {
+export function fullScope(paper: string, variant = "") {
+  const mathematics = paper === "Mains-Mathematics";
+  if (mathematics ? !["I", "II"].includes(variant) : variant !== "")
+    return null;
   const csat = paper === "Prelims-CSAT";
   const gs = paper === "Prelims-General-Studies-I";
   const pattern = mainsGsPattern(paper);
@@ -62,6 +65,13 @@ export function fullScope(paper: string) {
   const definition = getPaper(paper);
   const syllabus = definition && getDocument(definition.syllabus);
   if (!syllabus) return null;
+  const mathSyllabus = mathematics
+    ? syllabus.markdown
+        .split(/^## PAPER I{1,2}$/m)
+        [variant === "I" ? 1 : 2]?.trim()
+    : undefined;
+  const mathTopics = mathSyllabus?.split(/^### /m).slice(1);
+  if (mathematics && !mathTopics?.length) return null;
   const topics = qualifying
     ? pattern!.flatMap((batch) => batch.topic ?? [])
     : paper === "Mains-Essay"
@@ -70,9 +80,14 @@ export function fullScope(paper: string) {
           .split("\n")
           .filter((line) => line.startsWith("- "))
           .map((line) => line.slice(2));
-  if (written ? !topics.length : topics.length !== (csat ? 6 : 7)) return null;
+  if (
+    written ? !mathematics && !topics.length : topics.length !== (csat ? 6 : 7)
+  )
+    return null;
   const sourceDetails =
-    csat || qualifying || paper === "Mains-Essay" ? null : gsCurrentAffairs;
+    csat || qualifying || mathematics || paper === "Mains-Essay"
+      ? null
+      : gsCurrentAffairs;
   return {
     syllabus,
     topics,
@@ -81,8 +96,9 @@ export function fullScope(paper: string) {
     pattern,
     written,
     qualifying,
+    mathTopics,
     sourceDetails,
-    variants: [""],
+    variants: [variant],
     revision: createHash("sha256")
       .update(
         csat
@@ -91,6 +107,7 @@ export function fullScope(paper: string) {
               gs ? "GS I full 2026" : paper + " full 2026",
               syllabus.revision,
               sourceDetails,
+              ...(mathematics ? [variant, pattern] : []),
             ]),
       )
       .digest("hex"),
