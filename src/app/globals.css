@@ -1618,3 +1618,96 @@ h1,
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
+
+.completion-test-page {
+  max-width: 54rem;
+}
+
+.completion-test-form {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.completion-test-form > .button {
+  justify-self: start;
+}
+
+.completion-question-card {
+  padding: clamp(0.875rem, 3vw, 1.5rem);
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: var(--surface);
+}
+
+.completion-question-card fieldset {
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.completion-question-title {
+  max-width: 100%;
+  padding: 0;
+  color: var(--text);
+  font-size: clamp(1.125rem, 2.5vw, 1.35rem);
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.completion-question-number {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--accent);
+  font-size: 0.8125rem;
+  font-weight: 650;
+}
+
+.completion-options {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.completion-option {
+  display: grid;
+  grid-template-columns: 1.125rem minmax(0, 1fr);
+  align-items: start;
+  gap: 0.75rem;
+  min-height: 44px;
+  padding: 0.6875rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 0.55rem;
+  font-size: 1rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.completion-option input {
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: calc((1.45rem - 1.125rem) / 2) 0 0;
+  accent-color: var(--accent);
+}
+
+.completion-option:hover,
+.completion-option:focus-within {
+  border-color: var(--accent);
+}
+
+.completion-option:has(input:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.completion-option:not(.completion-option-blank):has(input:checked) {
+  border-color: var(--accent);
+  background: var(--tint);
+}
+
+.completion-option-blank {
+  color: var(--muted);
+  border-color: transparent;
+}
