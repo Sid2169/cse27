@@ -165,24 +165,37 @@ export default async function Simulations({
             ))}
         </section>
       )}
-      {!chapter && db && (!selected || selected.id === "Prelims-CSAT") && (
-        <section className="section study-card">
-          <h2>Full-scope CSAT exam</h2>
-          <p>
-            Diagnostic practice covering the full CSAT syllabus. 80 questions,
-            200 marks and two hours.
-          </p>
-          <form action={requestSimulation}>
-            <input type="hidden" name="mode" value="full" />
-            <input type="hidden" name="paper" value="Prelims-CSAT" />
-            <input type="hidden" name="request" value={randomUUID()} />
-            <TestActionButton
-              label="Prepare full CSAT exam"
-              pendingLabel="Requesting exam…"
-            />
-          </form>
-        </section>
-      )}
+      {!chapter &&
+        db &&
+        ["Prelims-General-Studies-I", "Prelims-CSAT"]
+          .filter((code) => !selected || selected.id === code)
+          .map((code) => {
+            const csat = code === "Prelims-CSAT";
+            return (
+              <section key={code} className="section study-card">
+                <h2>Full-scope {csat ? "CSAT" : "GS-I"} exam</h2>
+                <p>
+                  Diagnostic practice covering the full syllabus.{" "}
+                  {csat ? 80 : 100} questions, 200 marks and two hours.
+                </p>
+                {!csat && (
+                  <p>
+                    Changing facts are limited to the dated source pack. The
+                    exam shows its source cutoff.
+                  </p>
+                )}
+                <form action={requestSimulation}>
+                  <input type="hidden" name="mode" value="full" />
+                  <input type="hidden" name="paper" value={code} />
+                  <input type="hidden" name="request" value={randomUUID()} />
+                  <TestActionButton
+                    label={"Prepare full " + (csat ? "CSAT" : "GS-I") + " exam"}
+                    pendingLabel="Requesting exam…"
+                  />
+                </form>
+              </section>
+            );
+          })}
       {scope && db && (
         <section className="section study-card">
           <h2>{scope.scope[0].title}</h2>

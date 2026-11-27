@@ -87,6 +87,7 @@ export async function requestSimulation(form: FormData) {
   const row = {
     mode,
     scheduled_due: due || null,
+    source_details: mode === "full" ? fullScope(paper)?.sourceDetails : null,
     coverage: scope && "coverage" in scope ? scope.coverage : [],
     user_id: user.id,
     request_id: request,

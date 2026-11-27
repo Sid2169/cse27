@@ -194,7 +194,7 @@ async function unseenHistory(db: Database, owner: string, paper: string) {
 
 type ObjectiveBatch = { questions: ObjectiveQuestion[]; guide: ObjectiveKey[] };
 
-async function prepareCsatBatch(
+async function prepareFullObjectiveBatch(
   db: Database,
   id: string,
   row: {
@@ -244,7 +244,9 @@ async function prepareCsatBatch(
           "\n" +
           sections
             .map((section) => section.id + " = " + section.title)
-            .join("\n"),
+            .join("\n") +
+          "\nDated current-affairs evidence: " +
+          JSON.stringify(scope.sourceDetails),
         sections,
       },
     ],
@@ -252,11 +254,23 @@ async function prepareCsatBatch(
     {
       draftCount: 12,
       minimumCount: 10,
-      purpose: "a mixed block for the full UPSC CSAT practice paper in English",
+      purpose:
+        "a mixed block for the full UPSC " +
+        (scope.csat ? "CSAT" : "GS-I") +
+        " practice paper in English",
       questionDesign:
-        "Use original UPSC-style aptitude problems, including complete passages and data tables in the stem where needed. Use no external figures or current facts. Vary the demands and difficulty across the syllabus. Include " +
+        (scope.csat
+          ? "Use original UPSC-style aptitude problems, including complete passages and data tables in the stem. Use no external figures or current facts. Verify calculations."
+          : "Use varied UPSC GS-I formats, including statement-based reasoning. Only ask changing facts supported by the supplied dated evidence. Date each such claim in the stem. For static areas, use settled facts within the syllabus. Avoid disputed and obscure factual claims. Use no external figures.") +
+        " Include questions covering " +
         focus +
-        " and tag its questions with the corresponding numbered syllabus topic. Verify calculations and rule out every competing option.",
+        " and tag them with the corresponding numbered syllabus topic. Rule out every competing option.",
+      ...(scope.csat
+        ? {}
+        : {
+            reviewScope:
+              "using the supplied dated evidence for changing facts and independently checking well-established static facts within the listed syllabus",
+          }),
     },
   );
   const focusId = sections[position % sections.length].id;
@@ -318,30 +332,37 @@ export const prepareSimulation = inngest.createFunction(
     });
     if (!data) return;
     if (data.mode === "full") {
-      for (let position = 0; position < 8; position++) {
-        await step.run("prepare-csat-batch-" + position, async () => {
+      const scope = fullScope(data.paper_code);
+      if (!scope || scope.revision !== data.revision)
+        throw new NonRetriableError("The full-paper sources changed");
+      const stem = scope.csat ? "csat" : "gs1";
+      for (let position = 0; position < scope.batches; position++) {
+        await step.run("prepare-" + stem + "-batch-" + position, async () => {
           try {
-            await prepareCsatBatch(db, id, data, position);
+            await prepareFullObjectiveBatch(db, id, data, position);
           } catch (error) {
             providerFailure(error, "full paper preparation", id);
           }
         });
       }
-      await step.run("publish-csat-paper", async () => {
+      await step.run("publish-" + stem + "-paper", async () => {
         const batches = await db
           .from("cumulative_simulation_batches")
           .select("blueprint")
           .eq("simulation_id", id)
           .order("position");
-        if (batches.error || batches.data.length !== 8)
+        if (batches.error || batches.data.length !== scope.batches)
           throw new Error("A full-paper batch is missing");
         const parts = batches.data.map(
           (row) => row.blueprint as ObjectiveBatch,
         );
         const questions = parts.flatMap((part) => part.questions);
         const guide = parts.flatMap((part) => part.guide);
-        if (questions.length !== 80 || guide.length !== 80)
-          throw new Error("The CSAT paper must contain exactly 80 questions");
+        if (
+          questions.length !== scope.batches * 10 ||
+          guide.length !== questions.length
+        )
+          throw new Error("The full paper has an invalid question count");
         const published = await db.rpc("publish_chapter_simulation", {
           p_id: id,
           p_token: token,
@@ -350,10 +371,9 @@ export const prepareSimulation = inngest.createFunction(
           p_duration: 7200,
           p_max_units: 1200,
         });
-        if (published.error)
-          throw new Error("Could not publish the CSAT paper");
+        if (published.error) throw new Error("Could not publish the paper");
       });
-      return step.run("remove-published-csat-batches", async () => {
+      return step.run("remove-published-" + stem + "-batches", async () => {
         const removed = await db
           .from("cumulative_simulation_batches")
           .delete()
