@@ -12,6 +12,7 @@ import {
   type SimulationSummary,
 } from "@/modules/assessment/chapter-simulation";
 import { gsCurrentAffairs } from "@/modules/assessment/gs-current-affairs";
+import { mainsGsPattern } from "@/modules/assessment/full-mains-pattern";
 import { currentCheckpoint } from "./checkpoint-service";
 
 export const simulationEnabled =
@@ -51,7 +52,10 @@ export function simulationScope(paper: string, path: string) {
 
 export function fullScope(paper: string) {
   const csat = paper === "Prelims-CSAT";
-  if (!csat && paper !== "Prelims-General-Studies-I") return null;
+  const gs = paper === "Prelims-General-Studies-I";
+  const pattern = mainsGsPattern(paper);
+  const written = !!pattern;
+  if (!csat && !gs && !written) return null;
   const definition = getPaper(paper);
   const syllabus = definition && getDocument(definition.syllabus);
   if (!syllabus) return null;
@@ -59,13 +63,15 @@ export function fullScope(paper: string) {
     .split("\n")
     .filter((line) => line.startsWith("- "))
     .map((line) => line.slice(2));
-  if (topics.length !== (csat ? 6 : 7)) return null;
+  if (written ? !topics.length : topics.length !== (csat ? 6 : 7)) return null;
   const sourceDetails = csat ? null : gsCurrentAffairs;
   return {
     syllabus,
     topics,
     csat,
-    batches: csat ? 8 : 10,
+    batches: pattern?.length ?? (csat ? 8 : 10),
+    pattern,
+    written,
     sourceDetails,
     variants: [""],
     revision: createHash("sha256")
@@ -73,13 +79,13 @@ export function fullScope(paper: string) {
         csat
           ? "CSAT full 2026:" + syllabus.revision
           : JSON.stringify([
-              "GS I full 2026",
+              gs ? "GS I full 2026" : paper + " full 2026",
               syllabus.revision,
               sourceDetails,
             ]),
       )
       .digest("hex"),
-    kind: "objective" as const,
+    kind: written ? ("descriptive" as const) : ("objective" as const),
   };
 }
 
