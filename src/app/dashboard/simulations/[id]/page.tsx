@@ -59,6 +59,7 @@ export default async function ChapterSimulation({
     paper_code: paper,
     unit_scale: scale,
   } = simulation;
+  const full = simulation.mode === "full";
   const cumulative = simulation.mode === "cumulative";
   const objective = simulation.kind === "objective";
   const hindi = paper === "Mains-Indian-Language";
@@ -107,23 +108,33 @@ export default async function ChapterSimulation({
   return (
     <div className="page simulation-page">
       <div className="breadcrumbs">
-        {!cumulative && <Link href={documentUrl(chapter)}>Chapter</Link>}
+        {!cumulative && !full && (
+          <Link href={documentUrl(chapter)}>Chapter</Link>
+        )}
         <Link href={simulationLink(paper, chapter)}>Exam history</Link>
       </div>
       <h1 className="compact-title">
         {result
           ? "Exam feedback"
-          : cumulative
-            ? "Cumulative exam simulation"
-            : "Chapter exam simulation"}
+          : full
+            ? "Full-scope CSAT exam"
+            : cumulative
+              ? "Cumulative exam simulation"
+              : "Chapter exam simulation"}
       </h1>
       <p className="lead">
-        {cumulative
+        {cumulative || full
           ? (getPaper(paper)?.title ?? paper)
           : (getDocument(chapter)?.title ?? chapter)}
         {simulation.paper_variant &&
           " · Mathematics " + simulation.paper_variant}
       </p>
+      {full && (
+        <p className="notice">
+          Diagnostic practice generated from the full CSAT syllabus. The
+          question pattern follows the 2026 baseline.
+        </p>
+      )}
       {cumulative && (
         <details className="section">
           <summary>
@@ -365,7 +376,9 @@ export default async function ChapterSimulation({
                         encodeURIComponent(q.sourceHeading)
                       }
                     >
-                      Review chapter section
+                      {full
+                        ? "Review paper syllabus"
+                        : "Review chapter section"}
                     </Link>
                   </li>
                 );
@@ -374,6 +387,12 @@ export default async function ChapterSimulation({
           </section>
           <section className="study-card section">
             <h2>Refresher checklist</h2>
+            {full && (
+              <p>
+                Review the syllabus topics below. A refresher exam requires
+                authored teaching material for all recommended sections.
+              </p>
+            )}
             <ul>
               {result.recommendations.map((entry) => (
                 <li key={entry.sourcePath + "#" + entry.sourceHeading}>

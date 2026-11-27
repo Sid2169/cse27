@@ -1,7 +1,7 @@
 import "server-only";
 import { createHash } from "node:crypto";
 import { createClient } from "@supabase/supabase-js";
-import { getPaper } from "@/modules/content/catalogue";
+import { getDocument, getPaper } from "@/modules/content/catalogue";
 import {
   mathematicsVariants,
   type AnswerFile,
@@ -45,6 +45,27 @@ export function simulationScope(paper: string, path: string) {
         : ("descriptive" as const),
     variants,
     paperTitle: definition.title,
+  };
+}
+
+export function fullScope(paper: string) {
+  if (paper !== "Prelims-CSAT") return null;
+  const definition = getPaper(paper);
+  const syllabus = definition && getDocument(definition.syllabus);
+  if (!syllabus) return null;
+  const topics = syllabus.markdown
+    .split("\n")
+    .filter((line) => line.startsWith("- "))
+    .map((line) => line.slice(2));
+  if (topics.length !== 6) return null;
+  return {
+    syllabus,
+    topics,
+    variants: [""],
+    revision: createHash("sha256")
+      .update("CSAT full 2026:" + syllabus.revision)
+      .digest("hex"),
+    kind: "objective" as const,
   };
 }
 

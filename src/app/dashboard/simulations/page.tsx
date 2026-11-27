@@ -153,6 +153,24 @@ export default async function Simulations({
             ))}
         </section>
       )}
+      {!chapter && db && (!selected || selected.id === "Prelims-CSAT") && (
+        <section className="section study-card">
+          <h2>Full-scope CSAT exam</h2>
+          <p>
+            Diagnostic practice covering the full CSAT syllabus. 80 questions,
+            200 marks and two hours.
+          </p>
+          <form action={requestSimulation}>
+            <input type="hidden" name="mode" value="full" />
+            <input type="hidden" name="paper" value="Prelims-CSAT" />
+            <input type="hidden" name="request" value={randomUUID()} />
+            <TestActionButton
+              label="Prepare full CSAT exam"
+              pendingLabel="Requesting exam…"
+            />
+          </form>
+        </section>
+      )}
       {scope && db && (
         <section className="section study-card">
           <h2>{scope.scope[0].title}</h2>
@@ -214,9 +232,11 @@ export default async function Simulations({
           {(recent?.data as SimulationSummary[] | null)?.map((item) => (
             <li key={item.id}>
               <Link href={simulationRoot + "/" + item.id}>
-                {item.mode === "cumulative"
+                {item.mode !== "chapter"
                   ? (getPaper(item.paper_code)?.title ?? item.paper_code) +
-                    " · Cumulative"
+                    (item.mode === "full"
+                      ? " · Full-scope diagnostic"
+                      : " · Cumulative")
                   : (getDocument(item.chapter_path)?.title ??
                     item.chapter_path)}
                 {item.paper_variant && " · Mathematics " + item.paper_variant}
