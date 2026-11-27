@@ -1,6 +1,28 @@
-# UPSC CSE 2027 — Complete Preparation Guide
+# CSE27 · UPSC Civil Services Study Workspace
 
-Complete preparation guide for the UPSC Civil Services Examination 2027, written for a complete beginner with no prior UPSC preparation, coaching, or subject background. Covers every paper of both Prelims and Mains, with the Mathematics optional (Papers VI and VII) included as the selected optional subject.
+CSE27 is a study workspace for the UPSC Civil Services Examination 2027. The repository contains syllabi, phased curricula and study material for Prelims and Mains, including Mathematics optional. Authored chapters are available in the public web reader. Planned chapters are labelled in the library.
+
+**[Open the live site](https://cse27.vercel.app/)** · [Study library](https://cse27.vercel.app/learn) · [Search chapters](https://cse27.vercel.app/search) · [Workspace sign-in](https://cse27.vercel.app/login)
+
+## Website features
+
+- **Study library.** Browse papers and curriculum phases, search authored material, and read chapters with linked headings, math rendering, adjustable text size, and light and dark themes.
+- **Private reading tools.** Save your reading position, bookmark sections, and add color highlights and notes. Browse saved annotations from one page.
+- **Completion tests.** Open an untimed quiz from the chapter toolbar. Passing the current chapter’s test at 80% or higher counts towards paper and phase completion.
+- **Chapter exam simulations.** Launch a whole-chapter test from the same toolbar, including from a split chapter. Prelims practice uses timed MCQs, autosave and negative marking. Mains practice supports typed answers or PDF and photo uploads, with transcription review before marking.
+- **Feedback and revision.** The study dashboard shows progress and scheduled chapter revisions. Simulation feedback includes marks and links to relevant sections. Results for qualified chapters inform the next revision date.
+
+The reader is public. The dashboard, saved reading tools and tests require the configured owner account. See [STATUS.md](STATUS.md) for implementation and content coverage.
+
+## Screenshots
+
+### Public study library
+
+[![Public CSE27 study library showing paper navigation, chapter counts and reading links](docs/screenshots/library.jpg)](https://cse27.vercel.app/learn)
+
+### Chapter reader
+
+[![Chapter 22 reader with the completion test and exam simulation toolbar controls](docs/screenshots/reader.jpg)](https://cse27.vercel.app/learn/Prelims-General-Studies-I/022-political-foundations-and-constitution-making)
 
 ## Papers Covered
 
@@ -82,9 +104,9 @@ See [STATUS.md](STATUS.md) for content, assessment-method and application status
 
 ## Web application development
 
-Requires Node.js 24 and npm. Run `npm ci`, `npm run content:build`, and `npm run dev`. Run `npm run check` and `npm run build` before opening a feature PR. The build derives the public learning catalogue from curriculum chapter links; historical tests, keys, PYQs and method documents are excluded. Runtime configuration will be documented in `.env.example` as private features are added.
+Requires Node.js 24 and npm. Run `npm ci`, `npm run content:build`, and `npm run dev`. Run `npm run check` and `npm run build` before opening a feature PR. The build derives the public learning catalogue from curriculum chapter links; historical tests, keys, PYQs and method documents are excluded. See [`.env.example`](.env.example) for runtime configuration.
 
-Release features through separate branches and PRs; merge with a merge commit, without squash. The public reader is deployed at [cse27.vercel.app](https://cse27.vercel.app/). Owner authentication is the next release; private reading persistence and assessments remain pending.
+Release features through separate branches and PRs; merge with a merge commit, without squash.
 
 ### Owner authentication setup
 
