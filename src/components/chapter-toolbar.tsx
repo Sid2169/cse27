@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
-import { Bookmark, List, MoreHorizontal, NotebookPen } from "lucide-react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { Bookmark, MoreHorizontal, NotebookPen } from "lucide-react";
 import Link from "@/components/navigation-link";
 import { ReaderControls } from "./reader-controls";
 import { saveCurrentSection } from "@/app/library/actions";
@@ -19,7 +19,23 @@ export function ChapterToolbar({
   hasNotes: boolean;
   children: ReactNode;
 }) {
-  const [menu, setMenu] = useState<"contents" | "more" | null>(null);
+  const [menu, setMenu] = useState(false);
+  const moreButton = useRef<HTMLButtonElement>(null);
+  const morePanel = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!menu) return;
+    function dismiss(event: PointerEvent) {
+      if (!(event.target instanceof Node)) return;
+      if (
+        !morePanel.current?.contains(event.target) &&
+        !moreButton.current?.contains(event.target)
+      )
+        setMenu(false);
+    }
+    document.addEventListener("pointerdown", dismiss);
+    return () => document.removeEventListener("pointerdown", dismiss);
+  }, [menu]);
   const [status, setStatus] = useState("");
   const [saving, setSaving] = useState(false);
 
@@ -30,7 +46,7 @@ export function ChapterToolbar({
   }, [status]);
 
   async function save() {
-    setMenu(null);
+    setMenu(false);
     setSaving(true);
     setStatus("");
     const bar = document.getElementById("chapter-toolbar");
@@ -69,18 +85,9 @@ export function ChapterToolbar({
       role="group"
       aria-label="Chapter controls"
       onKeyDown={(event) => {
-        if (event.key === "Escape") setMenu(null);
+        if (event.key === "Escape") setMenu(false);
       }}
     >
-      <button
-        type="button"
-        className="button"
-        aria-expanded={menu === "contents"}
-        aria-controls="chapter-contents-panel"
-        onClick={() => setMenu(menu === "contents" ? null : "contents")}
-      >
-        <List size={16} aria-hidden="true" /> Contents
-      </button>
       {canSave ? (
         <button
           type="button"
@@ -110,7 +117,7 @@ export function ChapterToolbar({
         <Link
           className="button"
           href={{ pathname: "/library/annotations", query: { chapter: path } }}
-          onClick={() => setMenu(null)}
+          onClick={() => setMenu(false)}
         >
           <NotebookPen size={16} aria-hidden="true" />
           <span className="chapter-desktop-label">Notes &amp; highlights</span>
@@ -123,34 +130,18 @@ export function ChapterToolbar({
       <button
         type="button"
         className="button"
-        aria-expanded={menu === "more"}
+        ref={moreButton}
+        aria-expanded={menu}
         aria-controls="chapter-more-panel"
-        onClick={() => setMenu(menu === "more" ? null : "more")}
+        onClick={() => setMenu(!menu)}
       >
         <MoreHorizontal size={16} aria-hidden="true" /> More
       </button>
-      <nav
-        id="chapter-contents-panel"
-        className="chapter-toolbar-panel"
-        aria-label="Chapter contents"
-        hidden={menu !== "contents"}
-      >
-        {headings
-          .filter((section) => section.id)
-          .map((section) => (
-            <a
-              key={section.id}
-              href={"#" + encodeURIComponent(section.id)}
-              onClick={() => setMenu(null)}
-            >
-              {section.title}
-            </a>
-          ))}
-      </nav>
       <div
         id="chapter-more-panel"
         className="chapter-toolbar-panel"
-        hidden={menu !== "more"}
+        ref={morePanel}
+        hidden={!menu}
       >
         <div className="chapter-mobile-size">
           <ReaderControls showPrint={false} />

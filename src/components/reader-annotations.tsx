@@ -77,6 +77,7 @@ export function ReaderAnnotations({
   } | null>(null);
   const [inlineColor, setInlineColor] = useState<HighlightColor>("yellow");
   const editorRef = useRef<HTMLDivElement>(null);
+  const selectionRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!inline) return;
     editorRef.current
@@ -86,7 +87,18 @@ export function ReaderAnnotations({
       if (event.key === "Escape") setInline(null);
     }
     document.addEventListener("keydown", escape);
-    return () => document.removeEventListener("keydown", escape);
+    function outside(event: PointerEvent) {
+      if (
+        event.target instanceof Node &&
+        !editorRef.current?.contains(event.target)
+      )
+        setInline(null);
+    }
+    document.addEventListener("pointerdown", outside);
+    return () => {
+      document.removeEventListener("keydown", escape);
+      document.removeEventListener("pointerdown", outside);
+    };
   }, [inline]);
 
   const loadRows = useCallback(
@@ -250,11 +262,22 @@ export function ReaderAnnotations({
     function dismiss(event: KeyboardEvent) {
       if (event.key === "Escape") setSelection(null);
     }
+    function outside(event: PointerEvent) {
+      if (
+        selectionRef.current &&
+        event.target instanceof Node &&
+        !selectionRef.current.contains(event.target)
+      ) {
+        setSelection(null);
+      }
+    }
+    document.addEventListener("pointerdown", outside);
     document.addEventListener("selectionchange", captureSelection);
     document.addEventListener("keydown", dismiss);
     window.addEventListener("resize", captureSelection);
     window.addEventListener("scroll", captureSelection, true);
     return () => {
+      document.removeEventListener("pointerdown", outside);
       document.removeEventListener("selectionchange", captureSelection);
       document.removeEventListener("keydown", dismiss);
       window.removeEventListener("resize", captureSelection);
@@ -379,6 +402,7 @@ export function ReaderAnnotations({
         createPortal(
           <div
             className="selection-annotations"
+            ref={selectionRef}
             role="group"
             aria-label="Annotate selected text"
             style={{
