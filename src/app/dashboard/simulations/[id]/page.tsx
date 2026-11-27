@@ -37,13 +37,10 @@ export default async function ChapterSimulation({
   searchParams,
 }: {
   params: Promise<{ id: string }>;
-  searchParams: Promise<{ error?: string }>;
+  searchParams: Promise<{ error?: string; solutions?: string }>;
 }) {
-  const [{ id }, { error: requestError }, { user }] = await Promise.all([
-    params,
-    searchParams,
-    requireOwner(),
-  ]);
+  const [{ id }, { error: requestError, solutions }, { user }] =
+    await Promise.all([params, searchParams, requireOwner()]);
   const db = simulationDb();
   if (!db || !checkpointId.test(id)) notFound();
   const loaded = await db
@@ -87,6 +84,15 @@ export default async function ChapterSimulation({
           .maybeSingle()
       : null;
   const result = resultQuery?.data as SimulationResult | null | undefined;
+  const showSolutions = !!result && !objective && solutions === "1";
+  const guide = showSolutions
+    ? await db
+        .from("chapter_simulation_guides")
+        .select("guide")
+        .eq("simulation_id", id)
+        .maybeSingle()
+    : null;
+  const references = Array.isArray(guide?.data?.guide) ? guide.data.guide : [];
   return (
     <div className="page simulation-page">
       <div className="breadcrumbs">
@@ -245,7 +251,20 @@ export default async function ChapterSimulation({
             )}
           </section>
           <section className="section">
-            <h2>Question feedback</h2>
+            <h2 id="question-feedback">Question feedback</h2>
+            {!objective && !showSolutions && (
+              <Link
+                className="button"
+                prefetch={false}
+                href="?solutions=1#question-feedback"
+              >
+                Show model answers
+              </Link>
+            )}
+            {showSolutions &&
+              (guide?.error || references.length !== questions.length) && (
+                <p role="alert">Some model answers could not be loaded.</p>
+              )}
             <ol className="simulation-feedback">
               {questions.map((q, index) => {
                 const item = result.feedback.items[index];
@@ -290,6 +309,21 @@ export default async function ChapterSimulation({
                     >
                       <Markdown path={q.sourcePath} source={item.feedback} />
                     </div>
+                    {showSolutions &&
+                      typeof references[index]?.reference === "string" && (
+                        <details>
+                          <summary>Model answer</summary>
+                          <div
+                            className="prose simulation-stem"
+                            lang={hindi ? "hi" : "en"}
+                          >
+                            <Markdown
+                              path={q.sourcePath}
+                              source={references[index].reference}
+                            />
+                          </div>
+                        </details>
+                      )}
                     <Link
                       href={
                         documentUrl(q.sourcePath) +

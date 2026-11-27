@@ -40,6 +40,8 @@ No outstanding method requirement has been identified in the current specificati
 - Ready chapters and their parts open the same whole-chapter exam simulation from the reader toolbar. Chapter practice includes timed Prelims MCQs and written Mains questions, retained answer files and transcription review, frozen feedback, and chapter-specific history.
 - Qualified current-revision attempts update revision due dates with the default scheduling settings. Refresher recommendations are retained with the result. Transient follow-up tests, schedule preference controls and export/restore of simulation records and uploads are separate pending stages.
 
+- Finalized Mains chapter simulations can show their stored reference solutions on request from feedback. Active attempts have no access to model answers.
+
 ## Study content and PYQs
 
 Root [syllabus.md](syllabus.md) contains the complete official syllabus, and all per-paper syllabus files are populated verbatim. The Mathematics optional syllabus is copied verbatim from the official notification because root [syllabus.md](syllabus.md) does not reproduce detailed optional syllabi.
