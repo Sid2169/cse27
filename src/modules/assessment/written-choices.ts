@@ -1,9 +1,28 @@
 export function writtenChoice(paper: string, mode: string) {
-  if (mode === "full" && paper === "Mains-Essay") return "essay" as const;
+  if (mode !== "full") return null;
+  if (paper === "Mains-Essay") return "essay" as const;
+  if (paper === "Mains-English" || paper === "Mains-Indian-Language")
+    return "language" as const;
   return null;
 }
 
 export type WrittenChoice = NonNullable<ReturnType<typeof writtenChoice>>;
+export function compulsoryQuestion(rule: WrittenChoice, index: number) {
+  return rule === "language" && index >= 4;
+}
+
+export function choiceGroup(rule: WrittenChoice, index: number) {
+  return rule === "essay" ? Math.floor(index / 4) : 0;
+}
+
+export function includesQuestion(
+  rule: WrittenChoice,
+  choices: number[],
+  index: number,
+) {
+  return compulsoryQuestion(rule, index) || choices.includes(index);
+}
+
 export const choiceField = "__choices";
 
 export function readChoices(value: unknown) {
@@ -31,5 +50,12 @@ export function validateChoices(
     const b = choices.length - a;
     if (a > 1 || b > 1 || (final && (a !== 1 || b !== 1))) return null;
   }
+  if (
+    rule === "language" &&
+    (choices.some((index) => index >= 4) ||
+      choices.length > 1 ||
+      (final && choices.length !== 1))
+  )
+    return null;
   return choices;
 }

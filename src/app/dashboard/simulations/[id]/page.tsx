@@ -146,7 +146,8 @@ export default async function ChapterSimulation({
       {full && (
         <p className="notice">
           Diagnostic practice generated from the full paper syllabus. The
-          question pattern follows the 2026 baseline.
+          question pattern follows the{" "}
+          {choice === "language" ? "2025 qualifying-paper" : "2026"} baseline.
         </p>
       )}
       {historical && (
@@ -271,8 +272,9 @@ export default async function ChapterSimulation({
             </p>
           ) : choice ? (
             <p>
-              Write two essays of about 1,000–1,200 words each. Choose one topic
-              from each section.
+              {choice === "essay"
+                ? "Write two essays of about 1,000–1,200 words each. Choose one topic from each section."
+                : "Write one essay of about 600 words and answer all remaining questions. Each translation specifies its required answer language."}
             </p>
           ) : (
             <p>
@@ -331,6 +333,14 @@ export default async function ChapterSimulation({
               {marks(result.max_units, scale)} marks
             </h2>
             <p>{marks((100 * result.score_units) / result.max_units, 1)}%</p>
+            {choice === "language" && (
+              <p>
+                {result.score_units >= 75
+                  ? "Qualifying benchmark met"
+                  : "Below the qualifying benchmark"}{" "}
+                · 75 of 300 marks
+              </p>
+            )}
             {objective && (
               <>
                 <p>
