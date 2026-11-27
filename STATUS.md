@@ -48,7 +48,7 @@ No outstanding method requirement has been identified in the current specificati
 
 - The full-scope CSAT diagnostic uses the 2026 pattern (80 questions, 200 marks, two hours), verifies batches, and compares drafts with previously presented paper questions. Full-scope CSAT alone appears in the dashboard’s full-paper performance display. Full GS-I and Mains patterns remain pending.
 
-- Revision preferences configure saved timezone, default material, difficulty and priority, and stage-specific targets. The revision view groups overdue, due-today, upcoming and unscheduled tasks. Manual task changes, schedule history and export/restore remain pending.
+- Revision preferences configure saved timezone, default material, difficulty and priority, and stage-specific targets. The revision view groups overdue, due-today, upcoming and unscheduled tasks. Manual dates, cancellations and recent task history are available in the revision view. Export/restore of simulation records remains pending.
 
 ## Study content and PYQs
 
