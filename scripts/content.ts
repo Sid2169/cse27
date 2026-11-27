@@ -247,6 +247,18 @@ if (process.argv[1]?.endsWith("/scripts/content.ts")) {
       ];
     });
   });
+  const csat2024 = readFileSync(
+    "Prelims-CSAT/Prelims-CSAT-PYQS/2024-Prelims-CSAT.md",
+    "utf8",
+  );
+  const csatStems = Object.fromEntries(
+    [...csat2024.matchAll(/^(\d{1,2})\. ([^\n]+)$/gm)].map(
+      ([, number, stem]) => [number, stem],
+    ),
+  );
+  csatStems["24"] =
+    "Fill four missing letters in the pattern A_BCD_BBCDABC_DABC_D.";
+  writeFileSync(".generated/csat-2024-stems.json", JSON.stringify(csatStems));
   writeFileSync(".generated/past-papers.json", JSON.stringify(pastPapers));
   writeFileSync(".generated/chapter-assets.json", JSON.stringify(assets));
   writeFileSync(".generated/content.json", JSON.stringify(c));

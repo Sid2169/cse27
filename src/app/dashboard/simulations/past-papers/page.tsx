@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import Link from "@/components/navigation-link";
 import { catalogue, getPaper } from "@/modules/content/catalogue";
 import {
@@ -6,6 +7,8 @@ import {
   officialPaperIndex,
 } from "@/modules/content/past-papers";
 import pastPapers from "../../../../../.generated/past-papers.json";
+import { requestSimulation } from "../actions";
+import { TestActionButton } from "../../checkpoints/test-action-button";
 import { requireOwner } from "@/server/supabase";
 
 export const dynamic = "force-dynamic";
@@ -38,6 +41,7 @@ export default async function PastPapers({
     selected && selectedYear
       ? officialBooklet(selected.id, selectedYear)
       : null;
+  const canAttempt = selected?.id === "Prelims-CSAT" && selectedYear === 2024;
   return (
     <div className="page simulation-page">
       <div className="breadcrumbs">
@@ -112,10 +116,23 @@ export default async function PastPapers({
               UPSC archives
             </a>
           </div>
-          <p>
-            Attempt and grade this booklet separately. In-app historical scoring
-            requires a verified booklet and matching answer key.
-          </p>
+          {canAttempt ? (
+            <form action={requestSimulation}>
+              <input type="hidden" name="mode" value="pyq" />
+              <input type="hidden" name="year" value="2024" />
+              <input type="hidden" name="paper" value="Prelims-CSAT" />
+              <input type="hidden" name="request" value={randomUUID()} />
+              <TestActionButton
+                label="Prepare timed Series A answer sheet"
+                pendingLabel="Preparing…"
+              />
+            </form>
+          ) : (
+            <p>
+              Attempt and grade this booklet separately. In-app historical
+              scoring requires a verified booklet and matching answer key.
+            </p>
+          )}
         </section>
       )}
     </div>

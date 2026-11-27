@@ -18,6 +18,7 @@ import {
 import { checkpointId } from "./checkpoint-service";
 import { generateObjectiveQuestions } from "./checkpoint-generation";
 import { geminiGenerator, GenerationUnavailable } from "./gemini";
+import { historicalScope } from "./historical-csat";
 import { inngest } from "./inngest";
 import {
   generateWrittenSimulation,
@@ -419,6 +420,22 @@ export const prepareSimulation = inngest.createFunction(
       return data;
     });
     if (!data) return;
+    if (data.mode === "pyq") {
+      return step.run("publish-historical-paper", async () => {
+        const source = historicalScope(data.paper_code, "2024");
+        if (!source || source.revision !== data.revision)
+          throw new NonRetriableError("The historical booklet or key changed");
+        const { error } = await db.rpc("publish_chapter_simulation", {
+          p_id: id,
+          p_token: token,
+          p_questions: source.questions,
+          p_guide: source.guide,
+          p_duration: 7200,
+          p_max_units: 1200,
+        });
+        if (error) throw new Error("Could not publish the historical paper");
+      });
+    }
     if (data.mode === "full") {
       const scope = fullScope(data.paper_code);
       if (!scope || scope.revision !== data.revision)

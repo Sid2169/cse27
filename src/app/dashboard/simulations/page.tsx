@@ -283,7 +283,9 @@ export default async function Simulations({
                   ? (getPaper(item.paper_code)?.title ?? item.paper_code) +
                     (item.mode === "full"
                       ? " · Full-scope diagnostic"
-                      : " · Cumulative")
+                      : item.mode === "pyq"
+                        ? " · Official 2024"
+                        : " · Cumulative")
                   : (getDocument(item.chapter_path)?.title ??
                     item.chapter_path)}
                 {item.paper_variant && " · Mathematics " + item.paper_variant}

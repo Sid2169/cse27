@@ -6,6 +6,10 @@ import { catalogue } from "@/modules/content/catalogue";
 import { simulationRoot } from "@/modules/assessment/chapter-simulation";
 import { requireOwner } from "@/server/supabase";
 import { checkpointId } from "@/server/assessment/checkpoint-service";
+import {
+  csatHistoricalSource,
+  historicalScope,
+} from "@/server/assessment/historical-csat";
 import { dispatchSimulation } from "@/server/assessment/simulation-events";
 import {
   cumulativeScope,
@@ -19,12 +23,15 @@ export async function requestSimulation(form: FormData) {
   const paper = String(form.get("paper") ?? "");
   const requested = form.get("mode");
   const mode =
-    requested === "cumulative" || requested === "full" ? requested : "chapter";
+    requested === "cumulative" || requested === "full" || requested === "pyq"
+      ? requested
+      : "chapter";
   const chapter = mode !== "chapter" ? "" : String(form.get("chapter") ?? "");
   const variant = String(form.get("variant") ?? "");
   const request = String(form.get("request") ?? "");
   const index = simulationRoot + "?" + new URLSearchParams({ paper, chapter });
   const db = simulationDb();
+  const year = String(form.get("year") ?? "");
   const scope =
     mode === "cumulative"
       ? db
@@ -34,10 +41,13 @@ export async function requestSimulation(form: FormData) {
         : undefined
       : mode === "full"
         ? fullScope(paper)
-        : simulationScope(paper, chapter);
+        : mode === "pyq"
+          ? historicalScope(paper, year)
+          : simulationScope(paper, chapter);
   if (mode === "cumulative" && scope === undefined)
     redirect(index + "&error=unavailable");
-  const generation = process.env.GEMINI_GENERATION_MODEL;
+  const generation =
+    mode === "pyq" ? "official-key" : process.env.GEMINI_GENERATION_MODEL;
   const evaluation = process.env.GEMINI_EVALUATION_MODEL || generation;
   if (!scope?.variants.includes(variant) || !checkpointId.test(request))
     redirect(
@@ -47,7 +57,7 @@ export async function requestSimulation(form: FormData) {
     !db ||
     !generation ||
     !evaluation ||
-    !process.env.GEMINI_API_KEY ||
+    (mode !== "pyq" && !process.env.GEMINI_API_KEY) ||
     !process.env.INNGEST_EVENT_KEY ||
     !process.env.INNGEST_SIGNING_KEY
   )
@@ -87,7 +97,12 @@ export async function requestSimulation(form: FormData) {
   const row = {
     mode,
     scheduled_due: due || null,
-    source_details: mode === "full" ? fullScope(paper)?.sourceDetails : null,
+    source_details:
+      mode === "full"
+        ? fullScope(paper)?.sourceDetails
+        : mode === "pyq"
+          ? csatHistoricalSource
+          : null,
     coverage: scope && "coverage" in scope ? scope.coverage : [],
     user_id: user.id,
     request_id: request,
@@ -159,16 +174,19 @@ export async function retrySimulation(form: FormData) {
     redirect(url);
   if (
     preparation &&
-    (existing.mode === "full"
-      ? fullScope(existing.paper_code)?.revision !== existing.revision
-      : existing.mode === "cumulative"
-        ? existing.coverage.some(
-            (entry: { path: string; revision: string }) =>
-              simulationScope(existing.paper_code, entry.path)?.revision !==
-              entry.revision,
-          )
-        : simulationScope(existing.paper_code, existing.chapter_path)
-            ?.revision !== existing.revision)
+    (existing.mode === "pyq"
+      ? historicalScope(existing.paper_code, "2024")?.revision !==
+        existing.revision
+      : existing.mode === "full"
+        ? fullScope(existing.paper_code)?.revision !== existing.revision
+        : existing.mode === "cumulative"
+          ? existing.coverage.some(
+              (entry: { path: string; revision: string }) =>
+                simulationScope(existing.paper_code, entry.path)?.revision !==
+                entry.revision,
+            )
+          : simulationScope(existing.paper_code, existing.chapter_path)
+              ?.revision !== existing.revision)
   )
     redirect(
       simulationRoot +

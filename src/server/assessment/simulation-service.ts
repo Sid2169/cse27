@@ -13,6 +13,7 @@ import {
 } from "@/modules/assessment/chapter-simulation";
 import { gsCurrentAffairs } from "@/modules/assessment/gs-current-affairs";
 import { mainsGsPattern } from "@/modules/assessment/full-mains-pattern";
+import type { csatHistoricalSource } from "./historical-csat";
 import { currentCheckpoint } from "./checkpoint-service";
 
 export const simulationEnabled =
@@ -143,7 +144,7 @@ export type SimulationView = SimulationSummary & {
   kind: "objective" | "descriptive";
   questions: SimulationQuestion[] | null;
   coverage: CoverageChapter[];
-  source_details: typeof gsCurrentAffairs | null;
+  source_details: typeof gsCurrentAffairs | typeof csatHistoricalSource | null;
   duration_seconds: number | null;
   remaining_ms: number | null;
   answers: SimulationAnswers;

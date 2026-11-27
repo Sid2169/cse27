@@ -59,6 +59,16 @@ export default async function ChapterSimulation({
     paper_code: paper,
     unit_scale: scale,
   } = simulation;
+  const historical =
+    simulation.mode === "pyq" &&
+    simulation.source_details &&
+    "booklet" in simulation.source_details
+      ? simulation.source_details
+      : null;
+  const evidence =
+    simulation.source_details && "cutoff" in simulation.source_details
+      ? simulation.source_details
+      : null;
   const full = simulation.mode === "full";
   const cumulative = simulation.mode === "cumulative";
   const objective = simulation.kind === "objective";
@@ -108,7 +118,7 @@ export default async function ChapterSimulation({
   return (
     <div className="page simulation-page">
       <div className="breadcrumbs">
-        {!cumulative && !full && (
+        {!cumulative && !full && !historical && (
           <Link href={documentUrl(chapter)}>Chapter</Link>
         )}
         <Link href={simulationLink(paper, chapter)}>Exam history</Link>
@@ -116,14 +126,16 @@ export default async function ChapterSimulation({
       <h1 className="compact-title">
         {result
           ? "Exam feedback"
-          : full
-            ? "Full-scope exam"
-            : cumulative
-              ? "Cumulative exam simulation"
-              : "Chapter exam simulation"}
+          : historical
+            ? "2024 official CSAT exam"
+            : full
+              ? "Full-scope exam"
+              : cumulative
+                ? "Cumulative exam simulation"
+                : "Chapter exam simulation"}
       </h1>
       <p className="lead">
-        {cumulative || full
+        {cumulative || full || historical
           ? (getPaper(paper)?.title ?? paper)
           : (getDocument(chapter)?.title ?? chapter)}
         {simulation.paper_variant &&
@@ -135,19 +147,39 @@ export default async function ChapterSimulation({
           question pattern follows the 2026 baseline.
         </p>
       )}
-      {simulation.source_details && (
+      {historical && (
+        <div className="section study-card">
+          <h2>Original booklet · Series A</h2>
+          <a
+            className="button"
+            href={historical.booklet}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open UPSC’s original PDF
+          </a>
+          <p>
+            Use the original booklet to read the questions. Enter A–D on the
+            answer sheet below after starting the timer.
+          </p>
+          {result && (
+            <a href={historical.answerKey}>
+              View the published UPSC answer key (PDF mirror)
+            </a>
+          )}
+        </div>
+      )}
+      {evidence && (
         <p>
           Current-affairs source cutoff{" "}
-          <time dateTime={simulation.source_details.cutoff}>
-            {simulation.source_details.cutoff}
-          </time>
+          <time dateTime={evidence.cutoff}>{evidence.cutoff}</time>
         </p>
       )}
-      {result && simulation.source_details && (
+      {result && evidence && (
         <details className="section">
           <summary>Current-affairs sources</summary>
           <ul>
-            {simulation.source_details.sources.map((source) => (
+            {evidence.sources.map((source) => (
               <li key={source.url}>
                 <a href={source.url}>{source.title}</a> ·{" "}
                 <time dateTime={source.date}>{source.date}</time>
@@ -266,7 +298,9 @@ export default async function ChapterSimulation({
                         className="prose simulation-stem"
                         lang={hindi ? "hi" : "en"}
                       >
-                        <Markdown path={q.sourcePath} source={q.stem} />
+                        {!historical && (
+                          <Markdown path={q.sourcePath} source={q.stem} />
+                        )}
                       </div>
                     ),
                     ...("options" in q
@@ -351,7 +385,9 @@ export default async function ChapterSimulation({
                       className="prose simulation-stem"
                       lang={hindi ? "hi" : "en"}
                     >
-                      <Markdown path={q.sourcePath} source={q.stem} />
+                      {!historical && (
+                        <Markdown path={q.sourcePath} source={q.stem} />
+                      )}
                     </div>
                     {"options" in q && (
                       <p>
@@ -413,7 +449,7 @@ export default async function ChapterSimulation({
           </section>
           <section className="study-card section">
             <h2>Refresher checklist</h2>
-            {full && (
+            {(full || historical) && (
               <p>
                 Review the syllabus topics below. A refresher exam requires
                 authored teaching material for all recommended sections.
