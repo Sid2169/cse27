@@ -11,6 +11,7 @@ import {
   type MarkedAnswer,
   type MarkingGuide,
   type ObjectiveKey,
+  type ObjectiveQuestion,
   type WrittenQuestion,
 } from "@/modules/assessment/chapter-simulation";
 import { checkpointId } from "./checkpoint-service";
@@ -29,6 +30,7 @@ import {
   type SimulationEvent,
 } from "./simulation-events";
 import {
+  fullScope,
   simulationDb,
   simulationScope,
   type SimulationView,
@@ -166,6 +168,124 @@ async function buildBlueprint(
   return blueprint;
 }
 
+async function unseenHistory(db: Database, owner: string, paper: string) {
+  const history: string[] = [];
+  for (const table of ["chapter_simulations", "chapter_checkpoints"]) {
+    for (let offset = 0; ; offset += 200) {
+      let query = db
+        .from(table)
+        .select("questions")
+        .eq("user_id", owner)
+        .eq("paper_code", paper);
+      if (table === "chapter_simulations")
+        query = query.not("started_at", "is", null);
+      const result = await query.order("id").range(offset, offset + 199);
+      if (result.error) throw new Error("Could not load previous assessments");
+      for (const row of result.data) {
+        if (!Array.isArray(row.questions)) continue;
+        for (const item of row.questions)
+          if (typeof item.stem === "string") history.push(item.stem);
+      }
+      if (result.data.length < 200) break;
+    }
+  }
+  return history;
+}
+
+type ObjectiveBatch = { questions: ObjectiveQuestion[]; guide: ObjectiveKey[] };
+
+async function prepareCsatBatch(
+  db: Database,
+  id: string,
+  row: {
+    paper_code: string;
+    revision: string;
+    user_id: string;
+    generation_model: string;
+  },
+  position: number,
+) {
+  const scope = fullScope(row.paper_code);
+  if (!scope || scope.revision !== row.revision)
+    throw new NonRetriableError("The full-paper syllabus changed");
+  const previous = await db
+    .from("cumulative_simulation_batches")
+    .select("position,blueprint")
+    .eq("simulation_id", id)
+    .lte("position", position)
+    .order("position");
+  if (previous.error) throw new Error("Could not load prior batches");
+  if (previous.data.some((batch) => batch.position === position)) return;
+  const history = await unseenHistory(db, row.user_id, row.paper_code);
+  history.push(
+    ...previous.data.flatMap((batch) =>
+      (batch.blueprint as ObjectiveBatch).questions.map((q) => q.stem),
+    ),
+  );
+  if (JSON.stringify(history).length > 300_000)
+    throw new NonRetriableError(
+      "Question history exceeds the review capacity for an unseen paper",
+    );
+
+  const focus = scope.topics[position % scope.topics.length];
+  const sections = scope.topics.map((title, index) => ({
+    title,
+    id: "area-" + (index + 1),
+    text: title,
+    level: 2,
+  }));
+  const generated = await generateObjectiveQuestions(
+    geminiGenerator(row.generation_model),
+    [
+      {
+        ...scope.syllabus,
+        markdown:
+          scope.syllabus.markdown +
+          "\n" +
+          sections
+            .map((section) => section.id + " = " + section.title)
+            .join("\n"),
+        sections,
+      },
+    ],
+    history,
+    {
+      draftCount: 12,
+      minimumCount: 10,
+      purpose: "a mixed block for the full UPSC CSAT practice paper in English",
+      questionDesign:
+        "Use original UPSC-style aptitude problems, including complete passages and data tables in the stem where needed. Use no external figures or current facts. Vary the demands and difficulty across the syllabus. Include " +
+        focus +
+        " and tag its questions with the corresponding numbered syllabus topic. Verify calculations and rule out every competing option.",
+    },
+  );
+  const focusId = sections[position % sections.length].id;
+  const focusIndex = generated.questions.findIndex(
+    (q) => q.sourceHeading === focusId,
+  );
+  if (focusIndex < 0)
+    throw new Error("The question batch omitted its required syllabus area");
+  const chosen = [
+    focusIndex,
+    ...generated.questions
+      .map((_, index) => index)
+      .filter((index) => index !== focusIndex),
+  ].slice(0, 10);
+  const blueprint: ObjectiveBatch = {
+    questions: chosen.map((index) => ({
+      ...generated.questions[index],
+      sourceHeading:
+        scope.syllabus.sections.find((section) => section.level === 2)?.id ??
+        scope.syllabus.sections[0].id,
+    })),
+    guide: chosen.map((index) => generated.key[index]),
+  };
+  const saved = await db
+    .from("cumulative_simulation_batches")
+    .upsert({ simulation_id: id, position, blueprint });
+  if (saved.error) throw new Error("Could not save a full-paper batch");
+}
+
 export const prepareSimulation = inngest.createFunction(
   {
     id: "prepare-chapter-simulation",
@@ -190,13 +310,58 @@ export const prepareSimulation = inngest.createFunction(
         .eq("job_token", token)
         .in("status", ["queued", "generating"])
         .select(
-          "id,mode,coverage,paper_code,paper_variant,chapter_path,revision,kind,generation_model",
+          "id,user_id,mode,coverage,paper_code,paper_variant,chapter_path,revision,kind,generation_model",
         )
         .maybeSingle();
       if (error) throw new Error("Could not claim simulation preparation");
       return data;
     });
     if (!data) return;
+    if (data.mode === "full") {
+      for (let position = 0; position < 8; position++) {
+        await step.run("prepare-csat-batch-" + position, async () => {
+          try {
+            await prepareCsatBatch(db, id, data, position);
+          } catch (error) {
+            providerFailure(error, "full paper preparation", id);
+          }
+        });
+      }
+      await step.run("publish-csat-paper", async () => {
+        const batches = await db
+          .from("cumulative_simulation_batches")
+          .select("blueprint")
+          .eq("simulation_id", id)
+          .order("position");
+        if (batches.error || batches.data.length !== 8)
+          throw new Error("A full-paper batch is missing");
+        const parts = batches.data.map(
+          (row) => row.blueprint as ObjectiveBatch,
+        );
+        const questions = parts.flatMap((part) => part.questions);
+        const guide = parts.flatMap((part) => part.guide);
+        if (questions.length !== 80 || guide.length !== 80)
+          throw new Error("The CSAT paper must contain exactly 80 questions");
+        const published = await db.rpc("publish_chapter_simulation", {
+          p_id: id,
+          p_token: token,
+          p_questions: questions,
+          p_guide: guide,
+          p_duration: 7200,
+          p_max_units: 1200,
+        });
+        if (published.error)
+          throw new Error("Could not publish the CSAT paper");
+      });
+      return step.run("remove-published-csat-batches", async () => {
+        const removed = await db
+          .from("cumulative_simulation_batches")
+          .delete()
+          .eq("simulation_id", id);
+        if (removed.error)
+          throw new Error("Could not remove published batches");
+      });
+    }
     if (data.mode === "cumulative") {
       const coverage = data.coverage as CoverageChapter[];
       for (const [position, chapter] of coverage.entries()) {

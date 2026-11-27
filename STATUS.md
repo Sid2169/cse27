@@ -46,6 +46,8 @@ No outstanding method requirement has been identified in the current specificati
 
 - Cumulative exams use a snapshot of currently qualified chapter revisions, with paper-specific marking and no change to chapter revision dates. The dashboard shows the latest cumulative percentage per paper variant.
 
+- The full-scope CSAT diagnostic uses the 2026 pattern (80 questions, 200 marks, two hours), verifies batches, and compares drafts with previously presented paper questions. Full-scope CSAT alone appears in the dashboard’s full-paper performance display. Full GS-I and Mains patterns remain pending.
+
 ## Study content and PYQs
 
 Root [syllabus.md](syllabus.md) contains the complete official syllabus, and all per-paper syllabus files are populated verbatim. The Mathematics optional syllabus is copied verbatim from the official notification because root [syllabus.md](syllabus.md) does not reproduce detailed optional syllabi.

@@ -9,6 +9,7 @@ import { checkpointId } from "@/server/assessment/checkpoint-service";
 import { dispatchSimulation } from "@/server/assessment/simulation-events";
 import {
   cumulativeScope,
+  fullScope,
   simulationDb,
   simulationScope,
 } from "@/server/assessment/simulation-service";
@@ -16,9 +17,10 @@ import {
 export async function requestSimulation(form: FormData) {
   const { user } = await requireOwner();
   const paper = String(form.get("paper") ?? "");
-  const mode = form.get("mode") === "cumulative" ? "cumulative" : "chapter";
-  const chapter =
-    mode === "cumulative" ? "" : String(form.get("chapter") ?? "");
+  const requested = form.get("mode");
+  const mode =
+    requested === "cumulative" || requested === "full" ? requested : "chapter";
+  const chapter = mode !== "chapter" ? "" : String(form.get("chapter") ?? "");
   const variant = String(form.get("variant") ?? "");
   const request = String(form.get("request") ?? "");
   const index = simulationRoot + "?" + new URLSearchParams({ paper, chapter });
@@ -30,7 +32,9 @@ export async function requestSimulation(form: FormData) {
             () => undefined,
           )
         : undefined
-      : simulationScope(paper, chapter);
+      : mode === "full"
+        ? fullScope(paper)
+        : simulationScope(paper, chapter);
   if (mode === "cumulative" && scope === undefined)
     redirect(index + "&error=unavailable");
   const generation = process.env.GEMINI_GENERATION_MODEL;
@@ -123,14 +127,16 @@ export async function retrySimulation(form: FormData) {
     redirect(url);
   if (
     preparation &&
-    (existing.mode === "cumulative"
-      ? existing.coverage.some(
-          (entry: { path: string; revision: string }) =>
-            simulationScope(existing.paper_code, entry.path)?.revision !==
-            entry.revision,
-        )
-      : simulationScope(existing.paper_code, existing.chapter_path)
-          ?.revision !== existing.revision)
+    (existing.mode === "full"
+      ? fullScope(existing.paper_code)?.revision !== existing.revision
+      : existing.mode === "cumulative"
+        ? existing.coverage.some(
+            (entry: { path: string; revision: string }) =>
+              simulationScope(existing.paper_code, entry.path)?.revision !==
+              entry.revision,
+          )
+        : simulationScope(existing.paper_code, existing.chapter_path)
+            ?.revision !== existing.revision)
   )
     redirect(
       simulationRoot +
