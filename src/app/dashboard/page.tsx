@@ -144,10 +144,12 @@ export default async function Dashboard() {
             <p>
               {assessment
                 ? "The schedule could not be loaded."
-                : "Scheduling will appear when checkpoints are available."}
+                : "Scheduling will appear when completion tests are available."}
             </p>
           ) : !scheduled.length ? (
-            <p>Pass a chapter checkpoint to schedule its first revision.</p>
+            <p>
+              Pass a completion test to schedule the chapter’s first revision.
+            </p>
           ) : (
             <ul className="study-list">
               {scheduled.slice(0, 5).map((task) => (
@@ -168,12 +170,12 @@ export default async function Dashboard() {
 
       <section className="study-card study-activity">
         <ListChecks size={22} aria-hidden="true" />
-        <h2>Checkpoint activity</h2>
+        <h2>Completion test activity</h2>
         {jobs?.error || attempts?.error ? (
-          <p role="alert">Some checkpoint activity could not be loaded.</p>
+          <p role="alert">Some completion test activity could not be loaded.</p>
         ) : null}
         {!jobs?.data?.length && !attempts?.data?.length && (
-          <p>Generated checkpoints and scores will appear here.</p>
+          <p>Completion tests and scores will appear here.</p>
         )}
         <ul className="study-list">
           {jobs?.data?.map((job) => (
@@ -206,7 +208,7 @@ export default async function Dashboard() {
         </ul>
         {assessment && (
           <Link className="button" href="/dashboard/checkpoints">
-            Checkpoint history
+            Completion test history
           </Link>
         )}
       </section>

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/navigation-link";
 import { notFound } from "next/navigation";
 import { requireOwner } from "@/server/supabase";
 import { documentUrl } from "@/modules/content/types";
@@ -10,9 +10,10 @@ import {
 } from "@/server/assessment/checkpoint-service";
 import { submitCheckpoint } from "../actions";
 import { CheckpointTimezone } from "./timezone";
+import { TestActionButton } from "../test-action-button";
 
 export const metadata = {
-  title: "Chapter checkpoint",
+  title: "Completion test",
   robots: { index: false, follow: false },
 };
 
@@ -50,7 +51,7 @@ export default async function Attempt({
   if (error)
     return (
       <div className="page">
-        <p role="alert">Checkpoint result could not be loaded.</p>
+        <p role="alert">The completion test result could not be loaded.</p>
       </div>
     );
   if (result) {
@@ -64,7 +65,7 @@ export default async function Attempt({
         ?.revision === checkpoint.revision;
     return (
       <div className="page">
-        <h1 className="compact-title">Checkpoint feedback</h1>
+        <h1 className="compact-title">Completion test feedback</h1>
         <p>
           {result.correct} / {result.correct + result.wrong + result.blank} ·{" "}
           {result.qualified ? "Passed" : "Not passed"}
@@ -80,9 +81,10 @@ export default async function Attempt({
         <ol>
           {questions.map((q, index) => {
             const answer = key?.answers?.[index];
+            const response = result.responses?.[index];
             if (
               !answer ||
-              result.responses?.[index]?.[0] === answer.correctOption
+              (response?.length === 1 && response[0] === answer.correctOption)
             )
               return null;
             return (
@@ -113,14 +115,14 @@ export default async function Attempt({
             },
           }}
         >
-          Checkpoint history and retry
+          Completion test history and retry
         </Link>
       </div>
     );
   }
   return (
     <div className="page">
-      <h1 className="compact-title">Chapter checkpoint</h1>
+      <h1 className="compact-title">Completion test</h1>
       <p>{title}</p>
       <p>
         Untimed. Each correct answer earns one mark. A score of at least 80%
@@ -156,7 +158,10 @@ export default async function Attempt({
             ))}
           </fieldset>
         ))}
-        <button className="button primary">Submit checkpoint</button>
+        <TestActionButton
+          label="Submit completion test"
+          pendingLabel="Scoring test…"
+        />
       </form>
     </div>
   );

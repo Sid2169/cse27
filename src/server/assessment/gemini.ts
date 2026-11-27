@@ -4,6 +4,7 @@ export class GenerationUnavailable extends Error {
   constructor(
     readonly reason:
       "configuration" | "quota" | "upstream" | "invalid-response",
+    readonly status?: number,
   ) {
     super("Assessment generation is unavailable: " + reason);
   }
@@ -44,7 +45,10 @@ export function geminiGenerator(model: string | undefined) {
       throw new GenerationUnavailable("upstream");
     }
     if (response.status === 429) throw new GenerationUnavailable("quota");
-    if (!response.ok) throw new GenerationUnavailable("upstream");
+    if ([401, 403, 404].includes(response.status))
+      throw new GenerationUnavailable("configuration", response.status);
+    if (!response.ok)
+      throw new GenerationUnavailable("upstream", response.status);
 
     try {
       const data = await response.json();

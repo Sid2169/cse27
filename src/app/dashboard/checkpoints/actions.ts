@@ -34,27 +34,37 @@ export async function startCheckpoint(form: FormData) {
   )
     startStatus(paper, chapter, "unavailable");
   const jobs = db.from("checkpoint_generation_jobs");
-  const queued = await jobs
-    .insert({
-      user_id: user.id,
-      paper_code: paper,
-      chapter_path: chapter,
-      revision: current.revision,
-      model,
-    })
-    .select("id")
-    .single();
+  const request = {
+    user_id: user.id,
+    paper_code: paper,
+    chapter_path: chapter,
+    revision: current.revision,
+    model,
+  };
+  let queued = await jobs.insert(request).select("id").single();
   let id = queued.data?.id;
   if (queued.error?.code === "23505") {
-    const existing = await db
-      .from("checkpoint_generation_jobs")
-      .select("id")
+    const stale = await jobs
+      .update({ status: "failed" })
       .eq("user_id", user.id)
       .eq("paper_code", paper)
       .eq("chapter_path", chapter)
-      .in("status", ["queued", "waiting"])
-      .maybeSingle();
-    id = existing.data?.id;
+      .neq("revision", current.revision)
+      .in("status", ["queued", "waiting"]);
+    if (stale.error) startStatus(paper, chapter, "failed");
+    queued = await jobs.insert(request).select("id").single();
+    id = queued.data?.id;
+    if (queued.error?.code === "23505") {
+      const existing = await jobs
+        .select("id")
+        .eq("user_id", user.id)
+        .eq("paper_code", paper)
+        .eq("chapter_path", chapter)
+        .eq("revision", current.revision)
+        .in("status", ["queued", "waiting"])
+        .maybeSingle();
+      id = existing.data?.id;
+    }
   }
   if (!id) startStatus(paper, chapter, "failed");
   try {

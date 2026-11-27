@@ -11,6 +11,7 @@ import { documentUrl } from "@/modules/content/types";
 import { Markdown } from "@/components/markdown";
 import { ReaderAnnotations } from "@/components/reader-annotations";
 import { ReaderControls } from "@/components/reader-controls";
+import { currentCheckpoint } from "@/server/assessment/checkpoint-service";
 export function generateStaticParams() {
   return [
     ...catalogue.papers.map((p) => ({ slug: [p.id] })),
@@ -78,9 +79,9 @@ export default async function Learn({
             </Link>
           </div>
           <p className="footnote">
-            Completion counts chapters passed by checkpoint.
+            Completion counts chapters with a passed completion test.
             {process.env.CHECKPOINTS_ENABLED !== "true" &&
-              " Checkpoints are not available yet."}
+              " Completion tests are not available yet."}
           </p>
           <div className="phase-grid">
             {paper.phases.map((phase) => (
@@ -152,6 +153,13 @@ export default async function Learn({
   const d = getDocument(slug.join("/") + ".md");
   if (!d) notFound();
   const i = paper.chapters.indexOf(d.path);
+  const chapter = i >= 0 ? d.path : d.path.replace(/-part-\d+\.md$/, ".md");
+  const completionTest =
+    d.kind === "chapter" &&
+    process.env.CHECKPOINTS_ENABLED === "true" &&
+    currentCheckpoint(paper.id, chapter)
+      ? { paper: paper.id, chapter }
+      : null;
   return (
     <div
       className={
@@ -169,6 +177,7 @@ export default async function Learn({
           headings={d.sections.filter((section) => section.level <= 4)}
           canSave={process.env.READER_POSITIONS_ENABLED === "true"}
           hasNotes={process.env.READER_ANNOTATIONS_ENABLED === "true"}
+          completionTest={completionTest}
         >
           {process.env.READER_ANNOTATIONS_ENABLED === "true" && (
             <ReaderAnnotations
@@ -212,15 +221,12 @@ export default async function Learn({
           </details>
         </aside>
       </div>
-      {i >= 0 && d.ready && process.env.CHECKPOINTS_ENABLED === "true" && (
+      {i >= 0 && completionTest && (
         <Link
           className="button primary"
-          href={{
-            pathname: "/dashboard/checkpoints",
-            query: { paper: paper.id, chapter: d.path },
-          }}
+          href={{ pathname: "/dashboard/checkpoints", query: completionTest }}
         >
-          Chapter checkpoint
+          Completion test
         </Link>
       )}
       {i >= 0 && (
