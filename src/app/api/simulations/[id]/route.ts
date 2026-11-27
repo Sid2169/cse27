@@ -3,6 +3,7 @@ import {
   readChoices,
   validateChoices,
   writtenChoice,
+  includesQuestion,
 } from "@/modules/assessment/written-choices";
 import { randomUUID } from "node:crypto";
 import {
@@ -135,17 +136,17 @@ export async function POST(request: Request, { params }: Context) {
           )
         : null;
       if (rule && !choices) return json({ error: "invalid-choices" }, 400);
+      const chosen = (index: number) =>
+        !rule || !choices || includesQuestion(rule, choices, index);
       if (choices && input.action !== "save")
         answers = Object.fromEntries(
-          Object.entries(answers).filter(([index]) =>
-            choices.includes(Number(index)),
-          ),
+          Object.entries(answers).filter(([index]) => chosen(Number(index))),
         );
       if (choices) answers[choiceField] = choices.join(",");
       if (input.action === "confirm") {
         const mustClarify = [
-          ...Object.keys(simulation.attachments).filter(
-            (index) => !choices || choices.includes(Number(index)),
+          ...Object.keys(simulation.attachments).filter((index) =>
+            chosen(Number(index)),
           ),
           ...(simulation.clarification
             ? [String(simulation.clarification.question)]

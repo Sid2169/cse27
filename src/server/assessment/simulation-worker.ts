@@ -20,6 +20,7 @@ import {
   readChoices,
   validateChoices,
   writtenChoice,
+  includesQuestion,
 } from "@/modules/assessment/written-choices";
 import { checkpointId } from "./checkpoint-service";
 import { generateObjectiveQuestions } from "./checkpoint-generation";
@@ -337,10 +338,12 @@ async function prepareFullWrittenBatch(
     );
   const format = scope.pattern?.[position];
   if (!format) throw new NonRetriableError("Missing written exam pattern");
-  const topics = scope.topics.slice(
-    Math.floor((position * scope.topics.length) / scope.batches),
-    Math.floor(((position + 1) * scope.topics.length) / scope.batches),
-  );
+  const topics = format.topic
+    ? [format.topic]
+    : scope.topics.slice(
+        Math.floor((position * scope.topics.length) / scope.batches),
+        Math.floor(((position + 1) * scope.topics.length) / scope.batches),
+      );
   const sections = topics.map((title, index) => ({
     title,
     id: "area-" + (index + 1),
@@ -490,7 +493,7 @@ export const prepareSimulation = inngest.createFunction(
           p_questions: questions,
           p_guide: guide,
           p_duration: scope.written ? 10800 : 7200,
-          p_max_units: scope.written ? 250 : 1200,
+          p_max_units: scope.qualifying ? 300 : scope.written ? 250 : 1200,
         });
         if (published.error) throw new Error("Could not publish the paper");
       });
@@ -723,10 +726,12 @@ export const markSimulation = inngest.createFunction(
         : null;
       if (rule && !selected)
         throw new NonRetriableError("The written choices are invalid");
+      const chosen = (index: number) =>
+        !rule || !selected || includesQuestion(rule, selected, index);
       if (selected)
         simulation.attachments = Object.fromEntries(
           Object.entries(simulation.attachments).filter(([index]) =>
-            selected.includes(Number(index)),
+            chosen(Number(index)),
           ),
         );
       const files = Object.keys(simulation.attachments);
@@ -824,7 +829,7 @@ export const markSimulation = inngest.createFunction(
           );
           for (const batch of batches) marks.push(...batch);
           const items = marks.map((item, index) =>
-            !selected || selected.includes(index)
+            chosen(index)
               ? item
               : {
                   awarded: 0,

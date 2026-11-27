@@ -15,6 +15,32 @@ import {
   markWrittenSimulation,
 } from "../src/server/assessment/simulation-generation";
 
+import { mainsGsPattern } from "../src/modules/assessment/full-mains-pattern";
+import {
+  includesQuestion,
+  validateChoices,
+} from "../src/modules/assessment/written-choices";
+
+test("qualifying papers count just one essay plus compulsory questions", () => {
+  for (const paper of ["Mains-English", "Mains-Indian-Language"]) {
+    const pattern = mainsGsPattern(paper)!;
+    assert.equal(pattern[0].labels.length, 4);
+    assert.equal(
+      pattern.reduce((sum, section) => sum + section.marks, 0),
+      300,
+    );
+  }
+  assert.deepEqual(validateChoices([], "language", false), []);
+  assert.equal(validateChoices([], "language", true), null);
+  assert.equal(validateChoices([0, 2], "language", true), null);
+  assert.equal(validateChoices([5], "language", true), null);
+  assert.equal(includesQuestion("language", [2], 2), true);
+  assert.equal(includesQuestion("language", [2], 1), false);
+  assert.equal(includesQuestion("language", [2], 4), true);
+  assert.deepEqual(validateChoices([1, 7], "essay", true), [1, 7]);
+  assert.equal(validateChoices([4, 5], "essay", true), null);
+});
+
 const key = Array.from({ length: 3 }, () => ({
   correctOption: 0,
   explanation: "Explanation.",

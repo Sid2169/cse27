@@ -56,7 +56,7 @@ No outstanding method requirement has been identified in the current specificati
 
 - The full-scope GS-I diagnostic uses 100 questions, 200 marks and two hours. It covers the seven syllabus areas and records a dated official source pack for changing facts. The source pack must be maintained as coverage moves forward.
 
-- Full-scope Mains GS I–III diagnostics use 20 compulsory questions, 250 marks and three hours, with separate 150- and 250-word sections. GS IV follows the theory-subpart and case-study structure. Essay offers two sections of four topics and marks one chosen topic from each. Full-scope language and Mathematics variants remain pending.
+- Full-scope Mains GS I–III diagnostics use 20 compulsory questions, 250 marks and three hours, with separate 150- and 250-word sections. GS IV follows the theory-subpart and case-study structure. Essay offers two sections of four topics and marks one chosen topic from each. Hindi Paper A and English Paper B follow the observed 2025 qualifying-paper structure, with one short essay, compulsory language exercises and a 75/300 practice benchmark. Full-scope Mathematics variants remain pending.
 
 ## Study content and PYQs
 

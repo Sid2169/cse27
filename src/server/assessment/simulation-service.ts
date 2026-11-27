@@ -56,12 +56,15 @@ export function fullScope(paper: string) {
   const gs = paper === "Prelims-General-Studies-I";
   const pattern = mainsGsPattern(paper);
   const written = !!pattern;
+  const qualifying =
+    paper === "Mains-English" || paper === "Mains-Indian-Language";
   if (!csat && !gs && !written) return null;
   const definition = getPaper(paper);
   const syllabus = definition && getDocument(definition.syllabus);
   if (!syllabus) return null;
-  const topics =
-    paper === "Mains-Essay"
+  const topics = qualifying
+    ? pattern!.flatMap((batch) => batch.topic ?? [])
+    : paper === "Mains-Essay"
       ? ["Section A essay topics", "Section B essay topics"]
       : syllabus.markdown
           .split("\n")
@@ -69,7 +72,7 @@ export function fullScope(paper: string) {
           .map((line) => line.slice(2));
   if (written ? !topics.length : topics.length !== (csat ? 6 : 7)) return null;
   const sourceDetails =
-    csat || paper === "Mains-Essay" ? null : gsCurrentAffairs;
+    csat || qualifying || paper === "Mains-Essay" ? null : gsCurrentAffairs;
   return {
     syllabus,
     topics,
@@ -77,6 +80,7 @@ export function fullScope(paper: string) {
     batches: pattern?.length ?? (csat ? 8 : 10),
     pattern,
     written,
+    qualifying,
     sourceDetails,
     variants: [""],
     revision: createHash("sha256")

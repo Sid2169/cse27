@@ -18,6 +18,9 @@ import {
 import {
   choiceField,
   readChoices,
+  choiceGroup,
+  compulsoryQuestion,
+  includesQuestion,
   type WrittenChoice,
 } from "@/modules/assessment/written-choices";
 
@@ -42,7 +45,8 @@ type Action =
   "start" | "pulse" | "save" | "submit" | "attach" | "detach" | "confirm";
 
 const messages: Record<string, string> = {
-  "invalid-choices": "Choose one topic from each section before submitting.",
+  "invalid-choices":
+    "Complete the required question selections before submitting.",
   conflict:
     "The saved answers changed in another tab. Reload saved answers before continuing.",
   "other-tab":
@@ -297,11 +301,14 @@ export function Attempt({
   }
 
   const selected = choice ? readChoices(answers[choiceField]) : null;
+  const chosen = (index: number) =>
+    !choice || !selected || includesQuestion(choice, selected, index);
   function choose(index: number) {
+    if (!choice) return;
     const current = readChoices(entries.current[choiceField]);
     const next = [
       ...current.filter(
-        (item) => Math.floor(item / 4) !== Math.floor(index / 4),
+        (item) => choiceGroup(choice, item) !== choiceGroup(choice, index),
       ),
       index,
     ];
@@ -314,10 +321,7 @@ export function Attempt({
   const frozen = !!pending && pending !== "save";
   const disabled = held || conflict || frozen;
   const answered = Object.entries(answers)
-    .filter(
-      ([key]) =>
-        key !== choiceField && (!selected || selected.includes(Number(key))),
-    )
+    .filter(([key]) => key !== choiceField && chosen(Number(key)))
     .map(([, value]) => value)
     .filter(
       (value) =>
@@ -361,10 +365,11 @@ export function Attempt({
           )}
         </div>
       )}
-      {selected && (
+      {choice && (
         <p>
-          Choose one topic from Section A and one from Section B. Only the two
-          selected topics will be marked.
+          {choice === "essay"
+            ? "Choose one topic from Section A and one from Section B."
+            : "Choose one essay topic. Answer the remaining questions."}
         </p>
       )}
       {questions.map((question, index) => (
@@ -378,17 +383,20 @@ export function Attempt({
             {question.marks ? ` · ${question.marks} marks` : ""}
           </legend>
           {question.stem}
-          {selected && !editingReview && (
-            <label>
-              <input
-                type="radio"
-                name={"essay-section-" + Math.floor(index / 4)}
-                checked={selected.includes(index)}
-                onChange={() => choose(index)}
-              />{" "}
-              Choose this topic
-            </label>
-          )}
+          {choice &&
+            selected &&
+            !compulsoryQuestion(choice, index) &&
+            !editingReview && (
+              <label>
+                <input
+                  type="radio"
+                  name={"question-choice-" + choiceGroup(choice, index)}
+                  checked={selected.includes(index)}
+                  onChange={() => choose(index)}
+                />{" "}
+                Choose this topic
+              </label>
+            )}
           {question.options ? (
             <div className="simulation-options">
               {question.options.map((option, value) => (
@@ -412,7 +420,7 @@ export function Attempt({
               </button>
             </div>
           ) : (
-            (!selected || selected.includes(index)) && (
+            chosen(index) && (
               <>
                 {question.wordLimit ? (
                   <p className="footnote">
@@ -492,7 +500,13 @@ export function Attempt({
               : "Submit exam"}
         </button>
         <span>
-          {answered} of {choice ? 2 : questions.length} answered
+          {answered} of{" "}
+          {choice === "essay"
+            ? 2
+            : choice === "language"
+              ? questions.length - 3
+              : questions.length}{" "}
+          answered
         </span>
         {conflict && (
           <button
