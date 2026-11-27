@@ -36,7 +36,7 @@ export type Extraction = { transcript: string; needsClarification: boolean };
 export type SimulationAnswers = Record<string, number | string | null>;
 
 export type CoverageChapter = { path: string; revision: string };
-export type SimulationMode = "chapter" | "cumulative" | "full";
+export type SimulationMode = "chapter" | "cumulative" | "full" | "pyq";
 
 export type SimulationSummary = {
   mode: SimulationMode;

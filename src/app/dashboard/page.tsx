@@ -38,6 +38,9 @@ export default async function Dashboard() {
   const { db, user } = await requireOwner();
   const assessment = checkpointDb();
   const checkpoints = assessment?.from("chapter_checkpoints");
+  const historicalQuery = simulationDb()?.rpc("latest_historical_results", {
+    p_user: user.id,
+  });
   const fullHistoryQuery = simulationDb()
     ?.rpc("full_simulation_results", { p_user: user.id })
     .limit(20);
@@ -146,6 +149,7 @@ export default async function Dashboard() {
     max_units: number;
     finalized_at: string;
   }[];
+  const { data: latestHistorical } = (await historicalQuery) ?? {};
   const { data: latestCumulative } = (await latestCumulativeQuery) ?? {};
   return (
     <div className="page study-dashboard">
@@ -376,6 +380,23 @@ export default async function Dashboard() {
                 ) : (
                   <p>Progress unavailable</p>
                 )}
+                {(
+                  (latestHistorical ?? []) as {
+                    paper_code: string;
+                    score_units: number;
+                    max_units: number;
+                  }[]
+                )
+                  .filter((result) => result.paper_code === paper.id)
+                  .map((result) => (
+                    <small key={result.paper_code}>
+                      Latest official PYQ ·{" "}
+                      {new Intl.NumberFormat("en-IN", {
+                        maximumFractionDigits: 1,
+                      }).format((100 * result.score_units) / result.max_units)}
+                      %
+                    </small>
+                  ))}
                 {(
                   (latestCumulative ?? []) as {
                     paper_code: string;
