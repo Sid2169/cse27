@@ -50,6 +50,8 @@ No outstanding method requirement has been identified in the current specificati
 
 - Revision preferences configure saved timezone, default material, difficulty and priority, and stage-specific targets. The revision view groups overdue, due-today, upcoming and unscheduled tasks. Manual dates, cancellations and recent task history are available in the revision view. Export/restore of simulation records remains pending.
 
+- The official past-paper selector displays repository transcription caveats and opens verified original booklets or UPSC’s listings. In-app unabridged and updated PYQ attempts remain pending.
+
 ## Study content and PYQs
 
 Root [syllabus.md](syllabus.md) contains the complete official syllabus, and all per-paper syllabus files are populated verbatim. The Mathematics optional syllabus is copied verbatim from the official notification because root [syllabus.md](syllabus.md) does not reproduce detailed optional syllabi.

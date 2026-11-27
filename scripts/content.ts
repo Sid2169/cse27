@@ -9,6 +9,7 @@ import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { dirname, join } from "node:path";
 import GithubSlugger from "github-slugger";
+import { transcriptionNotes } from "../src/modules/content/past-papers";
 import type {
   Catalogue,
   Document,
@@ -230,6 +231,23 @@ if (process.argv[1]?.endsWith("/scripts/content.ts")) {
       if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
     }
   }
+  const pastPapers = c.papers.flatMap((paper) => {
+    const directory = join(paper.id, paper.id + "-PYQS");
+    return readdirSync(directory).flatMap((filename) => {
+      const year = /^(\d{4})-/.exec(filename)?.[1];
+      if (!year || filename !== year + "-" + paper.id + ".md") return [];
+      return [
+        {
+          paper: paper.id,
+          year: Number(year),
+          notes: transcriptionNotes(
+            readFileSync(join(directory, filename), "utf8"),
+          ),
+        },
+      ];
+    });
+  });
+  writeFileSync(".generated/past-papers.json", JSON.stringify(pastPapers));
   writeFileSync(".generated/chapter-assets.json", JSON.stringify(assets));
   writeFileSync(".generated/content.json", JSON.stringify(c));
   console.log(

@@ -94,6 +94,9 @@ export default async function Simulations({
     <div className="page simulation-page">
       <div className="breadcrumbs">
         <Link href="/dashboard">Dashboard</Link>
+        <Link href="/dashboard/simulations/past-papers">
+          Official past papers
+        </Link>
         {scope && <Link href={documentUrl(scope.scope[0].path)}>Chapter</Link>}
       </div>
       <h1 className="compact-title">
