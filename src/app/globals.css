@@ -1482,6 +1482,8 @@ h1,
     flex-direction: column;
     gap: 0.1rem;
     font-size: 0.75rem;
+    line-height: 1.15;
+    text-align: center;
   }
   .chapter-toolbar-panel {
     inset: auto 0 calc(100% + 0.35rem);

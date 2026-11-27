@@ -7,7 +7,10 @@ import {
   currentCheckpoint,
   type PublicQuestion,
 } from "./checkpoint-service";
-import { generateCheckpoint } from "./checkpoint-generation";
+import {
+  CheckpointDraftError,
+  generateCheckpoint,
+} from "./checkpoint-generation";
 import { geminiGenerator, GenerationUnavailable } from "./gemini";
 
 export const inngest = new Inngest({ id: "cse27" });
@@ -45,21 +48,34 @@ export const checkpointWorker = inngest.createFunction(
         .select("*")
         .eq("id", id)
         .maybeSingle();
-      if (error) throw new Error("Checkpoint job lookup failed");
+      if (error) {
+        console.error("Completion test job lookup failed", {
+          id,
+          code: error.code,
+        });
+        throw new Error("Checkpoint job lookup failed");
+      }
       if (!job || job.status === "failed")
         throw new NonRetriableError("Checkpoint job is closed");
       if (job.status === "ready") return { id: job.checkpoint_id };
       const current = currentCheckpoint(job.paper_code, job.chapter_path);
-      if (!current || current.revision !== job.revision)
+      if (!current || current.revision !== job.revision) {
+        console.error("Completion test chapter revision changed", { id });
         throw new NonRetriableError("Chapter changed");
+      }
       const history = await db
         .from("chapter_checkpoints")
         .select("questions", { count: "exact" })
         .eq("user_id", job.user_id)
         .eq("paper_code", job.paper_code)
         .eq("chapter_path", job.chapter_path);
-      if (history.error || history.count !== history.data?.length)
+      if (history.error || history.count !== history.data?.length) {
+        console.error("Completion test history lookup failed", {
+          id,
+          code: history.error?.code,
+        });
         throw new Error("Checkpoint history unavailable");
+      }
       const stems = history.data.flatMap((row) =>
         (row.questions as PublicQuestion[]).map((question) => question.stem),
       );
@@ -72,6 +88,17 @@ export const checkpointWorker = inngest.createFunction(
           stems,
         );
       } catch (error) {
+        if (
+          error instanceof GenerationUnavailable ||
+          error instanceof CheckpointDraftError
+        ) {
+          console.warn("Completion test generation failed", {
+            id,
+            reason: error.reason,
+            status:
+              error instanceof GenerationUnavailable ? error.status : undefined,
+          });
+        }
         if (
           error instanceof GenerationUnavailable &&
           error.reason === "quota"
@@ -97,8 +124,13 @@ export const checkpointWorker = inngest.createFunction(
         p_questions: generated.questions,
         p_answers: generated.key,
       });
-      if (saved.error || typeof saved.data !== "string")
+      if (saved.error || typeof saved.data !== "string") {
+        console.error("Completion test could not be saved", {
+          id,
+          code: saved.error?.code,
+        });
         throw new Error("Unable to store checkpoint");
+      }
       return { id: saved.data };
     });
   },

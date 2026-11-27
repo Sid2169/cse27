@@ -1,7 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { Bookmark, MoreHorizontal, NotebookPen } from "lucide-react";
+import {
+  Bookmark,
+  ClipboardCheck,
+  MoreHorizontal,
+  NotebookPen,
+} from "lucide-react";
 import Link from "@/components/navigation-link";
 import { ReaderControls } from "./reader-controls";
 import { saveCurrentSection } from "@/app/library/actions";
@@ -11,12 +16,14 @@ export function ChapterToolbar({
   headings,
   canSave,
   hasNotes,
+  completionTest,
   children,
 }: {
   path: string;
   headings: { id: string; title: string }[];
   canSave: boolean;
   hasNotes: boolean;
+  completionTest: { paper: string; chapter: string } | null;
   children: ReactNode;
 }) {
   const [menu, setMenu] = useState(false);
@@ -122,6 +129,16 @@ export function ChapterToolbar({
           <NotebookPen size={16} aria-hidden="true" />
           <span className="chapter-desktop-label">Notes &amp; highlights</span>
           <span className="chapter-mobile-label">Notes</span>
+        </Link>
+      )}
+      {completionTest && (
+        <Link
+          className="button"
+          href={{ pathname: "/dashboard/checkpoints", query: completionTest }}
+          onClick={() => setMenu(false)}
+        >
+          <ClipboardCheck size={16} aria-hidden="true" />
+          <span>Completion test</span>
         </Link>
       )}
       <div className="chapter-desktop-size">

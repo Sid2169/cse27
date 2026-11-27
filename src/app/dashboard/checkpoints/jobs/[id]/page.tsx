@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/navigation-link";
 import { notFound, redirect } from "next/navigation";
 import { requireOwner } from "@/server/supabase";
 import {
@@ -7,10 +7,11 @@ import {
 } from "@/server/assessment/checkpoint-service";
 import { startCheckpoint } from "../../actions";
 import { RefreshCheckpointJob } from "./refresh";
+import { TestActionButton } from "../../test-action-button";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
-  title: "Checkpoint generation",
+  title: "Preparing completion test",
   robots: { index: false, follow: false },
 };
 
@@ -35,11 +36,15 @@ export default async function CheckpointJob({
   if (error || !job) notFound();
   if (job.status === "ready")
     redirect("/dashboard/checkpoints/" + job.checkpoint_id);
+  const canResend = dispatch === "retry" || job.status === "queued";
   return (
     <div className="page">
-      <h1 className="compact-title">Checkpoint generation</h1>
+      <h1 className="compact-title">Preparing completion test</h1>
       {job.status === "failed" ? (
-        <p role="status">A verified checkpoint could not be generated.</p>
+        <p role="status">
+          We couldn’t prepare a verified completion test. You can try again
+          below.
+        </p>
       ) : dispatch === "retry" ? (
         <p role="status">
           The generation request could not be sent. Retry sending it below.
@@ -50,21 +55,30 @@ export default async function CheckpointJob({
         </p>
       ) : (
         <p role="status">
-          Your checkpoint is queued. You can leave this page and return later.
+          Your completion test is being prepared. It will open here when ready.
         </p>
       )}
       {job.status !== "failed" && dispatch !== "retry" && (
         <RefreshCheckpointJob />
       )}
-      <form action={startCheckpoint} className="stack-form">
-        <input type="hidden" name="paper" value={job.paper_code} />
-        <input type="hidden" name="chapter" value={job.chapter_path} />
-        <button className="button">
-          {job.status === "failed" ? "Try again" : "Resend request"}
-        </button>
-      </form>
-      <Link className="button" href="/dashboard/checkpoints">
-        Checkpoint history
+      {(job.status === "failed" || canResend) && (
+        <form action={startCheckpoint} className="stack-form">
+          <input type="hidden" name="paper" value={job.paper_code} />
+          <input type="hidden" name="chapter" value={job.chapter_path} />
+          <TestActionButton
+            label={job.status === "failed" ? "Try again" : "Resend request"}
+            pendingLabel="Requesting test…"
+          />
+        </form>
+      )}
+      <Link
+        className="button"
+        href={{
+          pathname: "/dashboard/checkpoints",
+          query: { paper: job.paper_code, chapter: job.chapter_path },
+        }}
+      >
+        Completion test history
       </Link>
     </div>
   );

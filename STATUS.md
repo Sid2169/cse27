@@ -33,6 +33,8 @@ No outstanding method requirement has been identified in the current specificati
 - Production runtime configuration is set only for production. Private reader migrations are applied. AI generation, assessment jobs and assessment storage are pending. The owner completed Google sign-in and Supabase confirms the verified Google identity signed in.
 - Stage 1 is partial: reader, owner Google sign-in, bookmarks, saved reading positions, notes and highlights are deployed. Synced reader settings are implemented with the same owner isolation and encrypted export. Local PostgreSQL checks have verified reader data isolation, stale writes and encrypted fixture restores. Diagrams, local images, and signed-in desktop/mobile browser verification remain pending. Stage 2 checkpoint scope and scoring work is in progress. Stages 3–7 remain pending.
 
+- Completion tests now have a chapter-toolbar entry, including on parts of a ready split chapter. The generation pipeline verifies individual candidates and keeps a sufficient set only when it covers the required parts. The chapter test page can reopen pending requests and unsubmitted tests.
+
 ## Study content and PYQs
 
 Root [syllabus.md](syllabus.md) contains the complete official syllabus, and all per-paper syllabus files are populated verbatim. The Mathematics optional syllabus is copied verbatim from the official notification because root [syllabus.md](syllabus.md) does not reproduce detailed optional syllabi.
