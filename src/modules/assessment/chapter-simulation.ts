@@ -30,6 +30,7 @@ export type MarkedAnswer = {
   awarded: number;
   feedback: string;
   criteria?: number[];
+  excluded?: boolean;
 };
 export type AnswerFile = { path: string; type: string; name: string };
 export type Extraction = { transcript: string; needsClarification: boolean };

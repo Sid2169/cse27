@@ -60,7 +60,7 @@ export async function generateWrittenSimulation(
       ? "Cover every numbered section with at least one question."
       : "Cover the main learning outcomes and every teaching part. For a split chapter, the first document is a summary, and each later document is a teaching part.";
   const built = (await generate(
-    `Prepare ${questionCount} compulsory written questions for a UPSC ${full ? "full-paper section" : refresherCount ? "refresher" : "chapter practice"} test for ${title} ${variant}. ${design[paper]}
+    `Prepare ${questionCount} ${full?.marks === 125 ? "alternative essay topics" : "compulsory written questions"} for a UPSC ${full ? "full-paper section" : refresherCount ? "refresher" : "chapter practice"} test for ${title} ${variant}. ${design[paper]}
 ${
   full
     ? "Follow the supplied syllabus and assign exactly " +
@@ -109,7 +109,7 @@ Chapter: ${content}`,
       !section ||
       !isText(candidate.stem, 8000) ||
       !isText(candidate.reference, 8000) ||
-      !isInt(candidate.marks, 2, 50) ||
+      !isInt(candidate.marks, 2, full?.marks ?? 50) ||
       !isInt(candidate.wordLimit, 0, 2000) ||
       (full &&
         (candidate.marks !== full.marks ||

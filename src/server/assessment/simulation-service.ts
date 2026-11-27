@@ -60,12 +60,16 @@ export function fullScope(paper: string) {
   const definition = getPaper(paper);
   const syllabus = definition && getDocument(definition.syllabus);
   if (!syllabus) return null;
-  const topics = syllabus.markdown
-    .split("\n")
-    .filter((line) => line.startsWith("- "))
-    .map((line) => line.slice(2));
+  const topics =
+    paper === "Mains-Essay"
+      ? ["Section A essay topics", "Section B essay topics"]
+      : syllabus.markdown
+          .split("\n")
+          .filter((line) => line.startsWith("- "))
+          .map((line) => line.slice(2));
   if (written ? !topics.length : topics.length !== (csat ? 6 : 7)) return null;
-  const sourceDetails = csat ? null : gsCurrentAffairs;
+  const sourceDetails =
+    csat || paper === "Mains-Essay" ? null : gsCurrentAffairs;
   return {
     syllabus,
     topics,

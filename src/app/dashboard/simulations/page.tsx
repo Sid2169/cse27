@@ -183,9 +183,11 @@ export default async function Simulations({
                 <p>
                   Diagnostic practice covering the full syllabus.{" "}
                   {written
-                    ? code.endsWith("-IV")
-                      ? "13 theory subparts and six case studies, 250 marks and three hours."
-                      : "20 compulsory questions, 250 marks and three hours."
+                    ? code === "Mains-Essay"
+                      ? "Two essays chosen from eight topics, 250 marks and three hours."
+                      : code.endsWith("-IV")
+                        ? "13 theory subparts and six case studies, 250 marks and three hours."
+                        : "20 compulsory questions, 250 marks and three hours."
                     : (csat ? "80" : "100") +
                       " questions, 200 marks and two hours."}
                 </p>
