@@ -45,7 +45,13 @@ export async function generateWrittenSimulation(
   title: string,
   variant: string,
   refresherCount?: number,
-  full?: { marks: number; words: number; history: string[]; design?: string },
+  full?: {
+    marks: number;
+    words: number;
+    history: string[];
+    design?: string;
+    criteriaMarks?: number[];
+  },
 ) {
   const sections = scope.flatMap(({ path, sections }) =>
     sections.map(({ id, title }) => ({ path, id, title })),
@@ -115,6 +121,11 @@ Chapter: ${content}`,
         (candidate.marks !== full.marks ||
           candidate.wordLimit !== full.words)) ||
       !Array.isArray(candidate.criteria) ||
+      (full?.criteriaMarks &&
+        (candidate.criteria.length !== full.criteriaMarks.length ||
+          full.criteriaMarks.some(
+            (marks, index) => candidate.criteria[index]?.marks !== marks,
+          ))) ||
       candidate.criteria.length < 2 ||
       candidate.criteria.length > 5 ||
       !candidate.criteria.every(
