@@ -1711,3 +1711,29 @@ h1,
   color: var(--muted);
   border-color: transparent;
 }
+
+.full-paper-chart {
+  width: 100%;
+  height: auto;
+  min-width: 0;
+}
+
+.full-paper-chart line {
+  stroke: currentColor;
+  opacity: 0.2;
+}
+
+.full-paper-chart text,
+.full-paper-chart circle {
+  fill: currentColor;
+}
+
+.full-paper-chart text {
+  font-size: 12px;
+}
+
+.full-paper-chart polyline {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}

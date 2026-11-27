@@ -1,3 +1,9 @@
+import {
+  fullPaperPercent,
+  PaperPerformance,
+  percentage,
+  type FullPaperResult,
+} from "./paper-performance";
 import Link from "@/components/navigation-link";
 import {
   BookOpen,
@@ -41,9 +47,9 @@ export default async function Dashboard() {
   const historicalQuery = simulationDb()?.rpc("latest_historical_results", {
     p_user: user.id,
   });
-  const fullHistoryQuery = simulationDb()
-    ?.rpc("full_simulation_results", { p_user: user.id })
-    .limit(20);
+  const fullHistoryQuery = simulationDb()?.rpc("full_paper_performance", {
+    p_user: user.id,
+  });
   const latestCumulativeQuery = simulationDb()?.rpc(
     "latest_cumulative_results",
     { p_user: user.id },
@@ -142,13 +148,8 @@ export default async function Dashboard() {
         .sort((a, b) => a.due_on.localeCompare(b.due_on))
     : [];
 
-  const fullHistory = ((await fullHistoryQuery)?.data ?? []) as {
-    id: string;
-    paper_code: string;
-    score_units: number;
-    max_units: number;
-    finalized_at: string;
-  }[];
+  const fullResponse = await fullHistoryQuery;
+  const fullHistory = (fullResponse?.data ?? []) as FullPaperResult[];
   const { data: latestHistorical } = (await historicalQuery) ?? {};
   const { data: latestCumulative } = (await latestCumulativeQuery) ?? {};
   return (
@@ -309,43 +310,31 @@ export default async function Dashboard() {
         )}
       </section>
 
-      {catalogue.papers.map((paper) => {
-        const results = fullHistory.filter(
-          (result) => result.paper_code === paper.id,
-        );
-        if (!results.length) return null;
-        return (
-          <section key={paper.id} className="section study-card">
-            <h2>Full-scope {paper.title} results</h2>
-            <ol className="study-list">
-              {results.map((result) => {
-                const percent = (100 * result.score_units) / result.max_units;
-                const label =
-                  new Intl.NumberFormat("en-IN", {
-                    maximumFractionDigits: 1,
-                  }).format(percent) + "%";
-                return (
-                  <li key={result.id} style={{ display: "block" }}>
-                    <Link href={simulationRoot + "/" + result.id}>
-                      <time dateTime={result.finalized_at}>
-                        {result.finalized_at.slice(0, 10)}
-                      </time>{" "}
-                      · {label}
-                    </Link>
-                    <meter
-                      style={{ width: "100%" }}
-                      min={-100 / 3}
-                      max={100}
-                      value={percent}
-                      aria-label={"Full-scope score " + label}
-                    />
-                  </li>
-                );
-              })}
-            </ol>
-          </section>
-        );
-      })}
+      {fullResponse?.error && (
+        <p role="alert">Full-paper results could not be loaded.</p>
+      )}
+      <div className="study-papers">
+        {catalogue.papers.flatMap((paper) =>
+          (paper.id === "Mains-Mathematics" ? ["I", "II"] : [""]).flatMap(
+            (variant) => {
+              const results = fullHistory.filter(
+                (result) =>
+                  result.paper_code === paper.id &&
+                  result.paper_variant === variant,
+              );
+              return results.length ? (
+                <PaperPerformance
+                  key={paper.id + variant}
+                  title={paper.title + (variant ? " Paper " + variant : "")}
+                  results={results}
+                />
+              ) : (
+                []
+              );
+            },
+          ),
+        )}
+      </div>
 
       <section aria-labelledby="study-paper-progress">
         <h2 id="study-paper-progress">Paper progress</h2>
@@ -355,7 +344,18 @@ export default async function Dashboard() {
             const done = qualified.filter(
               (row) => row.paper_code === paper.id,
             ).length;
-            const percent = Math.floor((100 * done) / paper.chapters.length);
+            const percent = paper.chapters.length
+              ? Math.floor((100 * done) / paper.chapters.length)
+              : null;
+            const latestFull = fullHistory.filter(
+              (result, index) =>
+                result.paper_code === paper.id &&
+                fullHistory.findIndex(
+                  (item) =>
+                    item.paper_code === paper.id &&
+                    item.paper_variant === result.paper_variant,
+                ) === index,
+            );
             return (
               <Link
                 className="study-card study-paper"
@@ -363,7 +363,7 @@ export default async function Dashboard() {
                 key={paper.id}
               >
                 <h3>{paper.title}</h3>
-                {progressAvailable ? (
+                {progressAvailable && percent !== null ? (
                   <>
                     <div>
                       <span>
@@ -380,6 +380,12 @@ export default async function Dashboard() {
                 ) : (
                   <p>Progress unavailable</p>
                 )}
+                {latestFull.map((result) => (
+                  <small key={result.paper_variant}>
+                    Latest full-scope {result.paper_variant} ·{" "}
+                    {percentage(fullPaperPercent(result))}
+                  </small>
+                ))}
                 {(
                   (latestHistorical ?? []) as {
                     paper_code: string;
