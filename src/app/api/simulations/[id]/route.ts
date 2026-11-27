@@ -1,3 +1,9 @@
+import {
+  choiceField,
+  readChoices,
+  validateChoices,
+  writtenChoice,
+} from "@/modules/assessment/written-choices";
 import { randomUUID } from "node:crypto";
 import {
   answerFileLimit,
@@ -22,6 +28,7 @@ type Body = {
   tab?: string;
   version?: number;
   answers?: SimulationAnswers;
+  choices?: unknown;
   timezone?: string;
   question?: string;
 };
@@ -90,7 +97,9 @@ export async function POST(request: Request, { params }: Context) {
   if (!["pulse", "start"].includes(input.action)) {
     const { data, error } = await db
       .from("chapter_simulations")
-      .select("kind,status,questions,attachments,clarification,version")
+      .select(
+        "paper_code,mode,kind,status,questions,answers,attachments,clarification,version",
+      )
       .eq("user_id", user.id)
       .eq("id", id)
       .maybeSingle();
@@ -98,6 +107,9 @@ export async function POST(request: Request, { params }: Context) {
     if (!data) return json({ error: "not-found" }, 404);
     const simulation = data as Pick<
       SimulationView,
+      | "paper_code"
+      | "mode"
+      | "answers"
       | "kind"
       | "status"
       | "questions"
@@ -112,9 +124,29 @@ export async function POST(request: Request, { params }: Context) {
       );
       if (!checked) return json({ error: "invalid-answer" }, 400);
       answers = checked;
+      const rule = writtenChoice(simulation.paper_code, simulation.mode);
+      const choices = rule
+        ? validateChoices(
+            input.action === "confirm"
+              ? readChoices(simulation.answers[choiceField])
+              : input.choices,
+            rule,
+            input.action !== "save",
+          )
+        : null;
+      if (rule && !choices) return json({ error: "invalid-choices" }, 400);
+      if (choices && input.action !== "save")
+        answers = Object.fromEntries(
+          Object.entries(answers).filter(([index]) =>
+            choices.includes(Number(index)),
+          ),
+        );
+      if (choices) answers[choiceField] = choices.join(",");
       if (input.action === "confirm") {
         const mustClarify = [
-          ...Object.keys(simulation.attachments),
+          ...Object.keys(simulation.attachments).filter(
+            (index) => !choices || choices.includes(Number(index)),
+          ),
           ...(simulation.clarification
             ? [String(simulation.clarification.question)]
             : []),

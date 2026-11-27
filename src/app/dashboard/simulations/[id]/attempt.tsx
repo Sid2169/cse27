@@ -15,6 +15,12 @@ import {
   type SimulationStatus,
 } from "@/modules/assessment/chapter-simulation";
 
+import {
+  choiceField,
+  readChoices,
+  type WrittenChoice,
+} from "@/modules/assessment/written-choices";
+
 type Question = {
   label?: string;
   stem: ReactNode;
@@ -36,6 +42,7 @@ type Action =
   "start" | "pulse" | "save" | "submit" | "attach" | "detach" | "confirm";
 
 const messages: Record<string, string> = {
+  "invalid-choices": "Choose one topic from each section before submitting.",
   conflict:
     "The saved answers changed in another tab. Reload saved answers before continuing.",
   "other-tab":
@@ -62,6 +69,7 @@ export function Attempt({
   initialAnswers,
   remainingMs,
   objective,
+  choice,
   questions,
   files,
   extracted,
@@ -73,6 +81,7 @@ export function Attempt({
   initialAnswers: SimulationAnswers;
   remainingMs: number | null;
   objective: boolean;
+  choice?: WrittenChoice;
   questions: Question[];
   files: Record<string, string>;
   extracted: Record<string, Extraction>;
@@ -130,8 +139,11 @@ export function Attempt({
             ? Intl.DateTimeFormat().resolvedOptions().timeZone
             : undefined,
         answers: ["save", "submit", "confirm"].includes(action)
-          ? snapshot
+          ? Object.fromEntries(
+              Object.entries(snapshot).filter(([key]) => key !== choiceField),
+            )
           : undefined,
+        choices: choice ? readChoices(snapshot[choiceField]) : undefined,
       };
       let payload: BodyInit = JSON.stringify(body);
       if (file) {
@@ -221,7 +233,7 @@ export function Attempt({
         if (!closed.current) setPending(null);
       }
     },
-    [id, initialStatus, editingReview, router],
+    [id, initialStatus, editingReview, router, choice],
   );
 
   useEffect(() => {
@@ -284,12 +296,34 @@ export function Attempt({
     );
   }
 
+  const selected = choice ? readChoices(answers[choiceField]) : null;
+  function choose(index: number) {
+    const current = readChoices(entries.current[choiceField]);
+    const next = [
+      ...current.filter(
+        (item) => Math.floor(item / 4) !== Math.floor(index / 4),
+      ),
+      index,
+    ];
+    const nextAnswers = { ...entries.current, [choiceField]: next.join(",") };
+    entries.current = nextAnswers;
+    dirty.current = true;
+    setAnswers(nextAnswers);
+  }
+
   const frozen = !!pending && pending !== "save";
   const disabled = held || conflict || frozen;
-  const answered = Object.values(answers).filter(
-    (value) =>
-      typeof value === "number" || (typeof value === "string" && value.trim()),
-  ).length;
+  const answered = Object.entries(answers)
+    .filter(
+      ([key]) =>
+        key !== choiceField && (!selected || selected.includes(Number(key))),
+    )
+    .map(([, value]) => value)
+    .filter(
+      (value) =>
+        typeof value === "number" ||
+        (typeof value === "string" && value.trim()),
+    ).length;
   return (
     <form
       className="stack-form simulation-attempt"
@@ -327,6 +361,12 @@ export function Attempt({
           )}
         </div>
       )}
+      {selected && (
+        <p>
+          Choose one topic from Section A and one from Section B. Only the two
+          selected topics will be marked.
+        </p>
+      )}
       {questions.map((question, index) => (
         <fieldset
           className="study-card simulation-question"
@@ -338,6 +378,17 @@ export function Attempt({
             {question.marks ? ` · ${question.marks} marks` : ""}
           </legend>
           {question.stem}
+          {selected && !editingReview && (
+            <label>
+              <input
+                type="radio"
+                name={"essay-section-" + Math.floor(index / 4)}
+                checked={selected.includes(index)}
+                onChange={() => choose(index)}
+              />{" "}
+              Choose this topic
+            </label>
+          )}
           {question.options ? (
             <div className="simulation-options">
               {question.options.map((option, value) => (
@@ -361,64 +412,70 @@ export function Attempt({
               </button>
             </div>
           ) : (
-            <>
-              {question.wordLimit ? (
-                <p className="footnote">
-                  Suggested limit {question.wordLimit} words
-                </p>
-              ) : null}
-              {extracted[index]?.needsClarification && (
-                <p role="alert">
-                  Check the unclear passages against the original answer.
-                </p>
-              )}
-              <label className="simulation-answer">
-                <span>{editingReview ? "Answer to mark" : "Your answer"}</span>
-                <textarea
-                  value={String(answers[index] ?? "")}
-                  rows={7}
-                  maxLength={answerLengthLimit}
-                  onChange={(event) => change(index, event.currentTarget.value)}
-                />
-              </label>
-              <div className="simulation-actions">
-                {fileNames[index] && (
-                  <>
-                    <a href={"/api/simulations/" + id + "?file=" + index}>
-                      Download {fileNames[index]}
-                    </a>
-                    {!editingReview && (
-                      <button
-                        type="button"
-                        className="button"
-                        onClick={() => void send("detach", String(index))}
-                      >
-                        Remove file
-                      </button>
-                    )}
-                  </>
+            (!selected || selected.includes(index)) && (
+              <>
+                {question.wordLimit ? (
+                  <p className="footnote">
+                    Suggested limit {question.wordLimit} words
+                  </p>
+                ) : null}
+                {extracted[index]?.needsClarification && (
+                  <p role="alert">
+                    Check the unclear passages against the original answer.
+                  </p>
                 )}
-                {!editingReview && (
-                  <label className="simulation-answer">
-                    <span>
-                      {fileNames[index]
-                        ? "Replace answer file"
-                        : "Attach PDF or photo"}{" "}
-                      (up to 2 MB)
-                    </span>
-                    <input
-                      type="file"
-                      accept="application/pdf,image/jpeg,image/png"
-                      onChange={(event) => {
-                        const file = event.currentTarget.files?.[0];
-                        if (file) void send("attach", String(index), file);
-                        event.currentTarget.value = "";
-                      }}
-                    />
-                  </label>
-                )}
-              </div>
-            </>
+                <label className="simulation-answer">
+                  <span>
+                    {editingReview ? "Answer to mark" : "Your answer"}
+                  </span>
+                  <textarea
+                    value={String(answers[index] ?? "")}
+                    rows={7}
+                    maxLength={answerLengthLimit}
+                    onChange={(event) =>
+                      change(index, event.currentTarget.value)
+                    }
+                  />
+                </label>
+                <div className="simulation-actions">
+                  {fileNames[index] && (
+                    <>
+                      <a href={"/api/simulations/" + id + "?file=" + index}>
+                        Download {fileNames[index]}
+                      </a>
+                      {!editingReview && (
+                        <button
+                          type="button"
+                          className="button"
+                          onClick={() => void send("detach", String(index))}
+                        >
+                          Remove file
+                        </button>
+                      )}
+                    </>
+                  )}
+                  {!editingReview && (
+                    <label className="simulation-answer">
+                      <span>
+                        {fileNames[index]
+                          ? "Replace answer file"
+                          : "Attach PDF or photo"}{" "}
+                        (up to 2 MB)
+                      </span>
+                      <input
+                        type="file"
+                        accept="application/pdf,image/jpeg,image/png"
+                        onChange={(event) => {
+                          const file = event.currentTarget.files?.[0];
+                          if (file) void send("attach", String(index), file);
+                          event.currentTarget.value = "";
+                        }}
+                      />
+                    </label>
+                  )}
+                </div>
+              </>
+            )
           )}
         </fieldset>
       ))}
@@ -435,7 +492,7 @@ export function Attempt({
               : "Submit exam"}
         </button>
         <span>
-          {answered} of {questions.length} answered
+          {answered} of {choice ? 2 : questions.length} answered
         </span>
         {conflict && (
           <button

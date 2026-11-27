@@ -1,3 +1,4 @@
+import { writtenChoice } from "@/modules/assessment/written-choices";
 import { notFound } from "next/navigation";
 import Link from "@/components/navigation-link";
 import { Markdown } from "@/components/markdown";
@@ -71,6 +72,7 @@ export default async function ChapterSimulation({
       : null;
   const full = simulation.mode === "full";
   const cumulative = simulation.mode === "cumulative";
+  const choice = writtenChoice(simulation.paper_code, simulation.mode);
   const objective = simulation.kind === "objective";
   const hindi = paper === "Mains-Indian-Language";
   const questions = simulation.questions ?? [];
@@ -267,6 +269,11 @@ export default async function ChapterSimulation({
               earn zero. The timer pauses after loss of connection and submits
               saved answers at expiry.
             </p>
+          ) : choice ? (
+            <p>
+              Write two essays of about 1,000–1,200 words each. Choose one topic
+              from each section.
+            </p>
           ) : (
             <p>
               Answer all questions. You manage the time. Marks are awarded
@@ -281,6 +288,7 @@ export default async function ChapterSimulation({
             initialAnswers={simulation.answers}
             remainingMs={simulation.remaining_ms}
             objective={objective}
+            choice={choice ?? undefined}
             clarification={simulation.clarification}
             extracted={simulation.extracted}
             files={Object.fromEntries(
@@ -378,8 +386,10 @@ export default async function ChapterSimulation({
                   <li key={index} className="study-card">
                     <h3>
                       {("label" in q && q.label) || "Question " + (index + 1)} ·{" "}
-                      {marks(item.awarded, 1)}
-                      {!objective && " / " + (q as { marks: number }).marks}
+                      {item.excluded ? "Not selected" : marks(item.awarded, 1)}
+                      {!objective &&
+                        !item.excluded &&
+                        " / " + (q as { marks: number }).marks}
                     </h3>
                     <div
                       className="prose simulation-stem"

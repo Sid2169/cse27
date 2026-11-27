@@ -15,6 +15,12 @@ import {
   type SimulationQuestion,
   type WrittenQuestion,
 } from "@/modules/assessment/chapter-simulation";
+import {
+  choiceField,
+  readChoices,
+  validateChoices,
+  writtenChoice,
+} from "@/modules/assessment/written-choices";
 import { checkpointId } from "./checkpoint-service";
 import { generateObjectiveQuestions } from "./checkpoint-generation";
 import { geminiGenerator, GenerationUnavailable } from "./gemini";
@@ -641,6 +647,7 @@ function recommendations(
   const hindi = simulation.paper_code === "Mains-Indian-Language";
   const questions = simulation.questions!;
   const gaps = questions.flatMap((question, index) => {
+    if (items[index].excluded) return [];
     const needsPractice =
       "options" in question
         ? simulation.answers[index] !== key[index].correctOption
@@ -659,13 +666,16 @@ function recommendations(
   });
   const entries = gaps.length
     ? gaps
-    : questions.slice(0, 2).map((question) => ({
-        sourcePath: question.sourcePath,
-        sourceHeading: question.sourceHeading,
-        reason: hindi
-          ? "याद रखने के लिए इस अनुभाग का पुनः अभ्यास करें।"
-          : "Revisit this section for retention practice.",
-      }));
+    : questions
+        .filter((_, index) => !items[index].excluded)
+        .slice(0, 2)
+        .map((question) => ({
+          sourcePath: question.sourcePath,
+          sourceHeading: question.sourceHeading,
+          reason: hindi
+            ? "याद रखने के लिए इस अनुभाग का पुनः अभ्यास करें।"
+            : "Revisit this section for retention practice.",
+        }));
   return [
     ...new Map(
       entries.map((entry) => [
@@ -703,6 +713,22 @@ export const markSimulation = inngest.createFunction(
       if (error) throw new Error("Could not load submitted simulation");
       if (!data) return;
       const simulation = data as Simulation;
+      const rule = writtenChoice(simulation.paper_code, simulation.mode);
+      const selected = rule
+        ? validateChoices(
+            readChoices(simulation.answers[choiceField]),
+            rule,
+            true,
+          )
+        : null;
+      if (rule && !selected)
+        throw new NonRetriableError("The written choices are invalid");
+      if (selected)
+        simulation.attachments = Object.fromEntries(
+          Object.entries(simulation.attachments).filter(([index]) =>
+            selected.includes(Number(index)),
+          ),
+        );
       const files = Object.keys(simulation.attachments);
       if (files.some((question) => !simulation.extracted[question])) {
         const extracting = await db
@@ -797,7 +823,15 @@ export const markSimulation = inngest.createFunction(
             }),
           );
           for (const batch of batches) marks.push(...batch);
-          const items = marks;
+          const items = marks.map((item, index) =>
+            !selected || selected.includes(index)
+              ? item
+              : {
+                  awarded: 0,
+                  feedback: "Alternative not selected.",
+                  excluded: true,
+                },
+          );
           grading = {
             score: items.reduce((sum, item) => sum + item.awarded, 0),
             feedback: { items },
