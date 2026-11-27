@@ -12,6 +12,7 @@ import {
   type MarkingGuide,
   type ObjectiveKey,
   type ObjectiveQuestion,
+  type SimulationQuestion,
   type WrittenQuestion,
 } from "@/modules/assessment/chapter-simulation";
 import { checkpointId } from "./checkpoint-service";
@@ -300,6 +301,93 @@ async function prepareFullObjectiveBatch(
   if (saved.error) throw new Error("Could not save a full-paper batch");
 }
 
+type WrittenBatch = { questions: WrittenQuestion[]; guide: MarkingGuide[] };
+
+async function prepareFullWrittenBatch(
+  db: Database,
+  id: string,
+  row: { paper_code: string; user_id: string; generation_model: string },
+  scope: NonNullable<ReturnType<typeof fullScope>>,
+  position: number,
+) {
+  const previous = await db
+    .from("cumulative_simulation_batches")
+    .select("position,blueprint")
+    .eq("simulation_id", id)
+    .lte("position", position)
+    .order("position");
+  if (previous.error) throw new Error("Could not load prior batches");
+  if (previous.data.some((batch) => batch.position === position)) return;
+  const history = await unseenHistory(db, row.user_id, row.paper_code);
+  history.push(
+    ...previous.data.flatMap((batch) =>
+      (batch.blueprint as WrittenBatch).questions.map((q) => q.stem),
+    ),
+  );
+  if (JSON.stringify(history).length > 300_000)
+    throw new NonRetriableError(
+      "Question history exceeds the review capacity for an unseen paper",
+    );
+  const format = scope.pattern?.[position];
+  if (!format) throw new NonRetriableError("Missing written exam pattern");
+  const topics = scope.topics.slice(
+    Math.floor((position * scope.topics.length) / scope.batches),
+    Math.floor(((position + 1) * scope.topics.length) / scope.batches),
+  );
+  const sections = topics.map((title, index) => ({
+    title,
+    id: "area-" + (index + 1),
+    text: title,
+    level: 2,
+  }));
+  const doc = {
+    ...scope.syllabus,
+    sections,
+    markdown:
+      "Assigned areas: " +
+      JSON.stringify(sections) +
+      "\nDated evidence: " +
+      JSON.stringify(scope.sourceDetails),
+  };
+  const draft = await generateWrittenSimulation(
+    geminiGenerator(row.generation_model),
+    [doc],
+    row.paper_code,
+    scope.syllabus.title,
+    "",
+    format.labels.length,
+    {
+      marks: format.marks,
+      words: format.words,
+      design: format.design,
+      history,
+    },
+  );
+  const normalize = (value: string) =>
+    value
+      .normalize("NFKC")
+      .toLowerCase()
+      .replace(/[^\p{L}\p{N}]+/gu, " ")
+      .trim();
+  const prior = new Set(history.map(normalize));
+  if (draft.questions.some((q) => prior.has(normalize(q.stem))))
+    throw new Error("A written question repeated prior material");
+  const blueprint = {
+    questions: draft.questions.map((q, index) => ({
+      ...q,
+      label: format.labels[index],
+      sourceHeading:
+        scope.syllabus.sections.find((section) => section.level === 2)?.id ??
+        scope.syllabus.sections[0].id,
+    })),
+    guide: draft.guide,
+  };
+  const saved = await db
+    .from("cumulative_simulation_batches")
+    .upsert({ simulation_id: id, position, blueprint });
+  if (saved.error) throw new Error("Could not save the written exam batch");
+}
+
 export const prepareSimulation = inngest.createFunction(
   {
     id: "prepare-chapter-simulation",
@@ -335,11 +423,13 @@ export const prepareSimulation = inngest.createFunction(
       const scope = fullScope(data.paper_code);
       if (!scope || scope.revision !== data.revision)
         throw new NonRetriableError("The full-paper sources changed");
-      const stem = scope.csat ? "csat" : "gs1";
+      const stem = scope.written ? "mains-gs" : scope.csat ? "csat" : "gs1";
       for (let position = 0; position < scope.batches; position++) {
         await step.run("prepare-" + stem + "-batch-" + position, async () => {
           try {
-            await prepareFullObjectiveBatch(db, id, data, position);
+            if (scope.written)
+              await prepareFullWrittenBatch(db, id, data, scope, position);
+            else await prepareFullObjectiveBatch(db, id, data, position);
           } catch (error) {
             providerFailure(error, "full paper preparation", id);
           }
@@ -354,12 +444,20 @@ export const prepareSimulation = inngest.createFunction(
         if (batches.error || batches.data.length !== scope.batches)
           throw new Error("A full-paper batch is missing");
         const parts = batches.data.map(
-          (row) => row.blueprint as ObjectiveBatch,
+          (row) => row.blueprint as ObjectiveBatch | WrittenBatch,
         );
-        const questions = parts.flatMap((part) => part.questions);
-        const guide = parts.flatMap((part) => part.guide);
+        const questions = parts.flatMap<SimulationQuestion>(
+          (part) => part.questions,
+        );
+        const guide = parts.flatMap<ObjectiveKey | MarkingGuide>(
+          (part) => part.guide,
+        );
         if (
-          questions.length !== scope.batches * 10 ||
+          questions.length !==
+            (scope.pattern?.reduce(
+              (count, batch) => count + batch.labels.length,
+              0,
+            ) ?? scope.batches * 10) ||
           guide.length !== questions.length
         )
           throw new Error("The full paper has an invalid question count");
@@ -368,8 +466,8 @@ export const prepareSimulation = inngest.createFunction(
           p_token: token,
           p_questions: questions,
           p_guide: guide,
-          p_duration: 7200,
-          p_max_units: 1200,
+          p_duration: scope.written ? 10800 : 7200,
+          p_max_units: scope.written ? 250 : 1200,
         });
         if (published.error) throw new Error("Could not publish the paper");
       });
@@ -649,13 +747,40 @@ export const markSimulation = inngest.createFunction(
         );
       } else {
         try {
-          const items = await markWrittenSimulation(
-            geminiGenerator(simulation.evaluation_model),
-            simulation.questions as WrittenQuestion[],
-            guide.guide as MarkingGuide[],
-            simulation.answers,
-            simulation.paper_code === "Mains-Indian-Language",
+          const questions = simulation.questions as WrittenQuestion[];
+          const marks: MarkedAnswer[] = [];
+          const offsets = Array.from(
+            { length: Math.ceil(questions.length / 5) },
+            (_, index) => index * 5,
           );
+          const batches = await Promise.all(
+            offsets.map(async (offset) => {
+              const slice = questions.slice(offset, offset + 5);
+              try {
+                return await markWrittenSimulation(
+                  geminiGenerator(simulation.evaluation_model),
+                  slice,
+                  (guide.guide as MarkingGuide[]).slice(offset, offset + 5),
+                  Object.fromEntries(
+                    slice.map((_, index) => [
+                      index,
+                      simulation.answers[offset + index] ?? null,
+                    ]),
+                  ),
+                  simulation.paper_code === "Mains-Indian-Language",
+                );
+              } catch (error) {
+                if (error instanceof UnresolvedWriting)
+                  throw new UnresolvedWriting(
+                    offset + error.question,
+                    error.request,
+                  );
+                throw error;
+              }
+            }),
+          );
+          for (const batch of batches) marks.push(...batch);
+          const items = marks;
           grading = {
             score: items.reduce((sum, item) => sum + item.awarded, 0),
             feedback: { items },

@@ -16,6 +16,7 @@ import {
 } from "@/modules/assessment/chapter-simulation";
 
 type Question = {
+  label?: string;
   stem: ReactNode;
   options?: string[];
   marks?: number;
@@ -333,7 +334,7 @@ export function Attempt({
           disabled={disabled}
         >
           <legend>
-            Question {index + 1}
+            {question.label ?? "Question " + (index + 1)}
             {question.marks ? ` · ${question.marks} marks` : ""}
           </legend>
           {question.stem}

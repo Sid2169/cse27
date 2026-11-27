@@ -117,7 +117,7 @@ export default async function ChapterSimulation({
         {result
           ? "Exam feedback"
           : full
-            ? "Full-scope Prelims exam"
+            ? "Full-scope exam"
             : cumulative
               ? "Cumulative exam simulation"
               : "Chapter exam simulation"}
@@ -271,7 +271,11 @@ export default async function ChapterSimulation({
                     ),
                     ...("options" in q
                       ? { options: q.options }
-                      : { marks: q.marks, wordLimit: q.wordLimit }),
+                      : {
+                          marks: q.marks,
+                          wordLimit: q.wordLimit,
+                          label: q.label,
+                        }),
                   }))
             }
           />
@@ -339,7 +343,8 @@ export default async function ChapterSimulation({
                 return (
                   <li key={index} className="study-card">
                     <h3>
-                      Question {index + 1} · {marks(item.awarded, 1)}
+                      {("label" in q && q.label) || "Question " + (index + 1)} ·{" "}
+                      {marks(item.awarded, 1)}
                       {!objective && " / " + (q as { marks: number }).marks}
                     </h3>
                     <div

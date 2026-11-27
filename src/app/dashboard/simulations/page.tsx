@@ -10,6 +10,7 @@ import {
 import { requireOwner } from "@/server/supabase";
 import {
   cumulativeScope,
+  fullScope,
   simulationDb,
   simulationScope,
 } from "@/server/assessment/simulation-service";
@@ -167,16 +168,26 @@ export default async function Simulations({
       )}
       {!chapter &&
         db &&
-        ["Prelims-General-Studies-I", "Prelims-CSAT"]
-          .filter((code) => !selected || selected.id === code)
-          .map((code) => {
+        catalogue.papers
+          .filter(
+            (paper) =>
+              (!selected || selected.id === paper.id) && fullScope(paper.id),
+          )
+          .map(({ id: code, title }) => {
             const csat = code === "Prelims-CSAT";
+            const written = code.startsWith("Mains-");
+            const name = written ? "Mains " + title : csat ? "CSAT" : "GS-I";
             return (
               <section key={code} className="section study-card">
-                <h2>Full-scope {csat ? "CSAT" : "GS-I"} exam</h2>
+                <h2>Full-scope {name} exam</h2>
                 <p>
                   Diagnostic practice covering the full syllabus.{" "}
-                  {csat ? 80 : 100} questions, 200 marks and two hours.
+                  {written
+                    ? code.endsWith("-IV")
+                      ? "13 theory subparts and six case studies, 250 marks and three hours."
+                      : "20 compulsory questions, 250 marks and three hours."
+                    : (csat ? "80" : "100") +
+                      " questions, 200 marks and two hours."}
                 </p>
                 {!csat && (
                   <p>
@@ -189,7 +200,7 @@ export default async function Simulations({
                   <input type="hidden" name="paper" value={code} />
                   <input type="hidden" name="request" value={randomUUID()} />
                   <TestActionButton
-                    label={"Prepare full " + (csat ? "CSAT" : "GS-I") + " exam"}
+                    label={"Prepare full " + name + " exam"}
                     pendingLabel="Requesting exam…"
                   />
                 </form>

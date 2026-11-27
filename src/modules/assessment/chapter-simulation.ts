@@ -17,6 +17,7 @@ export type ObjectiveQuestion = SectionReference & {
   options: string[];
 };
 export type WrittenQuestion = SectionReference & {
+  label?: string;
   stem: string;
   marks: number;
   wordLimit: number;
