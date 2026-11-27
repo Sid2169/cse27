@@ -80,9 +80,12 @@ export default async function Dashboard() {
         .limit(5),
       simulationDb()
         ?.from("chapter_simulation_revision_tasks")
-        .select("paper_code,paper_variant,chapter_path,revision,due_on", {
-          count: "exact",
-        })
+        .select(
+          "paper_code,paper_variant,chapter_path,revision,due_on,schedule_state",
+          {
+            count: "exact",
+          },
+        )
         .eq("user_id", user.id),
     ]);
   const anchor = recent?.data?.anchor as BookmarkAnchor | undefined;
@@ -128,9 +131,11 @@ export default async function Dashboard() {
               ...task,
               variant,
               due_on: currentDue?.due_on ?? task.due_on,
+              scheduled: currentDue?.schedule_state !== "unscheduled",
             };
           });
         })
+        .filter((task) => task.scheduled)
         .sort((a, b) => a.due_on.localeCompare(b.due_on))
     : [];
 
@@ -204,6 +209,11 @@ export default async function Dashboard() {
         <section className="study-card">
           <CalendarDays size={22} aria-hidden="true" />
           <h2>Revision schedule</h2>
+          {simulationEnabled && (
+            <Link href="/dashboard/revisions">
+              View revision schedule and preferences
+            </Link>
+          )}
           {!tasksAvailable ? (
             <p>
               {assessment
