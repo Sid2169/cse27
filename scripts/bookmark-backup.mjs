@@ -1,3 +1,4 @@
+import { assessmentRestore } from "./assessment-backup.mjs";
 import {
   createCipheriv,
   createDecipheriv,
@@ -51,7 +52,11 @@ export function decryptBookmarks(bytes, passphrase) {
   );
 }
 
-export function bookmarkRestoreSql(payload, ownerId) {
+export function bookmarkRestoreSql(
+  payload,
+  ownerId,
+  assessment = assessmentRestore(payload, ownerId),
+) {
   if (payload?.format !== 1 || !Array.isArray(payload.bookmarks))
     throw new Error("Invalid bookmark backup.");
   if (!/^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i.test(ownerId)) {
@@ -143,5 +148,5 @@ insert into public.bookmarks (id,user_id,chapter_path,source_commit,anchor,label
 select id,'${ownerId}',chapter_path,source_commit,anchor,label,version,created_at,updated_at
 from jsonb_to_recordset(convert_from(decode('${encoded}','base64'),'UTF8')::jsonb)
 as backup(id uuid,chapter_path text,source_commit text,anchor jsonb,label text,version integer,created_at timestamptz,updated_at timestamptz);
-${restorePositions}${restoreAnnotations}${restorePreferences}${restoreCheckpoints}commit;\n`;
+${restorePositions}${restoreAnnotations}${restorePreferences}${restoreCheckpoints}${assessment.sql}commit;\n`;
 }
