@@ -121,7 +121,7 @@ export default async function Attempt({
     );
   }
   return (
-    <div className="page">
+    <div className="page completion-test-page">
       <h1 className="compact-title">Completion test</h1>
       <p>{title}</p>
       <p>
@@ -133,30 +133,37 @@ export default async function Attempt({
           Submission could not be saved. Review your answers and try again.
         </p>
       )}
-      <form action={submitCheckpoint} className="stack-form">
+      <form action={submitCheckpoint} className="completion-test-form">
         <input type="hidden" name="id" value={id} />
         <CheckpointTimezone />
         {questions.map((q, index) => (
-          <fieldset className="section" key={index}>
-            <legend>
-              {index + 1}. {q.stem}
-            </legend>
-            <label>
-              <input
-                name={"q-" + index}
-                type="radio"
-                value="blank"
-                defaultChecked
-              />{" "}
-              Leave blank
-            </label>
-            {q.options.map((option, value) => (
-              <label key={value}>
-                <input name={"q-" + index} type="radio" value={value} />{" "}
-                {option}
-              </label>
-            ))}
-          </fieldset>
+          <div className="completion-question-card" key={index}>
+            <fieldset>
+              <legend className="completion-question-title">
+                <span className="completion-question-number">
+                  Question {index + 1}
+                </span>
+                {q.stem}
+              </legend>
+              <div className="completion-options">
+                {q.options.map((option, value) => (
+                  <label className="completion-option" key={value}>
+                    <input name={"q-" + index} type="radio" value={value} />
+                    <span>{option}</span>
+                  </label>
+                ))}
+                <label className="completion-option completion-option-blank">
+                  <input
+                    name={"q-" + index}
+                    type="radio"
+                    value="blank"
+                    defaultChecked
+                  />
+                  <span>Leave blank</span>
+                </label>
+              </div>
+            </fieldset>
+          </div>
         ))}
         <TestActionButton
           label="Submit completion test"
