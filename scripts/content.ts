@@ -268,6 +268,45 @@ if (process.argv[1]?.endsWith("/scripts/content.ts")) {
   );
   writeFileSync(".generated/gs1-2024-stems.json", JSON.stringify(gsStems));
   const objectiveHistoricalReferences = [
+    ["Prelims-General-Studies-I", 2016, 100, {}],
+    ["Prelims-CSAT", 2016, 80, {}],
+    ["Prelims-General-Studies-I", 2017, 100, {}],
+    [
+      "Prelims-CSAT",
+      2017,
+      80,
+      {
+        76: "Use the one-way and two-way railway routes among eight stations to identify a station that a journey from C to H must pass.",
+      },
+    ],
+    ["Prelims-General-Studies-I", 2018, 100, {}],
+    [
+      "Prelims-CSAT",
+      2018,
+      80,
+      {
+        1: "Count triangular faces or outlines in the supplied three-dimensional figure.",
+        5: "Find the ratio of distances travelled by two vehicles from graphs of increasing and constant velocity, with PD equal to half of LD.",
+        11: "Read the steel-import chart and compare sheet steel tonnage with coil steel tonnage over the first three months.",
+        12: "Estimate six months of sheet steel import expenditure from the tonnage and unit price in the steel-import chart.",
+        13: "Use the first three months of the steel-import chart to estimate the ratio of sheet steel to scrap steel.",
+        14: "Compare the rotated views of a marked solid to find the face opposite the one-dot face.",
+        15: "Compare the rotated views of a marked solid to find the face opposite the two-dot face.",
+        16: "Compare the rotated views of a marked solid to find the face opposite the cross.",
+        61: "Identify the unsupported claim from the graph of actual and expected work progress between April and September.",
+        62: "Count ways to paint the three positions on a winners' podium in different colours selected from six.",
+        63: "Use a plot of national birth and death rates to identify the inference that follows for 1990 to 2010.",
+        64: "Read the birth and death rate chart from its 1970 baseline and evaluate claims about steady population, growth and rates.",
+        65: "Compare charts of average hourly worker earnings over time and identify the observation they support.",
+        66: "Complete the missing figure in the pictured pattern using the visual clues.",
+        67: "Find the break-even production quantity using separate graphs of manufacturing costs and projected sales.",
+        70: "Find stage seven in a sequence of six figures by tracking how their parts move.",
+        71: "Compare age-group curves for two countries and check inferences about dependency ratios and future workforce shares.",
+        72: "Use the positions of Lakshmi and her relatives across a badminton doubles net to deduce the strongest player.",
+        73: "Infer the central bank's likely reason for the series of policy-rate changes shown in its chart.",
+        76: "Use a twenty-year composition-of-tax-revenue chart to evaluate claims about direct and indirect tax shares and excise trends.",
+      },
+    ],
     ["Prelims-General-Studies-I", 2019, 100, {}],
     [
       "Prelims-CSAT",
