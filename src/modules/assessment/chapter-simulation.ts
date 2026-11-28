@@ -25,6 +25,7 @@ export type WrittenQuestion = SectionReference & {
 export type SimulationQuestion = ObjectiveQuestion | WrittenQuestion;
 export type ObjectiveKey = {
   correctOption: number | null;
+  alternateCorrectOption?: number;
   explanation: string;
 };
 export type Criterion = { description: string; marks: number };
@@ -106,7 +107,10 @@ export function scoreObjective(
       blank++;
       return { awarded: 0, feedback: "Unanswered. " + item.explanation };
     }
-    if (answer === item.correctOption) {
+    if (
+      answer === item.correctOption ||
+      answer === item.alternateCorrectOption
+    ) {
       correct++;
       return { awarded: correctUnits / 6, feedback: item.explanation };
     }

@@ -8,6 +8,8 @@ import type {
 } from "@/modules/assessment/chapter-simulation";
 import csatStems from "../../../.generated/csat-2024-stems.json";
 import gsStems from "../../../.generated/gs1-2024-stems.json";
+import gs2021 from "../../../.generated/Prelims-General-Studies-I-2021-stems.json";
+import csat2021 from "../../../.generated/Prelims-CSAT-2021-stems.json";
 import gs2022 from "../../../.generated/Prelims-General-Studies-I-2022-stems.json";
 import csat2022 from "../../../.generated/Prelims-CSAT-2022-stems.json";
 import gs2023 from "../../../.generated/Prelims-General-Studies-I-2023-stems.json";
@@ -16,6 +18,21 @@ import gs2026 from "../../../.generated/Prelims-General-Studies-I-2026-stems.jso
 import csat2026 from "../../../.generated/Prelims-CSAT-2026-stems.json";
 import gs2025 from "../../../.generated/Prelims-General-Studies-I-2025-stems.json";
 import csat2025 from "../../../.generated/Prelims-CSAT-2025-stems.json";
+
+// Transcribed from the final official 2021 Series A keys, column by column.
+const gs2021Letters = [
+  "CBBABDAADDCABCBABDAC",
+  "CBDABCCCADCAABDCDACB",
+  "BBACACDBABBBDDBBACDD",
+  "CBBBCCBCABACDBDDCBCX",
+  "DBBDAAAAADBBBDDDDCBD",
+].join("");
+const csat2021Letters = [
+  "BDCCCBBDDDDAACCBBBDB",
+  "ADDDCACCCBCCCBDCACCB",
+  "ACDABBBADCBCCABBDACB",
+  "BDBBDBCDBACDBCBBBADD",
+].join("");
 
 // Transcribed from the final official 2022 Series A keys, column by column.
 const gs2022Letters = [
@@ -142,9 +159,20 @@ export function historicalScope(paper: string, year: string) {
       csat: string;
       gsDropped?: number[];
       csatDropped?: number[];
+      csatAlternate?: { number: number; letter: string };
       answerKey: (gs: boolean) => string;
     }
   > = {
+    "2021": {
+      gs: gs2021Letters,
+      csat: csat2021Letters,
+      gsDropped: [80],
+      csatAlternate: { number: 39, letter: "D" },
+      answerKey: (gs) =>
+        gs
+          ? "https://forumias.com/blog/wp-content/uploads/2022/05/UPSC-IAS-2021-Prelims-answer-key-GS-Paper-1.pdf"
+          : "https://www.clearias.com/up/Official-UPSC-Answer-Key-GS2-CSE-Prelims-2021.pdf",
+    },
     "2022": {
       gs: gs2022Letters,
       csat: csat2022Letters,
@@ -185,6 +213,7 @@ export function historicalScope(paper: string, year: string) {
     ? newerEditions[year]
     : undefined;
   if (modern && !known) return null;
+  const alternate = gs ? undefined : known?.csatAlternate;
   const knownDropped = gs ? known?.gsDropped : known?.csatDropped;
   const source: HistoricalSource = known
     ? {
@@ -215,19 +244,27 @@ export function historicalScope(paper: string, year: string) {
     throw new Error(
       "Historical answer key does not match the verified booklet",
     );
-  const guide: ObjectiveKey[] = Array.from(letters, (letter) => ({
-    correctOption: letter === "X" ? null : "ABCD".indexOf(letter),
-    explanation:
-      letter === "X"
-        ? provisional
-          ? "The provisional UPSC key excludes this question."
-          : "UPSC dropped this question from scoring."
-        : (provisional ? "The provisional " : "The published ") +
-          source.series +
-          " key gives option " +
-          letter +
-          ".",
-  }));
+  const guide: ObjectiveKey[] = Array.from(letters, (letter, index) => {
+    if (alternate?.number === index + 1)
+      return {
+        correctOption: "ABCD".indexOf(letter),
+        alternateCorrectOption: "ABCD".indexOf(alternate.letter),
+        explanation: `The published ${source.series} key accepts either ${letter} or ${alternate.letter}.`,
+      };
+    return {
+      correctOption: letter === "X" ? null : "ABCD".indexOf(letter),
+      explanation:
+        letter === "X"
+          ? provisional
+            ? "The provisional UPSC key excludes this question."
+            : "UPSC dropped this question from scoring."
+          : (provisional ? "The provisional " : "The published ") +
+            source.series +
+            " key gives option " +
+            letter +
+            ".",
+    };
+  });
   const questions: ObjectiveQuestion[] = guide.map((_, index) => ({
     stem:
       modern || gs
@@ -248,7 +285,9 @@ export function historicalScope(paper: string, year: string) {
     revision: createHash("sha256")
       .update(
         JSON.stringify(
-          modern || gs ? [source, letters] : [source, letters, csatStems],
+          modern || gs
+            ? [source, letters, ...(alternate ? [alternate] : [])]
+            : [source, letters, csatStems],
         ),
       )
       .digest("hex"),
@@ -258,6 +297,7 @@ export function historicalScope(paper: string, year: string) {
 // Research transcriptions use different booklet orders. Use them only
 // to check for previously seen content, never pair them with Series A keys.
 export function historicalResearchStems(paper: string, year: number) {
+  if (year === 2021) return paper === "Prelims-CSAT" ? csat2021 : gs2021;
   if (year === 2022) return paper === "Prelims-CSAT" ? csat2022 : gs2022;
   if (year === 2023) return paper === "Prelims-CSAT" ? csat2023 : gs2023;
   if (year === 2026) return paper === "Prelims-CSAT" ? csat2026 : gs2026;
