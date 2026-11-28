@@ -388,3 +388,64 @@ test("a published objective key can accept either of two single answers", () => 
   assert.equal(scoreObjective("Prelims-CSAT", key, { 0: 1 }).score, -5);
   assert.equal(scoreObjective("Prelims-CSAT", key, {}).feedback.blank, 1);
 });
+
+test("historical writing accepts half marks and rejects finer or excessive awards", async () => {
+  const slot = {
+    label: "Question 1",
+    stem: "",
+    marks: 12.5,
+    wordLimit: 200,
+    sourcePath: "syllabus.md",
+    sourceHeading: "",
+  };
+  const pdf = { mimeType: "application/pdf", data: "example" };
+  const prepare = (first: number, second: number) =>
+    prepareHistoricalWriting(
+      async (prompt) => ({
+        items: [
+          prompt.startsWith("Independently")
+            ? { label: slot.label, valid: true }
+            : {
+                label: slot.label,
+                readable: true,
+                summary: "Practice question",
+                reference: "Practice rubric reference",
+                criteria: [
+                  { description: "Explanation", marks: first },
+                  { description: "Evidence", marks: second },
+                ],
+              },
+        ],
+      }),
+      pdf,
+      [slot],
+      "English",
+    );
+  const prepared = await prepare(7, 5.5);
+  await assert.rejects(prepare(7.25, 5.25), /incomplete/);
+
+  const mark = (award: number, question = prepared.questions[0]) =>
+    markWrittenSimulation(
+      async () => ({
+        items: [
+          {
+            index: 0,
+            resolved: true,
+            criteria: [5, award],
+            feedback: "Partial credit.",
+          },
+        ],
+      }),
+      [question],
+      prepared.guide,
+      { 0: "Response" },
+      false,
+    );
+  assert.equal((await mark(4.5))[0].awarded, 9.5);
+  await assert.rejects(mark(4.25), /Invalid criterion award/);
+  await assert.rejects(mark(6), /Invalid criterion award/);
+  await assert.rejects(
+    mark(4.5, { ...slot, marks: 12 }),
+    /Invalid criterion award/,
+  );
+});
