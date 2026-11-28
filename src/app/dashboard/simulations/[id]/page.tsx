@@ -201,6 +201,12 @@ export default async function ChapterSimulation({
               marking.
             </p>
           )}
+          {historical.provisional && (
+            <p className="notice">
+              This attempt uses UPSC’s provisional key. A later final key may
+              differ.
+            </p>
+          )}
           {!!historical.dropped?.length && (
             <p>
               The published key excludes {historical.dropped.length} questions.
@@ -211,7 +217,9 @@ export default async function ChapterSimulation({
             <a href={historical.answerKey}>
               {updated
                 ? "View the UPSC key for the original booklet"
-                : "View the published UPSC answer key (PDF mirror)"}
+                : historical.provisional
+                  ? "View the provisional UPSC answer key (PDF mirror)"
+                  : "View the published UPSC answer key (PDF mirror)"}
             </a>
           )}
         </div>
