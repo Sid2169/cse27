@@ -572,7 +572,7 @@ export default async function ChapterSimulation({
             </ol>
           </section>
           <section className="study-card section">
-            <h2>Refresher checklist</h2>
+            <h2 id="refresher-checklist">Refresher checklist</h2>
             {(full || historical) && (
               <p>
                 Review the recommended question feedback or linked study

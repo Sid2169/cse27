@@ -1,6 +1,6 @@
 # Repository Status
 
-Application planning/schema updated 27 November 2026; study-content observations retain their dates. This documentation update is not a fresh content or source audit. [README.md](README.md) provides navigation; [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md) holds planning and decisions.
+Application delivery updated 28 November 2026. Study-content observations retain their individual dates. [README.md](README.md) provides navigation; [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md) holds planning and decisions.
 
 ## Application and Methods
 
@@ -8,16 +8,16 @@ Application planning/schema updated 27 November 2026; study-content observations
 |---|---|
 | Application requirements | Recorded in [SPECIFICATION.md](SPECIFICATION.md) |
 | UI/architecture and delivery plan | Accepted choices and staged implementation recorded in [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md), 27 November 2026. |
-| Private reading tools | Notes, highlights, bookmarks, reading position/preferences specified and included in the schema draft; not implemented. |
+| Private reading tools | Private notes, highlights, bookmarks, saved locations and preferences are deployed. |
 | Shared test generation | Authored: [TEST-GENERATION-COMMON.md](TEST-GENERATION-COMMON.md) |
 | Prelims generation / feedback | Authored for GS-I and CSAT: [generation](PRELIMS-TEST-GENERATION.md), [feedback](PRELIMS-TEST-FEEDBACK.md) |
 | Mains generation / evaluation | Authored for GS I–IV, Essay, Hindi A, English B and Mathematics I–II: [generation](MAINS-TEST-GENERATION.md), [evaluation](MAINS-ANSWER-EVALUATION.md) |
 | Chapter checkpoints | Authored, including revision-based requalification: [CHAPTER-CHECKPOINT.md](CHAPTER-CHECKPOINT.md) |
 | Chapter-test scheduling | Authored: [REVISION-SCHEDULING.md](REVISION-SCHEDULING.md), adapted from spaced-rep's documented policy |
 | Study content | See [Study content and PYQs](#study-content-and-pyqs) below and the paper curricula. |
-| Web application | Public reader implemented 27 November 2026: curriculum-indexed catalogue, paper/chapter navigation, planned-content labels, sanitised Markdown, math, heading links, contents, text size, themes and section search. Local typecheck/lint, 7 content tests and production build pass. Browser overview and search checked. Reader PR #2 passed GitHub Actions and merged with a merge commit; Vercel production reader verified at https://cse27.vercel.app/ on 27 November 2026. Owner authentication deployed in PR #3 (GitHub Actions and Vercel builds pass): server-verified owner checks, Google/password entry points, confirmation, recovery, private no-store routes. Provider check: email enabled and verified owner Google sign-in confirmed on 27 November 2026. Production login responds successfully and anonymous dashboard access redirects to login without private content. Preview authentication fails closed without production configuration. Password recovery still requires live verification; reader persistence and assessments remain unimplemented. |
-| Database schema | [Drafted](DATABASE-DESIGN.md), including private annotations, bookmarks, reading positions/preferences (27 November 2026); Git learning material remains separate from site-created records. No migrations applied or database validation performed. |
-| Implementation dependencies | Owner identity, application-only transient retention boundary and manual encrypted backup destination accepted 27 November 2026. Google OAuth/runtime configuration, backup implementation and restore verification remain pending; see [feasibility](IMPLEMENTATION-PLAN.md#3-resolve-feasibility-before-dependent-features) and [deployment](IMPLEMENTATION-PLAN.md#11-deployment-configuration-and-recovery). |
+| Web application | [Production site](https://cse27.vercel.app/). The reader, owner sign-in, assessment modes, revision scheduling, analytics and backup export are deployed. |
+| Database schema | [Logical design](DATABASE-DESIGN.md). Applied migrations are in [supabase/migrations](supabase/migrations). |
+| Verification | Public routes and anonymous login redirects have been checked. Google sign-in was confirmed on 27 November 2026. Signed-in end-to-end runs of newly deployed AI modes and live password recovery still need verification. |
 
 Method availability does not establish teaching readiness or verify a future paper's pattern.
 
@@ -30,21 +30,21 @@ No outstanding method requirement has been identified in the current specificati
 - Production: https://cse27.vercel.app/ — Vercel deployment `dpl_9jetoZRHkvgqAVV27FthbXhToNe4`, source merge `967c6c49cd9e428757fe9f6fae4959484c1d17ef`.
 - [PR #1](https://github.com/Sid2169/cse27/pull/1): accepted implementation decisions. [PR #2](https://github.com/Sid2169/cse27/pull/2): public learning reader. [PR #3](https://github.com/Sid2169/cse27/pull/3): owner authentication. Each merged with a merge commit, without squash.
 - Nine tests, TypeScript, ESLint and production builds passed. Production HTTP checks passed for section search and Mathematics/KaTeX rendering; overview/search were inspected in the browser. The catalogue contains 10 physical paper folders, 633 whole chapters (22 authored), and 664 learning documents including parts, curricula and syllabi. Mathematics remains shared between its two examination papers.
-- Production runtime configuration is set only for production. Private reader migrations are applied. AI generation, assessment jobs and assessment storage are pending. The owner completed Google sign-in and Supabase confirms the verified Google identity signed in.
-- Stage 1 is partial: reader, owner Google sign-in, bookmarks, saved reading positions, notes and highlights are deployed. Synced reader settings are implemented with the same owner isolation and encrypted export. Local PostgreSQL checks have verified reader data isolation, stale writes and encrypted fixture restores. Diagrams, local images, and signed-in desktop/mobile browser verification remain pending. Stage 2 checkpoint scope and scoring work is in progress. Stages 3–7 remain pending.
+- Production runtime configuration is set only for production. Private reader migrations are applied. Subsequent assessment releases are recorded below. The owner completed Google sign-in and Supabase confirms the verified Google identity signed in.
+- The reader and synced preferences preserve owner isolation. Local PostgreSQL fixtures have verified private reader isolation, stale writes and encrypted restores.
 
 - Completion tests now have a chapter-toolbar entry, including on parts of a ready split chapter. The generation pipeline verifies individual candidates and keeps a sufficient set only when it covers the required parts. The chapter test page can reopen pending requests and unsubmitted tests.
 
 ## Chapter exam simulations — 27 November 2026
 
 - Ready chapters and their parts open the same whole-chapter exam simulation from the reader toolbar. Chapter practice includes timed Prelims MCQs and written Mains questions, retained answer files and transcription review, frozen feedback, and chapter-specific history.
-- Qualified current-revision attempts update revision due dates with the default scheduling settings. Refresher recommendations are retained with the result. Schedule preference controls are separate pending stages.
+- Qualified current-revision attempts update revision due dates with the default scheduling settings. Refresher recommendations are retained with the result. The revision view exposes schedule preferences, overrides and task history.
 
 - Finalized Mains chapter simulations can show their stored reference solutions on request from feedback. Active attempts have no access to model answers.
 
 - The combined refresher checklist supports on-demand tests. Questions, guides and answers remain transient in the application. A passing result updates only the checklist completion flag.
 
-- Cumulative exams use a snapshot of currently qualified chapter revisions, with paper-specific marking and no change to chapter revision dates. The dashboard shows the latest cumulative percentage per paper variant.
+- Cumulative exams use a snapshot of currently qualified chapter revisions, with paper-specific marking and no change to chapter revision dates. The dashboard shows the latest cumulative percentage per paper variant. It also lists unfinished exams, pending refresher checklists and revisions due today.
 
 - The full-scope CSAT diagnostic uses the 2026 pattern (80 questions, 200 marks, two hours), verifies batches, and compares drafts with previously presented paper questions. Dashboard performance graphs use only full-scope scores. Mathematics I and II have separate graphs, and paper cards show the latest full-scope score.
 

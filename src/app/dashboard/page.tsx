@@ -9,10 +9,12 @@ import {
   BookOpen,
   Bookmark,
   CalendarDays,
+  ClipboardList,
+  ListTodo,
   ListChecks,
   Settings,
 } from "lucide-react";
-import { catalogue, getDocument } from "@/modules/content/catalogue";
+import { catalogue, getDocument, getPaper } from "@/modules/content/catalogue";
 import { documentUrl } from "@/modules/content/types";
 import {
   bookmarkLocation,
@@ -32,6 +34,8 @@ import {
 import {
   simulationLink,
   simulationRoot,
+  simulationStatusLabel,
+  type SimulationSummary,
 } from "@/modules/assessment/chapter-simulation";
 
 export const dynamic = "force-dynamic";
@@ -44,66 +48,84 @@ export default async function Dashboard() {
   const { db, user } = await requireOwner();
   const assessment = checkpointDb();
   const checkpoints = assessment?.from("chapter_checkpoints");
-  const historicalQuery = simulationDb()?.rpc(
-    "latest_historical_paper_results",
-    {
-      p_user: user.id,
-    },
-  );
-  const latestUpdatedQuery = simulationDb()?.rpc(
-    "latest_updated_paper_results",
-    { p_user: user.id },
-  );
-  const fullHistoryQuery = simulationDb()?.rpc("full_paper_performance", {
+  const exams = simulationDb();
+  const historicalQuery = exams?.rpc("latest_historical_paper_results", {
     p_user: user.id,
   });
-  const latestCumulativeQuery = simulationDb()?.rpc(
-    "latest_cumulative_results",
-    { p_user: user.id },
-  );
-  const [recent, qualifications, tasks, jobs, attempts, examTasks] =
-    await Promise.all([
-      process.env.READER_POSITIONS_ENABLED === "true"
-        ? db
-            .from("reading_positions")
-            .select("anchor")
-            .order("updated_at", { ascending: false })
-            .limit(1)
-            .maybeSingle()
-        : null,
-      assessment
-        ?.from("chapter_checkpoint_qualifications")
-        .select("paper_code,chapter_path,revision", { count: "exact" })
-        .eq("user_id", user.id),
-      assessment
-        ?.from("checkpoint_revision_tasks")
-        .select("paper_code,chapter_path,revision,due_on", { count: "exact" })
-        .eq("user_id", user.id)
-        .order("due_on"),
-      assessment
-        ?.from("checkpoint_generation_jobs")
-        .select("id,chapter_path,status")
-        .eq("user_id", user.id)
-        .in("status", ["queued", "waiting"])
-        .order("created_at", { ascending: false })
-        .limit(5),
-      checkpoints
-        ?.select(
-          "id,chapter_path,chapter_checkpoint_results(correct,wrong,blank,qualified)",
-        )
-        .eq("user_id", user.id)
-        .order("created_at", { ascending: false })
-        .limit(5),
-      simulationDb()
-        ?.from("chapter_simulation_revision_tasks")
-        .select(
-          "paper_code,paper_variant,chapter_path,revision,due_on,schedule_state",
-          {
-            count: "exact",
-          },
-        )
-        .eq("user_id", user.id),
-    ]);
+  const latestUpdatedQuery = exams?.rpc("latest_updated_paper_results", {
+    p_user: user.id,
+  });
+  const fullHistoryQuery = exams?.rpc("full_paper_performance", {
+    p_user: user.id,
+  });
+  const latestCumulativeQuery = exams?.rpc("latest_cumulative_results", {
+    p_user: user.id,
+  });
+  const [
+    recent,
+    qualifications,
+    tasks,
+    jobs,
+    attempts,
+    examTasks,
+    revisionPreferences,
+    workResult,
+    fullResponse,
+    latestUpdateResponse,
+    historicalResponse,
+    cumulativeResponse,
+  ] = await Promise.all([
+    process.env.READER_POSITIONS_ENABLED === "true"
+      ? db
+          .from("reading_positions")
+          .select("anchor")
+          .order("updated_at", { ascending: false })
+          .limit(1)
+          .maybeSingle()
+      : null,
+    assessment
+      ?.from("chapter_checkpoint_qualifications")
+      .select("paper_code,chapter_path,revision", { count: "exact" })
+      .eq("user_id", user.id),
+    assessment
+      ?.from("checkpoint_revision_tasks")
+      .select("paper_code,chapter_path,revision,due_on", { count: "exact" })
+      .eq("user_id", user.id)
+      .order("due_on"),
+    assessment
+      ?.from("checkpoint_generation_jobs")
+      .select("id,chapter_path,status")
+      .eq("user_id", user.id)
+      .in("status", ["queued", "waiting"])
+      .order("created_at", { ascending: false })
+      .limit(5),
+    checkpoints
+      ?.select(
+        "id,chapter_path,chapter_checkpoint_results(correct,wrong,blank,qualified)",
+      )
+      .eq("user_id", user.id)
+      .order("created_at", { ascending: false })
+      .limit(5),
+    exams
+      ?.from("chapter_simulation_revision_tasks")
+      .select(
+        "paper_code,paper_variant,chapter_path,revision,due_on,schedule_state",
+        {
+          count: "exact",
+        },
+      )
+      .eq("user_id", user.id),
+    exams
+      ?.from("chapter_revision_preferences")
+      .select("timezone")
+      .eq("user_id", user.id)
+      .maybeSingle(),
+    exams?.rpc("dashboard_assessment_work", { p_user: user.id }),
+    fullHistoryQuery,
+    latestUpdatedQuery,
+    historicalQuery,
+    latestCumulativeQuery,
+  ]);
   const anchor = recent?.data?.anchor as BookmarkAnchor | undefined;
   const chapter = anchor ? getDocument(anchor.path) : undefined;
   const resume = anchor ? bookmarkLocation(anchor, chapter) : null;
@@ -155,11 +177,17 @@ export default async function Dashboard() {
         .sort((a, b) => a.due_on.localeCompare(b.due_on))
     : [];
 
-  const fullResponse = await fullHistoryQuery;
   const fullHistory = (fullResponse?.data ?? []) as FullPaperResult[];
-  const { data: latestUpdated } = (await latestUpdatedQuery) ?? {};
-  const { data: latestHistorical } = (await historicalQuery) ?? {};
-  const { data: latestCumulative } = (await latestCumulativeQuery) ?? {};
+  const { data: latestUpdated } = latestUpdateResponse ?? {};
+  const { data: latestHistorical } = historicalResponse ?? {};
+  const { data: latestCumulative } = cumulativeResponse ?? {};
+  const today = new Intl.DateTimeFormat("sv-SE", {
+    timeZone: revisionPreferences?.data?.timezone ?? "Asia/Kolkata",
+  }).format();
+  const dueToday = scheduled.filter((task) => task.due_on === today).length;
+  const assessmentWork = (workResult?.data ?? []) as (SimulationSummary & {
+    work: "exam" | "refresher";
+  })[];
   return (
     <div className="page study-dashboard">
       <header className="study-heading">
@@ -222,6 +250,11 @@ export default async function Dashboard() {
         <section className="study-card">
           <CalendarDays size={22} aria-hidden="true" />
           <h2>Revision schedule</h2>
+          {tasksAvailable && dueToday > 0 && (
+            <p>
+              {dueToday} {dueToday === 1 ? "revision" : "revisions"} due today
+            </p>
+          )}
           {simulationEnabled && (
             <Link href="/dashboard/revisions">
               View revision schedule and preferences
@@ -272,6 +305,77 @@ export default async function Dashboard() {
           )}
         </section>
       </div>
+
+      {exams && (
+        <div className="study-grid">
+          {(
+            [
+              ["exam", "Unfinished exams", ClipboardList],
+              ["refresher", "Pending refresher tests", ListTodo],
+            ] as const
+          ).map(([kind, heading, Icon]) => {
+            const items = assessmentWork.filter(({ work }) => work === kind);
+            return (
+              <section key={kind} className="study-card">
+                <Icon size={22} aria-hidden="true" />
+                <h2>{heading}</h2>
+                {workResult?.error ? (
+                  <p role="alert">Could not load this list.</p>
+                ) : items.length ? (
+                  <ul className="study-list">
+                    {items.map((item) => {
+                      const title =
+                        getDocument(item.chapter_path)?.title ??
+                        getPaper(item.paper_code)?.title ??
+                        item.paper_code;
+                      const mode =
+                        item.mode === "chapter"
+                          ? ""
+                          : item.mode === "cumulative"
+                            ? " · Cumulative"
+                            : item.mode === "full"
+                              ? " · Full-scope"
+                              : item.mode === "pyq"
+                                ? " · Official PYQ"
+                                : " · Updated PYQ";
+                      return (
+                        <li key={item.id}>
+                          <Link
+                            href={
+                              simulationRoot +
+                              "/" +
+                              item.id +
+                              (kind === "refresher"
+                                ? "#refresher-checklist"
+                                : "")
+                            }
+                          >
+                            {title}
+                            {item.paper_variant && " " + item.paper_variant}
+                            {mode}
+                          </Link>
+                          <span>
+                            {kind === "exam"
+                              ? simulationStatusLabel(item.status)
+                              : "Review and take test"}
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                ) : (
+                  <p>
+                    {kind === "exam"
+                      ? "No unfinished exams."
+                      : "No incomplete refresher checklists."}
+                  </p>
+                )}
+                <Link href={simulationRoot}>Exam history</Link>
+              </section>
+            );
+          })}
+        </div>
+      )}
 
       <section className="study-card study-activity">
         <ListChecks size={22} aria-hidden="true" />
