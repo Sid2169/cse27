@@ -44,9 +44,12 @@ export default async function Dashboard() {
   const { db, user } = await requireOwner();
   const assessment = checkpointDb();
   const checkpoints = assessment?.from("chapter_checkpoints");
-  const historicalQuery = simulationDb()?.rpc("latest_historical_results", {
-    p_user: user.id,
-  });
+  const historicalQuery = simulationDb()?.rpc(
+    "latest_historical_paper_results",
+    {
+      p_user: user.id,
+    },
+  );
   const latestUpdatedQuery = simulationDb()?.rpc(
     "latest_updated_paper_results",
     { p_user: user.id },
@@ -394,14 +397,15 @@ export default async function Dashboard() {
                 {(
                   (latestHistorical ?? []) as {
                     paper_code: string;
+                    paper_variant: string;
                     score_units: number;
                     max_units: number;
                   }[]
                 )
                   .filter((result) => result.paper_code === paper.id)
                   .map((result) => (
-                    <small key={result.paper_code}>
-                      Latest official PYQ ·{" "}
+                    <small key={result.paper_variant}>
+                      Latest official PYQ {result.paper_variant} ·{" "}
                       {new Intl.NumberFormat("en-IN", {
                         maximumFractionDigits: 1,
                       }).format((100 * result.score_units) / result.max_units)}

@@ -7,6 +7,7 @@ import { simulationRoot } from "@/modules/assessment/chapter-simulation";
 import { requireOwner } from "@/server/supabase";
 import { checkpointId } from "@/server/assessment/checkpoint-service";
 import { updatedScope } from "@/server/assessment/updated-pyq";
+import { historicalWrittenScope } from "@/server/assessment/historical-written";
 import { historicalScope } from "@/server/assessment/historical-papers";
 import { dispatchSimulation } from "@/server/assessment/simulation-events";
 import {
@@ -37,6 +38,11 @@ export async function requestSimulation(form: FormData) {
     mode === "updated-pyq"
       ? updatedScope(paper, year, String(form.get("targetYear") ?? ""))
       : null;
+  const historical =
+    mode === "pyq"
+      ? (historicalScope(paper, year) ??
+        historicalWrittenScope(paper, year, variant))
+      : null;
   const scope =
     mode === "cumulative"
       ? db
@@ -47,14 +53,16 @@ export async function requestSimulation(form: FormData) {
       : mode === "full"
         ? fullScope(paper, variant)
         : mode === "pyq"
-          ? historicalScope(paper, year)
+          ? historical
           : mode === "updated-pyq"
             ? updated
             : simulationScope(paper, chapter);
   if (mode === "cumulative" && scope === undefined)
     redirect(index + "&error=unavailable");
-  const generation =
-    mode === "pyq" ? "official-key" : process.env.GEMINI_GENERATION_MODEL;
+  const officialKey = historical?.kind === "objective";
+  const generation = officialKey
+    ? "official-key"
+    : process.env.GEMINI_GENERATION_MODEL;
   const evaluation = process.env.GEMINI_EVALUATION_MODEL || generation;
   if (!scope?.variants.includes(variant) || !checkpointId.test(request))
     redirect(
@@ -64,7 +72,7 @@ export async function requestSimulation(form: FormData) {
     !db ||
     !generation ||
     !evaluation ||
-    (mode !== "pyq" && !process.env.GEMINI_API_KEY) ||
+    (!officialKey && !process.env.GEMINI_API_KEY) ||
     !process.env.INNGEST_EVENT_KEY ||
     !process.env.INNGEST_SIGNING_KEY
   )
@@ -108,7 +116,7 @@ export async function requestSimulation(form: FormData) {
       mode === "full"
         ? fullScope(paper, variant)?.sourceDetails
         : mode === "pyq"
-          ? historicalScope(paper, year)?.source
+          ? historical?.source
           : (updated?.source ?? null),
     coverage: scope && "coverage" in scope ? scope.coverage : [],
     user_id: user.id,
@@ -182,9 +190,16 @@ export async function retrySimulation(form: FormData) {
   if (
     preparation &&
     (existing.mode === "pyq"
-      ? historicalScope(
-          existing.paper_code,
-          String(existing.source_details?.year ?? ""),
+      ? (
+          historicalScope(
+            existing.paper_code,
+            String(existing.source_details?.year ?? ""),
+          ) ??
+          historicalWrittenScope(
+            existing.paper_code,
+            String(existing.source_details?.year ?? ""),
+            existing.paper_variant,
+          )
         )?.revision !== existing.revision
       : existing.mode === "updated-pyq"
         ? updatedScope(
