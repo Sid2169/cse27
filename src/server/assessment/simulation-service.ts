@@ -13,6 +13,7 @@ import {
 } from "@/modules/assessment/chapter-simulation";
 import { gsCurrentAffairs } from "@/modules/assessment/gs-current-affairs";
 import { mainsGsPattern } from "@/modules/assessment/full-mains-pattern";
+import type { UpdatedSource } from "./updated-pyq";
 import type { HistoricalSource } from "./historical-papers";
 import { currentCheckpoint } from "./checkpoint-service";
 
@@ -169,7 +170,8 @@ export type SimulationView = SimulationSummary & {
   kind: "objective" | "descriptive";
   questions: SimulationQuestion[] | null;
   coverage: CoverageChapter[];
-  source_details: typeof gsCurrentAffairs | HistoricalSource | null;
+  source_details:
+    typeof gsCurrentAffairs | HistoricalSource | UpdatedSource | null;
   duration_seconds: number | null;
   remaining_ms: number | null;
   answers: SimulationAnswers;

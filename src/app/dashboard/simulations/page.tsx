@@ -304,7 +304,9 @@ export default async function Simulations({
                       ? " · Full-scope diagnostic"
                       : item.mode === "pyq"
                         ? " · Official 2024"
-                        : " · Cumulative")
+                        : item.mode === "updated-pyq"
+                          ? " · Updated PYQ practice"
+                          : " · Cumulative")
                   : (getDocument(item.chapter_path)?.title ??
                     item.chapter_path)}
                 {item.paper_variant && " · Mathematics " + item.paper_variant}

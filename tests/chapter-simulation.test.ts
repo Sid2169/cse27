@@ -59,6 +59,65 @@ test("Mathematics requires three valid choices across both sections", () => {
   assert.equal(includesQuestion("mathematics", [1, 3, 6], 7), false);
 });
 
+import { generateReplacements } from "../src/server/assessment/updated-pyq-generation";
+import {
+  replacementProfiles,
+  preparationCutoff,
+} from "../src/server/assessment/updated-pyq-data";
+
+test("updated PYQ generation keeps slot numbers and requires independently matching keys", async () => {
+  const profile = replacementProfiles.find(({ number }) => number === 82)!;
+  const base = {
+    stem: "Original",
+    options: ["A", "B", "C", "D"],
+    sourcePath: "syllabus.md",
+    sourceHeading: "",
+  };
+  const draft = {
+    number: profile.number,
+    stem: "Exercise location?\nअभ्यास का स्थान?",
+    options: ["A जगह", "B जगह", "C जगह", "D जगह"],
+    correctOption: 2,
+    explanation: "The source validates this answer.",
+  };
+  const generator = (option: number, suppliedNumber = draft.number) => {
+    let reviewed = false;
+    return async () => {
+      if (reviewed)
+        return {
+          items: [
+            { number: draft.number, correctOption: option, supported: true },
+          ],
+        };
+      reviewed = true;
+      return { items: [{ ...draft, number: suppliedNumber }] };
+    };
+  };
+  const [replaced] = await generateReplacements(generator(2), [profile], base);
+  assert.equal(replaced.number, profile.number);
+  assert.equal(replaced.question.sourcePath, base.sourcePath);
+  assert.equal("correctOption" in replaced.question, false);
+  assert.equal(replaced.key.correctOption, 2);
+  await assert.rejects(
+    generateReplacements(generator(1), [profile], base),
+    /independent/,
+  );
+  await assert.rejects(
+    generateReplacements(generator(2, 1), [profile], base),
+    /invalid replacement/,
+  );
+  const numbers = replacementProfiles.map(({ number }) => number);
+  assert.equal(new Set(numbers).size, numbers.length);
+  assert.ok(numbers.every((n) => ![20, 52, 57].includes(n)));
+  assert.ok(
+    replacementProfiles.every(
+      ({ sources }) =>
+        sources.length &&
+        sources.every(({ date }) => date <= preparationCutoff),
+    ),
+  );
+});
+
 const key = Array.from({ length: 3 }, () => ({
   correctOption: 0,
   explanation: "Explanation.",
