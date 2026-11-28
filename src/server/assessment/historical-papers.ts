@@ -8,12 +8,29 @@ import type {
 } from "@/modules/assessment/chapter-simulation";
 import csatStems from "../../../.generated/csat-2024-stems.json";
 import gsStems from "../../../.generated/gs1-2024-stems.json";
+import gs2022 from "../../../.generated/Prelims-General-Studies-I-2022-stems.json";
+import csat2022 from "../../../.generated/Prelims-CSAT-2022-stems.json";
 import gs2023 from "../../../.generated/Prelims-General-Studies-I-2023-stems.json";
 import csat2023 from "../../../.generated/Prelims-CSAT-2023-stems.json";
 import gs2026 from "../../../.generated/Prelims-General-Studies-I-2026-stems.json";
 import csat2026 from "../../../.generated/Prelims-CSAT-2026-stems.json";
 import gs2025 from "../../../.generated/Prelims-General-Studies-I-2025-stems.json";
 import csat2025 from "../../../.generated/Prelims-CSAT-2025-stems.json";
+
+// Transcribed from the final official 2022 Series A keys, column by column.
+const gs2022Letters = [
+  "BCBCADADACBBBBBBDDBA",
+  "BDBCBACBBBDDDCBDDCBC",
+  "ABDBCAAAACCBDBBCBDBB",
+  "XDBBCDCDACCAADCAADDA",
+  "DCCBDBCBBABBBAAADDDB",
+].join("");
+const csat2022Letters = [
+  "ABCDAADDBCCDAABDCBDB",
+  "DAACDBCDCACBADDXDDCD",
+  "BDBDADCDCDABAACADDCA",
+  "CACACDDCADCCDBBCDCAC",
+].join("");
 
 // Transcribed from the final official 2023 Series A keys.
 const gs2023Letters = [
@@ -110,7 +127,6 @@ export type HistoricalSource = {
 };
 
 export function historicalScope(paper: string, year: string) {
-  if (!["2023", "2024", "2025", "2026"].includes(year)) return null;
   const definition = getPaper(paper);
   if (!definition) return null;
   const gs = paper === "Prelims-General-Studies-I";
@@ -125,9 +141,20 @@ export function historicalScope(paper: string, year: string) {
       gs: string;
       csat: string;
       gsDropped?: number[];
+      csatDropped?: number[];
       answerKey: (gs: boolean) => string;
     }
   > = {
+    "2022": {
+      gs: gs2022Letters,
+      csat: csat2022Letters,
+      gsDropped: [61],
+      csatDropped: [36],
+      answerKey: (gs) =>
+        "https://forumias.com/blog/wp-content/uploads/2023/07/UPSC-Civil-Services-Prelims-2022-GS-Paper-" +
+        (gs ? "1" : "2") +
+        "-Official-Answer-key.pdf",
+    },
     "2023": {
       gs: gs2023Letters,
       csat: csat2023Letters,
@@ -154,7 +181,11 @@ export function historicalScope(paper: string, year: string) {
         "-CSP-Exam-2026-270526.pdf",
     },
   };
-  const known = newerEditions[year];
+  const known = Object.hasOwn(newerEditions, year)
+    ? newerEditions[year]
+    : undefined;
+  if (modern && !known) return null;
+  const knownDropped = gs ? known?.gsDropped : known?.csatDropped;
   const source: HistoricalSource = known
     ? {
         year: Number(year),
@@ -162,7 +193,7 @@ export function historicalScope(paper: string, year: string) {
         booklet: currentBooklet,
         ...(provisional ? { provisional: true } : {}),
         answerKey: known.answerKey(gs),
-        ...(gs && known.gsDropped ? { dropped: known.gsDropped } : {}),
+        ...(knownDropped ? { dropped: knownDropped } : {}),
       }
     : gs
       ? gsHistoricalSource
@@ -178,7 +209,7 @@ export function historicalScope(paper: string, year: string) {
     letter === "X" ? [index + 1] : [],
   );
   if (
-    !(gs ? /^[A-DX]{100}$/ : /^[A-D]{80}$/).test(letters) ||
+    !(gs ? /^[A-DX]{100}$/ : /^[A-DX]{80}$/).test(letters) ||
     dropped.join() !== (source.dropped ?? []).join()
   )
     throw new Error(
@@ -227,6 +258,7 @@ export function historicalScope(paper: string, year: string) {
 // Research transcriptions use different booklet orders. Use them only
 // to check for previously seen content, never pair them with Series A keys.
 export function historicalResearchStems(paper: string, year: number) {
+  if (year === 2022) return paper === "Prelims-CSAT" ? csat2022 : gs2022;
   if (year === 2023) return paper === "Prelims-CSAT" ? csat2023 : gs2023;
   if (year === 2026) return paper === "Prelims-CSAT" ? csat2026 : gs2026;
   if (year === 2025) return paper === "Prelims-CSAT" ? csat2025 : gs2025;
