@@ -1,4 +1,4 @@
-import { updatedScope } from "@/server/assessment/updated-pyq";
+import { updatedTargets } from "@/server/assessment/updated-pyq";
 import { historicalWrittenScope } from "@/server/assessment/historical-written";
 import { historicalScope } from "@/server/assessment/historical-papers";
 import { randomUUID } from "node:crypto";
@@ -52,8 +52,9 @@ export default async function PastPapers({
         String(selectedYear),
         math ? variantValue : "",
       ));
-  const updated =
-    selected && updatedScope(selected.id, String(selectedYear), "2026");
+  const targets = selected
+    ? updatedTargets(selected.id, String(selectedYear))
+    : [];
   return (
     <div className="page simulation-page">
       <div className="breadcrumbs">
@@ -128,7 +129,7 @@ export default async function PastPapers({
               UPSC archives
             </a>
           </div>
-          {updated && (
+          {targets.length > 0 && (
             <form action={requestSimulation} className="stack-form">
               <p>
                 Generate an updated practice variant using a dated evidence
@@ -137,7 +138,11 @@ export default async function PastPapers({
               <label>
                 Preparation year
                 <select name="targetYear">
-                  <option value="2026">2026</option>
+                  {targets.map((target) => (
+                    <option key={target} value={target}>
+                      {target}
+                    </option>
+                  ))}
                 </select>
               </label>
               <input type="hidden" name="mode" value="updated-pyq" />
