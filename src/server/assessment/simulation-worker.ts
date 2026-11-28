@@ -30,7 +30,7 @@ import {
   type ReplacementDraft,
 } from "./updated-pyq-generation";
 import { geminiGenerator, GenerationUnavailable } from "./gemini";
-import { gsHistoricalStems, historicalScope } from "./historical-papers";
+import { historicalResearchStems, historicalScope } from "./historical-papers";
 import { inngest } from "./inngest";
 import {
   generateWrittenSimulation,
@@ -184,7 +184,7 @@ async function buildBlueprint(
 
 async function unseenHistory(db: Database, owner: string, paper: string) {
   const history: string[] = [];
-  let includedGsBooklet = false;
+  const includedBooklets = new Set<number>();
   for (const table of ["chapter_simulations", "chapter_checkpoints"]) {
     for (let offset = 0; ; offset += 200) {
       let query = db
@@ -206,16 +206,14 @@ async function unseenHistory(db: Database, owner: string, paper: string) {
           mode?: string;
           source_details?: { year: number };
         };
-        if (
-          paper === "Prelims-General-Studies-I" &&
-          (row.mode === "pyq" || row.mode === "updated-pyq") &&
-          row.source_details?.year === 2024
-        ) {
-          if (!includedGsBooklet) history.push(...gsHistoricalStems);
-          includedGsBooklet = true;
-          if (row.mode === "pyq") continue;
-        } else if (!Array.isArray(row.questions)) {
-          continue;
+        const year = row.source_details?.year;
+        if (year && (row.mode === "pyq" || row.mode === "updated-pyq")) {
+          const references = historicalResearchStems(paper, year);
+          if (references) {
+            if (!includedBooklets.has(year)) history.push(...references);
+            includedBooklets.add(year);
+            if (row.mode === "pyq") continue;
+          }
         }
         if (!Array.isArray(row.questions)) continue;
         for (const item of row.questions)
