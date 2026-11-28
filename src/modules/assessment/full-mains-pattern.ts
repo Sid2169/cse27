@@ -50,7 +50,7 @@ function qualifyingPattern(hindi: boolean): WrittenBatchPattern[] {
       "3 · Précis",
       hindi ? 60 : 75,
       "Précis writing",
-      "Provide an original discursive passage of around 600–700 words followed by the instruction to summarize it in about one third of its length using the learner’s own words.",
+      "Provide an original discursive passage of around 600–700 words followed by the instruction to summarize it in about one third of its length using the learner’s own words. Do not ask for a title.",
     ),
     ...(hindi
       ? [

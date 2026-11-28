@@ -159,8 +159,7 @@ export default async function ChapterSimulation({
       {full && (
         <p className="notice">
           Diagnostic practice generated from the full paper syllabus. The
-          question pattern follows the{" "}
-          {choice === "language" ? "2025 qualifying-paper" : "2026"} baseline.
+          question pattern follows the 2026 baseline.
         </p>
       )}
       {historical && (
