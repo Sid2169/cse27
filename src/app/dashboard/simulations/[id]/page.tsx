@@ -9,6 +9,7 @@ import {
   simulationStatusLabel,
   type SimulationResult,
 } from "@/modules/assessment/chapter-simulation";
+import type { UpdatedSource } from "@/server/assessment/updated-pyq";
 import { requireOwner } from "@/server/supabase";
 import { checkpointId } from "@/server/assessment/checkpoint-service";
 import {
@@ -61,13 +62,22 @@ export default async function ChapterSimulation({
     unit_scale: scale,
   } = simulation;
   const historical =
-    simulation.mode === "pyq" &&
+    (simulation.mode === "pyq" || simulation.mode === "updated-pyq") &&
     simulation.source_details &&
     "booklet" in simulation.source_details
       ? simulation.source_details
       : null;
+  const updated =
+    simulation.mode === "updated-pyq" &&
+    historical &&
+    "replacements" in historical
+      ? (historical as UpdatedSource)
+      : null;
+  const replacements = new Map(
+    updated?.replacements.map((entry) => [entry.number, entry]),
+  );
   const evidence =
-    simulation.source_details && "cutoff" in simulation.source_details
+    simulation.source_details && "sources" in simulation.source_details
       ? simulation.source_details
       : null;
   const full = simulation.mode === "full";
@@ -128,13 +138,15 @@ export default async function ChapterSimulation({
       <h1 className="compact-title">
         {result
           ? "Exam feedback"
-          : historical
-            ? historical.year + " official past-paper exam"
-            : full
-              ? "Full-scope exam"
-              : cumulative
-                ? "Cumulative exam simulation"
-                : "Chapter exam simulation"}
+          : updated
+            ? updated.targetYear + " updated PYQ practice"
+            : historical
+              ? historical.year + " official past-paper exam"
+              : full
+                ? "Full-scope exam"
+                : cumulative
+                  ? "Cumulative exam simulation"
+                  : "Chapter exam simulation"}
       </h1>
       <p className="lead">
         {cumulative || full || historical
@@ -161,10 +173,24 @@ export default async function ChapterSimulation({
           >
             Open UPSC’s original PDF
           </a>
-          <p>
-            Use the original booklet to read the questions. Enter A–D on the
-            answer sheet below after starting the timer.
-          </p>
+          {updated ? (
+            <p>
+              Model-generated practice for {updated.targetYear} based on the{" "}
+              {updated.year} original. Use the original booklet for all numbers
+              except{" "}
+              {updated.replacements.map(({ number }) => number).join(", ")}.
+              Answer the updated questions shown under those numbers on this
+              page. Evidence cutoff{" "}
+              <time dateTime={updated.cutoff}>{updated.cutoff}</time>.
+              Replacements reflect the documented evidence available through
+              that date.
+            </p>
+          ) : (
+            <p>
+              Use the original booklet to read the questions. Enter A–D on the
+              answer sheet after starting the timer.
+            </p>
+          )}
           {!!historical.dropped?.length && (
             <p>
               The published key excludes {historical.dropped.length} questions.
@@ -173,7 +199,9 @@ export default async function ChapterSimulation({
           )}
           {result && (
             <a href={historical.answerKey}>
-              View the published UPSC answer key (PDF mirror)
+              {updated
+                ? "View the UPSC key for the original booklet"
+                : "View the published UPSC answer key (PDF mirror)"}
             </a>
           )}
         </div>
@@ -310,13 +338,13 @@ export default async function ChapterSimulation({
             questions={
               status === "ready"
                 ? []
-                : questions.map((q) => ({
+                : questions.map((q, index) => ({
                     stem: (
                       <div
                         className="prose simulation-stem"
                         lang={hindi ? "hi" : "en"}
                       >
-                        {!historical && (
+                        {(!historical || replacements.has(index + 1)) && (
                           <Markdown path={q.sourcePath} source={q.stem} />
                         )}
                       </div>
@@ -403,6 +431,7 @@ export default async function ChapterSimulation({
                 const item = result.feedback.items[index];
                 const answer = simulation.answers[index];
                 const file = simulation.attachments[index];
+                const replacement = replacements.get(index + 1);
                 return (
                   <li key={index} className="study-card">
                     <h3>
@@ -420,10 +449,31 @@ export default async function ChapterSimulation({
                       className="prose simulation-stem"
                       lang={hindi ? "hi" : "en"}
                     >
-                      {!historical && (
+                      {(!historical || replacements.has(index + 1)) && (
                         <Markdown path={q.sourcePath} source={q.stem} />
                       )}
                     </div>
+                    {replacement && (
+                      <details>
+                        <summary>
+                          {replacement.type === "mirror" ? "Mirrored" : "New"}{" "}
+                          question and sources
+                        </summary>
+                        <p>
+                          Original question {replacement.number} covered{" "}
+                          {replacement.original}.
+                        </p>
+                        <p>{replacement.rationale}</p>
+                        <ul>
+                          {replacement.sources.map((source) => (
+                            <li key={source.url}>
+                              <a href={source.url}>{source.title}</a> ·{" "}
+                              <time dateTime={source.date}>{source.date}</time>
+                            </li>
+                          ))}
+                        </ul>
+                      </details>
+                    )}
                     {"options" in q && (
                       <p>
                         Your answer{" "}

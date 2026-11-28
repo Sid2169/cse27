@@ -1,3 +1,4 @@
+import { updatedScope } from "@/server/assessment/updated-pyq";
 import { historicalScope } from "@/server/assessment/historical-papers";
 import { randomUUID } from "node:crypto";
 import Link from "@/components/navigation-link";
@@ -44,6 +45,8 @@ export default async function PastPapers({
       : null;
   const attempt =
     selected && historicalScope(selected.id, String(selectedYear));
+  const updated =
+    selected && updatedScope(selected.id, String(selectedYear), "2026");
   return (
     <div className="page simulation-page">
       <div className="breadcrumbs">
@@ -118,6 +121,28 @@ export default async function PastPapers({
               UPSC archives
             </a>
           </div>
+          {updated && (
+            <form action={requestSimulation} className="stack-form">
+              <p>
+                Generate an updated practice variant using a dated evidence
+                pack. The original paper stays available.
+              </p>
+              <label>
+                Preparation year
+                <select name="targetYear">
+                  <option value="2026">2026</option>
+                </select>
+              </label>
+              <input type="hidden" name="mode" value="updated-pyq" />
+              <input type="hidden" name="year" value={selectedYear} />
+              <input type="hidden" name="paper" value={selected.id} />
+              <input type="hidden" name="request" value={randomUUID()} />
+              <TestActionButton
+                label="Generate updated practice paper"
+                pendingLabel="Requesting updated paper…"
+              />
+            </form>
+          )}
           {attempt ? (
             <form action={requestSimulation}>
               <input type="hidden" name="mode" value="pyq" />

@@ -24,6 +24,11 @@ import {
 } from "@/modules/assessment/written-choices";
 import { checkpointId } from "./checkpoint-service";
 import { generateObjectiveQuestions } from "./checkpoint-generation";
+import { updatedScope } from "./updated-pyq";
+import {
+  generateReplacements,
+  type ReplacementDraft,
+} from "./updated-pyq-generation";
 import { geminiGenerator, GenerationUnavailable } from "./gemini";
 import { gsHistoricalStems, historicalScope } from "./historical-papers";
 import { inngest } from "./inngest";
@@ -203,16 +208,22 @@ async function unseenHistory(db: Database, owner: string, paper: string) {
         };
         if (
           paper === "Prelims-General-Studies-I" &&
-          row.mode === "pyq" &&
+          (row.mode === "pyq" || row.mode === "updated-pyq") &&
           row.source_details?.year === 2024
         ) {
           if (!includedGsBooklet) history.push(...gsHistoricalStems);
           includedGsBooklet = true;
+          if (row.mode === "pyq") continue;
+        } else if (!Array.isArray(row.questions)) {
           continue;
         }
         if (!Array.isArray(row.questions)) continue;
         for (const item of row.questions)
-          if (typeof item.stem === "string") history.push(item.stem);
+          if (
+            typeof item.stem === "string" &&
+            !/^2024 GS-I Series A, question /.test(item.stem)
+          )
+            history.push(item.stem);
       }
       if (result.data.length < 200) break;
     }
@@ -495,6 +506,94 @@ export const prepareSimulation = inngest.createFunction(
           p_max_units: source.maximum,
         });
         if (error) throw new Error("Could not publish the historical paper");
+      });
+    }
+    if (data.mode === "updated-pyq") {
+      const scope = updatedScope(
+        data.paper_code,
+        String(data.source_details?.year ?? ""),
+        String(data.source_details?.targetYear ?? ""),
+      );
+      if (!scope || scope.revision !== data.revision)
+        throw new NonRetriableError("The updated paper evidence changed");
+      for (let position = 0; position < scope.profiles.length; position += 2) {
+        await step.run("prepare-updated-questions-" + position, async () => {
+          const existing = await db
+            .from("cumulative_simulation_batches")
+            .select("position")
+            .eq("simulation_id", id)
+            .eq("position", position)
+            .maybeSingle();
+          if (existing.error)
+            throw new Error("Could not load prepared replacements");
+          if (existing.data) return;
+          try {
+            const replacements = await generateReplacements(
+              geminiGenerator(data.generation_model),
+              scope.profiles.slice(position, position + 2),
+              scope.questions[0],
+            );
+            const saved = await db
+              .from("cumulative_simulation_batches")
+              .upsert({
+                simulation_id: id,
+                position,
+                blueprint: replacements,
+              });
+            if (saved.error)
+              throw new Error("Could not save prepared replacements");
+          } catch (error) {
+            providerFailure(error, "updated paper preparation", id);
+          }
+        });
+      }
+      await step.run("publish-updated-paper", async () => {
+        const batches = await db
+          .from("cumulative_simulation_batches")
+          .select("blueprint")
+          .eq("simulation_id", id)
+          .order("position");
+        if (
+          batches.error ||
+          batches.data.length !== Math.ceil(scope.profiles.length / 2)
+        )
+          throw new Error("An updated paper batch is missing");
+        const replacements = new Map(
+          batches.data.flatMap((row) =>
+            (row.blueprint as ReplacementDraft[]).map(
+              (item) => [item.number, item] as const,
+            ),
+          ),
+        );
+        if (
+          replacements.size !== scope.profiles.length ||
+          scope.profiles.some(({ number }) => !replacements.has(number))
+        )
+          throw new Error(
+            "The updated paper has incomplete replacement coverage",
+          );
+        const { error } = await db.rpc("publish_chapter_simulation", {
+          p_id: id,
+          p_token: token,
+          p_questions: scope.questions.map(
+            (question, index) =>
+              replacements.get(index + 1)?.question ?? question,
+          ),
+          p_guide: scope.guide.map(
+            (key, index) => replacements.get(index + 1)?.key ?? key,
+          ),
+          p_duration: 7200,
+          p_max_units: scope.maximum,
+        });
+        if (error) throw new Error("Could not publish the updated paper");
+      });
+      return step.run("remove-published-replacement-batches", async () => {
+        const removed = await db
+          .from("cumulative_simulation_batches")
+          .delete()
+          .eq("simulation_id", id);
+        if (removed.error)
+          throw new Error("Could not remove published batches");
       });
     }
     if (data.mode === "full") {

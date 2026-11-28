@@ -47,6 +47,10 @@ export default async function Dashboard() {
   const historicalQuery = simulationDb()?.rpc("latest_historical_results", {
     p_user: user.id,
   });
+  const latestUpdatedQuery = simulationDb()?.rpc(
+    "latest_updated_paper_results",
+    { p_user: user.id },
+  );
   const fullHistoryQuery = simulationDb()?.rpc("full_paper_performance", {
     p_user: user.id,
   });
@@ -150,6 +154,7 @@ export default async function Dashboard() {
 
   const fullResponse = await fullHistoryQuery;
   const fullHistory = (fullResponse?.data ?? []) as FullPaperResult[];
+  const { data: latestUpdated } = (await latestUpdatedQuery) ?? {};
   const { data: latestHistorical } = (await historicalQuery) ?? {};
   const { data: latestCumulative } = (await latestCumulativeQuery) ?? {};
   return (
@@ -401,6 +406,22 @@ export default async function Dashboard() {
                         maximumFractionDigits: 1,
                       }).format((100 * result.score_units) / result.max_units)}
                       %
+                    </small>
+                  ))}
+                {(
+                  (latestUpdated ?? []) as {
+                    paper_code: string;
+                    score_units: number;
+                    max_units: number;
+                  }[]
+                )
+                  .filter((result) => result.paper_code === paper.id)
+                  .map((result) => (
+                    <small key={result.paper_code}>
+                      Latest updated PYQ ·{" "}
+                      {percentage(
+                        (100 * result.score_units) / result.max_units,
+                      )}
                     </small>
                   ))}
                 {(

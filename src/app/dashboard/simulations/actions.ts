@@ -6,6 +6,7 @@ import { catalogue } from "@/modules/content/catalogue";
 import { simulationRoot } from "@/modules/assessment/chapter-simulation";
 import { requireOwner } from "@/server/supabase";
 import { checkpointId } from "@/server/assessment/checkpoint-service";
+import { updatedScope } from "@/server/assessment/updated-pyq";
 import { historicalScope } from "@/server/assessment/historical-papers";
 import { dispatchSimulation } from "@/server/assessment/simulation-events";
 import {
@@ -20,7 +21,10 @@ export async function requestSimulation(form: FormData) {
   const paper = String(form.get("paper") ?? "");
   const requested = form.get("mode");
   const mode =
-    requested === "cumulative" || requested === "full" || requested === "pyq"
+    requested === "cumulative" ||
+    requested === "full" ||
+    requested === "pyq" ||
+    requested === "updated-pyq"
       ? requested
       : "chapter";
   const chapter = mode !== "chapter" ? "" : String(form.get("chapter") ?? "");
@@ -29,6 +33,10 @@ export async function requestSimulation(form: FormData) {
   const index = simulationRoot + "?" + new URLSearchParams({ paper, chapter });
   const db = simulationDb();
   const year = String(form.get("year") ?? "");
+  const updated =
+    mode === "updated-pyq"
+      ? updatedScope(paper, year, String(form.get("targetYear") ?? ""))
+      : null;
   const scope =
     mode === "cumulative"
       ? db
@@ -40,7 +48,9 @@ export async function requestSimulation(form: FormData) {
         ? fullScope(paper, variant)
         : mode === "pyq"
           ? historicalScope(paper, year)
-          : simulationScope(paper, chapter);
+          : mode === "updated-pyq"
+            ? updated
+            : simulationScope(paper, chapter);
   if (mode === "cumulative" && scope === undefined)
     redirect(index + "&error=unavailable");
   const generation =
@@ -99,7 +109,7 @@ export async function requestSimulation(form: FormData) {
         ? fullScope(paper, variant)?.sourceDetails
         : mode === "pyq"
           ? historicalScope(paper, year)?.source
-          : null,
+          : (updated?.source ?? null),
     coverage: scope && "coverage" in scope ? scope.coverage : [],
     user_id: user.id,
     request_id: request,
@@ -176,17 +186,23 @@ export async function retrySimulation(form: FormData) {
           existing.paper_code,
           String(existing.source_details?.year ?? ""),
         )?.revision !== existing.revision
-      : existing.mode === "full"
-        ? fullScope(existing.paper_code, existing.paper_variant)?.revision !==
-          existing.revision
-        : existing.mode === "cumulative"
-          ? existing.coverage.some(
-              (entry: { path: string; revision: string }) =>
-                simulationScope(existing.paper_code, entry.path)?.revision !==
-                entry.revision,
-            )
-          : simulationScope(existing.paper_code, existing.chapter_path)
-              ?.revision !== existing.revision)
+      : existing.mode === "updated-pyq"
+        ? updatedScope(
+            existing.paper_code,
+            String(existing.source_details?.year ?? ""),
+            String(existing.source_details?.targetYear ?? ""),
+          )?.revision !== existing.revision
+        : existing.mode === "full"
+          ? fullScope(existing.paper_code, existing.paper_variant)?.revision !==
+            existing.revision
+          : existing.mode === "cumulative"
+            ? existing.coverage.some(
+                (entry: { path: string; revision: string }) =>
+                  simulationScope(existing.paper_code, entry.path)?.revision !==
+                  entry.revision,
+              )
+            : simulationScope(existing.paper_code, existing.chapter_path)
+                ?.revision !== existing.revision)
   )
     redirect(
       simulationRoot +
