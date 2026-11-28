@@ -118,6 +118,78 @@ test("updated PYQ generation keeps slot numbers and requires independently match
   );
 });
 
+import { prepareHistoricalWriting } from "../src/server/assessment/historical-written-generation";
+
+test("a historical guide rejects missing or mismapped booklet questions", async () => {
+  const slot = {
+    label: "Question 3",
+    stem: "",
+    marks: 10,
+    wordLimit: 150,
+    sourcePath: "syllabus.md",
+    sourceHeading: "scope",
+  };
+  const fixture = { mimeType: "application/pdf", data: "fixture" };
+  const draft = {
+    label: slot.label,
+    readable: true,
+    summary: "Explain the original issue.",
+    reference: "A worked answer.",
+    criteria: [
+      { description: "Method", marks: 6 },
+      { description: "Application", marks: 4 },
+    ],
+  };
+  const generator = (label: string, readable: boolean, valid: boolean) => {
+    let reviewed = false;
+    return async (
+      _prompt: string,
+      _schema: object,
+      files: (typeof fixture)[],
+    ) => {
+      assert.deepEqual(files, [fixture]);
+      if (reviewed) return { items: [{ label: slot.label, valid }] };
+      reviewed = true;
+      return { items: [{ ...draft, label, readable }] };
+    };
+  };
+  const exam = await prepareHistoricalWriting(
+    generator(slot.label, true, true),
+    fixture,
+    [slot],
+    "English",
+  );
+  assert.equal(exam.questions[0].label, slot.label);
+  assert.deepEqual(exam.guide[0].criteria, draft.criteria);
+  await assert.rejects(
+    prepareHistoricalWriting(
+      generator("Question 2", true, true),
+      fixture,
+      [slot],
+      "English",
+    ),
+    /original question/,
+  );
+  await assert.rejects(
+    prepareHistoricalWriting(
+      generator(slot.label, false, true),
+      fixture,
+      [slot],
+      "English",
+    ),
+    /original question/,
+  );
+  await assert.rejects(
+    prepareHistoricalWriting(
+      generator(slot.label, true, false),
+      fixture,
+      [slot],
+      "English",
+    ),
+    /independent verification/,
+  );
+});
+
 const key = Array.from({ length: 3 }, () => ({
   correctOption: 0,
   explanation: "Explanation.",

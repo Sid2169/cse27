@@ -164,7 +164,10 @@ export default async function ChapterSimulation({
       )}
       {historical && (
         <div className="section study-card">
-          <h2>Original booklet · Series A</h2>
+          <h2>
+            Original booklet
+            {historical.series && " · Series " + historical.series}
+          </h2>
           <a
             className="button"
             href={historical.booklet}
@@ -185,10 +188,16 @@ export default async function ChapterSimulation({
               Replacements reflect the documented evidence available through
               that date.
             </p>
-          ) : (
+          ) : objective ? (
             <p>
               Use the original booklet to read the questions. Enter A–D on the
               answer sheet after starting the timer.
+            </p>
+          ) : (
+            <p>
+              Read the instructions and questions in the original booklet.
+              Submit your responses under its numbered questions for practice
+              marking.
             </p>
           )}
           {!!historical.dropped?.length && (
@@ -197,7 +206,7 @@ export default async function ChapterSimulation({
               The practice score is reported against the remaining marks.
             </p>
           )}
-          {result && (
+          {result && historical.answerKey && (
             <a href={historical.answerKey}>
               {updated
                 ? "View the UPSC key for the original booklet"

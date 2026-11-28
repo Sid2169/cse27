@@ -1,4 +1,5 @@
 import { updatedScope } from "@/server/assessment/updated-pyq";
+import { historicalWrittenScope } from "@/server/assessment/historical-written";
 import { historicalScope } from "@/server/assessment/historical-papers";
 import { randomUUID } from "node:crypto";
 import Link from "@/components/navigation-link";
@@ -41,10 +42,16 @@ export default async function PastPapers({
   const variantValue = variant === "II" ? "II" : "I";
   const booklet =
     selected && selectedYear
-      ? officialBooklet(selected.id, selectedYear)
+      ? officialBooklet(selected.id, selectedYear, math ? variantValue : "")
       : null;
   const attempt =
-    selected && historicalScope(selected.id, String(selectedYear));
+    selected &&
+    (historicalScope(selected.id, String(selectedYear)) ??
+      historicalWrittenScope(
+        selected.id,
+        String(selectedYear),
+        math ? variantValue : "",
+      ));
   const updated =
     selected && updatedScope(selected.id, String(selectedYear), "2026");
   return (
@@ -149,15 +156,25 @@ export default async function PastPapers({
               <input type="hidden" name="year" value={selectedYear} />
               <input type="hidden" name="paper" value={selected.id} />
               <input type="hidden" name="request" value={randomUUID()} />
+              <input
+                type="hidden"
+                name="variant"
+                value={math ? variantValue : ""}
+              />
               <TestActionButton
-                label="Prepare timed Series A answer sheet"
+                label={
+                  attempt.kind === "objective"
+                    ? "Prepare timed Series A answer sheet"
+                    : "Prepare writing attempt"
+                }
                 pendingLabel="Preparing…"
               />
             </form>
           ) : (
             <p>
               Attempt and grade this booklet separately. In-app historical
-              scoring requires a verified booklet and matching answer key.
+              scoring requires a verified booklet and supported evaluation
+              format.
             </p>
           )}
         </section>

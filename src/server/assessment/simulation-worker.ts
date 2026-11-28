@@ -24,6 +24,11 @@ import {
 } from "@/modules/assessment/written-choices";
 import { checkpointId } from "./checkpoint-service";
 import { generateObjectiveQuestions } from "./checkpoint-generation";
+import {
+  historicalWrittenScope,
+  readVerifiedBooklet,
+} from "./historical-written";
+import { prepareHistoricalWriting } from "./historical-written-generation";
 import { updatedScope } from "./updated-pyq";
 import {
   generateReplacements,
@@ -487,6 +492,97 @@ export const prepareSimulation = inngest.createFunction(
       return data;
     });
     if (!data) return;
+    if (data.mode === "pyq" && data.kind === "descriptive") {
+      const scope = historicalWrittenScope(
+        data.paper_code,
+        String(data.source_details?.year ?? ""),
+        data.paper_variant,
+      );
+      if (!scope || scope.revision !== data.revision)
+        throw new NonRetriableError("The official written booklet changed");
+      for (let position = 0; position < scope.questions.length; position += 2) {
+        await step.run(
+          "prepare-official-written-batch-" + position,
+          async () => {
+            const prepared = await db
+              .from("cumulative_simulation_batches")
+              .select("position")
+              .eq("simulation_id", id)
+              .eq("position", position)
+              .maybeSingle();
+            if (prepared.error)
+              throw new Error("Could not access the prepared written paper");
+            if (prepared.data) return;
+            const pdf = await readVerifiedBooklet(
+              scope.source.booklet,
+              scope.digest,
+            );
+            try {
+              const batch = await prepareHistoricalWriting(
+                geminiGenerator(data.generation_model),
+                pdf,
+                scope.questions.slice(position, position + 2),
+                data.paper_code === "Mains-Indian-Language"
+                  ? "Hindi in Devanagari, retaining all translation source language and direction"
+                  : "English",
+              );
+              const saved = await db
+                .from("cumulative_simulation_batches")
+                .upsert({ simulation_id: id, position, blueprint: batch });
+              if (saved.error)
+                throw new Error("Could not retain the verified written guide");
+            } catch (error) {
+              providerFailure(error, "historical written preparation", id);
+            }
+          },
+        );
+      }
+      await step.run("publish-official-written-paper", async () => {
+        const loaded = await db
+          .from("cumulative_simulation_batches")
+          .select("blueprint")
+          .eq("simulation_id", id)
+          .order("position");
+        if (
+          loaded.error ||
+          loaded.data.length !== Math.ceil(scope.questions.length / 2)
+        )
+          throw new Error("A verified historical guide is missing");
+        const batches = loaded.data.map(
+          ({ blueprint }) => blueprint as WrittenBatch,
+        );
+        const questions = batches.flatMap((batch) => batch.questions);
+        const guide = batches.flatMap((batch) => batch.guide);
+        if (
+          questions.length !== scope.questions.length ||
+          guide.length !== questions.length ||
+          questions.some(
+            ({ label }, index) => label !== scope.questions[index].label,
+          )
+        )
+          throw new Error(
+            "The historical guide does not align with the original booklet order",
+          );
+        const result = await db.rpc("publish_chapter_simulation", {
+          p_id: id,
+          p_token: token,
+          p_questions: questions,
+          p_guide: guide,
+          p_duration: 10800,
+          p_max_units: scope.maximum,
+        });
+        if (result.error)
+          throw new Error("Could not publish the official written paper");
+      });
+      return step.run("remove-published-official-written-batches", async () => {
+        const removed = await db
+          .from("cumulative_simulation_batches")
+          .delete()
+          .eq("simulation_id", id);
+        if (removed.error)
+          throw new Error("Could not remove published batches");
+      });
+    }
     if (data.mode === "pyq") {
       return step.run("publish-historical-paper", async () => {
         const source = historicalScope(

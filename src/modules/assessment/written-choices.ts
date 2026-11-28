@@ -1,5 +1,5 @@
 export function writtenChoice(paper: string, mode: string) {
-  if (mode !== "full") return null;
+  if (mode !== "full" && mode !== "pyq") return null;
   if (paper === "Mains-Mathematics") return "mathematics" as const;
   if (paper === "Mains-Essay") return "essay" as const;
   if (paper === "Mains-English" || paper === "Mains-Indian-Language")

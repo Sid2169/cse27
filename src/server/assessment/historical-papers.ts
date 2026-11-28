@@ -68,9 +68,9 @@ const gsHistoricalSource: HistoricalSource = {
 
 export type HistoricalSource = {
   year: number;
-  series: string;
+  series?: string;
   booklet: string;
-  answerKey: string;
+  answerKey?: string;
   dropped?: number[];
 };
 

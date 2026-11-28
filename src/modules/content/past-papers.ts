@@ -10,7 +10,27 @@ const verified2026: Record<string, string> = {
     "https://upsc.gov.in/uploads/2026/07/QP_CSP_2026_GENERAL_STUDIES_PAPER-II_25052026.pdf",
 };
 
-export function officialBooklet(paper: string, year: number) {
+export function officialBooklet(paper: string, year: number, variant = "") {
+  if (year === 2024 && paper === "Mains-Indian-Language")
+    return "https://upsc.gov.in/uploads/2026/07/hindi-compulsory-1-1.pdf";
+  if (year === 2024 && paper === "Mains-English")
+    return "https://upsc.gov.in/uploads/2026/07/english-compulsory-1-1.pdf";
+  if (year === 2026) {
+    const suffix = /^(Mains-General-Studies)-(I|II|III|IV)$/.exec(paper)?.[2];
+    const file = suffix
+      ? "GENERAL-STUDIES-PAPER-" + suffix
+      : paper === "Mains-Essay"
+        ? "ESSAY"
+        : paper === "Mains-Mathematics" && ["I", "II"].includes(variant)
+          ? "Optional-MATHEMATICS-PAPER_" + variant
+          : null;
+    if (file)
+      return (
+        "https://upsc.gov.in/uploads/2026/09/QP-CSM-26-010926-" +
+        file +
+        "-1.pdf"
+      );
+  }
   if (year === 2025 && paper === "Prelims-General-Studies-I")
     return "https://www.upsc.gov.in/uploads/2026/07/QP-CSP-25-GENERAL-STUDIES-PAPER-I-26052025.pdf";
   if (year === 2025 && paper === "Prelims-CSAT")
