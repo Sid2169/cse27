@@ -12,7 +12,16 @@ const verified2026: Record<string, string> = {
     "https://upsc.gov.in/uploads/2026/07/QP_CSP_2026_GENERAL_STUDIES_PAPER-II_25052026.pdf",
 };
 
+// UPSC's former URLs for these two scans now return 404.
+const prelims2015Mirrors: Record<string, string> = {
+  "Prelims-General-Studies-I":
+    "https://battleias.com/wp-content/uploads/official-papers/upsc-prelims/upsc-prelims-2015-gs1.pdf",
+  "Prelims-CSAT":
+    "https://battleias.com/wp-content/uploads/official-papers/upsc-prelims/upsc-prelims-2015-csat.pdf",
+};
+
 export function officialBooklet(paper: string, year: number, variant = "") {
+  if (year === 2015) return prelims2015Mirrors[paper] ?? null;
   if (year === 2023 && paper === "Prelims-General-Studies-I")
     return "https://www.upsc.gov.in/uploads/2026/07/general-studies-paper-i-6-1.pdf";
   if (year === 2023 && paper === "Prelims-CSAT")
