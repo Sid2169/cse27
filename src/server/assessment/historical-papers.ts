@@ -8,6 +8,8 @@ import type {
 } from "@/modules/assessment/chapter-simulation";
 import csatStems from "../../../.generated/csat-2024-stems.json";
 import gsStems from "../../../.generated/gs1-2024-stems.json";
+import gs2019 from "../../../.generated/Prelims-General-Studies-I-2019-stems.json";
+import csat2019 from "../../../.generated/Prelims-CSAT-2019-stems.json";
 import gs2020 from "../../../.generated/Prelims-General-Studies-I-2020-stems.json";
 import csat2020 from "../../../.generated/Prelims-CSAT-2020-stems.json";
 import gs2021 from "../../../.generated/Prelims-General-Studies-I-2021-stems.json";
@@ -20,6 +22,25 @@ import gs2026 from "../../../.generated/Prelims-General-Studies-I-2026-stems.jso
 import csat2026 from "../../../.generated/Prelims-CSAT-2026-stems.json";
 import gs2025 from "../../../.generated/Prelims-General-Studies-I-2025-stems.json";
 import csat2025 from "../../../.generated/Prelims-CSAT-2025-stems.json";
+
+// Transcribed from the final official 2019 Series A keys, column by column.
+const gs2019Letters = [
+  "DBCACDCADADADBD",
+  "ACDCAAAABDDADCA",
+  "DDCDDBBAACDDBBB",
+  "CAAABCBCCBBCBCC",
+  "BADBBCDAAAADABD",
+  "CACCDDAADDDACBB",
+  "BBACDABBAB",
+].join("");
+const csat2019Letters = [
+  "DDBBBADCCCDBCDB",
+  "BABBCDBAACCBBBD",
+  "ADBBDBCBBBAACAD",
+  "CCCABBBCDDCCBDD",
+  "BDDBCBBDDADBDDC",
+  "CDBDB",
+].join("");
 
 // Transcribed from the final official 2020 Series A keys, column by column.
 const gs2020Letters = [
@@ -178,6 +199,14 @@ export function historicalScope(paper: string, year: string) {
       answerKey: (gs: boolean) => string;
     }
   > = {
+    "2019": {
+      gs: gs2019Letters,
+      csat: csat2019Letters,
+      answerKey: (gs) =>
+        "https://paramias.com/answer-key/AnsKeyCSP-19-GS_" +
+        (gs ? "I" : "II") +
+        ".pdf",
+    },
     "2020": {
       gs: gs2020Letters,
       csat: csat2020Letters,
@@ -321,6 +350,7 @@ export function historicalScope(paper: string, year: string) {
 // Research transcriptions use different booklet orders. Use them only
 // to check for previously seen content, never pair them with Series A keys.
 export function historicalResearchStems(paper: string, year: number) {
+  if (year === 2019) return paper === "Prelims-CSAT" ? csat2019 : gs2019;
   if (year === 2020) return paper === "Prelims-CSAT" ? csat2020 : gs2020;
   if (year === 2021) return paper === "Prelims-CSAT" ? csat2021 : gs2021;
   if (year === 2022) return paper === "Prelims-CSAT" ? csat2022 : gs2022;

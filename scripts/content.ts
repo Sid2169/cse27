@@ -268,6 +268,15 @@ if (process.argv[1]?.endsWith("/scripts/content.ts")) {
   );
   writeFileSync(".generated/gs1-2024-stems.json", JSON.stringify(gsStems));
   const objectiveHistoricalReferences = [
+    ["Prelims-General-Studies-I", 2019, 100, {}],
+    [
+      "Prelims-CSAT",
+      2019,
+      80,
+      {
+        12: "Determine the weekday for a December 20 birthday given that two others fall on the fifth Monday in April and the fifth Thursday in November.",
+      },
+    ],
     // The 2020 GS-I research transcription has 102 entries. Keep them as
     // conservative novelty references only. Scoring uses the 100-item PDF.
     ["Prelims-General-Studies-I", 2020, 102, {}],
