@@ -67,3 +67,41 @@ export async function changeRevisionTask(form: FormData) {
   });
   redirect(base + (error || !data ? "?status=failed" : "?status=task-saved"));
 }
+
+export async function saveChapterOverride(form: FormData) {
+  const { user } = await requireOwner();
+  const db = simulationDb();
+  const base = "/dashboard/revisions";
+  const paper = String(form.get("paper") ?? "");
+  const chapter = String(form.get("chapter") ?? "");
+  const material = String(form.get("material") ?? "");
+  const difficulty = String(form.get("difficulty") ?? "");
+  const priority = String(form.get("priority") ?? "");
+  const target = String(form.get("target") ?? "");
+  const scope = simulationScope(paper, chapter);
+  if (
+    !db ||
+    !scope ||
+    !["", "generic", "factual", "conceptual", "procedural"].includes(
+      material,
+    ) ||
+    !["", "easy", "medium", "hard"].includes(difficulty) ||
+    !["", "high", "unsure", "low"].includes(priority) ||
+    (target !== "" && !/^\d{4}-\d{2}-\d{2}$/.test(target))
+  )
+    redirect(base + "?status=override-failed");
+
+  const { data, error } = await db.rpc("save_chapter_schedule_override", {
+    p_user: user.id,
+    p_paper: paper,
+    p_chapter: chapter,
+    p_revision: scope.revision,
+    p_material: material || null,
+    p_difficulty: difficulty || null,
+    p_priority: priority || null,
+    p_target: target || null,
+  });
+  redirect(
+    base + "?status=" + (data && !error ? "override-saved" : "override-failed"),
+  );
+}

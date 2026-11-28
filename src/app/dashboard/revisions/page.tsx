@@ -6,7 +6,11 @@ import {
   simulationDb,
   simulationScope,
 } from "@/server/assessment/simulation-service";
-import { changeRevisionTask, saveRevisionPreferences } from "./actions";
+import {
+  changeRevisionTask,
+  saveChapterOverride,
+  saveRevisionPreferences,
+} from "./actions";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -22,6 +26,19 @@ const groups = [
   "Canceled",
 ] as const;
 type Group = (typeof groups)[number];
+
+const settingChoices = {
+  material: [
+    "Material type",
+    ["generic", "factual", "conceptual", "procedural"],
+  ],
+  difficulty: ["Difficulty", ["easy", "medium", "hard"]],
+  priority: ["Priority", ["high", "unsure", "low"]],
+} as const;
+
+type ChapterOptions = Partial<
+  Record<keyof typeof settingChoices | "target", string>
+>;
 
 export default async function Revisions({
   searchParams,
@@ -45,7 +62,7 @@ export default async function Revisions({
     db
       ?.from("chapter_revision_preferences")
       .select(
-        "timezone,material,difficulty,priority,prelims_target,mains_target",
+        "timezone,material,difficulty,priority,prelims_target,mains_target,chapter_overrides",
       )
       .eq("user_id", user.id)
       .maybeSingle(),
@@ -59,6 +76,10 @@ export default async function Revisions({
       .limit(40),
   ]);
   const prefs = preferences?.data;
+  const chapterOverrides = (prefs?.chapter_overrides ?? {}) as Record<
+    string,
+    ChapterOptions
+  >;
   const today = new Intl.DateTimeFormat("sv-SE", {
     timeZone: prefs?.timezone ?? "Asia/Kolkata",
   }).format();
@@ -85,8 +106,17 @@ export default async function Revisions({
                 : day === today
                   ? "Due today"
                   : "Upcoming";
+        const overrides =
+          chapterOverrides[task.paper_code + ":" + task.chapter_path];
+        const target =
+          overrides?.target ??
+          (task.paper_code.startsWith("Prelims-")
+            ? prefs?.prelims_target
+            : prefs?.mains_target);
         return {
           ...task,
+          overrides,
+          target,
           variant,
           day,
           group,
@@ -107,7 +137,11 @@ export default async function Revisions({
             ? "Revision task updated."
             : status === "saved"
               ? "Revision preferences saved."
-              : "Preferences could not be saved. Check the timezone and dates."}
+              : status === "override-saved"
+                ? "Chapter settings saved."
+                : status === "override-failed"
+                  ? "Chapter settings could not be saved."
+                  : "Preferences could not be saved. Check the timezone and dates."}
         </p>
       )}
       {!db && <p>Revision scheduling is unavailable.</p>}
@@ -127,30 +161,16 @@ export default async function Revisions({
                 required
               />
             </label>
-            {[
-              [
-                "material",
-                "Material type",
-                prefs?.material ?? "generic",
-                ["generic", "factual", "conceptual", "procedural"],
-              ],
-              [
-                "difficulty",
-                "Difficulty",
-                prefs?.difficulty ?? "medium",
-                ["easy", "medium", "hard"],
-              ],
-              [
-                "priority",
-                "Priority",
-                prefs?.priority ?? "unsure",
-                ["high", "unsure", "low"],
-              ],
-            ].map(([name, label, value, options]) => (
-              <label key={String(name)}>
+            {Object.entries(settingChoices).map(([name, [label, options]]) => (
+              <label key={name}>
                 {label}
-                <select name={String(name)} defaultValue={String(value)}>
-                  {(options as string[]).map((option) => (
+                <select
+                  name={name}
+                  defaultValue={
+                    prefs?.[name as keyof typeof settingChoices] ?? options[0]
+                  }
+                >
+                  {options.map((option) => (
                     <option key={option} value={option}>
                       {option}
                     </option>
@@ -219,58 +239,129 @@ export default async function Revisions({
                           {task.manual && " · Manual"}
                         </p>
                       )}
+                      {task.manual &&
+                        task.target &&
+                        task.day >= task.target &&
+                        group !== "Canceled" && (
+                          <p>
+                            Manual date is on or after the target of{" "}
+                            <time dateTime={task.target}>{task.target}</time>.
+                          </p>
+                        )}
                       {group === "Unscheduled" && (
                         <p>No further revision fits before the target.</p>
                       )}
                     </div>
-                    <details>
-                      <summary>Change date</summary>
-                      <form className="stack-form" action={changeRevisionTask}>
-                        <input
-                          type="hidden"
-                          name="paper"
-                          value={task.paper_code}
-                        />
-                        <input
-                          type="hidden"
-                          name="chapter"
-                          value={task.chapter_path}
-                        />
-                        <input
-                          type="hidden"
-                          name="variant"
-                          value={task.variant}
-                        />
-                        <label>
-                          Due date
-                          <input
-                            type="date"
-                            name="date"
-                            defaultValue={task.day}
-                            required
-                          />
-                        </label>
-                        <button
-                          type="submit"
-                          className="button"
-                          name="operation"
-                          value="reschedule"
+                    <div>
+                      <details>
+                        <summary>Chapter scheduling settings</summary>
+                        <form
+                          className="stack-form"
+                          action={saveChapterOverride}
                         >
-                          Save date
-                        </button>
-                        {group !== "Canceled" && (
+                          <input
+                            type="hidden"
+                            name="paper"
+                            value={task.paper_code}
+                          />
+                          <input
+                            type="hidden"
+                            name="chapter"
+                            value={task.chapter_path}
+                          />
+                          {Object.entries(settingChoices).map(
+                            ([name, [label, options]]) => (
+                              <label key={name}>
+                                {label}
+                                <select
+                                  name={name}
+                                  defaultValue={
+                                    task.overrides?.[
+                                      name as keyof typeof settingChoices
+                                    ] ?? ""
+                                  }
+                                >
+                                  <option value="">Use default</option>
+                                  {options.map((option) => (
+                                    <option key={option} value={option}>
+                                      {option}
+                                    </option>
+                                  ))}
+                                </select>
+                              </label>
+                            ),
+                          )}
+                          <label>
+                            Chapter target date
+                            <input
+                              name="target"
+                              type="date"
+                              defaultValue={task.overrides?.target ?? ""}
+                            />
+                          </label>
+                          {task.variant && (
+                            <p>
+                              These settings apply to this chapter for both
+                              Mathematics papers.
+                            </p>
+                          )}
+                          <button className="button">
+                            Save chapter settings
+                          </button>
+                        </form>
+                      </details>
+                      <details>
+                        <summary>Change date</summary>
+                        <form
+                          className="stack-form"
+                          action={changeRevisionTask}
+                        >
+                          <input
+                            type="hidden"
+                            name="paper"
+                            value={task.paper_code}
+                          />
+                          <input
+                            type="hidden"
+                            name="chapter"
+                            value={task.chapter_path}
+                          />
+                          <input
+                            type="hidden"
+                            name="variant"
+                            value={task.variant}
+                          />
+                          <label>
+                            Due date
+                            <input
+                              type="date"
+                              name="date"
+                              defaultValue={task.day}
+                              required
+                            />
+                          </label>
                           <button
                             type="submit"
                             className="button"
                             name="operation"
-                            value="cancel"
-                            formNoValidate
+                            value="reschedule"
                           >
-                            Cancel schedule
+                            Save date
                           </button>
-                        )}
-                      </form>
-                    </details>
+                          {group !== "Canceled" && (
+                            <button
+                              type="submit"
+                              className="button"
+                              name="operation"
+                              value="cancel"
+                              formNoValidate
+                            >
+                              Cancel schedule
+                            </button>
+                          )}
+                        </form>
+                      </details>
+                    </div>
                   </li>
                 ))}
               </ul>
