@@ -8,6 +8,10 @@ import type { HistoricalSource } from "./historical-papers";
 
 const writtenEditions: Record<string, Record<string, string>> = {
   "Mains-General-Studies-I": {
+    "2017": "aaa5b248c054200a29baef94457795e6071c50afdcc04e16f064977659d988a5",
+    "2018": "ba79faea69293d5cb9603594a902da987fc7426fb1dd7423f69303ffa638a147",
+    "2019": "e3ed5f07b880715cfbf3d12618a9c6ab2767e14bc68a822069ead6e5b2c7151b",
+    "2020": "552e7ae7faf28d7432e3ceb36ba1cf08d902acf1fe21c93100320f478fecdfb7",
     "2021": "2b5b52ea763a3122d9f517e1ce9a01ca2e04a8d2118b7a2ee15631f61fbf5c43",
     "2022": "0b5ebc44af20ea2b33924e73b0f13b53a9de3a490f20b3586e08592a274be93a",
     "2023": "d12495f7c34b020a816438c6d89dcb3924b262b00017316c89a41f973caf3c20",
@@ -16,6 +20,10 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "49418ba3d1a93de14f2e4d21be2c77aafdd9f194b32238e05d5242d9747a2601",
   },
   "Mains-General-Studies-II": {
+    "2017": "45bfd829525d1dd9e7d5a7ec880d2ad1bee513249655f784a0efe2eac0619e3b",
+    "2018": "a80bb0d8d244d368ba17a7c64e8aa4e6fd8e02d604a7fc9551c9252910c0b032",
+    "2019": "52ac9de8889a7343152aacf5ba969f4bfcb999ac0570842a0efd2f81b922d802",
+    "2020": "87795f81140fabf3487de6a67db7b9731d1c0681e6acd82edab61e65336b6cc4",
     "2021": "445b073b9ad7b86b30daffe8e79bbd5fef4ce18b1f83b2f89c8ff49f906f255d",
     "2022": "85a9c00094d158995eff5f843bebdef3ca6e9c3fd390f3ff659359e37068ca47",
     "2023": "f1a42f6c4e086240d1bd34ae9645aecac26c32368d5d2ab61a33343207cb613c",
@@ -24,6 +32,10 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "471efa8ae48dde452d5cea7a31241c0260c13e2cf2ec396734b97631c2599a36",
   },
   "Mains-General-Studies-III": {
+    "2017": "8c5db82590702476b3e8e9f055ed91e9fe31d721421a510e385e2c76e671ce27",
+    "2018": "fde12191526fec339e8a9bace101dad8a24dd8f104fa6d733b354d54aeee5fae",
+    "2019": "e0a493a8f29e1509c543fb410f50dec6b561f0097b0ec445eadcd3401380a6d9",
+    "2020": "af2513780c1a9358cac5564c4972f0c152bb8abb36a47c2c6c0fc75c6be270b3",
     "2021": "bc940864b30fc940d0a89247aa4e7c710fcc4560fefbb7c5a0aa1c0565490031",
     "2022": "50adc8f9b33c8ebe8aeabe33001dfc9baec0ba2fe39452db5c1c58d48494cba0",
     "2023": "d4478f8b94324c21972e4da4450e710a40d495e07df7dbfa36e7cf595e2b5a7a",
@@ -32,6 +44,10 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "051df5f7c1d7927ff5808f463957391ed2b4bded43bb4b24e6fa67724ebcfa7e",
   },
   "Mains-General-Studies-IV": {
+    "2017": "74233505fcb048abe303061904757e5c5261407e9bef0f12a4c899c13776d68d",
+    "2018": "23bd08cd2bf811edc4697686ea842683960d71569bba30098863ab6deab4e29e",
+    "2019": "58ac7b4b99a0482f78ba704ec19e39f9de6700fec9cef56b2e94f382c23cb973",
+    "2020": "6fa247766a73981467d58f4a3ef131fe7da6f0fe60755bd3b6ae792995eb5698",
     "2021": "f6e5fa5c3037cad7428594c53bf19de6915f86917395b1618d1fae8044f86e36",
     "2022": "f1730e73182d0af7fa26029e81756c665e9a9d2f7d9a91e63b4f0023763f7fe0",
     "2023": "58d8eeca45d22ffa7e92056362a2d6e9271be7e673717d55175f94fd66737223",
@@ -40,6 +56,10 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "df8cdb5399ac2ddf9424553f7c231de1068cefa68ff2decbaf30ad61001db3a6",
   },
   "Mains-Essay": {
+    "2017": "cc3864b40a092dbfd2788bfa0747ee179981d0cf23b7154cdafab78480f4e0bd",
+    "2018": "d31699b694e5fe581463dad7b25c86d49ab306dfdbc0eb3692ff359603c846d5",
+    "2019": "d6be3ea695c2fde0250f99c9061d23ff761554a37477e1959f40a6192fc072dd",
+    "2020": "726cdd2f259e9d35bb74504db74ba034a003ca1ca4dc273cf0636f2b01e84ce8",
     "2021": "76a2383c2640d3069944e55b2947903f8a10dfd82e9d184f61c43f937f2d9406",
     "2022": "a730387e7edbe18d9f95fc0c932e8a0c87c4be3ad5f3fb3f9dc9f8a717835564",
     "2023": "694b399816544517c39535f199346b0cbe353dd64da23333e8352b2cd0ce67da",
@@ -48,6 +68,10 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "a8eee6ee4af529ebc58778e96fbd148e6b63f5740e08e82e194376a185f27811",
   },
   "Mains-Mathematics-I": {
+    "2017": "95bfb07d3429888db0e3984c7695fb8d2efcb16cb5ad32b5b2e1def1d01cc576",
+    "2018": "6e1f2f1ca10642622f48be6e19317817b2192b9850c9d8916124afd9b67d76d4",
+    "2019": "8a052ba3f96200695cc9431c053de6477c592ca6272a9cb2c7de863d9e81ea88",
+    "2020": "2d97b87f2daa6a61d45b1a4465cec0c43f3bad054fcfa181dcf1d8237281ebcb",
     "2021": "b106d6216ba41ef4888ee5fc680c1c4b505d5bc2ad5f59f5de100dede16aa887",
     "2022": "fdf35e7a3869af437d14805ed4c21bccaf03cc5cf3e24726a2e35f0f9f46c9ba",
     "2023": "e7801e09d064fcaff07daa227ebc2daa32890b655dbb94141bfb7de8f06061fb",
@@ -56,6 +80,10 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "b8b9c83368d8e77bd64d1581a34e3ab3ca26f03f6eacae30ad9f2ea6a9d04160",
   },
   "Mains-Mathematics-II": {
+    "2017": "541e6a8542756308adf23a43b7378fe3245c1f7db0495b93dfbdf169cfd99b3f",
+    "2018": "8af5ee5ca3d16b29e0f103776d98dfb3c8718b4d2eaeff094c3ed9ccc49f4f3f",
+    "2019": "2b538dc5ad275161bf5b428ab09839bd656119a2db401b61605471d3c5e5e310",
+    "2020": "5a763d9b42984b7742c1ce49166ad8ce19f746c1c2072c65755c0de1133b12a1",
     "2021": "dafed013735f072f129426f17009f74bf54b6d39c8b823c6e6bfbecaa8b6b2bd",
     "2022": "5b063e3e0c3239c84aa88c6f0196b41a9c0bdf06181a4058b0f6e8ca497b611a",
     "2023": "266d14d1dfbf3c8f900dd12e9f45c15b28bc98735c44f780b1442e31e2da0ad6",
@@ -64,6 +92,10 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "fa4cb25029d79c8e6a6e9e01be6d253cf61b65dde6a0f7e5903f2ab838126e13",
   },
   "Mains-Indian-Language": {
+    "2017": "97da06205bc2d2c7b6f40053ba64492a62089efab055c66dadb601818162c294",
+    "2018": "a2057dc40d0d95a7250272f5ddafaae43a650e488566b56d037913644c5d01c5",
+    "2019": "fc5cddd4b6ef6b34ba68737a7b5231d28da680896bbd30bb21b753a222f90d75",
+    "2020": "98ac427be67556efdada515ca1d7366ac333f6926ee51a2193978742c2479058",
     "2021": "f2711812756b4df48170a3796bc574889ecbb584dd951d344b0541a49d656624",
     "2022": "369d426353d8a93b66a96d551025ac49bf06e5a33dd1011915649b24477fbb8c",
     "2023": "42fa5932c0889afd7da269cd34b3dc5dfd6c92179a1c942bdb5ae5cf9b952738",
@@ -72,6 +104,10 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2024": "177407a7553b1c9b3bdf31429e0ceada846d73a8eb1640936e28625ed354d5eb",
   },
   "Mains-English": {
+    "2017": "21e840f28e0393b06044d8d24d3a8f0ded31302bcd454a74d1b5cb7e1062b016",
+    "2018": "3e0973efc60df94f10a337865f84426567a9ba7b5826958260da9bc7aac879b3",
+    "2019": "42a95cfc1a8141345572049ba2aaf361bdeb6601d68d7efeb7638d6f7e552d9b",
+    "2020": "97dfc7eb84d3592fe4b1de69ccf8b639ae006b001fa5dffa7f70330ce43e6d93",
     "2021": "f894a83d5cbe428e08c8de87e1175dcac1c2954239465c2755e8e5e42c055a19",
     "2022": "5177d40dc4517a17b9604ad66c70eda03f95268f5752bf5715b11e3ed09a8426",
     "2023": "6b81eb2838a5368a39d8dfa663dff4a657ec0133d2b5cd63f0772884e6a70384",
@@ -80,6 +116,43 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2024": "e2d7fd7a58ba1fc5f7748b487cec586eaf10bd94a6a41715bf202fdaebfc0130",
   },
 };
+
+function historicalWrittenPattern(paper: string, year: string) {
+  if (
+    paper !== "Mains-General-Studies-IV" ||
+    !["2017", "2018", "2019", "2020"].includes(year)
+  )
+    return mainsGsPattern(paper);
+
+  // 2017 has standalone theory questions 1–3 and case studies 9–14.
+  // 2018–2020 print the three quotations as parts of question 6.
+  const theoryCounts =
+    year === "2017" ? [1, 1, 1, 2, 2, 2, 2, 2] : [2, 2, 2, 2, 2, 3];
+  return [
+    {
+      labels: theoryCounts.flatMap((count, index) => {
+        const label = "Section A · Question " + (index + 1);
+        return count === 1
+          ? [label]
+          : Array.from(
+              "abc".slice(0, count),
+              (part) => label + "(" + part + ")",
+            );
+      }),
+      marks: 10,
+      words: 150,
+    },
+    {
+      labels: Array.from(
+        { length: 6 },
+        (_, index) =>
+          "Section B · Question " + (theoryCounts.length + index + 1),
+      ),
+      marks: 20,
+      words: 250,
+    },
+  ];
+}
 
 export function historicalWrittenScope(
   paper: string,
@@ -98,7 +171,7 @@ export function historicalWrittenScope(
   const definition = getPaper(paper);
   const syllabus = definition && getDocument(definition.syllabus);
   const booklet = officialBooklet(paper, Number(year), variant);
-  const pattern = mainsGsPattern(paper);
+  const pattern = historicalWrittenPattern(paper, year);
   if (!syllabus || !booklet || !pattern) return null;
   const qualifying =
     paper === "Mains-English" || paper === "Mains-Indian-Language";
