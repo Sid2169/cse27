@@ -8,6 +8,7 @@ import type { HistoricalSource } from "./historical-papers";
 
 const writtenEditions: Record<string, Record<string, string>> = {
   "Mains-General-Studies-I": {
+    "2013": "084ea7cc5f0399314487a724a0b2924ec543beabc2e647f249c5c02dcca1e322",
     "2014": "0b9d2e9ea0fcb33cf7411b77c6c9bca9462db9e1d50406c81ef5c7d7cfea86eb",
     "2015": "598b40a86bd9fa7a395d7b68f9f8f5b5a047524cd51c32ec6dab4de718c3a980",
     "2016": "50ad80afd3d1836f2bc1a23a658fbf56c28624a665d3434046bc0a7c7c1b56f9",
@@ -23,6 +24,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "49418ba3d1a93de14f2e4d21be2c77aafdd9f194b32238e05d5242d9747a2601",
   },
   "Mains-General-Studies-II": {
+    "2013": "2d27d78984f8b55ab8345fd7ae9aef1f9241a33099a4ff23fbd6b2f212c061b5",
     "2014": "b92fd8111f8e565a1d3ade16172b254bf51275c574ef89a7768cd8194644c902",
     "2015": "a9a393b68a1454d8472519d0144658731c770de1ce951b7ee79a0e85057c3a29",
     "2016": "8d0054c563a28ea69a598f0598c675491e61d859b7d473ad96aaec8e66888f5b",
@@ -38,6 +40,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "471efa8ae48dde452d5cea7a31241c0260c13e2cf2ec396734b97631c2599a36",
   },
   "Mains-General-Studies-III": {
+    "2013": "878ff73d1baf70756395b9e48b0336f008ecf11a9d5fab6ad6befbd9b3505e91",
     "2014": "4c1b2accb4019865a9c12cbc009af966753b07612814df4f6089a228f2c6d9a4",
     "2015": "aed01d90c692ee11f14579ff853053ac07fc0d848e55618aba826390d46feec1",
     "2016": "ecf3d98cc3b432a0f9c70721d359cefb6b6f9854bd9677ed32aad9fc2916b24a",
@@ -53,6 +56,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "051df5f7c1d7927ff5808f463957391ed2b4bded43bb4b24e6fa67724ebcfa7e",
   },
   "Mains-General-Studies-IV": {
+    "2013": "1f74decdceda7699ac7ae011ac679b3aa9f061cd32ebeeb3459a078ee36ab5b2",
     "2014": "16282573a69e3a909376b85cd7782566f5bfd178a31ea45871d10cb43b3304f4",
     "2015": "0be5cfb05c16f043d7f6be519d86b8b844cb0f56c427b4ad63205223cc6f4286",
     "2016": "65bf5c19e7f9b966844b12d5758221b2e0c6882cf5bbd33221fc2600823109f1",
@@ -68,6 +72,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "df8cdb5399ac2ddf9424553f7c231de1068cefa68ff2decbaf30ad61001db3a6",
   },
   "Mains-Essay": {
+    "2013": "dee04eb68e48e3d0a59753183a4f18ad43a45523dc9bdeff3510efd16ee28633",
     "2014": "77d784089ee9ef88ebf1a2bc717e948fc926d4b0d7e444ce21b3145038d71e04",
     "2015": "6246c638b115d2e668b2cba78bfbacfd904ea79b4916661da367f57612927cd0",
     "2016": "cef7861fad89cecbd3e814d5c24b3d129ff5755441aad6805373e034268b9b25",
@@ -83,6 +88,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "a8eee6ee4af529ebc58778e96fbd148e6b63f5740e08e82e194376a185f27811",
   },
   "Mains-Mathematics-I": {
+    "2013": "3a68525fa2a8c27baeb2c482041b972b4c775e110420afc6f7f46b67e889837d",
     "2014": "a9802a657f14edce846b0ffc0cb57d15f8a62d03a1e9cd827a4157c18a4010b9",
     "2015": "7a60b959986e95da941df6919d0d90c0e5d888d2c40f94e96757c2e728bd88bc",
     "2016": "7d21958e2493747644c8622f16a12498c5566563ffd115827e5e488d447ab2ee",
@@ -98,6 +104,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "b8b9c83368d8e77bd64d1581a34e3ab3ca26f03f6eacae30ad9f2ea6a9d04160",
   },
   "Mains-Mathematics-II": {
+    "2013": "c42c2fb6db67c524adbe83d0bd19a919a7d297fdcef8060f5acfc1462e8f4cfb",
     "2014": "5385ce95a63aefe4e89d5586d7f55e9e0e4240ea7bbfff8c9de248ab04545e57",
     "2015": "716f3476df10651b7966bd216f6ad6b7e8cac554ca0d56804150569b40b78edb",
     "2016": "4ac3fa39cbf2217ea684721da285e69c3022e70c08b42665065d49e6fe9a262c",
@@ -113,6 +120,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "fa4cb25029d79c8e6a6e9e01be6d253cf61b65dde6a0f7e5903f2ab838126e13",
   },
   "Mains-Indian-Language": {
+    "2013": "04cb2aac18b0a92274cf8a9e72f53e262a123cd75a92660201606e51ab628670",
     "2014": "d9424ec503b170c21d9f61b196ea599c7d6c8471f0ee406db32aab8f770f55b5",
     "2015": "30f6299cd00b9a3fdf7d784466bfee7a4b62563e1e694a961e953c01fa523bcb",
     "2016": "dbf18ee807ab18de403c3c1272ff00d03b3493ed59bc9438ca709682cafb9208",
@@ -128,6 +136,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2024": "177407a7553b1c9b3bdf31429e0ceada846d73a8eb1640936e28625ed354d5eb",
   },
   "Mains-English": {
+    "2013": "69b4a19d17bca22a8b856281306f5551ad93a26cd5aa01a3ada9668f3497bcfc",
     "2014": "4ab220742a89981fe0c60842f740649633cdea5af4cd05e3b9e9fa8ae87acfbe",
     "2015": "bce8d96149df9118a66175c06db66a127f53174934e962c681e3ebe98675c94f",
     "2016": "7a36375803ff7068af2a0ba42f3b5a0ed7dfaa43bd606dfec473b99d6360f12a",
@@ -144,7 +153,87 @@ const writtenEditions: Record<string, Record<string, string>> = {
   },
 };
 
+function mains2013Pattern(paper: string) {
+  const item = (label: string, marks: number, words: number) => ({
+    labels: [label],
+    marks,
+    words,
+  });
+  if (paper === "Mains-Essay")
+    return Array.from({ length: 4 }, (_, index) =>
+      item("Question " + (index + 1), 250, 2500),
+    );
+  if (paper === "Mains-English")
+    return [
+      item("1(a)", 50, 300),
+      item("1(b)", 50, 300),
+      item("2 · Comprehension", 50, 0),
+      item("3(a) · Précis", 60, 0),
+      item("3(b) · Précis", 40, 0),
+      item("4 · Usage and vocabulary", 50, 0),
+    ];
+  if (paper === "Mains-Indian-Language")
+    return [
+      item("1(a)", 50, 300),
+      item("1(b)", 50, 300),
+      item("2 · Comprehension", 60, 0),
+      item("3 · Précis", 60, 0),
+      item("4 · हिंदी से अंग्रेज़ी", 20, 0),
+      item("5 · अंग्रेज़ी से हिंदी", 20, 0),
+      item("6 · भाषा-प्रयोग", 40, 0),
+    ];
+  if (paper === "Mains-General-Studies-IV") {
+    const theory = [
+      "1",
+      "2(a)",
+      "2(b)",
+      "3",
+      "4",
+      "5(a)",
+      "5(b)",
+      "6(a)",
+      "6(b)",
+      "6(c)",
+      "7",
+      "8",
+    ];
+    return [
+      ...theory.map((label) =>
+        item(
+          "Section A · Question " + label,
+          label === "2(a)" ? 15 : 10,
+          label === "2(a)" ? 250 : label === "2(b)" ? 100 : 150,
+        ),
+      ),
+      ...[9, 10, 11, 12, 13, 14].map((number) =>
+        item(
+          "Section B · Question " + number,
+          number === 12 ? 25 : 20,
+          number === 12 ? 300 : 250,
+        ),
+      ),
+    ];
+  }
+  if (!/^Mains-General-Studies-(I|II|III)$/.test(paper))
+    return mainsGsPattern(paper);
+  const split =
+    paper === "Mains-General-Studies-I"
+      ? [2, 19, 20, 22, 23]
+      : paper === "Mains-General-Studies-III"
+        ? [9, 16, 17]
+        : [];
+  return Array.from({ length: 25 }, (_, index) => index + 1).flatMap(
+    (number) => {
+      const label = "Question " + number;
+      return split.includes(number)
+        ? [item(label + "(a)", 5, 100), item(label + "(b)", 5, 100)]
+        : [item(label, 10, 200)];
+    },
+  );
+}
+
 function historicalWrittenPattern(paper: string, year: string) {
+  if (year === "2013") return mains2013Pattern(paper);
   const gs = /^Mains-General-Studies-(I|II|III)$/.test(paper);
   if (gs && ["2014", "2015", "2016"].includes(year)) {
     const twentyFive = year === "2014" && paper === "Mains-General-Studies-I";

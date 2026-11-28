@@ -375,9 +375,11 @@ export function Attempt({
         <p>
           {choice === "essay"
             ? "Choose one topic from Section A and one from Section B."
-            : choice === "mathematics"
-              ? "Answer Questions 1 and 5. Choose three other questions, including at least one from each section."
-              : "Choose one essay topic. Answer the remaining questions."}
+            : choice === "single-essay"
+              ? "Choose one essay topic."
+              : choice === "mathematics"
+                ? "Answer Questions 1 and 5. Choose three other questions, including at least one from each section."
+                : "Choose one essay topic. Answer the remaining questions."}
         </p>
       )}
       {questions.map((question, index) => (
@@ -518,11 +520,13 @@ export function Attempt({
           {answered} of{" "}
           {choice === "essay"
             ? 2
-            : choice === "language"
-              ? questions.length - 3
-              : choice === "mathematics"
-                ? 5
-                : questions.length}{" "}
+            : choice === "single-essay"
+              ? 1
+              : choice === "language"
+                ? questions.length - 3
+                : choice === "mathematics"
+                  ? 5
+                  : questions.length}{" "}
           answered
         </span>
         {conflict && (

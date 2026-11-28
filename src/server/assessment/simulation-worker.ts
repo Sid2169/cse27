@@ -968,7 +968,12 @@ export const markSimulation = inngest.createFunction(
       if (error) throw new Error("Could not load submitted simulation");
       if (!data) return;
       const simulation = data as Simulation;
-      const rule = writtenChoice(simulation.paper_code, simulation.mode);
+      const source = simulation.source_details;
+      const rule = writtenChoice(
+        simulation.paper_code,
+        simulation.mode,
+        source && "year" in source ? source.year : undefined,
+      );
       const selected = rule
         ? validateChoices(
             readChoices(simulation.answers[choiceField]),

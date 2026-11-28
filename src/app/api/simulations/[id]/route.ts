@@ -99,7 +99,7 @@ export async function POST(request: Request, { params }: Context) {
     const { data, error } = await db
       .from("chapter_simulations")
       .select(
-        "paper_code,mode,kind,status,questions,answers,attachments,clarification,version",
+        "paper_code,mode,kind,status,questions,answers,attachments,clarification,source_details,version",
       )
       .eq("user_id", user.id)
       .eq("id", id)
@@ -116,6 +116,7 @@ export async function POST(request: Request, { params }: Context) {
       | "questions"
       | "attachments"
       | "clarification"
+      | "source_details"
       | "version"
     >;
     if (["save", "submit", "confirm"].includes(input.action)) {
@@ -125,7 +126,12 @@ export async function POST(request: Request, { params }: Context) {
       );
       if (!checked) return json({ error: "invalid-answer" }, 400);
       answers = checked;
-      const rule = writtenChoice(simulation.paper_code, simulation.mode);
+      const source = simulation.source_details;
+      const rule = writtenChoice(
+        simulation.paper_code,
+        simulation.mode,
+        source && "year" in source ? source.year : undefined,
+      );
       const choices = rule
         ? validateChoices(
             input.action === "confirm"

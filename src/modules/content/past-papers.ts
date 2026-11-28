@@ -30,6 +30,26 @@ const prelimsMirrors: Record<number, Record<string, string>> = {
 
 // Internet Archive captures of UPSC's original Mains PDFs.
 const archivedMainsBooklets: Record<number, Record<string, string>> = {
+  2013: {
+    "Mains-General-Studies-I":
+      "https://web.archive.org/web/20131228065811id_/http://www.upsc.gov.in/questionpaper/2013/CSM%202013/GS%20I.pdf",
+    "Mains-General-Studies-II":
+      "https://web.archive.org/web/20131228065823id_/http://www.upsc.gov.in/questionpaper/2013/CSM%202013/GS%20II.pdf",
+    "Mains-General-Studies-III":
+      "https://web.archive.org/web/20131228065831id_/http://www.upsc.gov.in/questionpaper/2013/CSM%202013/GS%20III.pdf",
+    "Mains-General-Studies-IV":
+      "https://web.archive.org/web/20131228072050id_/http://www.upsc.gov.in/questionpaper/2013/CSM%202013/GS%20IV.pdf",
+    "Mains-Essay":
+      "https://web.archive.org/web/20131228142511id_/http://www.upsc.gov.in/questionpaper/2013/CSM%202013/Essay.pdf",
+    "Mains-Mathematics-I":
+      "https://web.archive.org/web/20131228142532id_/http://www.upsc.gov.in/questionpaper/2013/CSM%202013/Mathematics%20I.pdf",
+    "Mains-Mathematics-II":
+      "https://web.archive.org/web/20131228142542id_/http://www.upsc.gov.in/questionpaper/2013/CSM%202013/Mathematics%20II.pdf",
+    "Mains-English":
+      "https://web.archive.org/web/20131228080154id_/http://www.upsc.gov.in/questionpaper/2013/CSM%202013/English%20(C).pdf",
+    "Mains-Indian-Language":
+      "https://web.archive.org/web/20131228142521id_/http://www.upsc.gov.in/questionpaper/2013/CSM%202013/Hindi%20(%20C%20).pdf",
+  },
   2014: {
     "Mains-General-Studies-I":
       "https://web.archive.org/web/20150121205657id_/http://www.upsc.gov.in/questionpaper/2014/CSM-2014/GENERAL%20STUDIES-I.pdf",

@@ -1,9 +1,15 @@
-export function writtenChoice(paper: string, mode: string) {
+export function writtenChoice(
+  paper: string,
+  mode: string,
+  sourceYear?: number,
+) {
   if (mode !== "full" && mode !== "pyq") return null;
   if (paper === "Mains-Mathematics") return "mathematics" as const;
-  if (paper === "Mains-Essay") return "essay" as const;
+  const historical2013 = mode === "pyq" && sourceYear === 2013;
+  if (paper === "Mains-Essay")
+    return historical2013 ? ("single-essay" as const) : ("essay" as const);
   if (paper === "Mains-English" || paper === "Mains-Indian-Language")
-    return "language" as const;
+    return historical2013 ? null : ("language" as const);
   return null;
 }
 
@@ -63,7 +69,7 @@ export function validateChoices(
     if (a > 1 || b > 1 || (final && (a !== 1 || b !== 1))) return null;
   }
   if (
-    rule === "language" &&
+    (rule === "language" || rule === "single-essay") &&
     (choices.some((index) => index >= 4) ||
       choices.length > 1 ||
       (final && choices.length !== 1))
