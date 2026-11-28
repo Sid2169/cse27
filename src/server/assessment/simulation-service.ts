@@ -179,7 +179,7 @@ export type SimulationView = SimulationSummary & {
   extracted: Record<string, Extraction>;
   clarification: { question: number; request: string } | null;
   max_units: number | null;
-  unit_scale: 1 | 6;
+  unit_scale: 1 | 2 | 6;
   version: number;
 };
 

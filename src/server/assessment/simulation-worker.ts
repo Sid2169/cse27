@@ -570,7 +570,7 @@ export const prepareSimulation = inngest.createFunction(
           p_questions: questions,
           p_guide: guide,
           p_duration: 10800,
-          p_max_units: scope.maximum,
+          p_max_units: scope.maximum * scope.unitScale,
         });
         if (result.error)
           throw new Error("Could not publish the official written paper");
@@ -1090,7 +1090,10 @@ export const markSimulation = inngest.createFunction(
                 },
           );
           grading = {
-            score: items.reduce((sum, item) => sum + item.awarded, 0),
+            score: items.reduce(
+              (sum, item) => sum + item.awarded * simulation.unit_scale,
+              0,
+            ),
             feedback: { items },
           };
         } catch (error) {

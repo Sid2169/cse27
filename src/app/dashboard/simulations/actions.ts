@@ -127,7 +127,12 @@ export async function requestSimulation(form: FormData) {
     revision: scope.revision,
     source_commit: catalogue.commit,
     kind: scope.kind,
-    unit_scale: scope.kind === "objective" ? 6 : 1,
+    unit_scale:
+      scope.kind === "objective"
+        ? 6
+        : historical?.kind === "descriptive"
+          ? historical.unitScale
+          : 1,
     generation_model: generation,
     evaluation_model: evaluation,
   };

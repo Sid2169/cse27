@@ -8,6 +8,7 @@ import type { HistoricalSource } from "./historical-papers";
 
 const writtenEditions: Record<string, Record<string, string>> = {
   "Mains-General-Studies-I": {
+    "2016": "50ad80afd3d1836f2bc1a23a658fbf56c28624a665d3434046bc0a7c7c1b56f9",
     "2017": "aaa5b248c054200a29baef94457795e6071c50afdcc04e16f064977659d988a5",
     "2018": "ba79faea69293d5cb9603594a902da987fc7426fb1dd7423f69303ffa638a147",
     "2019": "e3ed5f07b880715cfbf3d12618a9c6ab2767e14bc68a822069ead6e5b2c7151b",
@@ -20,6 +21,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "49418ba3d1a93de14f2e4d21be2c77aafdd9f194b32238e05d5242d9747a2601",
   },
   "Mains-General-Studies-II": {
+    "2016": "8d0054c563a28ea69a598f0598c675491e61d859b7d473ad96aaec8e66888f5b",
     "2017": "45bfd829525d1dd9e7d5a7ec880d2ad1bee513249655f784a0efe2eac0619e3b",
     "2018": "a80bb0d8d244d368ba17a7c64e8aa4e6fd8e02d604a7fc9551c9252910c0b032",
     "2019": "52ac9de8889a7343152aacf5ba969f4bfcb999ac0570842a0efd2f81b922d802",
@@ -32,6 +34,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "471efa8ae48dde452d5cea7a31241c0260c13e2cf2ec396734b97631c2599a36",
   },
   "Mains-General-Studies-III": {
+    "2016": "ecf3d98cc3b432a0f9c70721d359cefb6b6f9854bd9677ed32aad9fc2916b24a",
     "2017": "8c5db82590702476b3e8e9f055ed91e9fe31d721421a510e385e2c76e671ce27",
     "2018": "fde12191526fec339e8a9bace101dad8a24dd8f104fa6d733b354d54aeee5fae",
     "2019": "e0a493a8f29e1509c543fb410f50dec6b561f0097b0ec445eadcd3401380a6d9",
@@ -44,6 +47,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "051df5f7c1d7927ff5808f463957391ed2b4bded43bb4b24e6fa67724ebcfa7e",
   },
   "Mains-General-Studies-IV": {
+    "2016": "65bf5c19e7f9b966844b12d5758221b2e0c6882cf5bbd33221fc2600823109f1",
     "2017": "74233505fcb048abe303061904757e5c5261407e9bef0f12a4c899c13776d68d",
     "2018": "23bd08cd2bf811edc4697686ea842683960d71569bba30098863ab6deab4e29e",
     "2019": "58ac7b4b99a0482f78ba704ec19e39f9de6700fec9cef56b2e94f382c23cb973",
@@ -56,6 +60,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "df8cdb5399ac2ddf9424553f7c231de1068cefa68ff2decbaf30ad61001db3a6",
   },
   "Mains-Essay": {
+    "2016": "cef7861fad89cecbd3e814d5c24b3d129ff5755441aad6805373e034268b9b25",
     "2017": "cc3864b40a092dbfd2788bfa0747ee179981d0cf23b7154cdafab78480f4e0bd",
     "2018": "d31699b694e5fe581463dad7b25c86d49ab306dfdbc0eb3692ff359603c846d5",
     "2019": "d6be3ea695c2fde0250f99c9061d23ff761554a37477e1959f40a6192fc072dd",
@@ -68,6 +73,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "a8eee6ee4af529ebc58778e96fbd148e6b63f5740e08e82e194376a185f27811",
   },
   "Mains-Mathematics-I": {
+    "2016": "7d21958e2493747644c8622f16a12498c5566563ffd115827e5e488d447ab2ee",
     "2017": "95bfb07d3429888db0e3984c7695fb8d2efcb16cb5ad32b5b2e1def1d01cc576",
     "2018": "6e1f2f1ca10642622f48be6e19317817b2192b9850c9d8916124afd9b67d76d4",
     "2019": "8a052ba3f96200695cc9431c053de6477c592ca6272a9cb2c7de863d9e81ea88",
@@ -80,6 +86,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "b8b9c83368d8e77bd64d1581a34e3ab3ca26f03f6eacae30ad9f2ea6a9d04160",
   },
   "Mains-Mathematics-II": {
+    "2016": "4ac3fa39cbf2217ea684721da285e69c3022e70c08b42665065d49e6fe9a262c",
     "2017": "541e6a8542756308adf23a43b7378fe3245c1f7db0495b93dfbdf169cfd99b3f",
     "2018": "8af5ee5ca3d16b29e0f103776d98dfb3c8718b4d2eaeff094c3ed9ccc49f4f3f",
     "2019": "2b538dc5ad275161bf5b428ab09839bd656119a2db401b61605471d3c5e5e310",
@@ -92,6 +99,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "fa4cb25029d79c8e6a6e9e01be6d253cf61b65dde6a0f7e5903f2ab838126e13",
   },
   "Mains-Indian-Language": {
+    "2016": "dbf18ee807ab18de403c3c1272ff00d03b3493ed59bc9438ca709682cafb9208",
     "2017": "97da06205bc2d2c7b6f40053ba64492a62089efab055c66dadb601818162c294",
     "2018": "a2057dc40d0d95a7250272f5ddafaae43a650e488566b56d037913644c5d01c5",
     "2019": "fc5cddd4b6ef6b34ba68737a7b5231d28da680896bbd30bb21b753a222f90d75",
@@ -104,6 +112,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2024": "177407a7553b1c9b3bdf31429e0ceada846d73a8eb1640936e28625ed354d5eb",
   },
   "Mains-English": {
+    "2016": "7a36375803ff7068af2a0ba42f3b5a0ed7dfaa43bd606dfec473b99d6360f12a",
     "2017": "21e840f28e0393b06044d8d24d3a8f0ded31302bcd454a74d1b5cb7e1062b016",
     "2018": "3e0973efc60df94f10a337865f84426567a9ba7b5826958260da9bc7aac879b3",
     "2019": "42a95cfc1a8141345572049ba2aaf361bdeb6601d68d7efeb7638d6f7e552d9b",
@@ -118,16 +127,44 @@ const writtenEditions: Record<string, Record<string, string>> = {
 };
 
 function historicalWrittenPattern(paper: string, year: string) {
+  if (year === "2016" && /^Mains-General-Studies-(I|II|III)$/.test(paper))
+    return [
+      {
+        labels: Array.from(
+          { length: 20 },
+          (_, index) => "Question " + (index + 1),
+        ),
+        marks: 12.5,
+        words: 200,
+      },
+    ];
   if (
     paper !== "Mains-General-Studies-IV" ||
-    !["2017", "2018", "2019", "2020"].includes(year)
+    !["2016", "2017", "2018", "2019", "2020"].includes(year)
   )
     return mainsGsPattern(paper);
 
   // 2017 has standalone theory questions 1–3 and case studies 9–14.
   // 2018–2020 print the three quotations as parts of question 6.
   const theoryCounts =
-    year === "2017" ? [1, 1, 1, 2, 2, 2, 2, 2] : [2, 2, 2, 2, 2, 3];
+    year === "2016"
+      ? [2, 2, 2, 2, 1, 1, 1, 1]
+      : year === "2017"
+        ? [1, 1, 1, 2, 2, 2, 2, 2]
+        : [2, 2, 2, 2, 2, 3];
+  const cases = (
+    length: number,
+    start: number,
+    marks: number,
+    words: number,
+  ) => ({
+    labels: Array.from(
+      { length },
+      (_, index) => "Section B · Question " + (start + index),
+    ),
+    marks,
+    words,
+  });
   return [
     {
       labels: theoryCounts.flatMap((count, index) => {
@@ -142,15 +179,9 @@ function historicalWrittenPattern(paper: string, year: string) {
       marks: 10,
       words: 150,
     },
-    {
-      labels: Array.from(
-        { length: 6 },
-        (_, index) =>
-          "Section B · Question " + (theoryCounts.length + index + 1),
-      ),
-      marks: 20,
-      words: 250,
-    },
+    ...(year === "2016"
+      ? [cases(4, 9, 20, 250), cases(2, 13, 25, 300)]
+      : [cases(6, theoryCounts.length + 1, 20, 250)]),
   ];
 }
 
@@ -197,6 +228,7 @@ export function historicalWrittenScope(
     source,
     digest,
     maximum: qualifying ? 300 : 250,
+    unitScale: questions.some(({ marks }) => !Number.isInteger(marks)) ? 2 : 1,
     variants: [variant],
     kind: "descriptive" as const,
     revision: createHash("sha256")
