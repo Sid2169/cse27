@@ -9,7 +9,6 @@ import {
   type ObjectiveQuestion,
   type WrittenQuestion,
 } from "../src/modules/assessment/chapter-simulation";
-import { prepareHistoricalWriting } from "../src/server/assessment/historical-written-generation";
 import { checkpointScope } from "../src/modules/assessment/checkpoint";
 import {
   generateWrittenSimulation,
