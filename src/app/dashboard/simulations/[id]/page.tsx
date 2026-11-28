@@ -326,9 +326,12 @@ export default async function ChapterSimulation({
           {objective ? (
             <p>
               Each correct answer earns {paper === "Prelims-CSAT" ? "2.5" : "2"}{" "}
-              marks. An incorrect answer loses one-third of its marks. Blanks
-              earn zero. The timer pauses after loss of connection and submits
-              saved answers at expiry.
+              marks. An incorrect answer loses one-third of its marks
+              {historical?.penaltyExceptions?.length
+                ? `, except for questions ${historical.penaltyExceptions.at(0)}–${historical.penaltyExceptions.at(-1)}`
+                : ""}
+              . Blanks earn zero. The timer pauses after loss of connection and
+              submits saved answers at expiry.
             </p>
           ) : choice ? (
             <p>
