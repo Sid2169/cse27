@@ -3,6 +3,38 @@ import assert from "node:assert/strict";
 import { buildCatalogue, isReady, sections } from "../scripts/content";
 import { resolveLearningLink } from "../src/modules/content/links";
 const c = buildCatalogue();
+import { officialBooklet } from "../src/modules/content/past-papers";
+
+test("the UPSC archive has 2016–2026 booklets for every supported paper and both Mathematics variants", () => {
+  const papers = [
+    "Prelims-General-Studies-I",
+    "Prelims-CSAT",
+    "Mains-Essay",
+    "Mains-English",
+    "Mains-Indian-Language",
+    "Mains-General-Studies-I",
+    "Mains-General-Studies-II",
+    "Mains-General-Studies-III",
+    "Mains-General-Studies-IV",
+  ];
+  for (let year = 2016; year <= 2026; year++) {
+    const links = [
+      ...papers.map((paper) => officialBooklet(paper, year)),
+      ...["I", "II"].map((variant) =>
+        officialBooklet("Mains-Mathematics", year, variant),
+      ),
+    ];
+    assert.equal(new Set(links).size, 11);
+    for (const url of links)
+      assert.match(
+        url ?? "",
+        /^https:\/\/(?:www\.)?upsc\.gov\.in\/uploads\/.+\.pdf$/,
+      );
+  }
+  assert.equal(officialBooklet("Mains-Mathematics", 2024, ""), null);
+  assert.equal(officialBooklet("Prelims-CSAT", 2013), null);
+});
+
 test("indexes every paper and preserves curriculum chapter order", () => {
   assert.equal(c.papers.length, 10);
   const gs = c.papers.find((p) => p.id === "Prelims-General-Studies-I")!;

@@ -1,3 +1,5 @@
+import { officialBookletPaths } from "./official-booklets";
+
 export const officialPaperIndex =
   "https://www.upsc.gov.in/exam-documents/question-papers/";
 export const officialPaperArchive =
@@ -47,7 +49,10 @@ export function officialBooklet(paper: string, year: number, variant = "") {
     return "https://www.upsc.gov.in/uploads/2026/07/general-studies-paper-i-4-1.pdf";
   if (year === 2024 && paper === "Prelims-CSAT")
     return "https://www.upsc.gov.in/uploads/2026/07/general-studies-paper-ii-4-1.pdf";
-  return year === 2026 ? (verified2026[paper] ?? null) : null;
+  if (year === 2026 && verified2026[paper]) return verified2026[paper];
+  const key = paper === "Mains-Mathematics" ? paper + "-" + variant : paper;
+  const path = officialBookletPaths[year]?.[key];
+  return path ? "https://www.upsc.gov.in" + path : null;
 }
 
 export function transcriptionNotes(markdown: string) {
