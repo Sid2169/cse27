@@ -268,6 +268,15 @@ if (process.argv[1]?.endsWith("/scripts/content.ts")) {
   );
   writeFileSync(".generated/gs1-2024-stems.json", JSON.stringify(gsStems));
   const objectiveHistoricalReferences = [
+    ["Prelims-General-Studies-I", 2021, 100, {}],
+    [
+      "Prelims-CSAT",
+      2021,
+      80,
+      {
+        39: "Assess which of two comparisons about the weights of A, D and the other people are sufficient to identify the heaviest among A through E.",
+      },
+    ],
     ["Prelims-General-Studies-I", 2022, 100, {}],
     [
       "Prelims-CSAT",

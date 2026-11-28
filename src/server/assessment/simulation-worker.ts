@@ -888,19 +888,14 @@ async function extractAnswers(db: Database, simulation: Simulation) {
   );
 }
 
-function recommendations(
-  simulation: Simulation,
-  items: MarkedAnswer[],
-  key: ObjectiveKey[],
-) {
+function recommendations(simulation: Simulation, items: MarkedAnswer[]) {
   const hindi = simulation.paper_code === "Mains-Indian-Language";
   const questions = simulation.questions!;
   const available = questions.flatMap((question, index) => {
     if (items[index].excluded) return [];
     const gap =
       "options" in question
-        ? key[index].correctOption !== null &&
-          simulation.answers[index] !== key[index].correctOption
+        ? items[index].awarded <= 0
         : items[index].awarded < question.marks;
     const review =
       (simulation.mode === "full" ||
@@ -1127,11 +1122,7 @@ export const markSimulation = inngest.createFunction(
             : "",
         p_score_units: grading.score,
         p_feedback: grading.feedback,
-        p_recommendations: recommendations(
-          simulation,
-          grading.feedback.items,
-          objectiveKey,
-        ),
+        p_recommendations: recommendations(simulation, grading.feedback.items),
       });
       if (result.error)
         throw new Error("Could not finalize simulation feedback");

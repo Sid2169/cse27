@@ -371,3 +371,20 @@ test("written simulation links every part and rejects out-of-guide awards", asyn
   await assert.rejects(mark(7), /Invalid criterion award/);
   await assert.rejects(mark(5, false), /clarification/);
 });
+
+test("a published objective key can accept either of two single answers", () => {
+  const key = [
+    {
+      correctOption: 2,
+      alternateCorrectOption: 3,
+      explanation: "The published key accepts C or D.",
+    },
+  ];
+  for (const answer of [2, 3]) {
+    const result = scoreObjective("Prelims-CSAT", key, { 0: answer });
+    assert.equal(result.score, 15);
+    assert.equal(result.feedback.correct, 1);
+  }
+  assert.equal(scoreObjective("Prelims-CSAT", key, { 0: 1 }).score, -5);
+  assert.equal(scoreObjective("Prelims-CSAT", key, {}).feedback.blank, 1);
+});
