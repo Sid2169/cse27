@@ -1,3 +1,4 @@
+import { RevisionCalendar } from "./calendar";
 import Link from "@/components/navigation-link";
 import { getDocument } from "@/modules/content/catalogue";
 import { simulationLink } from "@/modules/assessment/chapter-simulation";
@@ -43,10 +44,10 @@ type ChapterOptions = Partial<
 export default async function Revisions({
   searchParams,
 }: {
-  searchParams: Promise<{ status?: string }>;
+  searchParams: Promise<{ status?: string; month?: string; day?: string }>;
 }) {
   const { user } = await requireOwner();
-  const { status } = await searchParams;
+  const { status, month, day } = await searchParams;
   const db = simulationDb();
   const [initial, subsequent, preferences, history] = await Promise.all([
     db
@@ -202,6 +203,18 @@ export default async function Revisions({
       )}
       {db && tasks.length === 0 && (
         <p>Pass a chapter completion test to schedule its first revision.</p>
+      )}
+      {tasks.some(({ group }) =>
+        ["Overdue", "Due today", "Upcoming"].includes(group),
+      ) && (
+        <RevisionCalendar
+          today={today}
+          requestedMonth={month}
+          requestedDay={day}
+          scheduled={tasks.filter(({ group }) =>
+            ["Overdue", "Due today", "Upcoming"].includes(group),
+          )}
+        />
       )}
       {groups.map((group) => {
         const items = tasks.filter((task) => task.group === group);
