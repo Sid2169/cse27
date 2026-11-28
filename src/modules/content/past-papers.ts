@@ -11,6 +11,10 @@ const verified2026: Record<string, string> = {
 };
 
 export function officialBooklet(paper: string, year: number, variant = "") {
+  if (year === 2023 && paper === "Prelims-General-Studies-I")
+    return "https://www.upsc.gov.in/uploads/2026/07/general-studies-paper-i-6-1.pdf";
+  if (year === 2023 && paper === "Prelims-CSAT")
+    return "https://www.upsc.gov.in/uploads/2026/07/general-studies-paper-ii-6-1.pdf";
   if (year === 2024 && paper === "Mains-Indian-Language")
     return "https://upsc.gov.in/uploads/2026/07/hindi-compulsory-1-1.pdf";
   if (year === 2024 && paper === "Mains-English")

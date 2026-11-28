@@ -268,6 +268,16 @@ if (process.argv[1]?.endsWith("/scripts/content.ts")) {
   );
   writeFileSync(".generated/gs1-2024-stems.json", JSON.stringify(gsStems));
   const objectiveHistoricalReferences = [
+    ["Prelims-General-Studies-I", 2023, 100, {}],
+    [
+      "Prelims-CSAT",
+      2023,
+      80,
+      {
+        69: "Compare the minimum number of 2 g, 5 g, 10 g, 25 g and 50 g silver coins needed to make 78 g with the number needed to measure it on a balance.",
+        80: "Count letters that stay in their original positions after arranging the letters of INCOMPREHENSIBILITIES in reverse alphabetical order.",
+      },
+    ],
     [
       "Prelims-General-Studies-I",
       2025,
