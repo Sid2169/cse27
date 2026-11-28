@@ -8,10 +8,27 @@ import type {
 } from "@/modules/assessment/chapter-simulation";
 import csatStems from "../../../.generated/csat-2024-stems.json";
 import gsStems from "../../../.generated/gs1-2024-stems.json";
+import gs2023 from "../../../.generated/Prelims-General-Studies-I-2023-stems.json";
+import csat2023 from "../../../.generated/Prelims-CSAT-2023-stems.json";
 import gs2026 from "../../../.generated/Prelims-General-Studies-I-2026-stems.json";
 import csat2026 from "../../../.generated/Prelims-CSAT-2026-stems.json";
 import gs2025 from "../../../.generated/Prelims-General-Studies-I-2025-stems.json";
 import csat2025 from "../../../.generated/Prelims-CSAT-2025-stems.json";
+
+// Transcribed from the final official 2023 Series A keys.
+const gs2023Letters = [
+  "ABBADDCADDCCAACDBCBC",
+  "DABABBCCBCAACXADBBBC",
+  "ABBDDBBACDBCACBADDBC",
+  "ACDDCDACAABCDBBCBDCA",
+  "ABADCCCDADBBDCBBDDCC",
+].join("");
+const csat2023Letters = [
+  "ADCDBBAADCCABADADACA",
+  "BBBACBACBCDCBCBCDDCD",
+  "AAACDCACABDAABBDCADB",
+  "DDBCDCDDCBBBDDDADAAC",
+].join("");
 
 // Page one of the UPSC provisional Series A keys, column by column.
 const gs2026Letters = [
@@ -93,7 +110,7 @@ export type HistoricalSource = {
 };
 
 export function historicalScope(paper: string, year: string) {
-  if (!["2024", "2025", "2026"].includes(year)) return null;
+  if (!["2023", "2024", "2025", "2026"].includes(year)) return null;
   const definition = getPaper(paper);
   if (!definition) return null;
   const gs = paper === "Prelims-General-Studies-I";
@@ -102,41 +119,61 @@ export function historicalScope(paper: string, year: string) {
   if (!currentBooklet) return null;
   const modern = year !== "2024";
   const provisional = year === "2026";
-  const source: HistoricalSource = provisional
+  const newerEditions: Record<
+    string,
+    {
+      gs: string;
+      csat: string;
+      gsDropped?: number[];
+      answerKey: (gs: boolean) => string;
+    }
+  > = {
+    "2023": {
+      gs: gs2023Letters,
+      csat: csat2023Letters,
+      gsDropped: [34],
+      answerKey: (gs) =>
+        "https://forumias.com/blog/wp-content/uploads/2024/05/UPSC-CSE-2023-" +
+        (gs ? "GS" : "CSAT") +
+        "-Answer-Key.pdf",
+    },
+    "2025": {
+      gs: gs2025Letters,
+      csat: csat2025Letters,
+      answerKey: (gs) =>
+        "https://forumias.com/blog/wp-content/uploads/2026/05/UPSC-2025-Answerkey-" +
+        (gs ? "GS-I.pdf" : "CSAT-1.pdf"),
+    },
+    "2026": {
+      gs: gs2026Letters,
+      csat: csat2026Letters,
+      gsDropped: [64],
+      answerKey: (gs) =>
+        "https://forumias.com/blog/wp-content/uploads/2026/05/ProvAnsKey%E2%80%93GS-" +
+        (gs ? "I" : "II") +
+        "-CSP-Exam-2026-270526.pdf",
+    },
+  };
+  const known = newerEditions[year];
+  const source: HistoricalSource = known
     ? {
-        year: 2026,
+        year: Number(year),
         series: "A",
         booklet: currentBooklet,
-        provisional: true,
-        answerKey:
-          "https://forumias.com/blog/wp-content/uploads/2026/05/ProvAnsKey%E2%80%93GS-" +
-          (gs ? "I" : "II") +
-          "-CSP-Exam-2026-270526.pdf",
-        ...(gs ? { dropped: [64] } : {}),
+        ...(provisional ? { provisional: true } : {}),
+        answerKey: known.answerKey(gs),
+        ...(gs && known.gsDropped ? { dropped: known.gsDropped } : {}),
       }
-    : modern
-      ? {
-          year: 2025,
-          series: "A",
-          booklet: currentBooklet,
-          answerKey:
-            "https://forumias.com/blog/wp-content/uploads/2026/05/UPSC-2025-Answerkey-" +
-            (gs ? "GS-I.pdf" : "CSAT-1.pdf"),
-        }
-      : gs
-        ? gsHistoricalSource
-        : csatHistoricalSource;
-  const letters = provisional
+    : gs
+      ? gsHistoricalSource
+      : csatHistoricalSource;
+  const letters = known
     ? gs
-      ? gs2026Letters
-      : csat2026Letters
-    : modern
-      ? gs
-        ? gs2025Letters
-        : csat2025Letters
-      : gs
-        ? gsLetters
-        : csatLetters;
+      ? known.gs
+      : known.csat
+    : gs
+      ? gsLetters
+      : csatLetters;
   const dropped = Array.from(letters).flatMap((letter, index) =>
     letter === "X" ? [index + 1] : [],
   );
@@ -190,6 +227,7 @@ export function historicalScope(paper: string, year: string) {
 // Research transcriptions use different booklet orders. Use them only
 // to check for previously seen content, never pair them with Series A keys.
 export function historicalResearchStems(paper: string, year: number) {
+  if (year === 2023) return paper === "Prelims-CSAT" ? csat2023 : gs2023;
   if (year === 2026) return paper === "Prelims-CSAT" ? csat2026 : gs2026;
   if (year === 2025) return paper === "Prelims-CSAT" ? csat2025 : gs2025;
   if (year === 2024 && paper === "Prelims-General-Studies-I") return gsStems;
