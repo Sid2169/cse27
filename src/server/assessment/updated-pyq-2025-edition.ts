@@ -1,0 +1,410 @@
+import type { ReplacementProfile } from "./updated-pyq-data";
+
+type Source = ReplacementProfile["sources"][number];
+
+function source(
+  title: string,
+  date: string,
+  url: string,
+  evidence: string,
+): Source {
+  return { title, date, url, evidence };
+}
+
+function pib(id: number, title: string, date: string, evidence: string) {
+  return source(
+    title,
+    date,
+    "https://www.pib.gov.in/PressReleasePage.aspx?PRID=" + id,
+    evidence,
+  );
+}
+
+function profile(
+  number: number,
+  type: ReplacementProfile["type"],
+  original: string,
+  rationale: string,
+  format: string,
+  ...sources: Source[]
+): ReplacementProfile {
+  return { number, type, original, rationale, format, sources };
+}
+
+// Slot numbers come from UPSC's Series A scan. The typed research corpus uses a different order.
+export const gs2025For2026Profiles = [
+  profile(
+    4,
+    "mirror",
+    "Regulator and scope of sustainability reporting",
+    "Retains the same SEBI reporting framework and tests how the current assessment process is regulated.",
+    "Count accurate statements about SEBI's BRSR Core assessment providers, independence and standards.",
+    source(
+      "SEBI BRSR frequently asked questions",
+      "2025-04",
+      "https://www.sebi.gov.in/sebi_data/faqfiles/apr-2025/1745399101865.pdf",
+      "An assessment or assurance provider need not be a chartered accountant but must have relevant sustainability expertise. The board must ensure there is no conflict of interest. Third-party assessment uses standards developed by the Industry Standards Forum in consultation with SEBI.",
+    ),
+  ),
+  profile(
+    6,
+    "mirror",
+    "India's critical minerals and security measures",
+    "Keeps India's critical minerals policy and tests the scope and institutional role of a later auction.",
+    "Three statements on the auction authority, minerals and locations. Distinguish mineral blocks from exploration licences.",
+    pib(
+      2277041,
+      "Critical and strategic mineral block auctions",
+      "2026-06-23",
+      "The Ministry of Mines reported that the Central Government successfully auctioned ten critical and strategic blocks in the seventh tranche, raising its cumulative total to 56. This tranche included graphite and rare earth elements and first central auctions in Gujarat, Uttarakhand and Telangana.",
+    ),
+  ),
+  profile(
+    8,
+    "mirror",
+    "India's share of global equity options trading",
+    "Uses the same trading-volume series to test the scale and direction of changes following SEBI's measures.",
+    "Count correct statements on changes in trading in 2025. Keep annual volumes, open interest and futures distinct.",
+    source(
+      "FIA annual review of 2025 listed derivatives",
+      "2026-11-28",
+      "https://www.fia.org/marketvoice/articles/global-etd-trading-fell-2025-india-crackdown-hits-options-volume",
+      "FIA's review, available by the cutoff, reports global exchange-traded derivatives volumes falling 42.2% in 2025. Much of the fall was in India's equity index options. Global futures volumes rose 8.6%. Year-end global open interest increased despite the fall in trading volumes.",
+    ),
+  ),
+  profile(
+    21,
+    "mirror",
+    "NATO membership among six listed countries",
+    "Keeps the current membership test and changes the country sample to avoid repeating the original.",
+    "Ask how many of Finland, Poland, Norway, Austria, Ireland and Switzerland are members according to the dated NATO list. Provide four plausible count options.",
+    source(
+      "NATO roster, accessed for the preparation cutoff",
+      "2026-11-28",
+      "https://nato.int/en/about-us/organization/nato-member-countries",
+      "The roster lists 32 Allies, including Finland, Poland and Norway. Austria, Ireland and Switzerland are absent. Finland joined in 2023 and Sweden in 2024.",
+    ),
+  ),
+  profile(
+    24,
+    "mirror",
+    "India's turmeric production and leading states",
+    "Updates the original production comparison using the latest published state-wise figures.",
+    "Count correct statements comparing leading state production in the 2025–26 estimate. Use production tonnage, distinct from area.",
+    source(
+      "Spices Board state-wise area and production table",
+      "2026-05-21",
+      "https://indianspices.com/sites/default/files/Major%20spice%20state%20wise%20area%20production%202024-25%20web.pdf",
+      "In the table's 2025–26 estimates for turmeric, Maharashtra produced 307,202 tonnes, Tamil Nadu 172,086, Karnataka 106,660 and Telangana 98,000. Maharashtra leads the listed states. Use only the 2025–26 column.",
+    ),
+  ),
+  profile(
+    30,
+    "mirror",
+    "Rashtriya Gokul Mission objectives and implementation",
+    "Tests the same scheme through its recently documented delivery and breed-conservation interventions.",
+    "Choose the correct combination of statements about scheme scope and the use of artificial insemination and sex-sorted semen.",
+    pib(
+      2241795,
+      "Promotion of indigenous cattle breeds",
+      "2026-03-18",
+      "The mission covers conservation and development of indigenous bovine breeds and genetic improvement. The nationwide artificial insemination programme supplies services at the farmer's doorstep. Five government semen stations and three private stations contribute to production of sex-sorted semen.",
+    ),
+  ),
+  profile(
+    31,
+    "mirror",
+    "Cement emissions and mitigation materials",
+    "Updates the dated emissions evidence while keeping the relationship between cement production and lower-emission inputs.",
+    "Use statements I–III with explanatory options. Distinguish total emissions, emissions intensity and how alternative materials reduce clinker use.",
+    source(
+      "IEA Breakthrough Agenda Report 2025, cement and concrete",
+      "2025-10-30",
+      "https://www.iea.org/reports/breakthrough-agenda-report-2025/cement-and-concrete",
+      "The report links recent drops in total direct emissions to lower global production while direct emissions intensity was unchanged. Improved material efficiency, supplementary cementitious materials, alternative fuels and carbon capture are routes for further reductions.",
+    ),
+  ),
+  profile(
+    32,
+    "mirror",
+    "A COP climate and health instrument and its scope",
+    "Uses the subsequent COP health instrument and preserves the distinction between an announced initiative and its actual remit.",
+    "Use two statements and the original explanation-style options. Anchor the instrument to COP30 and avoid making unverified country-endorsement claims.",
+    source(
+      "Brazilian Health Ministry, launch of the Belém Health Action Plan",
+      "2025-11-13",
+      "https://www.gov.br/saude/pt-br/assuntos/noticias/2025/novembro/brasil-lanca-plano-de-acao-em-saude-de-belem-para-enfrentar-impactos-climaticos-e-fortalecer-sistemas-de-saude-globais/",
+      "Brazil announced the Belém Health Action Plan during COP30. It focuses on health-sector adaptation to climate impacts and resilient health systems. Its work includes climate-informed surveillance and equitable, resilient adaptation.",
+    ),
+  ),
+  profile(
+    33,
+    "mirror",
+    "Observed change in Earth's rotation and its causes",
+    "Retains the geophysical mechanism and uses the newer study of day length and mass redistribution.",
+    "Three statements with explanation-style options. Distinguish change in day length from the location of the rotation axis.",
+    source(
+      "ETH Zürich, current rate of day lengthening",
+      "2026-03-12",
+      "https://baug.ethz.ch/en/news-and-events/news/2026/03/climate-change-slows-earths-spin-day-lengthening-unprecedented-in-3-point-6-million-years.html",
+      "The study reports day lengthening at about 1.33 milliseconds per century. Melting ice redistributes mass towards the equator and slows rotation. This rate is unusual in the reconstructed 3.6-million-year record.",
+    ),
+  ),
+  profile(
+    35,
+    "mirror",
+    "Institution behind an Asia-Pacific nature-finance initiative",
+    "Tests the institution behind a subsequent nature-finance initiative of comparable scope.",
+    "Give four comparable development institutions and ask which announced the dated biodiversity bond and investment incubator.",
+    source(
+      "Asian Development Bank, nature-finance announcements at CBD COP17",
+      "2026-10-27",
+      "https://www.adb.org/subjects/nature-solutions",
+      "At Yerevan on 27 October 2026 the Asian Development Bank announced a biodiversity bond, an investment incubator and joint multilateral work on tracking nature finance.",
+    ),
+  ),
+  profile(
+    38,
+    "mirror",
+    "India's annual carbon dioxide emission statistics",
+    "Keeps comparisons of India's energy-related emissions, anchored to the IEA's updated annual review.",
+    "Count or combine three statements on India's emissions, the global trend and the explanation for the Indian change.",
+    source(
+      "IEA Global Energy Review 2026, energy-related CO₂ emissions",
+      "2026-04-20",
+      "https://www.iea.org/reports/global-energy-review-2026/co2-emissions",
+      "Global energy-related CO₂ emissions rose about 0.4% in 2025, while India's fell. The IEA attributed the dip in India to an earlier and stronger monsoon and continued expansion of renewables.",
+    ),
+  ),
+  profile(
+    47,
+    "mirror",
+    "Recently announced quantum processor and related technology",
+    "Keeps the link between a named current quantum processor and the developer and capability it was announced to have.",
+    "Count correct statements about developer, whether the announced version has already shipped, and one distinction between quantum and classical systems.",
+    source(
+      "IBM announcement of Quantum Nighthawk r3",
+      "2026-11-11",
+      "https://www.ibm.com/quantum/blog/qdc-2026",
+      "IBM describes Nighthawk r3 as a future processor targeting 520 qubits and 10,000 quantum operations. It distinguishes that roadmap from the tested, current Nighthawk r2. Do not treat planned capabilities as measured results.",
+    ),
+  ),
+  profile(
+    63,
+    "mirror",
+    "Relative fuel ethanol production in Brazil and the United States",
+    "Keeps the country comparison with newer data and preserves the difference between output and market share.",
+    "Use statements I–III and relationship options. Cite the data year and distinguish fuel ethanol from all ethanol.",
+    source(
+      "Renewable Fuels Association annual fuel ethanol series, cutoff snapshot",
+      "2026-11-28",
+      "https://ethanolrfa.org/markets-and-statistics/annual-ethanol-production",
+      "The 2025 world fuel ethanol table gives the United States 16,494 million US gallons or 52% of production and Brazil 8,650 million US gallons or 27%. The US output rose from 2024 while Brazil's fell.",
+    ),
+  ),
+  profile(
+    64,
+    "new",
+    "Implications of a dated report on extreme wet-bulb heat",
+    "Uses updated evidence on humidity and heat stress without inventing a replacement universal safety threshold.",
+    "Test which statements follow from the WHO's description of heat storage, humidity and vulnerability. Do not claim a single threshold applies to everyone.",
+    source(
+      "WHO heat and health fact sheet",
+      "2026-07-31",
+      "https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health",
+      "High humidity, low wind and heat radiation can impair the body's ability to shed metabolic heat. Heat-related risk varies by age, health and exposure, and clothing can impede heat loss.",
+    ),
+  ),
+  profile(
+    66,
+    "mirror",
+    "Recommendations of the Fifteenth Finance Commission",
+    "Uses the corresponding recommendations of the Sixteenth Finance Commission.",
+    "Give three statements and four combinations about the award period, vertical devolution and rural local body grants.",
+    pib(
+      2221390,
+      "Sixteenth Finance Commission vertical devolution",
+      "2026-02-01",
+      "The award period covers 2026–27 through 2030–31. The Government accepted retention of states' vertical share at 41% of the divisible pool.",
+    ),
+    pib(
+      2280902,
+      "Sixteenth Finance Commission rural local body grants",
+      "2026-07",
+      "The Commission recommended ₹4,35,236 crore for rural local bodies over the 2026–31 award period.",
+    ),
+  ),
+  profile(
+    69,
+    "mirror",
+    "Countries enabled for UPI merchant acceptance",
+    "Keeps UPI merchant-access geography and uses the later regulator-defined country-code additions.",
+    "Ask how many of five listed countries were added in the April 2026 circular. Distinguish enabling country codes from actual acceptance at every merchant.",
+    source(
+      "NPCI UPI Global country-code addendum 177A",
+      "2026-04-29",
+      "https://www.npci.org.in/uploads/Circular_177_A_Addendum_to_UPI_Global_Acceptance_Limits_and_Country_Code_Enablement_7b0176ab5c.pdf",
+      "The addendum lists Bahrain, Cambodia, Canada, Kuwait, New Zealand, Oman, South Africa and Switzerland as additions. Revisions took effect from 31 May 2026. Country enablement does not imply universal merchant acceptance.",
+    ),
+  ),
+  profile(
+    70,
+    "mirror",
+    "Design and targets of PM Surya Ghar",
+    "Retains residential rooftop solar, testing launch targets against later uptake and a related programme.",
+    "Count accurate statements about programme scale and eligibility. Distinguish rooftop installations from the separately announced floating-solar programme.",
+    pib(
+      2335742,
+      "India's renewable energy and household rooftop installations",
+      "2026-11-13",
+      "PM Surya Ghar aims for rooftop solar in one crore households. About 65.26 lakh households benefited as of 2 November 2026. PM Surya Sarovar is a separate floating solar programme that includes energy storage.",
+    ),
+  ),
+  profile(
+    82,
+    "mirror",
+    "Rail planning and the Kavach train protection system",
+    "Preserves system identification and tests it with the subsequent Kavach deployment.",
+    "Use statement combinations about the system's purpose, version and place of first deployment on South Central Railway.",
+    pib(
+      2313758,
+      "South Central Railway Kavach 4.0 commissioning",
+      "2026-09-23",
+      "Indian Railways announced its first Kavach 4.0 commissioning on South Central Railway, upgrading from version 3.2. Kavach is an automatic train protection system.",
+    ),
+  ),
+  profile(
+    83,
+    "mirror",
+    "Space missions supporting microgravity research",
+    "Retains identifying microgravity research among missions and adds the later operational Crew-12 mission.",
+    "List three missions or mission activities and ask how many carried out research in microgravity. Separate ISS research from docking demonstrations.",
+    source(
+      "SpaceX Crew-12 mission and research overview",
+      "2026-02-13",
+      "https://www.spacex.com/launches/crew12",
+      "Crew-12 launched to the International Space Station and its crew conducted research there.",
+    ),
+    source(
+      "ISRO Axiom-4 microgravity experiments",
+      "2025-07-13",
+      "https://new1.isro.gov.in/Axiom4_Mission_Successful_completion_of_microgravity_experiments.html",
+      "Axiom-4 completed a suite of microgravity experiments on the ISS.",
+    ),
+    source(
+      "ISRO 2025–26 achievements",
+      "2026-03",
+      "https://www.isro.gov.in/media_isro/pdf/Annexure_Achievements_during_FY_2025_2026.pdf",
+      "The SpaDeX satellites demonstrated orbital docking and power transfer. If using this as a distractor, specify the docking demonstration itself. Do not falsely deny separate experimentation on its launch vehicle's orbital module.",
+    ),
+  ),
+  profile(
+    90,
+    "mirror",
+    "Authority responsible for the Nature Restoration Law",
+    "Keeps the legal framework and tests the responsible institution at the subsequent implementation stage.",
+    "Single best institutional answer. Ask which body receives draft national restoration plans under the named regulation.",
+    source(
+      "European Commission, submission of draft national restoration plans",
+      "2026-09-01",
+      "https://environment.ec.europa.eu/news/eu-countries-submit-draft-plans-restoring-nature-2026-09-01_en",
+      "Under the EU Nature Restoration Regulation, Member States submit their draft national restoration plans to the European Commission.",
+    ),
+  ),
+  profile(
+    92,
+    "mirror",
+    "BIMSTEC membership and regional institutional milestones",
+    "Updates the same organization's milestone test to its documented Bangkok summit and vision.",
+    "Use statements on summit venue, membership and the adopted strategic vision. Distinguish initial founding from the 2025 decisions.",
+    source(
+      "Declaration of the Sixth BIMSTEC Summit",
+      "2025-04-04",
+      "https://bimstec.org/images/content_page_pdf/1743841366_6th%20BIMSTEC%20Summit%20Declaration.pdf",
+      "Seven members were represented at the sixth summit in Bangkok on 4 April 2025: Bangladesh, Bhutan, India, Myanmar, Nepal, Sri Lanka and Thailand. The summit adopted the BIMSTEC Bangkok Vision 2030.",
+    ),
+  ),
+  profile(
+    95,
+    "mirror",
+    "AI Action Summit venue and declaration",
+    "Uses the 2026 follow-up summit and retains distinguishing venue, milestones and declaration participation.",
+    "Give three statements with four possible combinations about summit location, its named declaration and endorsement. Avoid conflating an endorsement with a treaty ratification.",
+    pib(
+      2231208,
+      "India AI Impact Summit and New Delhi Declaration",
+      "2026-02-21",
+      "India's AI Impact Summit took place in New Delhi. The published outcome was the New Delhi Declaration on AI Impact, endorsed at publication by 92 countries and international organisations combined.",
+    ),
+  ),
+  profile(
+    96,
+    "mirror",
+    "United Nations observances matched to years",
+    "Keeps the international-year matching task with a refreshed selection that includes the volunteer observance.",
+    "Count correctly paired rows for three distinct observances, with plausible swaps of 2026 and 2027.",
+    source(
+      "UN International Year of the Woman Farmer resolution",
+      "2024-05-02",
+      "https://mandates.un.org/mandate/A/RES/78/279",
+      "Resolution A/RES/78/279 designates 2026 the International Year of the Woman Farmer.",
+    ),
+    source(
+      "UN International Year of Volunteers for Sustainable Development resolution",
+      "2023-12-18",
+      "https://mandates.un.org/mandate/A/RES/78/127",
+      "Resolution A/RES/78/127 designates 2026 the International Year of Volunteers for Sustainable Development.",
+    ),
+    source(
+      "UN development resolutions, observances listed at the preparation cutoff",
+      "2026-11-28",
+      "https://research.un.org/en/docs/dev",
+      "The list identifies 2027 as the International Year of Sustainable and Resilient Tourism under resolution A/RES/78/260.",
+    ),
+  ),
+  profile(
+    97,
+    "mirror",
+    "BRICS presidency, membership and annual theme",
+    "Keeps the same grouping and tests corresponding 2026 chairship information.",
+    "Three statements on current chair, theme and Indonesia's status, with four combinations. Keep members and partner countries distinct.",
+    pib(
+      2309505,
+      "New Delhi Declaration of the 18th BRICS Summit",
+      "2026-09-13",
+      "India hosted the summit in New Delhi on 12–13 September under the theme Building for Resilience, Innovation, Cooperation and Sustainability.",
+    ),
+    source(
+      "MEA training institute newsletter, BRICS chairship",
+      "2026-05",
+      "https://ssifs.mea.gov.in/public/uploads/section/wn/1780028805.pdf",
+      "The newsletter identifies Indonesia among the BRICS members represented in the chairship's work.",
+    ),
+  ),
+  profile(
+    99,
+    "new",
+    "Indian men's and women's Kho Kho World Cup results",
+    "Uses a different recent team competition for the same skill of distinguishing results across categories.",
+    "Choose the correct combination of statements about the winners and finalists in the dated 2026 Asian Games report.",
+    pib(
+      2319703,
+      "India's team-sport results at the 2026 Asian Games",
+      "2026-10",
+      "The Indian men's hockey team retained gold, defeating Malaysia 5–1. The men's cricket team beat Pakistan by 19 runs in its final. India won both the men's and women's kabaddi gold medals.",
+    ),
+  ),
+  profile(
+    100,
+    "mirror",
+    "International chess results and event identification",
+    "Keeps competition identification and reported chess outcomes, using the next Olympiad.",
+    "Count correct statements about the venue and open and women's team results. Distinguish a Chess Olympiad team result from an individual championship.",
+    source(
+      "FIDE 46th Chess Olympiad results",
+      "2026-09-27",
+      "https://www.fide.com/uzbekistans-dream-finish-olympiad-gold-in-samarkand/",
+      "At the 2026 Chess Olympiad in Samarkand, Uzbekistan won open gold and India took open silver. China won women's gold, Kazakhstan took women's silver, and India women's bronze.",
+    ),
+  ),
+];

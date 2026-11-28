@@ -1,6 +1,7 @@
 import "server-only";
 import { createHash } from "node:crypto";
 import { historicalScope, type HistoricalSource } from "./historical-papers";
+import { gs2025For2026Profiles } from "./updated-pyq-2025-edition";
 import { replacementProfiles2025 } from "./updated-pyq-2025";
 import { preparationCutoff, replacementProfiles } from "./updated-pyq-data";
 
@@ -16,23 +17,31 @@ export type UpdatedSource = HistoricalSource & {
   }[];
 };
 
-const preparationPacks: Record<
-  string,
-  { cutoff: string; profiles: typeof replacementProfiles }
-> = {
-  "2026": { cutoff: preparationCutoff, profiles: replacementProfiles },
-  "2025": { cutoff: "2025-12-31", profiles: replacementProfiles2025 },
+type PreparationPack = {
+  cutoff: string;
+  profiles: typeof replacementProfiles;
+};
+
+const preparationPacks: Record<string, Record<string, PreparationPack>> = {
+  "2024": {
+    "2026": { cutoff: preparationCutoff, profiles: replacementProfiles },
+    "2025": { cutoff: "2025-12-31", profiles: replacementProfiles2025 },
+  },
+  "2025": {
+    "2026": { cutoff: preparationCutoff, profiles: gs2025For2026Profiles },
+  },
 };
 
 export function updatedTargets(paper: string, year: string) {
-  return paper === "Prelims-General-Studies-I" && year === "2024"
-    ? Object.keys(preparationPacks).sort((a, b) => Number(b) - Number(a))
+  return paper === "Prelims-General-Studies-I" &&
+    Object.hasOwn(preparationPacks, year)
+    ? Object.keys(preparationPacks[year]).sort((a, b) => Number(b) - Number(a))
     : [];
 }
 
 export function updatedScope(paper: string, year: string, targetYear: string) {
   if (!updatedTargets(paper, year).includes(targetYear)) return null;
-  const pack = preparationPacks[targetYear];
+  const pack = preparationPacks[year][targetYear];
   const { profiles, cutoff } = pack;
   const base = historicalScope(paper, year);
   if (!base) return null;
