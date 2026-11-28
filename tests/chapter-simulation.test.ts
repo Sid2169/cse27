@@ -190,6 +190,28 @@ test("a historical guide rejects missing or mismapped booklet questions", async 
   );
 });
 
+import { reviewMaterial } from "../src/modules/assessment/refresher-review";
+
+test("feedback review uses the displayed practice item and skips dropped or letter-only items", () => {
+  const question = {
+    stem: "Explain the label",
+    options: ["One", "Two", "Three", "Four"],
+    sourcePath: "syllabus.md",
+    sourceHeading: "",
+  };
+  const feedback = { awarded: 0, feedback: "Review what the label measures." };
+  assert.equal(reviewMaterial(question, feedback, 8)?.id, "review-question-9");
+  assert.match(reviewMaterial(question, feedback, 8)!.text, /B\. Two/);
+  assert.equal(
+    reviewMaterial(question, { ...feedback, excluded: true }, 8),
+    null,
+  );
+  assert.equal(
+    reviewMaterial({ ...question, options: ["A", "B", "C", "D"] }, feedback, 8),
+    null,
+  );
+});
+
 const key = Array.from({ length: 3 }, () => ({
   correctOption: 0,
   explanation: "Explanation.",

@@ -1,3 +1,4 @@
+import { reviewMaterial } from "@/modules/assessment/refresher-review";
 import { getDocument, getPaper } from "@/modules/content/catalogue";
 import type { Document } from "@/modules/content/types";
 import {
@@ -6,6 +7,7 @@ import {
   type ObjectiveKey,
   type MarkingGuide,
   type ObjectiveQuestion,
+  type SimulationQuestion,
   type WrittenQuestion,
 } from "@/modules/assessment/chapter-simulation";
 import { checkpointId } from "@/server/assessment/checkpoint-service";
@@ -44,7 +46,11 @@ function respond(body: object, status = 200) {
   });
 }
 
-function material(recommendations: SimulationResult["recommendations"]) {
+function material(
+  recommendations: SimulationResult["recommendations"],
+  questions: SimulationQuestion[],
+  feedback: SimulationResult["feedback"],
+) {
   if (
     !Array.isArray(recommendations) ||
     !recommendations.length ||
@@ -54,6 +60,30 @@ function material(recommendations: SimulationResult["recommendations"]) {
   const docs = new Map<string, Document>();
   for (const entry of recommendations) {
     const doc = getDocument(entry.sourcePath);
+    if (entry.reviewIndex !== undefined && doc) {
+      const index = entry.reviewIndex;
+      const review = reviewMaterial(
+        questions[index],
+        feedback?.items?.[index],
+        index,
+      );
+      if (!review) return null;
+      const scoped = docs.get(doc.path) ?? {
+        ...doc,
+        markdown: "",
+        sections: [],
+      };
+      scoped.sections.push({
+        id: review.id,
+        title: review.label,
+        level: 2,
+        text: review.text,
+      });
+      scoped.markdown += "\n" + review.label + "\n" + review.text;
+      if (scoped.markdown.length > 65_000) return null;
+      docs.set(doc.path, scoped);
+      continue;
+    }
     if (!doc?.ready) return null;
     const index = doc.sections.findIndex(
       (section) => section.id === entry.sourceHeading,
@@ -111,7 +141,9 @@ export async function POST(
 
   const simulation = await db
     .from("chapter_simulations")
-    .select("paper_code,paper_variant,generation_model,evaluation_model,kind")
+    .select(
+      "paper_code,paper_variant,generation_model,evaluation_model,kind,questions",
+    )
     .eq("id", id)
     .eq("user_id", user.id)
     .eq("status", "complete")
@@ -126,7 +158,7 @@ export async function POST(
       .maybeSingle(),
     db
       .from("chapter_simulation_results")
-      .select("recommendations")
+      .select("recommendations,feedback")
       .eq("simulation_id", id)
       .maybeSingle(),
   ]);
@@ -137,7 +169,11 @@ export async function POST(
   const row = simulation.data;
   try {
     if (input.action === "prepare") {
-      const scope = material(result.data.recommendations);
+      const scope = material(
+        result.data.recommendations,
+        row.questions ?? [],
+        result.data.feedback,
+      );
       if (!scope)
         return respond(
           {
@@ -147,7 +183,11 @@ export async function POST(
           409,
         );
       const count = scope.reduce((sum, doc) => sum + doc.sections.length, 0);
-      const generate = geminiGenerator(row.generation_model);
+      const generate = geminiGenerator(
+        row.generation_model === "official-key"
+          ? process.env.GEMINI_GENERATION_MODEL
+          : row.generation_model,
+      );
       let test: Test;
       if (row.kind === "objective") {
         const draft = await generateObjectiveQuestions(generate, scope, [], {

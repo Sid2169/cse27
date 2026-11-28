@@ -63,7 +63,10 @@ export type SimulationResult = {
     penaltyUnits?: number;
     dropped?: number;
   };
-  recommendations: (SectionReference & { reason: string })[];
+  recommendations: (SectionReference & {
+    reason: string;
+    reviewIndex?: number;
+  })[];
   next_due: string | null;
 };
 
