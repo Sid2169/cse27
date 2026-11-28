@@ -19,6 +19,10 @@ export function officialBooklet(paper: string, year: number, variant = "") {
     return "https://upsc.gov.in/uploads/2026/07/hindi-compulsory-1-1.pdf";
   if (year === 2024 && paper === "Mains-English")
     return "https://upsc.gov.in/uploads/2026/07/english-compulsory-1-1.pdf";
+  if (year === 2026 && paper === "Mains-Indian-Language")
+    return "https://www.upsc.gov.in/uploads/2026/09/QP-CSM-26-010926-Compulsory-HINDI.pdf";
+  if (year === 2026 && paper === "Mains-English")
+    return "https://www.upsc.gov.in/uploads/2026/09/QP-CSM-26-010926-Compulsory-ENGLISH.pdf";
   if (year === 2026) {
     const suffix = /^(Mains-General-Studies)-(I|II|III|IV)$/.exec(paper)?.[2];
     const file = suffix
