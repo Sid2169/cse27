@@ -1,6 +1,7 @@
 import "server-only";
 import { createHash } from "node:crypto";
 import { historicalScope, type HistoricalSource } from "./historical-papers";
+import { replacementProfiles2025 } from "./updated-pyq-2025";
 import { preparationCutoff, replacementProfiles } from "./updated-pyq-data";
 
 export type UpdatedSource = HistoricalSource & {
@@ -15,16 +16,27 @@ export type UpdatedSource = HistoricalSource & {
   }[];
 };
 
+const preparationPacks: Record<
+  string,
+  { cutoff: string; profiles: typeof replacementProfiles }
+> = {
+  "2026": { cutoff: preparationCutoff, profiles: replacementProfiles },
+  "2025": { cutoff: "2025-12-31", profiles: replacementProfiles2025 },
+};
+
+export function updatedTargets(paper: string, year: string) {
+  return paper === "Prelims-General-Studies-I" && year === "2024"
+    ? Object.keys(preparationPacks).sort((a, b) => Number(b) - Number(a))
+    : [];
+}
+
 export function updatedScope(paper: string, year: string, targetYear: string) {
-  if (
-    paper !== "Prelims-General-Studies-I" ||
-    year !== "2024" ||
-    targetYear !== "2026"
-  )
-    return null;
+  if (!updatedTargets(paper, year).includes(targetYear)) return null;
+  const pack = preparationPacks[targetYear];
+  const { profiles, cutoff } = pack;
   const base = historicalScope(paper, year);
   if (!base) return null;
-  const numbers = replacementProfiles.map((profile) => profile.number);
+  const numbers = profiles.map((profile) => profile.number);
   if (
     numbers.length === 0 ||
     new Set(numbers).size !== numbers.length ||
@@ -35,12 +47,11 @@ export function updatedScope(paper: string, year: string, targetYear: string) {
         number <= base.questions.length &&
         !base.source.dropped?.includes(number),
     ) ||
-    replacementProfiles.some(
+    profiles.some(
       (profile) =>
         !profile.sources.length ||
         profile.sources.some(
-          ({ date, url }) =>
-            date > preparationCutoff || !url.startsWith("https://"),
+          ({ date, url }) => date > cutoff || !url.startsWith("https://"),
         ),
     )
   )
@@ -49,9 +60,9 @@ export function updatedScope(paper: string, year: string, targetYear: string) {
     );
   const source: UpdatedSource = {
     ...base.source,
-    targetYear: 2026,
-    cutoff: preparationCutoff,
-    replacements: replacementProfiles.map(
+    targetYear: Number(targetYear),
+    cutoff,
+    replacements: profiles.map(
       ({ number, type, original, rationale, sources }) => ({
         number,
         type,
@@ -65,8 +76,8 @@ export function updatedScope(paper: string, year: string, targetYear: string) {
     ...base,
     source,
     revision: createHash("sha256")
-      .update(JSON.stringify([base.revision, source, replacementProfiles]))
+      .update(JSON.stringify([base.revision, source, profiles]))
       .digest("hex"),
-    profiles: replacementProfiles,
+    profiles,
   };
 }

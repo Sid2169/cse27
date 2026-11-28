@@ -118,7 +118,27 @@ test("updated PYQ generation keeps slot numbers and requires independently match
   );
 });
 
+import { replacementProfiles2025 } from "../src/server/assessment/updated-pyq-2025";
 import { prepareHistoricalWriting } from "../src/server/assessment/historical-written-generation";
+
+test("each preparation-year pack keeps the documented replacement slots and its evidence cutoff", () => {
+  assert.deepEqual(
+    replacementProfiles2025.map(({ number }) => number),
+    replacementProfiles.map(({ number }) => number),
+  );
+  assert.ok(
+    replacementProfiles2025.every(
+      ({ sources, rationale }) =>
+        rationale.length &&
+        sources.length &&
+        sources.every(({ date }) => date <= "2025-12-31"),
+    ),
+  );
+  const source = (items: typeof replacementProfiles) =>
+    items.find(({ number }) => number === 82)!.sources[0];
+  assert.equal(source(replacementProfiles2025).date, "2025-11-10");
+  assert.equal(source(replacementProfiles).date, "2026-11-13");
+});
 
 test("a historical guide rejects missing or mismapped booklet questions", async () => {
   const slot = {
