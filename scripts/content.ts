@@ -267,6 +267,41 @@ if (process.argv[1]?.endsWith("/scripts/content.ts")) {
     ([, stem]) => stem,
   );
   writeFileSync(".generated/gs1-2024-stems.json", JSON.stringify(gsStems));
+  const historical2025 = [
+    [
+      "Prelims-General-Studies-I",
+      100,
+      {
+        74: "Implications of the World Bank's warning about wet-bulb temperatures exceeding 35 °C and the loss of effective cooling by sweating.",
+      },
+    ],
+    [
+      "Prelims-CSAT",
+      80,
+      {
+        35: "Count integers below 50 expressible as the sum of three distinct divisors of the same integer.",
+        36: "Find how many distinct sums three primes below 20 form when they are in arithmetic progression.",
+      },
+    ],
+  ] as const;
+  for (const [paper, expected, supplements] of historical2025) {
+    const markdown = readFileSync(
+      `${paper}/${paper}-PYQS/2025-${paper}.md`,
+      "utf8",
+    );
+    const stems = [...markdown.matchAll(/^(\d{1,3})\. ([^\n]+)$/gm)].map(
+      ([, number, stem]) =>
+        (supplements as Record<string, string>)[number] ?? stem,
+    );
+    if (
+      stems.length !== expected ||
+      stems.some((stem) => /^\[verify:/.test(stem))
+    )
+      throw new Error(
+        "Missing 2025 historical novelty references for " + paper,
+      );
+    writeFileSync(`.generated/${paper}-2025-stems.json`, JSON.stringify(stems));
+  }
   writeFileSync(".generated/past-papers.json", JSON.stringify(pastPapers));
   writeFileSync(".generated/chapter-assets.json", JSON.stringify(assets));
   writeFileSync(".generated/content.json", JSON.stringify(c));

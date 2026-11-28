@@ -303,7 +303,7 @@ export default async function Simulations({
                     (item.mode === "full"
                       ? " · Full-scope diagnostic"
                       : item.mode === "pyq"
-                        ? " · Official 2024"
+                        ? " · Official PYQ"
                         : item.mode === "updated-pyq"
                           ? " · Updated PYQ practice"
                           : " · Cumulative")
