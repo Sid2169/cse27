@@ -1,3 +1,4 @@
+import { reviewMaterial } from "@/modules/assessment/refresher-review";
 import { writtenChoice } from "@/modules/assessment/written-choices";
 import { notFound } from "next/navigation";
 import Link from "@/components/navigation-link";
@@ -441,8 +442,13 @@ export default async function ChapterSimulation({
                 const answer = simulation.answers[index];
                 const file = simulation.attachments[index];
                 const replacement = replacements.get(index + 1);
+                const review = result.recommendations.some(
+                  (entry) => entry.reviewIndex === index,
+                )
+                  ? reviewMaterial(q, item, index)
+                  : null;
                 return (
-                  <li key={index} className="study-card">
+                  <li id={review?.id} key={index} className="study-card">
                     <h3>
                       {("label" in q && q.label) || "Question " + (index + 1)} ·{" "}
                       {item.excluded
@@ -462,6 +468,22 @@ export default async function ChapterSimulation({
                         <Markdown path={q.sourcePath} source={q.stem} />
                       )}
                     </div>
+                    {!!review && "options" in q && (
+                      <ol type="A">
+                        {q.options.map((option, optionIndex) => (
+                          <li key={optionIndex}>{option}</li>
+                        ))}
+                      </ol>
+                    )}
+                    {!!review && historical && !objective && (
+                      <a
+                        href={historical.booklet}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Read this question in the original booklet
+                      </a>
+                    )}
                     {replacement && (
                       <details>
                         <summary>
@@ -545,22 +567,34 @@ export default async function ChapterSimulation({
             <h2>Refresher checklist</h2>
             {(full || historical) && (
               <p>
-                Review the syllabus topics below. A refresher exam requires
-                authored teaching material for all recommended sections.
+                Review the recommended question feedback or linked study
+                sections before starting the combined test.
               </p>
             )}
             <ul>
               {result.recommendations.map((entry) => (
-                <li key={entry.sourcePath + "#" + entry.sourceHeading}>
-                  <Link
-                    href={
-                      documentUrl(entry.sourcePath) +
-                      "#" +
-                      encodeURIComponent(entry.sourceHeading)
-                    }
-                  >
-                    {entry.reason}
-                  </Link>
+                <li
+                  key={
+                    entry.reviewIndex ??
+                    entry.sourcePath + "#" + entry.sourceHeading
+                  }
+                >
+                  {entry.reviewIndex !== undefined ? (
+                    <a href={"#review-question-" + (entry.reviewIndex + 1)}>
+                      {entry.reason}
+                    </a>
+                  ) : (
+                    <Link
+                      href={
+                        documentUrl(entry.sourcePath) +
+                        (entry.sourceHeading
+                          ? "#" + encodeURIComponent(entry.sourceHeading)
+                          : "")
+                      }
+                    >
+                      {entry.reason}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

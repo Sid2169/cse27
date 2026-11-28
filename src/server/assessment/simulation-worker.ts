@@ -1,3 +1,4 @@
+import { reviewMaterial } from "@/modules/assessment/refresher-review";
 import "server-only";
 import { NonRetriableError, RetryAfterError } from "inngest";
 import {
@@ -894,45 +895,55 @@ function recommendations(
 ) {
   const hindi = simulation.paper_code === "Mains-Indian-Language";
   const questions = simulation.questions!;
-  const gaps = questions.flatMap((question, index) => {
+  const available = questions.flatMap((question, index) => {
     if (items[index].excluded) return [];
-    const needsPractice =
+    const gap =
       "options" in question
         ? key[index].correctOption !== null &&
           simulation.answers[index] !== key[index].correctOption
         : items[index].awarded < question.marks;
-    return needsPractice
-      ? [
-          {
-            sourcePath: question.sourcePath,
-            sourceHeading: question.sourceHeading,
-            reason: hindi
-              ? `प्रश्न ${index + 1} के लिए इस अनुभाग का अभ्यास करें।`
-              : `Review the material tested in question ${index + 1}.`,
-          },
-        ]
-      : [];
-  });
-  const entries = gaps.length
-    ? gaps
-    : questions
-        .filter((_, index) => !items[index].excluded)
-        .slice(0, 2)
-        .map((question) => ({
+    const review =
+      (simulation.mode === "full" ||
+        simulation.mode === "pyq" ||
+        simulation.mode === "updated-pyq") &&
+      reviewMaterial(question, items[index], index);
+    return [
+      {
+        gap,
+        entry: {
           sourcePath: question.sourcePath,
           sourceHeading: question.sourceHeading,
-          reason: hindi
-            ? "याद रखने के लिए इस अनुभाग का पुनः अभ्यास करें।"
-            : "Revisit this section for retention practice.",
-        }));
+          ...(review ? { reviewIndex: index } : {}),
+          reason: gap
+            ? hindi
+              ? `प्रश्न ${index + 1} की समीक्षा करें।`
+              : `Review the material tested in question ${index + 1}.`
+            : hindi
+              ? `याद रखने के लिए प्रश्न ${index + 1} का पुनः अभ्यास करें।`
+              : `Revisit question ${index + 1} for retention practice.`,
+        },
+      },
+    ];
+  });
+  const gaps = available.filter(({ gap }) => gap);
+  let selected = gaps.length ? gaps : available.slice(0, 2);
+  if (
+    simulation.mode === "updated-pyq" &&
+    selected.some(({ entry }) => entry.reviewIndex !== undefined)
+  )
+    selected = selected.filter(({ entry }) => entry.reviewIndex !== undefined);
+  const entries = selected.map(({ entry }) => entry);
+  const reviewLimit = entries.some((entry) => entry.reviewIndex !== undefined)
+    ? 5
+    : 15;
   return [
     ...new Map(
       entries.map((entry) => [
-        entry.sourcePath + "#" + entry.sourceHeading,
+        entry.reviewIndex ?? entry.sourcePath + "#" + entry.sourceHeading,
         entry,
       ]),
     ).values(),
-  ].slice(0, 15);
+  ].slice(0, reviewLimit);
 }
 
 export const markSimulation = inngest.createFunction(
