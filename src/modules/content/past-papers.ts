@@ -28,8 +28,33 @@ const prelimsMirrors: Record<number, Record<string, string>> = {
   },
 };
 
+// Internet Archive captures of UPSC's original 2015 Mains PDFs.
+const mains2015Archive: Record<string, string> = {
+  "Mains-General-Studies-I":
+    "https://web.archive.org/web/20160327104343id_/http://www.upsc.gov.in/questionpaper/2015/CS_MAIN_2015/GS-I/GS1.pdf",
+  "Mains-General-Studies-II":
+    "https://web.archive.org/web/20160327104349id_/http://www.upsc.gov.in/questionpaper/2015/CS_MAIN_2015/GS-II/GS11.pdf",
+  "Mains-General-Studies-III":
+    "https://web.archive.org/web/20160327104357id_/http://www.upsc.gov.in/questionpaper/2015/CS_MAIN_2015/GS-III/GS111.pdf",
+  "Mains-General-Studies-IV":
+    "https://web.archive.org/web/20160221213011id_/http://www.upsc.gov.in/questionpaper/2015/CS_MAIN_2015/GS-IV/GS-IV.pdf",
+  "Mains-Essay":
+    "https://web.archive.org/web/20160327104338id_/http://www.upsc.gov.in/questionpaper/2015/CS_MAIN_2015/ESSAY_COMPl/ESSAY_COMP.pdf",
+  "Mains-Mathematics-I":
+    "https://web.archive.org/web/20160327162441id_/http://www.upsc.gov.in/questionpaper/2015/CS_MAIN_2015/MATHEMATICS%20-I/MATHEMATICS_I.pdf",
+  "Mains-Mathematics-II":
+    "https://web.archive.org/web/20160222005159id_/http://www.upsc.gov.in/questionpaper/2015/CS_MAIN_2015/MATHEMATICS%20-II/MATHEMATICS_II.pdf",
+  "Mains-English":
+    "https://web.archive.org/web/20160327104333id_/http://www.upsc.gov.in/questionpaper/2015/CS_MAIN_2015/ENG_COMPl/ENG_COMP.pdf",
+  "Mains-Indian-Language":
+    "https://web.archive.org/web/20160222005152id_/http://www.upsc.gov.in/questionpaper/2015/CS_MAIN_2015/HINDI_COMPl/HINDI_COM.pdf",
+};
+
 export function officialBooklet(paper: string, year: number, variant = "") {
-  if (prelimsMirrors[year]) return prelimsMirrors[year][paper] ?? null;
+  const key = paper === "Mains-Mathematics" ? paper + "-" + variant : paper;
+  const mirror = prelimsMirrors[year]?.[paper];
+  if (mirror) return mirror;
+  if (year === 2015) return mains2015Archive[key] ?? null;
   if (year === 2023 && paper === "Prelims-General-Studies-I")
     return "https://www.upsc.gov.in/uploads/2026/07/general-studies-paper-i-6-1.pdf";
   if (year === 2023 && paper === "Prelims-CSAT")
@@ -67,7 +92,6 @@ export function officialBooklet(paper: string, year: number, variant = "") {
   if (year === 2024 && paper === "Prelims-CSAT")
     return "https://www.upsc.gov.in/uploads/2026/07/general-studies-paper-ii-4-1.pdf";
   if (year === 2026 && verified2026[paper]) return verified2026[paper];
-  const key = paper === "Mains-Mathematics" ? paper + "-" + variant : paper;
   const path = officialBookletPaths[year]?.[key];
   return path ? "https://www.upsc.gov.in" + path : null;
 }
