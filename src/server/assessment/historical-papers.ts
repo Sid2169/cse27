@@ -8,6 +8,12 @@ import type {
 } from "@/modules/assessment/chapter-simulation";
 import csatStems from "../../../.generated/csat-2024-stems.json";
 import gsStems from "../../../.generated/gs1-2024-stems.json";
+import gs2016 from "../../../.generated/Prelims-General-Studies-I-2016-stems.json";
+import csat2016 from "../../../.generated/Prelims-CSAT-2016-stems.json";
+import gs2017 from "../../../.generated/Prelims-General-Studies-I-2017-stems.json";
+import csat2017 from "../../../.generated/Prelims-CSAT-2017-stems.json";
+import gs2018 from "../../../.generated/Prelims-General-Studies-I-2018-stems.json";
+import csat2018 from "../../../.generated/Prelims-CSAT-2018-stems.json";
 import gs2019 from "../../../.generated/Prelims-General-Studies-I-2019-stems.json";
 import csat2019 from "../../../.generated/Prelims-CSAT-2019-stems.json";
 import gs2020 from "../../../.generated/Prelims-General-Studies-I-2020-stems.json";
@@ -22,6 +28,59 @@ import gs2026 from "../../../.generated/Prelims-General-Studies-I-2026-stems.jso
 import csat2026 from "../../../.generated/Prelims-CSAT-2026-stems.json";
 import gs2025 from "../../../.generated/Prelims-General-Studies-I-2025-stems.json";
 import csat2025 from "../../../.generated/Prelims-CSAT-2025-stems.json";
+
+// Transcribed from the final official Series A keys from 2016 through 2018.
+const gs2016Letters = [
+  "BCCBCBDCCBADCDC",
+  "CCDCBBDABDCBDAC",
+  "BACCBACDBBDACAA",
+  "CACABBCADACACDB",
+  "ABDDBBBDBACDADB",
+  "CBDDDABCCBBDCDD",
+  "CBDCDDBBAB",
+].join("");
+const csat2016Letters = [
+  "CADDACDDBDDBDCA",
+  "CBBCCDBCADAADBB",
+  "BDBBBCBCCDCDADB",
+  "DBBBABDBABABABC",
+  "DBAABBDBDCBAABA",
+  "DADCC",
+].join("");
+const gs2017Letters = [
+  "DCAAABBCABABCCD",
+  "BDCCBCBABDDADCB",
+  "CACCDDBBCADAAAD",
+  "CAABDBABCDBCBCB",
+  "BDDBBBBBAACBDCA",
+  "DBCCBAAACDCBABD",
+  "AACDBBCACD",
+].join("");
+const csat2017Letters = [
+  "CADBBBACBCBDCBA",
+  "BCCCCDCDADBDCCD",
+  "DBBDABACCDACBAC",
+  "DBABDCDBABBCACB",
+  "CCACABBCABBBDBA",
+  "BDCDB",
+].join("");
+const gs2018Letters = [
+  "BDCBACADCACDADC",
+  "ACDABBBABBDDAAA",
+  "CAACBBBBABCDCBC",
+  "BCCCDCCBADCCCCD",
+  "ADBBABDDCDBDBCC",
+  "DACABBBBDABDCBC",
+  "BCBAABCADB",
+].join("");
+const csat2018Letters = [
+  "BDAACDAABDCCBBC",
+  "CCADCABDACADADB",
+  "CCBBACBBBACCBAB",
+  "ADACDABCBDACCBC",
+  "DADDCAABDBCADCD",
+  "ADDBA",
+].join("");
 
 // Transcribed from the final official 2019 Series A keys, column by column.
 const gs2019Letters = [
@@ -199,6 +258,30 @@ export function historicalScope(paper: string, year: string) {
       answerKey: (gs: boolean) => string;
     }
   > = {
+    "2016": {
+      gs: gs2016Letters,
+      csat: csat2016Letters,
+      answerKey: (gs) =>
+        "https://forumias.com/blog/wp-content/uploads/2021/01/AnsKeyCSP-16-GS_" +
+        (gs ? "I" : "II") +
+        ".pdf",
+    },
+    "2017": {
+      gs: gs2017Letters,
+      csat: csat2017Letters,
+      answerKey: (gs) =>
+        gs
+          ? "https://forumias.com/blog/wp-content/uploads/2020/09/Anskey-CSP-17-GS-I.pdf"
+          : "https://forumias.com/blog/wp-content/uploads/2021/01/AnsKeyCSP-17-GS_2.pdf",
+    },
+    "2018": {
+      gs: gs2018Letters,
+      csat: csat2018Letters,
+      answerKey: (gs) =>
+        "https://forumias.com/blog/wp-content/uploads/2021/01/AnsKeyCSP-18-GS_" +
+        (gs ? "I" : "II") +
+        "_2.pdf",
+    },
     "2019": {
       gs: gs2019Letters,
       csat: csat2019Letters,
@@ -350,6 +433,9 @@ export function historicalScope(paper: string, year: string) {
 // Research transcriptions use different booklet orders. Use them only
 // to check for previously seen content, never pair them with Series A keys.
 export function historicalResearchStems(paper: string, year: number) {
+  if (year === 2016) return paper === "Prelims-CSAT" ? csat2016 : gs2016;
+  if (year === 2017) return paper === "Prelims-CSAT" ? csat2017 : gs2017;
+  if (year === 2018) return paper === "Prelims-CSAT" ? csat2018 : gs2018;
   if (year === 2019) return paper === "Prelims-CSAT" ? csat2019 : gs2019;
   if (year === 2020) return paper === "Prelims-CSAT" ? csat2020 : gs2020;
   if (year === 2021) return paper === "Prelims-CSAT" ? csat2021 : gs2021;
