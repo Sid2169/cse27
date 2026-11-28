@@ -268,6 +268,31 @@ if (process.argv[1]?.endsWith("/scripts/content.ts")) {
   );
   writeFileSync(".generated/gs1-2024-stems.json", JSON.stringify(gsStems));
   const objectiveHistoricalReferences = [
+    ["Prelims-General-Studies-I", 2014, 100, {}],
+    [
+      "Prelims-CSAT",
+      2014,
+      80,
+      {
+        6: "Count simultaneous events in an hour for periods of 6, 7, 8, 9 and 12 seconds.",
+        34: "Read a chart of two fruit sellers' profits to find the year with equal profits.",
+        35: "Find the 1998 difference in profit between two fruit sellers from a line chart.",
+        36: "Use the fruit sellers' profit chart to calculate seller A's increase from 1999 to 2000.",
+        37: "Describe seller B's profit trend from 1997 to 2000 based on the line chart.",
+        39: "Identify which of the option drawings contains a given open zigzag as a subfigure.",
+        40: "Find the illustration that completes the given visual matrix.",
+        42: "Find the missing middle entry in the row 33, X, 19 from the relationships in the other rows.",
+        43: "Complete the bottom corner of a matrix of figures.",
+        44: "Count the distinct non-retracing routes from S to T through the pictured network of U and V.",
+        45: "Continue the sequence of bead positions shown in four diagrams.",
+        70: "Infer why the narrator's children gripped his hands in the passage about a man driving pack animals.",
+        71: "Interpret the description of the stray dog's manner as it watches the passing group.",
+        72: "Infer what made Cynthia afraid to perform on stage at the school audition.",
+        73: "Infer why the classmates were talking before Cynthia's audition caught their attention.",
+        74: "Explain why Cynthia's knees shook during the audition scene.",
+        75: "Identify the change that takes place when Cynthia performs at the audition.",
+      },
+    ],
     ["Prelims-General-Studies-I", 2015, 100, {}],
     [
       "Prelims-CSAT",

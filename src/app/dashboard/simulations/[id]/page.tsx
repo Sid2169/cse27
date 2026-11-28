@@ -208,7 +208,9 @@ export default async function ChapterSimulation({
           )}
           {!!historical.dropped?.length && (
             <p>
-              The published key excludes {historical.dropped.length} questions.
+              {historical.excludedSection
+                ? `UPSC excluded the ${historical.excludedSection} section (questions ${historical.dropped.at(0)}–${historical.dropped.at(-1)}).`
+                : `The published key excludes ${historical.dropped.length} ${historical.dropped.length === 1 ? "question" : "questions"}.`}{" "}
               The practice score is reported against the remaining marks.
             </p>
           )}
