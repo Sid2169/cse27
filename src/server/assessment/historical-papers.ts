@@ -8,6 +8,8 @@ import type {
 } from "@/modules/assessment/chapter-simulation";
 import csatStems from "../../../.generated/csat-2024-stems.json";
 import gsStems from "../../../.generated/gs1-2024-stems.json";
+import gs2015 from "../../../.generated/Prelims-General-Studies-I-2015-stems.json";
+import csat2015 from "../../../.generated/Prelims-CSAT-2015-stems.json";
 import gs2016 from "../../../.generated/Prelims-General-Studies-I-2016-stems.json";
 import csat2016 from "../../../.generated/Prelims-CSAT-2016-stems.json";
 import gs2017 from "../../../.generated/Prelims-General-Studies-I-2017-stems.json";
@@ -28,6 +30,25 @@ import gs2026 from "../../../.generated/Prelims-General-Studies-I-2026-stems.jso
 import csat2026 from "../../../.generated/Prelims-CSAT-2026-stems.json";
 import gs2025 from "../../../.generated/Prelims-General-Studies-I-2025-stems.json";
 import csat2025 from "../../../.generated/Prelims-CSAT-2025-stems.json";
+
+// Transcribed from the final official 2015 keys for Series A.
+const gs2015Letters = [
+  "CABABDCBBACBABA",
+  "BBACDDCCBCDBBCD",
+  "CCBCBDADDBBDADC",
+  "BCBACADBBBDBCAC",
+  "DBCCBBDAADACDCA",
+  "CBACBBDDCCCCABB",
+  "DDDCAABACC",
+].join("");
+const csat2015Letters = [
+  "ADBCCAADDAAACDB",
+  "DCBABADABCDCBBC",
+  "CDBAAACCCDBDCBB",
+  "DBDCDXABCDDCCCB",
+  "DDACCAACCABBBCD",
+  "DDBBC",
+].join("");
 
 // Transcribed from the final official Series A keys from 2016 through 2018.
 const gs2016Letters = [
@@ -258,6 +279,15 @@ export function historicalScope(paper: string, year: string) {
       answerKey: (gs: boolean) => string;
     }
   > = {
+    "2015": {
+      gs: gs2015Letters,
+      csat: csat2015Letters,
+      csatDropped: [51],
+      answerKey: (gs) =>
+        gs
+          ? "https://cdn1.byjus.com/wp-content/uploads/2018/11/free-ias-prep/2015/12/15151210/UPSC-2015-CSP-Answer-Key-GS-Paper1.pdf"
+          : "https://iasexamportal.com/sites/default/files/Official-Answer-Key-UPSC-Civil-Services-Pre-Exam-2015-CSAT-Paper-2.pdf",
+    },
     "2016": {
       gs: gs2016Letters,
       csat: csat2016Letters,
@@ -433,6 +463,7 @@ export function historicalScope(paper: string, year: string) {
 // Research transcriptions use different booklet orders. Use them only
 // to check for previously seen content, never pair them with Series A keys.
 export function historicalResearchStems(paper: string, year: number) {
+  if (year === 2015) return paper === "Prelims-CSAT" ? csat2015 : gs2015;
   if (year === 2016) return paper === "Prelims-CSAT" ? csat2016 : gs2016;
   if (year === 2017) return paper === "Prelims-CSAT" ? csat2017 : gs2017;
   if (year === 2018) return paper === "Prelims-CSAT" ? csat2018 : gs2018;

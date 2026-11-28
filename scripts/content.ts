@@ -268,6 +268,20 @@ if (process.argv[1]?.endsWith("/scripts/content.ts")) {
   );
   writeFileSync(".generated/gs1-2024-stems.json", JSON.stringify(gsStems));
   const objectiveHistoricalReferences = [
+    ["Prelims-General-Studies-I", 2015, 100, {}],
+    [
+      "Prelims-CSAT",
+      2015,
+      80,
+      {
+        11: "Choose the figure that completes the pictured sequence or pattern.",
+        14: "Identify which pictured shape can be assembled from the four cardboard pieces.",
+        51: "Evaluate conclusions about the overlap and total readership of two magazines given the stated three-to-one relationships.",
+        52: "Infer which claim about the earnings of A and B from 2000 to 2010 follows from the chart.",
+        58: "Infer the range or relative level of a commodity price in 1990 using the yearly price graph.",
+        59: "Determine whether the amounts two families spend on food can be compared from bar charts of expenditure proportions.",
+      },
+    ],
     ["Prelims-General-Studies-I", 2016, 100, {}],
     ["Prelims-CSAT", 2016, 80, {}],
     ["Prelims-General-Studies-I", 2017, 100, {}],
