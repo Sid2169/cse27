@@ -8,6 +8,8 @@ import type {
 } from "@/modules/assessment/chapter-simulation";
 import csatStems from "../../../.generated/csat-2024-stems.json";
 import gsStems from "../../../.generated/gs1-2024-stems.json";
+import gs2013 from "../../../.generated/Prelims-General-Studies-I-2013-stems.json";
+import { csat2013ResearchStems } from "./csat-2013-research";
 import gs2014 from "../../../.generated/Prelims-General-Studies-I-2014-stems.json";
 import csat2014 from "../../../.generated/Prelims-CSAT-2014-stems.json";
 import gs2015 from "../../../.generated/Prelims-General-Studies-I-2015-stems.json";
@@ -32,6 +34,25 @@ import gs2026 from "../../../.generated/Prelims-General-Studies-I-2026-stems.jso
 import csat2026 from "../../../.generated/Prelims-CSAT-2026-stems.json";
 import gs2025 from "../../../.generated/Prelims-General-Studies-I-2025-stems.json";
 import csat2025 from "../../../.generated/Prelims-CSAT-2025-stems.json";
+
+// Transcribed from the final official 2013 keys for Series A.
+const gs2013Letters = [
+  "ACBCDBACCBDCCDA",
+  "CADDADCCDCDCBBD",
+  "ADBCABACCBADDAB",
+  "BDBADBBBCDBBBAA",
+  "ACBCBACBBBCDADC",
+  "DDAACCDBDBCCCCD",
+  "CCADAADBDC",
+].join("");
+const csat2013Letters = [
+  "CDAACBCBDAABDAB",
+  "CBCCDABDBCDAADC",
+  "BBCCBCCBBBCBDBC",
+  "BDCABABACABDDAA",
+  "BBCDDABCCDBABBA",
+  "ACBAB",
+].join("");
 
 // Transcribed column by column from the final official 2014 Series A keys.
 const gs2014Letters = [
@@ -278,6 +299,7 @@ export type HistoricalSource = {
   answerKey?: string;
   dropped?: number[];
   excludedSection?: string;
+  penaltyExceptions?: number[];
   provisional?: boolean;
 };
 
@@ -299,9 +321,25 @@ export function historicalScope(paper: string, year: string) {
       csatDropped?: number[];
       csatAlternates?: { number: number; letter: string }[];
       csatExcludedSection?: string;
+      csatPenaltyExceptions?: number[];
       answerKey: (gs: boolean) => string;
     }
   > = {
+    "2013": {
+      gs: gs2013Letters,
+      csat: csat2013Letters,
+      csatAlternates: [
+        { number: 75, letter: "C" },
+        { number: 76, letter: "C" },
+        { number: 77, letter: "D" },
+        { number: 78, letter: "C" },
+        { number: 79, letter: "C" },
+        { number: 80, letter: "C" },
+      ],
+      csatPenaltyExceptions: [75, 76, 77, 78, 79, 80],
+      answerKey: () =>
+        "https://iasexamportal.com/sites/default/files/Official-Answer-Key-UPSC-Civil-Services-Pre-Exam-2013.pdf",
+    },
     "2014": {
       gs: gs2014Letters,
       csat: csat2014Letters,
@@ -417,6 +455,7 @@ export function historicalScope(paper: string, year: string) {
   if (modern && !known) return null;
   const alternates = gs ? [] : (known?.csatAlternates ?? []);
   const excludedSection = gs ? undefined : known?.csatExcludedSection;
+  const penaltyExceptions = gs ? undefined : known?.csatPenaltyExceptions;
   const knownDropped = gs ? known?.gsDropped : known?.csatDropped;
   const source: HistoricalSource = known
     ? {
@@ -427,6 +466,7 @@ export function historicalScope(paper: string, year: string) {
         answerKey: known.answerKey(gs),
         ...(knownDropped ? { dropped: knownDropped } : {}),
         ...(excludedSection ? { excludedSection } : {}),
+        ...(penaltyExceptions ? { penaltyExceptions } : {}),
       }
     : gs
       ? gsHistoricalSource
@@ -449,15 +489,18 @@ export function historicalScope(paper: string, year: string) {
       "Historical answer key does not match the verified booklet",
     );
   const guide: ObjectiveKey[] = Array.from(letters, (letter, index) => {
+    const penaltyExempt = penaltyExceptions?.includes(index + 1);
     const alternate = alternates.find(({ number }) => number === index + 1);
     if (alternate)
       return {
         correctOption: "ABCD".indexOf(letter),
+        ...(penaltyExempt ? { penaltyExempt } : {}),
         alternateCorrectOption: "ABCD".indexOf(alternate.letter),
         explanation: `The published ${source.series} key accepts either ${letter} or ${alternate.letter}.`,
       };
     return {
       correctOption: letter === "X" ? null : "ABCD".indexOf(letter),
+      ...(penaltyExempt ? { penaltyExempt } : {}),
       explanation:
         letter === "X"
           ? provisional
@@ -504,6 +547,8 @@ export function historicalScope(paper: string, year: string) {
 // Research transcriptions use different booklet orders. Use them only
 // to check for previously seen content, never pair them with Series A keys.
 export function historicalResearchStems(paper: string, year: number) {
+  if (year === 2013)
+    return paper === "Prelims-CSAT" ? csat2013ResearchStems : gs2013;
   if (year === 2014) return paper === "Prelims-CSAT" ? csat2014 : gs2014;
   if (year === 2015) return paper === "Prelims-CSAT" ? csat2015 : gs2015;
   if (year === 2016) return paper === "Prelims-CSAT" ? csat2016 : gs2016;

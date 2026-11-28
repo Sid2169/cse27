@@ -5,7 +5,7 @@ import { resolveLearningLink } from "../src/modules/content/links";
 const c = buildCatalogue();
 import { officialBooklet } from "../src/modules/content/past-papers";
 
-test("the UPSC archive has 2016–2026 booklets for every supported paper and both Mathematics variants", () => {
+test("every supported paper and Mathematics variant has a verified booklet for 2013–2026", () => {
   const papers = [
     "Prelims-General-Studies-I",
     "Prelims-CSAT",
@@ -17,7 +17,7 @@ test("the UPSC archive has 2016–2026 booklets for every supported paper and bo
     "Mains-General-Studies-III",
     "Mains-General-Studies-IV",
   ];
-  for (let year = 2016; year <= 2026; year++) {
+  for (let year = 2013; year <= 2026; year++) {
     const links = [
       ...papers.map((paper) => officialBooklet(paper, year)),
       ...["I", "II"].map((variant) =>
@@ -25,14 +25,27 @@ test("the UPSC archive has 2016–2026 booklets for every supported paper and bo
       ),
     ];
     assert.equal(new Set(links).size, 11);
-    for (const url of links)
-      assert.match(
-        url ?? "",
-        /^https:\/\/(?:www\.)?upsc\.gov\.in\/uploads\/.+\.pdf$/,
-      );
+    if (year >= 2016) {
+      for (const url of links)
+        assert.match(
+          url ?? "",
+          /^https:\/\/(?:www\.)?upsc\.gov\.in\/uploads\/.+\.pdf$/,
+        );
+    } else {
+      for (const url of links.slice(0, 2))
+        assert.match(
+          url ?? "",
+          /^https:\/\/(?:battleias\.com|iasexamportal\.com|cdn-images\.prepp\.in)\/.+\.pdf$/,
+        );
+      for (const url of links.slice(2))
+        assert.match(
+          url ?? "",
+          /^https:\/\/web\.archive\.org\/web\/\d+id_\/http:\/\/www\.upsc\.gov\.in\/questionpaper\/.+\.pdf$/,
+        );
+    }
   }
   assert.equal(officialBooklet("Mains-Mathematics", 2024, ""), null);
-  assert.equal(officialBooklet("Prelims-CSAT", 2013), null);
+  assert.equal(officialBooklet("Prelims-CSAT", 2012), null);
 });
 
 test("indexes every paper and preserves curriculum chapter order", () => {

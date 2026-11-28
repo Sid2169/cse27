@@ -26,6 +26,7 @@ export type SimulationQuestion = ObjectiveQuestion | WrittenQuestion;
 export type ObjectiveKey = {
   correctOption: number | null;
   alternateCorrectOption?: number;
+  penaltyExempt?: boolean;
   explanation: string;
 };
 export type Criterion = { description: string; marks: number };
@@ -95,6 +96,7 @@ export function scoreObjective(
   const wrongUnits = correctUnits / 3;
   let correct = 0;
   let wrong = 0;
+  let penaltyUnits = 0;
   let blank = 0;
   let dropped = 0;
   const items = key.map((item, index) => {
@@ -115,16 +117,24 @@ export function scoreObjective(
       return { awarded: correctUnits / 6, feedback: item.explanation };
     }
     wrong++;
+    if (item.penaltyExempt)
+      return {
+        awarded: 0,
+        feedback:
+          item.explanation +
+          " An incorrect answer carries no penalty for this question.",
+      };
+    penaltyUnits += wrongUnits;
     return { awarded: -wrongUnits / 6, feedback: item.explanation };
   });
   return {
-    score: correct * correctUnits - wrong * wrongUnits,
+    score: correct * correctUnits - penaltyUnits,
     feedback: {
       correct,
       wrong,
       blank,
       ...(dropped ? { dropped } : {}),
-      penaltyUnits: wrong * wrongUnits,
+      penaltyUnits,
       items,
     },
   };

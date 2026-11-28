@@ -268,6 +268,9 @@ if (process.argv[1]?.endsWith("/scripts/content.ts")) {
   );
   writeFileSync(".generated/gs1-2024-stems.json", JSON.stringify(gsStems));
   const objectiveHistoricalReferences = [
+    // Retain all 101 compiled GS-I stems for conservative novelty checks.
+    // Official 2013 scoring uses only the 100-item Series A scan.
+    ["Prelims-General-Studies-I", 2013, 101, {}],
     ["Prelims-General-Studies-I", 2014, 100, {}],
     [
       "Prelims-CSAT",

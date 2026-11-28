@@ -14,6 +14,12 @@ const verified2026: Record<string, string> = {
 
 // Verified copies of original UPSC booklets from before the current archive.
 const prelimsMirrors: Record<number, Record<string, string>> = {
+  2013: {
+    "Prelims-General-Studies-I":
+      "https://iasexamportal.com/sites/default/files/Download-UPSC-Pre-2013-General-Studies-Paper-I-Booklet-Series-A.pdf",
+    "Prelims-CSAT":
+      "https://cdn-images.prepp.in/public/image/UPSC_Prelims_CSAT_Paper_II_2013_3677c8f5adecf90821e89d2b6e229ec6.pdf",
+  },
   2014: {
     "Prelims-General-Studies-I":
       "https://battleias.com/wp-content/uploads/official-papers/upsc-prelims/upsc-prelims-2014-gs1.pdf",
