@@ -268,6 +268,10 @@ if (process.argv[1]?.endsWith("/scripts/content.ts")) {
   );
   writeFileSync(".generated/gs1-2024-stems.json", JSON.stringify(gsStems));
   const objectiveHistoricalReferences = [
+    // The 2020 GS-I research transcription has 102 entries. Keep them as
+    // conservative novelty references only. Scoring uses the 100-item PDF.
+    ["Prelims-General-Studies-I", 2020, 102, {}],
+    ["Prelims-CSAT", 2020, 80, {}],
     ["Prelims-General-Studies-I", 2021, 100, {}],
     [
       "Prelims-CSAT",
