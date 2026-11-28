@@ -268,6 +268,16 @@ if (process.argv[1]?.endsWith("/scripts/content.ts")) {
   );
   writeFileSync(".generated/gs1-2024-stems.json", JSON.stringify(gsStems));
   const objectiveHistoricalReferences = [
+    ["Prelims-General-Studies-I", 2022, 100, {}],
+    [
+      "Prelims-CSAT",
+      2022,
+      80,
+      {
+        5: "Find a possible sum of the middle digits of a seven-digit identity number with distinct specified digits and divisibility rules on each prefix.",
+        36: "Use the six named family members and the stated spousal and parental relationships to identify a necessary relationship.",
+      },
+    ],
     ["Prelims-General-Studies-I", 2023, 100, {}],
     [
       "Prelims-CSAT",
