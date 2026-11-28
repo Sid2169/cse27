@@ -8,6 +8,7 @@ import type { HistoricalSource } from "./historical-papers";
 
 const writtenEditions: Record<string, Record<string, string>> = {
   "Mains-General-Studies-I": {
+    "2014": "0b9d2e9ea0fcb33cf7411b77c6c9bca9462db9e1d50406c81ef5c7d7cfea86eb",
     "2015": "598b40a86bd9fa7a395d7b68f9f8f5b5a047524cd51c32ec6dab4de718c3a980",
     "2016": "50ad80afd3d1836f2bc1a23a658fbf56c28624a665d3434046bc0a7c7c1b56f9",
     "2017": "aaa5b248c054200a29baef94457795e6071c50afdcc04e16f064977659d988a5",
@@ -22,6 +23,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "49418ba3d1a93de14f2e4d21be2c77aafdd9f194b32238e05d5242d9747a2601",
   },
   "Mains-General-Studies-II": {
+    "2014": "b92fd8111f8e565a1d3ade16172b254bf51275c574ef89a7768cd8194644c902",
     "2015": "a9a393b68a1454d8472519d0144658731c770de1ce951b7ee79a0e85057c3a29",
     "2016": "8d0054c563a28ea69a598f0598c675491e61d859b7d473ad96aaec8e66888f5b",
     "2017": "45bfd829525d1dd9e7d5a7ec880d2ad1bee513249655f784a0efe2eac0619e3b",
@@ -36,6 +38,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "471efa8ae48dde452d5cea7a31241c0260c13e2cf2ec396734b97631c2599a36",
   },
   "Mains-General-Studies-III": {
+    "2014": "4c1b2accb4019865a9c12cbc009af966753b07612814df4f6089a228f2c6d9a4",
     "2015": "aed01d90c692ee11f14579ff853053ac07fc0d848e55618aba826390d46feec1",
     "2016": "ecf3d98cc3b432a0f9c70721d359cefb6b6f9854bd9677ed32aad9fc2916b24a",
     "2017": "8c5db82590702476b3e8e9f055ed91e9fe31d721421a510e385e2c76e671ce27",
@@ -50,6 +53,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "051df5f7c1d7927ff5808f463957391ed2b4bded43bb4b24e6fa67724ebcfa7e",
   },
   "Mains-General-Studies-IV": {
+    "2014": "16282573a69e3a909376b85cd7782566f5bfd178a31ea45871d10cb43b3304f4",
     "2015": "0be5cfb05c16f043d7f6be519d86b8b844cb0f56c427b4ad63205223cc6f4286",
     "2016": "65bf5c19e7f9b966844b12d5758221b2e0c6882cf5bbd33221fc2600823109f1",
     "2017": "74233505fcb048abe303061904757e5c5261407e9bef0f12a4c899c13776d68d",
@@ -64,6 +68,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "df8cdb5399ac2ddf9424553f7c231de1068cefa68ff2decbaf30ad61001db3a6",
   },
   "Mains-Essay": {
+    "2014": "77d784089ee9ef88ebf1a2bc717e948fc926d4b0d7e444ce21b3145038d71e04",
     "2015": "6246c638b115d2e668b2cba78bfbacfd904ea79b4916661da367f57612927cd0",
     "2016": "cef7861fad89cecbd3e814d5c24b3d129ff5755441aad6805373e034268b9b25",
     "2017": "cc3864b40a092dbfd2788bfa0747ee179981d0cf23b7154cdafab78480f4e0bd",
@@ -78,6 +83,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "a8eee6ee4af529ebc58778e96fbd148e6b63f5740e08e82e194376a185f27811",
   },
   "Mains-Mathematics-I": {
+    "2014": "a9802a657f14edce846b0ffc0cb57d15f8a62d03a1e9cd827a4157c18a4010b9",
     "2015": "7a60b959986e95da941df6919d0d90c0e5d888d2c40f94e96757c2e728bd88bc",
     "2016": "7d21958e2493747644c8622f16a12498c5566563ffd115827e5e488d447ab2ee",
     "2017": "95bfb07d3429888db0e3984c7695fb8d2efcb16cb5ad32b5b2e1def1d01cc576",
@@ -92,6 +98,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "b8b9c83368d8e77bd64d1581a34e3ab3ca26f03f6eacae30ad9f2ea6a9d04160",
   },
   "Mains-Mathematics-II": {
+    "2014": "5385ce95a63aefe4e89d5586d7f55e9e0e4240ea7bbfff8c9de248ab04545e57",
     "2015": "716f3476df10651b7966bd216f6ad6b7e8cac554ca0d56804150569b40b78edb",
     "2016": "4ac3fa39cbf2217ea684721da285e69c3022e70c08b42665065d49e6fe9a262c",
     "2017": "541e6a8542756308adf23a43b7378fe3245c1f7db0495b93dfbdf169cfd99b3f",
@@ -106,6 +113,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2026": "fa4cb25029d79c8e6a6e9e01be6d253cf61b65dde6a0f7e5903f2ab838126e13",
   },
   "Mains-Indian-Language": {
+    "2014": "d9424ec503b170c21d9f61b196ea599c7d6c8471f0ee406db32aab8f770f55b5",
     "2015": "30f6299cd00b9a3fdf7d784466bfee7a4b62563e1e694a961e953c01fa523bcb",
     "2016": "dbf18ee807ab18de403c3c1272ff00d03b3493ed59bc9438ca709682cafb9208",
     "2017": "97da06205bc2d2c7b6f40053ba64492a62089efab055c66dadb601818162c294",
@@ -120,6 +128,7 @@ const writtenEditions: Record<string, Record<string, string>> = {
     "2024": "177407a7553b1c9b3bdf31429e0ceada846d73a8eb1640936e28625ed354d5eb",
   },
   "Mains-English": {
+    "2014": "4ab220742a89981fe0c60842f740649633cdea5af4cd05e3b9e9fa8ae87acfbe",
     "2015": "bce8d96149df9118a66175c06db66a127f53174934e962c681e3ebe98675c94f",
     "2016": "7a36375803ff7068af2a0ba42f3b5a0ed7dfaa43bd606dfec473b99d6360f12a",
     "2017": "21e840f28e0393b06044d8d24d3a8f0ded31302bcd454a74d1b5cb7e1062b016",
@@ -136,20 +145,20 @@ const writtenEditions: Record<string, Record<string, string>> = {
 };
 
 function historicalWrittenPattern(paper: string, year: string) {
-  if (
-    ["2015", "2016"].includes(year) &&
-    /^Mains-General-Studies-(I|II|III)$/.test(paper)
-  )
+  const gs = /^Mains-General-Studies-(I|II|III)$/.test(paper);
+  if (gs && ["2014", "2015", "2016"].includes(year)) {
+    const twentyFive = year === "2014" && paper === "Mains-General-Studies-I";
     return [
       {
         labels: Array.from(
-          { length: 20 },
+          { length: twentyFive ? 25 : 20 },
           (_, index) => "Question " + (index + 1),
         ),
-        marks: 12.5,
-        words: 200,
+        marks: twentyFive ? 10 : 12.5,
+        words: twentyFive ? 150 : 200,
       },
     ];
+  }
   if (paper === "Mains-General-Studies-IV" && year === "2015") {
     return [
       {
@@ -185,18 +194,21 @@ function historicalWrittenPattern(paper: string, year: string) {
 
   if (
     paper !== "Mains-General-Studies-IV" ||
-    !["2016", "2017", "2018", "2019", "2020"].includes(year)
+    !["2014", "2016", "2017", "2018", "2019", "2020"].includes(year)
   )
     return mainsGsPattern(paper);
 
+  // 2014 splits questions 1–5 into parts and assigns 20 marks per case.
   // 2017 has standalone theory questions 1–3 and case studies 9–14.
   // 2018–2020 print the three quotations as parts of question 6.
   const theoryCounts =
-    year === "2016"
-      ? [2, 2, 2, 2, 1, 1, 1, 1]
-      : year === "2017"
-        ? [1, 1, 1, 2, 2, 2, 2, 2]
-        : [2, 2, 2, 2, 2, 3];
+    year === "2014"
+      ? [2, 2, 2, 2, 2, 1, 1, 1]
+      : year === "2016"
+        ? [2, 2, 2, 2, 1, 1, 1, 1]
+        : year === "2017"
+          ? [1, 1, 1, 2, 2, 2, 2, 2]
+          : [2, 2, 2, 2, 2, 3];
   const cases = (
     length: number,
     start: number,
