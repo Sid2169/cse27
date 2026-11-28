@@ -150,6 +150,12 @@ export default async function PastPapers({
               />
             </form>
           )}
+          {attempt?.source.provisional && (
+            <p>
+              Scored with UPSC’s provisional answer key. The result may differ
+              from final UPSC scoring.
+            </p>
+          )}
           {attempt ? (
             <form action={requestSimulation}>
               <input type="hidden" name="mode" value="pyq" />

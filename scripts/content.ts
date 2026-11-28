@@ -267,9 +267,10 @@ if (process.argv[1]?.endsWith("/scripts/content.ts")) {
     ([, stem]) => stem,
   );
   writeFileSync(".generated/gs1-2024-stems.json", JSON.stringify(gsStems));
-  const historical2025 = [
+  const objectiveHistoricalReferences = [
     [
       "Prelims-General-Studies-I",
+      2025,
       100,
       {
         74: "Implications of the World Bank's warning about wet-bulb temperatures exceeding 35 °C and the loss of effective cooling by sweating.",
@@ -277,16 +278,46 @@ if (process.argv[1]?.endsWith("/scripts/content.ts")) {
     ],
     [
       "Prelims-CSAT",
+      2025,
       80,
       {
         35: "Count integers below 50 expressible as the sum of three distinct divisors of the same integer.",
         36: "Find how many distinct sums three primes below 20 form when they are in arithmetic progression.",
       },
     ],
+    [
+      "Prelims-General-Studies-I",
+      2026,
+      100,
+      {
+        64: "Identify labour, migrant-worker, humanitarian and statelessness conventions India has not ratified.",
+        78: "Identify which of four proposed outcomes did not follow the German Chancellor’s January 2026 visit to India.",
+      },
+    ],
+    [
+      "Prelims-CSAT",
+      2026,
+      80,
+      {
+        7: "Find a claim unsupported by the passage on Kalagram, which describes Indian paintings, regional Angans and themed zones.",
+        26: "Decide which conclusions on population impact and the response to the two viruses follow from the passage comparing SARS-CoV-2 and HMPV.",
+        28: "Infer which claims on study history, outcomes and seasonality follow from the passage contrasting HMPV with SARS-CoV-2.",
+        32: "Identify unsupported assumptions about adoption of AI tools and real-time agronomic analysis from the agriculture passage.",
+        57: "Find the sixth term of a sequence starting 4 and 7 where each later term sums the two preceding terms.",
+        62: "Assess the writer’s descriptions of Hugh Grant falling asleep at Wimbledon and the literary use of a tennis metaphor.",
+        64: "Assess claims about convergence theory, including its phases, chronology, and the position of technology leaders.",
+        69: "Find the original speed for an 800 km train journey when effects reducing speed to half and a quarter occur after 200 and 600 km, and reversal delays arrival by four hours.",
+      },
+    ],
   ] as const;
-  for (const [paper, expected, supplements] of historical2025) {
+  for (const [
+    paper,
+    year,
+    expected,
+    supplements,
+  ] of objectiveHistoricalReferences) {
     const markdown = readFileSync(
-      `${paper}/${paper}-PYQS/2025-${paper}.md`,
+      `${paper}/${paper}-PYQS/${year}-${paper}.md`,
       "utf8",
     );
     const stems = [...markdown.matchAll(/^(\d{1,3})\. ([^\n]+)$/gm)].map(
@@ -298,9 +329,12 @@ if (process.argv[1]?.endsWith("/scripts/content.ts")) {
       stems.some((stem) => /^\[verify:/.test(stem))
     )
       throw new Error(
-        "Missing 2025 historical novelty references for " + paper,
+        "Missing historical novelty references for " + paper + " " + year,
       );
-    writeFileSync(`.generated/${paper}-2025-stems.json`, JSON.stringify(stems));
+    writeFileSync(
+      `.generated/${paper}-${year}-stems.json`,
+      JSON.stringify(stems),
+    );
   }
   writeFileSync(".generated/past-papers.json", JSON.stringify(pastPapers));
   writeFileSync(".generated/chapter-assets.json", JSON.stringify(assets));

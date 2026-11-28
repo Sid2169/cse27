@@ -8,8 +8,25 @@ import type {
 } from "@/modules/assessment/chapter-simulation";
 import csatStems from "../../../.generated/csat-2024-stems.json";
 import gsStems from "../../../.generated/gs1-2024-stems.json";
+import gs2026 from "../../../.generated/Prelims-General-Studies-I-2026-stems.json";
+import csat2026 from "../../../.generated/Prelims-CSAT-2026-stems.json";
 import gs2025 from "../../../.generated/Prelims-General-Studies-I-2025-stems.json";
 import csat2025 from "../../../.generated/Prelims-CSAT-2025-stems.json";
+
+// Page one of the UPSC provisional Series A keys, column by column.
+const gs2026Letters = [
+  "DACBBADACCDACBBBADDB",
+  "BBDDCCADCBABBBBBCBBC",
+  "CBCBBCBBCBCABDBBACDA",
+  "DDAXDABACABCDBCCBBCC",
+  "CACAACACCDACBBACCDAA",
+].join("");
+const csat2026Letters = [
+  "ADCDAAABDDDBDABDADBC",
+  "BBBABBDBCBDADCBAABBC",
+  "CCBDCCCDBDACDCDDDBCD",
+  "CBABABBAAADBCCDCDABD",
+].join("");
 
 const gs2025Letters = [
   "BAABDCAAAACCBAB",
@@ -72,36 +89,54 @@ export type HistoricalSource = {
   booklet: string;
   answerKey?: string;
   dropped?: number[];
+  provisional?: boolean;
 };
 
 export function historicalScope(paper: string, year: string) {
-  if (year !== "2024" && year !== "2025") return null;
+  if (!["2024", "2025", "2026"].includes(year)) return null;
   const definition = getPaper(paper);
   if (!definition) return null;
   const gs = paper === "Prelims-General-Studies-I";
   if (!gs && paper !== "Prelims-CSAT") return null;
   const currentBooklet = officialBooklet(paper, Number(year));
   if (!currentBooklet) return null;
-  const modern = year === "2025";
-  const source: HistoricalSource = modern
+  const modern = year !== "2024";
+  const provisional = year === "2026";
+  const source: HistoricalSource = provisional
     ? {
-        year: 2025,
+        year: 2026,
         series: "A",
         booklet: currentBooklet,
+        provisional: true,
         answerKey:
-          "https://forumias.com/blog/wp-content/uploads/2026/05/UPSC-2025-Answerkey-" +
-          (gs ? "GS-I.pdf" : "CSAT-1.pdf"),
+          "https://forumias.com/blog/wp-content/uploads/2026/05/ProvAnsKey%E2%80%93GS-" +
+          (gs ? "I" : "II") +
+          "-CSP-Exam-2026-270526.pdf",
+        ...(gs ? { dropped: [64] } : {}),
       }
-    : gs
-      ? gsHistoricalSource
-      : csatHistoricalSource;
-  const letters = modern
+    : modern
+      ? {
+          year: 2025,
+          series: "A",
+          booklet: currentBooklet,
+          answerKey:
+            "https://forumias.com/blog/wp-content/uploads/2026/05/UPSC-2025-Answerkey-" +
+            (gs ? "GS-I.pdf" : "CSAT-1.pdf"),
+        }
+      : gs
+        ? gsHistoricalSource
+        : csatHistoricalSource;
+  const letters = provisional
     ? gs
-      ? gs2025Letters
-      : csat2025Letters
-    : gs
-      ? gsLetters
-      : csatLetters;
+      ? gs2026Letters
+      : csat2026Letters
+    : modern
+      ? gs
+        ? gs2025Letters
+        : csat2025Letters
+      : gs
+        ? gsLetters
+        : csatLetters;
   const dropped = Array.from(letters).flatMap((letter, index) =>
     letter === "X" ? [index + 1] : [],
   );
@@ -116,8 +151,10 @@ export function historicalScope(paper: string, year: string) {
     correctOption: letter === "X" ? null : "ABCD".indexOf(letter),
     explanation:
       letter === "X"
-        ? "UPSC dropped this question from scoring."
-        : "The published " +
+        ? provisional
+          ? "The provisional UPSC key excludes this question."
+          : "UPSC dropped this question from scoring."
+        : (provisional ? "The provisional " : "The published ") +
           source.series +
           " key gives option " +
           letter +
@@ -153,6 +190,7 @@ export function historicalScope(paper: string, year: string) {
 // Research transcriptions use different booklet orders. Use them only
 // to check for previously seen content, never pair them with Series A keys.
 export function historicalResearchStems(paper: string, year: number) {
+  if (year === 2026) return paper === "Prelims-CSAT" ? csat2026 : gs2026;
   if (year === 2025) return paper === "Prelims-CSAT" ? csat2025 : gs2025;
   if (year === 2024 && paper === "Prelims-General-Studies-I") return gsStems;
   return null;
