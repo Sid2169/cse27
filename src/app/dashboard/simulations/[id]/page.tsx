@@ -83,7 +83,14 @@ export default async function ChapterSimulation({
       : null;
   const full = simulation.mode === "full";
   const cumulative = simulation.mode === "cumulative";
-  const choice = writtenChoice(simulation.paper_code, simulation.mode);
+  const choice = writtenChoice(
+    simulation.paper_code,
+    simulation.mode,
+    historical?.year,
+  );
+  const qualifying =
+    (full || simulation.mode === "pyq") &&
+    (paper === "Mains-English" || paper === "Mains-Indian-Language");
   const objective = simulation.kind === "objective";
   const hindi = paper === "Mains-Indian-Language";
   const questions = simulation.questions ?? [];
@@ -327,9 +334,11 @@ export default async function ChapterSimulation({
             <p>
               {choice === "essay"
                 ? "Write two essays of about 1,000–1,200 words each. Choose one topic from each section."
-                : choice === "mathematics"
-                  ? "Answer Questions 1 and 5 and choose three more with at least one from each section. Label each subpart in your answer."
-                  : "Write one essay of about 600 words and answer all remaining questions. Each translation specifies its required answer language."}
+                : choice === "single-essay"
+                  ? "Choose one topic and write one essay of up to 2,500 words."
+                  : choice === "mathematics"
+                    ? "Answer Questions 1 and 5 and choose three more with at least one from each section. Label each subpart in your answer."
+                    : "Write one essay of about 600 words and answer all remaining questions. Each translation specifies its required answer language."}
             </p>
           ) : (
             <p>
@@ -388,7 +397,7 @@ export default async function ChapterSimulation({
               {marks(result.max_units, scale)} marks
             </h2>
             <p>{marks((100 * result.score_units) / result.max_units, 1)}%</p>
-            {choice === "language" && (
+            {qualifying && (
               <p>
                 {result.score_units >= 75
                   ? "Qualifying benchmark met"

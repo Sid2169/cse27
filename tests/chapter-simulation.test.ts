@@ -19,7 +19,24 @@ import { mainsGsPattern } from "../src/modules/assessment/full-mains-pattern";
 import {
   includesQuestion,
   validateChoices,
+  writtenChoice,
 } from "../src/modules/assessment/written-choices";
+
+test("2013 Mains preserves its different essay and language choice rules", () => {
+  const essay = writtenChoice("Mains-Essay", "pyq", 2013);
+  assert.equal(essay, "single-essay");
+  assert.deepEqual(validateChoices([], essay, false), []);
+  assert.deepEqual(validateChoices([3], essay, true), [3]);
+  assert.equal(validateChoices([], essay, true), null);
+  assert.equal(validateChoices([0, 1], essay, true), null);
+  assert.equal(validateChoices([4], essay, true), null);
+  assert.equal(includesQuestion(essay, [0], 1), false);
+  for (const paper of ["Mains-English", "Mains-Indian-Language"]) {
+    assert.equal(writtenChoice(paper, "pyq", 2013), null);
+    assert.equal(writtenChoice(paper, "pyq", 2014), "language");
+  }
+  assert.equal(writtenChoice("Mains-Essay", "full", 2013), "essay");
+});
 
 test("qualifying papers count just one essay plus compulsory questions", () => {
   for (const paper of ["Mains-English", "Mains-Indian-Language"]) {
